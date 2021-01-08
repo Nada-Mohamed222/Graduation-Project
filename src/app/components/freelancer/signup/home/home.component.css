@@ -1,0 +1,76 @@
+.bg-color{
+    background-color:#1D4354;
+    height: 80vh !important; 
+}
+.card-center{
+    margin: 0 auto;
+    float: none; 
+    margin-bottom: 10px;
+    position: absolute;
+    left: 50%;   
+    top: 35%;   
+    transform: translate(-50%, -50%);
+    box-shadow: 3px 3px 3px white;
+    width: 50%;
+    height: 40%;
+}
+.card-heading{
+    font-size:24px;
+    text-align: center;
+}
+.home-input-size,
+.home-btn{
+    width: 50%;
+    margin-top: 20px;
+    font-size: 15px;
+    margin: auto;
+}
+.home-btn{
+    margin-left: 160px;
+    border-radius: 10px;
+    
+}
+.heading-of-images{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+.home-img{
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+.home-img1{
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 100px;
+}
+.home-img2{
+    width: 50px;
+    margin-top: 20px;
+    margin-left: 150px;
+}
+.home-img3{
+    width: 130%;
+    margin-bottom: 10px;
+    margin-left: 150px;
+}
+.home-img4{
+    width: 60%;
+    margin-left: 250px;
+}
+.home-img5{
+    width: 60%;
+    margin-top: 40px;
+    margin-left: 300px;
+}
+.bg-media{
+    background-color: #ebebeb;
+}
+.heading-desc{
+    font-size: 20px;
+}
+.paragraph-desc{
+    font-size: 15px;
+    line-height: 1.7;
+}
