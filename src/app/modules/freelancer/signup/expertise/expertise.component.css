@@ -1,0 +1,41 @@
+/*sidebar start*/
+.active {
+    border-left: #37A000 3px solid;
+}
+.correct-icon-color{
+    color: #37A000;
+}
+a:hover, a:visited, a:link, a:active{  
+    text-decoration: none;
+    color: black;
+}
+/*sidebar end*/
+
+/*skills start*/
+mat-chip {
+    background-color: green !important;
+    color: white !important;
+}
+/*skills end*/
+
+.w-70{
+    width:70%;
+}
+.backGround-color {
+    background-color: #ebebeb;
+}
+
+.fs-categories{
+    font-size: 15px;
+}
+.fill-out-btn{
+    background-color: #37A000; 
+    font-size: 13px;
+    width: 25%;
+}
+.back-btn{
+    color: #37A000; 
+    background-color: white;
+    font-size: 13px;
+    width: 25%;
+}

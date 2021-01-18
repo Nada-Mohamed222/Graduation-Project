@@ -1,0 +1,35 @@
+<div class="container-fluid backGround-color pb-5 pt-5">
+    <div class="row no-gutters justify-content-center mx-auto w-70">
+        <!-- Login -->
+        <div class="container-fluid backGround-color pb-5">
+            <div class="card justify-content-center mx-auto shadow-lg w-75 h-100" >
+                <div class="card-body">
+                    <h2 class="card-title text-center">Log in and get to work</h2><br>
+                    <form [formGroup]="formGroup">
+                        <div class="form-group">
+                            <label for="UsernameOrEmail"></label>
+                            <input formControlName="Username" type="text" class="justify-content-center mx-auto form-control fs-categories w-50" id="UsernameOrEmail" placeholder="Username or Email">
+                            <div *ngIf ="formGroup.controls['Username'].invalid && (formGroup.controls['Username'].touched ||  formGroup.controls['Username'].dirty)">
+                                <small class="form-text text-danger" *ngIf="formGroup.controls['MainSkills'].hasError('required')">Required Username</small>
+                            </div>
+                        </div>
+                        <br><br>
+                        <button type="button" class="btn btn-success btn-lg btn-block login-btn w-50 justify-content-center mx-auto">Continue</button>
+                    </form>
+                </div>
+                <br>
+                <div class="card-footer mt-5 mb-4" style="background-color: transparent;">
+                    <h4 class="text-center">New to Upwork?</h4>
+                    <div class="form-group justify-content-center mx-auto text-center">
+                        <a routerLink="/signup/home">
+                            <!-- [disabled]="formGroup.invalid" -->
+                            <button type="button" class="btn btn-success sign-up-btn mt-3">Sign Up</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+

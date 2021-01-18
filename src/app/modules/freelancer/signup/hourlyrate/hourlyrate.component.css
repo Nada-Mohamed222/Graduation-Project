@@ -1,0 +1,36 @@
+.backGround-color {
+    background-color: #ebebeb;
+}
+.fs-categories{
+    font-size: 15px;
+}
+.fill-out-btn{
+    background-color: #37A000; 
+    font-size: 13px;
+    width: 25%;
+}
+.back-btn{
+    color: #37A000; 
+    background-color: white;
+    font-size: 13px;
+    width: 25%;
+}
+.heading-HourlyRate{
+    font-size: 15px;
+}
+.w-70{
+    width:70%;
+}
+.pg-HourlyRate{
+    font-size: 14px;
+}
+.input-dollar-iocn{
+    outline: none;
+    background-color: transparent;
+    border: none;
+}
+.skip-hourlyRate{
+    font-size: 15px;
+    color: #37A000;
+    font-weight: bold;
+}

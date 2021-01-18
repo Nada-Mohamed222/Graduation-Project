@@ -1,0 +1,174 @@
+<div class="container-fluid backGround-color pb-5 pt-5">
+    <div class="row no-gutters justify-content-center mx-auto w-70">
+        <div class="col-lg-3 h-100 mx-auto"> 
+            <!-- <app-sidebar></app-sidebar> -->
+            <!-- /#sidebar-wrapper-->
+            <a routerLink="freelancer/getstarted" >
+                <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+                    <div class="col-lg-1 p-0"></div>
+                    <div class="col-lg-2 p-0"><i class="fas fa-arrow-up fa-lg"></i></div>
+                    <div class="col-lg-8 p-0">Get Started</div>
+                    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+                </div>
+            </a>
+
+            <a routerLink="/freelancer/expertise" >
+                <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+                    <div class="col-lg-1 p-0"></div>
+                    <div class="col-lg-2 p-0"><i class="far fa-id-badge fa-lg"></i></div>
+                    <div class="col-lg-8 p-0">Expertise</div>
+                    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+                </div>
+            </a>
+            <a routerLink="/freelancer/expertiselevel">
+                <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+                    <div class="col-lg-1 p-0"></div>
+                    <div class="col-lg-2 p-0"><i class="far fa-chart-bar fa-lg"></i></div>
+                    <div class="col-lg-8 p-0">Expertise Level</div>
+                    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+                </div>
+            </a>
+            <a routerLink="/freelancer/languages" >
+                <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+                    <div class="col-lg-1 p-0"></div>
+                    <div class="col-lg-2 p-0"><i class="fas fa-microphone fa-lg"></i></div>
+                    <div class="col-lg-8 p-0">Languages</div>
+                    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+                </div>
+            </a>
+
+            <a routerLink="/freelancer/hourlyrate">
+                <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+                    <div class="col-lg-1 p-0"></div>
+                    <div class="col-lg-2 p-0"><i class="fas fa-dollar-sign fa-lg"></i></div>
+                    <div class="col-lg-8 p-0">Hourly Rate</div>
+                    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+                </div>
+            </a>
+
+            <a routerLink="/freelancer/titleoverview">
+                <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+                    <div class="col-lg-1 p-0"></div>
+                    <div class="col-lg-2 p-0"><i class="fas fa-user-md fa-lg"></i></div>
+                    <div class="col-lg-8 p-0">Title &Overview</div>
+                    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+                </div>
+            </a>
+
+            <a routerLink="/freelancer/profilephoto">
+                <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+                    <div class="col-lg-1 p-0"></div>
+                    <div class="col-lg-2 p-0"><i class="far fa-id-card fa-lg"></i></div>
+                    <div class="col-lg-8 p-0">Profile Photo</div>
+                    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+                </div>
+            </a>
+
+            <a routerLink="/freelancer/location" >
+                <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+                    <div class="col-lg-1 p-0"></div>
+                    <div class="col-lg-2 p-0"><i class="fas fa-map-marker-alt fa-lg"></i></div>
+                    <div class="col-lg-8 p-0">Location</div>
+                    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+                </div>
+            </a>
+
+            <a routerLink="/freelancer/phone" >
+                <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+                    <div class="col-lg-1 p-0"></div>
+                    <div class="col-lg-2 p-0"><i class="fas fa-phone fa-lg"></i></div>
+                    <div class="col-lg-8 p-0">Phone</div>
+                    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="col-lg-9 h-100">
+
+            <!-- Expertise -->
+            <div class="container-fluid backGround-color pb-5">
+                <div class="card justify-content-center mx-auto shadow-lg" >
+                    <div class="card-header get-started-title" style="background-color: transparent;">
+                        <h2>Expertise</h2>
+                        <h5 class="text-muted">2 of 9</h5>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Tell us about the work you do</h4><br>
+                        <h4 class="card-text pg-desc-getStarted">What is the main service you offer?</h4>
+                        
+                        <form [formGroup]="formGroup">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1"></label>
+                                <select formControlName="MainServices" required class="form-control fs-categories" id="exampleFormControlSelect1">
+                                    <option selected>Web, Mobile & Software Dev</option>
+                                    <option>Accounting & Consulting</option>
+                                    <option>Admin Support</option>
+                                    <option>Customer Service</option>
+                                    <option>Data Science & Analytics</option>
+                                    <option>Design & Creactive</option>
+                                    <option>Engineering & Architecture</option>
+                                    <option>IT & Networking</option>
+                                    <option>Legal</option>
+                                    <option>Sales & Marketing</option>
+                                    <option>Translation</option>
+                                    <option>Writing</option>
+                                </select>
+                                <div *ngIf ="formGroup.controls['MainServices'].invalid && (formGroup.controls['MainServices'].touched ||  formGroup.controls['MainServices'].dirty)">
+                                    <small class="form-text text-danger" *ngIf="formGroup.controls['MainSkills'].hasError('required')">Required MainServices</small>
+                                </div>
+                            </div>
+
+                            <h4 class="card-text pg-desc-getStarted">What skills do you offer clients?</h4>
+                            <div class="form-group">
+                                <label for="formGroupSkillInput"></label>
+                                <input formControlName="MainSkills" #InputMainSkills type="text" class="form-control fs-categories" id="formGroupSkillInput" placeholder="Start typing to search for skills">
+                                <div *ngIf ="formGroup.controls['MainSkills'].invalid && (formGroup.controls['MainSkills'].touched ||  formGroup.controls['MainSkills'].dirty)">
+                                    <small class="form-text text-danger" *ngIf="formGroup.controls['MainSkills'].hasError('required')">Required Main Skills</small>
+                                </div>
+                            </div>
+                            
+                            <!-- <mat-form-field class="example-chip-list">
+                                <mat-label>Enter skills</mat-label>
+                                <mat-chip-list #chipList aria-label="Skill selection">
+                                    <mat-chip *ngFor="let skill of skills" [selectable]="selectable" [removable]="removable"
+                                        (removed)="remove(skill)">
+                                        {{skill}}
+                                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                    </mat-chip>
+                                    <input
+                                  placeholder="New skill..."
+                                  #skillInput
+                                  [formControl]="skillCtrl"
+                                  [matAutocomplete]="auto"
+                                  [matChipInputFor]="chipList"
+                                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                  (matChipInputTokenEnd)="add($event)"
+                                />
+                              </mat-chip-list>
+                                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                                        <mat-option *ngFor="let skill of filteredSkills | async" [value]="skill">
+                                            {{skill}}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                            </mat-form-field> -->
+                        </form>
+                    </div>
+                    <div class="card-footer mt-5 mb-4" style="background-color: transparent;">
+                        <a routerLink="/freelancer/getstarted" class="btn btn-success back-btn float-left mt-3">Back</a>
+                        <!-- <a routerLink="/freelancer/expertiselevel" class="btn btn-success fill-out-btn float-right mt-3" [disabled]="formGroup.invalid">Next</a> -->
+                        <a routerLink="/freelancer/expertiselevel">
+                            <button [disabled]="formGroup.invalid" type="button" class="btn btn-success fill-out-btn float-right mt-3">Next</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        
+    </div>
+</div>
+

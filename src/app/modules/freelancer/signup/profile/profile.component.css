@@ -1,0 +1,47 @@
+.fontsize-card-header{
+    font-size: 12px;
+}
+.icon-color{
+    color: #37A000;
+}
+.backGround-color {
+    background-color: #ebebeb;
+}
+.w-70{
+    width:70%;
+}
+/*sidebar start*/
+.fontsize-sidebar{
+    font-size: 15px;
+}
+.active {
+    border-left: #37A000 3px solid;
+}
+.correct-icon-color{
+    color: #37A000;
+}
+a:hover, a:visited, a:link, a:active{  
+    text-decoration: none;
+    color: black;
+}
+/*sidebar end*/
+
+.header-link-jobs:hover{
+    color: #37A000;
+    text-decoration: underline;
+}
+.paragraph-fontSize{
+    font-size: 12px;
+}
+.paragraph-content-fontSize{
+    font-size: 12px;
+    line-height: 1.9;
+}
+.background-badge{
+    background-color:#ebebeb;
+    font-size: 12px;
+    font-weight: normal;
+}
+.background-badge:hover{
+    background-color: gainsboro;
+}

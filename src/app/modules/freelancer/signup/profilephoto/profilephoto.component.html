@@ -1,0 +1,51 @@
+<div class="container-fluid backGround-color pb-5 pt-5">
+    <div class="row no-gutters justify-content-center mx-auto w-70">
+        <div class="col-lg-3 h-100 mx-auto">
+            <app-sidebar></app-sidebar>
+        </div>
+
+        <div class="col-lg-9 h-100">
+            <!-- profile photo -->
+            <div class="container-fluid backGround-color pb-5">
+                <div class="card justify-content-center mx-auto shadow-lg" >
+                    <div class="card-header get-started-title" style="background-color: transparent;">
+                        <h2>Profile Photo</h2>
+                        <h5 class="text-muted">7 of 9</h5>
+                    </div>
+                    <div class="card-body mb-2">
+                        <div class="mt-2">
+                            <span class="pg-desc-profilePhoto">Please upload a professional portrait that clearly shows your face. </span>
+                            <span class="ml-4" style="color: #37A000;"><i class="fas fa-question-circle fa-lg"></i></span>
+                        </div>
+                        <div class="mt-5">
+                            
+                            <!-- <span style="color: gray;"><i class="fas fa-user-circle fa-8x icon-profile-photo ml-5"></i></span> -->
+                        
+                            <!-- <img src= "../../../../../assets/images/avatar.png" alt="Avatar Logo" class="ml-3" style="width: 15%;"> -->
+                            <img [src]= "inputImage"  class="ml-3" style="width: 20%; border-radius: 50%;">
+                            
+                            <div> 
+                                <label for="uploadImage" class="btn">
+                                    <span class="btn btn-success back-btn float-left mt-4"><i class="fas fa-plus fa-lg mr-2"></i>Add Profile Photo</span>
+                                </label>  
+                                <input type='file' (change)="onSelectImage($event)" id="uploadImage" style="visibility:hidden;">
+                                <!-- <input type="file" id="image_uploads" (change)="onSelectImage($event)" name="image_uploads" style="visibility:hidden;" accept=".jpg, .jpeg, .png" multiple> -->
+                            </div>
+                        </div>
+                    </div>
+                    <a routerLink="/freelancer/location" class="ml-4 mt-5 skip-profilePhoto">Skip this step</a>
+                    <div class="card-footer mt-5 mb-4" style="background-color: transparent;">
+                        <a routerLink="/freelancer/titleoverview" class="btn btn-success back-btn1 float-left mt-3">Back</a>
+                        <a routerLink="/freelancer/location" class="btn btn-success fill-out-btn float-right mt-3">Next</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        
+    </div>
+</div>
+

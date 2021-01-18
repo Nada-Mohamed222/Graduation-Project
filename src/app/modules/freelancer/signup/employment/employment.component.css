@@ -1,0 +1,23 @@
+.backGround-color {
+    background-color: #ebebeb;
+}
+
+.fill-out-btn{
+    background-color: #37A000; 
+    font-size: 15px;
+    width: 25%;
+}
+.back-btn{
+    color: #37A000; 
+    background-color: white;
+    font-size: 15px;
+    width: 30%;
+}
+.skip-education{
+    font-size: 15px;
+    color: #37A000;
+    font-weight: bold;
+}
+.pg-employment{
+    font-size: 15px;
+}
