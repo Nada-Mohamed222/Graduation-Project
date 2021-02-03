@@ -8,8 +8,7 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  constructor(private _httpClient:HttpClient, private _freelancerServices:FreelancerService) { }
-
+  constructor(private _httpClient:HttpClient) { }
 
   get(url:string){
     return this._httpClient.get(`${environment.apiURL}/${url}`)
@@ -20,9 +19,9 @@ export class ApiService {
     return this._httpClient.post(`${environment.apiURL}/${url}`,body);
   }
 
-  PUT(url:string,body:any)
+  Patch(url:string,body:any)
   {
-    return this._httpClient.put(`${environment.apiURL}/${url}`,body);
+    return this._httpClient.patch(`${environment.apiURL}/${url}`,body);
   }
 
   delete(url:string)

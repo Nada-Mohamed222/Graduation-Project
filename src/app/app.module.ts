@@ -7,7 +7,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
-import { HomeComponent } from './shared/home/home.component';
+// import { HomeComponent } from './shared/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './modules/components/login/login.component';
 // import { SignupModule } from './modules/freelancer/signup/signup.module';
@@ -18,7 +18,7 @@ import { LoginComponent } from './modules/components/login/login.component';
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    HomeComponent,
+    // HomeComponent,
     LoginComponent,
     // SignupModule
   ],

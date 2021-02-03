@@ -1,5 +1,6 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { SharingDataService } from '../sharing-data-service/sharing-data.service';
 
 @Component({
   selector: 'app-titleoverview',
@@ -10,7 +11,7 @@ export class TitleoverviewComponent implements OnInit {
 
   remaningCharacters:number = 5000;
   formGroup:FormGroup;
-  constructor(private _formBuilder:FormBuilder) { }
+  constructor(private _formBuilder:FormBuilder,private _sharingData:SharingDataService) { }
 
   ngOnInit(): void {
     this.formGroup = this._formBuilder.group({
@@ -20,6 +21,16 @@ export class TitleoverviewComponent implements OnInit {
   }
   countCharacters(inputChar:string){
     this.remaningCharacters = 5000-inputChar.length;
+  }
+
+  //setting Title-Overivew from data
+  storeData(){
+    const titleOverview = {
+      title: this.formGroup.controls['Title'].value,
+      overview: this.formGroup.controls['ProfessionalOverview'].value,
+    };
+    this._sharingData.setTitleOverviewData(titleOverview);
+    console.log(titleOverview);
   }
 
 }

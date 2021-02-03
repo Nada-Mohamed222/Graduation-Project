@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SharingDataService } from '../sharing-data-service/sharing-data.service';
 
 @Component({
   selector: 'app-expertiselevel',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpertiselevelComponent implements OnInit {
 
-  constructor() { }
+  formGroup: FormGroup;
+  constructor(private _formBuilder:FormBuilder,private _sharingData:SharingDataService) { }
 
   ngOnInit(): void {
+    this.formGroup = this._formBuilder.group({
+      ExpertiseLevel:['',[Validators.required]],
+    })
+  }
+  //setting expertiselevel from data
+  storeData(){
+    const expertiseLevel = {
+      expertiseLevel: this.formGroup.controls['ExpertiseLevel'].value,
+    };
+    this._sharingData.setExpertiseLevelData(expertiseLevel);
+    console.log(expertiseLevel);
   }
 
 }

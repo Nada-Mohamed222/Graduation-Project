@@ -4,7 +4,7 @@ import { LocationComponent } from './signup/location/location.component';
 import { TitleoverviewComponent } from './signup/titleoverview/titleoverview.component';
 import { ExpertiseComponent } from './signup/expertise/expertise.component';
 import { GetstartedComponent } from './signup/getstarted/getstarted.component';
-import { HomeComponent } from './../../shared/home/home.component';
+// import { HomeComponent } from './../../shared/home/home.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,7 +16,7 @@ import { HourlyrateComponent } from './signup/hourlyrate/hourlyrate.component';
 import { ProfilephotoComponent } from './signup/profilephoto/profilephoto.component';
 
 const routes:Routes=[
-  {path:'home',component:HomeComponent},
+  // {path:'home',component:HomeComponent},
   {path: 'getstarted',component:GetstartedComponent},
   {path: 'expertise',component:ExpertiseComponent},
   {path: 'expertiselevel',component:ExpertiselevelComponent},

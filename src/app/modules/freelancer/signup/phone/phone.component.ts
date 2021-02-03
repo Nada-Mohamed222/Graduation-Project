@@ -1,5 +1,6 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { SharingDataService } from '../sharing-data-service/sharing-data.service';
 
 @Component({
   selector: 'app-phone',
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class PhoneComponent implements OnInit {
 
   formGroup:FormGroup;
-  constructor(private _formBuilder:FormBuilder) { }
+  constructor(private _formBuilder:FormBuilder,private _sharingData:SharingDataService) { }
 
   ngOnInit(): void {
     this.formGroup = this._formBuilder.group({
@@ -17,4 +18,12 @@ export class PhoneComponent implements OnInit {
     })
   }
 
+  //setting Phone from data
+  storeData(){
+    const phone = {
+      phone: this.formGroup.controls['Phone'].value, 
+    };
+    this._sharingData.setPhoneData(phone);
+    console.log(phone);
+  }
 }

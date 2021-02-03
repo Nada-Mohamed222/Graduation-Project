@@ -9,14 +9,24 @@ export class FreelancerService {
 
   constructor(private _apiServices:ApiService) { }
 
+  login(freelancer:Freelancer)
+  {
+    return this._apiServices.post(`talent/login`,freelancer);
+  }
+
+  signUp(freelancer:Freelancer)
+  {
+    return this._apiServices.post(`talent/signup`,freelancer);
+  }
+
   create(freelancer:Freelancer)
   {
     return this._apiServices.post(`freelancer/post`,freelancer);
   }
 
-  update(freelancer:Freelancer)
+  update(freelancer:any)
   {
-    return this._apiServices.PUT(`freelancer/put`,freelancer)
+    return this._apiServices.Patch(`talent/abdoRoshdy`,freelancer)
   }
 
   get()

@@ -69,7 +69,7 @@
                 </div>
                 <div class="form-group">
                     <label for="inputEmail"></label>
-                    <input formControlName="Email" type="email" class="form-control input-fontSize-form" id="inputEmail" placeholder="Email address">
+                    <input formControlName="Email" type="email" class="form-control input-fontSize-form" id="inputEmail" placeholder="Email address" #InputEmail>
                     <div *ngIf="formGroup.controls['Email'].invalid && (formGroup.controls['Email'].touched ||  formGroup.controls['Email'].dirty)">
                         <small class="form-text text-danger" *ngIf="formGroup.controls['Email'].hasError('required')">Required Email</small>
                         <small class="form-text text-danger" *ngIf="formGroup.controls['Email'].hasError('minlength')">Min Length is 5</small>
@@ -153,13 +153,15 @@
                 </div>
                 <div class="text-center">
                     <h3 class="text-justify-center">I want to:</h3>
-                    <button type="button" class="btn btn-success m-3 btn-size-home">Hire for a Project</button>
-                    <button type="button" class="btn btn-success m-3 btn-size-home" (click)="apperUserName()">Work as a Freelancer</button>
+                    <button type="button" class="btn btn-success btn-size-home" (click)="apperUserName('client')">Hire for a Project</button>
+                    <button type="button" class="btn btn-success ml-3 btn-size-home" (click)="apperUserName('freelancer')">Work as a Freelancer</button>
                     
                 </div>
-                <div class="form-group mb-3">
+                <div class="form-group">
                     <label for="inputUserName"></label>
-                    <input *ngIf="isAppeared" formControlName="UserName" type="text" class="form-control input-fontSize-form" id="inputUserName" placeholder="Username">
+                    <!-- *ngIf="isAppeared"  -->
+                    
+                    <input [hidden]="!isAppeared" formControlName="UserName" type="text" class="form-control input-fontSize-form" id="inputUserName" placeholder="Username" #InputUserName>
                     <div *ngIf="formGroup.controls['UserName'].invalid && (formGroup.controls['UserName'].touched ||  formGroup.controls['UserName'].dirty)">
                         <small class="form-text text-danger" *ngIf="formGroup.controls['UserName'].hasError('required')">Required UserName</small>
                         <small class="form-text text-danger" *ngIf="formGroup.controls['UserName'].hasError('minlength')">Min Length is 5</small>
@@ -167,14 +169,14 @@
                     </div>
                 </div>
 
-                <div class="form-group mt-2">
+                <div class="form-group mt-1">
                   <div class="form-check">
                     <input class="form-check-input" checked="checked" type="checkbox" id="gridCheck">
                     <label class="form-check-label ml-5 mt-1 checkout-styling-home" for="gridCheck">
                         Yes! Send me genuinely useful emails every now and then to help me get the most out of Upwork.
                     </label>
                   </div>
-                  <div class="form-check mt-2">
+                  <div class="form-check mt-1">
                     <input class="form-check-input" type="checkbox" id="gridCheck1">
                     <label class="form-check-label ml-5 mt-1 checkout-styling-home" for="gridCheck1">
                         Yes, I understand and agree to the Upwork Terms of Service, including the User Agreement and Privacy Policy.
@@ -182,9 +184,11 @@
                   </div>
                 </div>
                 <!-- [disabled]="formGroup.invalid" -->
-                <a routerLink="/freelancer/getstarted">
-                    <button  type="submit" [disabled]="formGroup.invalid" (click)="changeStatus()" class="btn btn-success create-btn-size-home mt-5">Create My Account</button>
-                </a>
+                <!-- routerLink="/freelancer/getstarted" -->
+                
+                <button (click)="addNewAccount(InputFirstName.value , InputLastName.value , InputPassword.value, InputEmail.value , InputUserName.value)" type="submit" [disabled]="formGroup.invalid" class="btn btn-success create-btn-size-home mt-1">Create My Account</button>
+            
+                
             </form>
         </div>
     </div>

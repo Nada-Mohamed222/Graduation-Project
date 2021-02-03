@@ -39,3 +39,9 @@ mat-chip {
     font-size: 13px;
     width: 25%;
 }
+
+/*Skills*/
+.chips{
+    background-color: #336278;
+    border-radius: 30px;
+}
