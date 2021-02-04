@@ -26,7 +26,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              
+             
+            ]
           },
           "configurations": {
             "production": {
@@ -120,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "graduation-project"
+  "defaultProject": "graduation-project",
+  "cli": {
+    "analytics": "8610f7ff-5832-490f-9b51-c3db064f940b"
+  }
 }

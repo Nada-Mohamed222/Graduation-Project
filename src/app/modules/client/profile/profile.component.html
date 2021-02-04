@@ -1,0 +1,35 @@
+<p>profile works!</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 align-self-end">
+      <a
+        routerLink="/post-job/title"
+        class="btn btn-success btn-lg sub-title px-4"
+        >Post a Job
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <!-- post layout -->
+      <div class="card p-3">
+        <!-- post header -->
+        <div class="card-header bg-white">
+          <p class="sub-title d-inline-block">My Postings</p>
+
+          <p class="d-inline-block right mt-1 mr-4">
+            <a class="hint text-success" href="">All postings</a>
+          </p>
+        </div>
+        <!-- post content -->
+        <app-post></app-post>
+      </div>
+    </div>
+
+    <div class="col-md-4 px-5">
+      <!-- slider -->
+      <app-slider></app-slider>
+    </div>
+  </div>
+</div>

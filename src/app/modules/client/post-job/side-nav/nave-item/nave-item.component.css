@@ -1,0 +1,24 @@
+.nav-item {
+  padding-left: 10px;
+  position: relative;
+  left: 35%;
+}
+
+.active-link:active {
+  border-left: 4px solid #47a815;
+}
+p {
+  display: inline;
+}
+a {
+  text-decoration: none;
+  color: rgb(29, 26, 26);
+  width: unset;
+}
+
+span {
+  margin-right: 5px;
+}
+.icons {
+  padding-left: 0px;
+}

@@ -1,0 +1,60 @@
+<div class="my-3 post">
+  <button type="button" class="btn btn-success btn-lg py-2 px-5">
+    <h4><b>Post Job Now</b></h4>
+  </button>
+</div>
+
+<div>
+  <app-basic-card
+    title="Start"
+    subtitle1="Title"
+    [content1]="startData.jobName"
+    subtitle2="Job Category"
+    [content2]="startData.category"
+    subtitle3="Description"
+    [content3]="startData.description"
+    subtitle4="Attachment"
+    [content4]="startData.additionalFiles"
+    route="/post-job/title"
+  ></app-basic-card>
+
+  <app-basic-card
+    title="Details"
+    subtitle1="Project Type"
+    [content1]="detailsData.projectType"
+    subtitle2="Skills"
+    [content2]="detailsData.skillsNeed"
+    subtitle3="Screening Question"
+    [content3]="detailsData.screeningQuestion"
+    subtitle4="Freelancer Number"
+    [content4]="detailsData.freelancerNumber"
+    subtitle5="Experience Level"
+    [content5]="detailsData.experienceLevel"
+    route="/post-job/details"
+  ></app-basic-card>
+
+  <app-basic-card
+    title="Budget"
+    subtitle1="Hourly or Fixed"
+    [content1]="pricetype"
+    subtitle2="Budget"
+    [content2]="price"
+    [subtitle3]="dutationTitle"
+    [content3]="projectDuration"
+    route="/post-job/budget"
+  >
+  </app-basic-card>
+</div>
+
+<hr />
+<div class="my-3">
+  <button
+    type="button"
+    class="btn btn-outline-gray text-success btn-lg py-2 px-5 mr-3"
+  >
+    <b>Save & Exite</b>
+  </button>
+  <button type="button" class="btn btn-success btn-lg py-2 px-5">
+    <b>Post Job Now</b>
+  </button>
+</div>

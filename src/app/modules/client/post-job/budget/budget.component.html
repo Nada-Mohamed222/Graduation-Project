@@ -1,0 +1,149 @@
+<!-- <p>budget works!</p> -->
+
+<section class="bg-light">
+  <form [formGroup]="budgetForm">
+    <!-- get-stated -->
+    <div class="col-xs-12 px-0">
+      <div>
+        <!--Type of Project   -->
+
+        <div class="card mx-5">
+          <div class="card-body mx-5">
+            <!-- title -->
+            <header>
+              <h1 class="main-title">Budget</h1>
+              <p class="hint text-muted ml-2">Step 3 to 7</p>
+              <hr />
+            </header>
+
+            <!-- Payment -->
+
+            <div class="form-group mb-5">
+              <!-- <div class="container"> -->
+              <p class="sub-title">
+                How would you like to pay your freelancer or agency?
+                <span class="fas fa-question-circle text-success"></span>
+              </p>
+              <div class="row">
+                <app-card
+                  cardIcon="fas fa-2x fa-stopwatch"
+                  cardTitle="Pay by hour"
+                  cardText="Find a good one to accomplish task for one times"
+                  class="col-sm-4"
+                  id="payment"
+                  #radioInput
+                  [checked]="isByHour"
+                  value="Hourly"
+                  formControlName="PaymentType"
+                  ngDefaultControl
+                  (change)="
+                    isChecked(radioInput.cardTitle); radioInput2.value = ''
+                  "
+                ></app-card>
+
+                <app-card
+                  cardIcon="fas fa-2x fa-tag"
+                  cardTitle="Pay a fixed price"
+                  cardText="Find a good one to accomplish task for one times"
+                  class="col-sm-4"
+                  id="payment"
+                  #radioInput2
+                  [checked]="isFixed"
+                  value="Fixed price"
+                  formControlName="PaymentType"
+                  ngDefaultControl
+                  (change)="
+                    radioInput2.value = 'Fixed price';
+                    isChecked(radioInput2.cardTitle);
+                    radioInput.value = ''
+                  "
+                ></app-card>
+              </div>
+              <br />
+
+              <!--fixed price result -->
+              <!-- 
+              <div class="fixed-price" *ngIf="radioInput2.checked">
+                <label for="" class="sub-title"
+                  >Do you have a specific budget?</label
+                >
+                <div class="row">
+                  <div class="col-sm-4">
+                    <input
+                      type="number"
+                      class="form-control form-control-lg text-right"
+                      placeholder="0"
+                      formControlName="Price"
+                    />
+                    <span
+                      class="glyphicon glyphicon-usd text-muted icon"
+                    ></span>
+
+                    <div
+                      *ngIf="
+                        (budgetForm.invalid &&
+                          budgetForm.controls['Price'].touched) ||
+                        budgetForm.controls['Price'].touched
+                      "
+                    >
+                      <p
+                        *ngIf="
+                          budgetForm.controls['Price'].hasError('required')
+                        "
+                        class="text-danger hint"
+                      >
+                        required
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <div class="fixed-price" *ngIf="radioInput2.checked">
+                <app-fixed-input
+                  (isFixedVaild)="FixedValidation($event)"
+                ></app-fixed-input>
+              </div>
+              <br />
+
+              <!-- pay by the hour -->
+
+              <div class="pricing" *ngIf="radioInput.checked">
+                <p class="sub-title">Set your estimated budget</p>
+                <app-pricing
+                  (isHourlyVaild)="HourlyValidation($event)"
+                ></app-pricing>
+              </div>
+            </div>
+            <!-- button -->
+
+            <hr />
+            <button
+              type="button"
+              class="btn btn-outline-gray text-success btn-lg py-2 px-5 mr-3"
+            >
+              <b>Back</b>
+            </button>
+            <button
+              type="button"
+              class="btn btn-success btn-lg py-2 px-5"
+              (click)="StoreDataAndNavigate()"
+              [disabled]="!isBudgetValid()"
+            >
+              <!-- 
+                   (click)="storeData()"
+                routerLink="/review"
+              [disabled]="!budgetForm.valid" -->
+              <b>Next</b>
+            </button>
+          </div>
+
+          <br />
+        </div>
+        <!-- </div> -->
+        <br />
+
+        <br />
+      </div>
+    </div>
+  </form>
+</section>

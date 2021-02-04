@@ -1,0 +1,239 @@
+<!-- <p>details works!</p> -->
+
+<section class="bg-light">
+  <!-- get-stated -->
+  <div class="col-xs-12 px-0">
+    <form [formGroup]="detailsForm">
+      <!--Type of Project   -->
+
+      <div class="card mx-5">
+        <div class="card-body mx-5">
+          <!-- title -->
+          <header>
+            <h1 class="main-title">Details</h1>
+            <p class="hint text-muted ml-2">Step 2 to 7</p>
+            <hr />
+          </header>
+
+          <!-- cards -->
+
+          <div class="form-group mb-5">
+            <!-- <div class="container"> -->
+            <label for="cardId" class="sub-title"
+              >What type of project do you have?</label
+            >
+            <div class="row">
+              <div class="col-xs-4">
+                <app-card
+                  cardIcon="fas fa-2x fa-user-clock"
+                  cardTitle="One-time project"
+                  cardText="Find a good one to accomplish task for one times"
+                  id="projectType"
+                  formControlName="ProjectType"
+                  value="One-time project"
+                  ngDefaultControl
+                ></app-card>
+              </div>
+
+              <div class="col-xs-4">
+                <app-card
+                  cardIcon="fas fa-2x fa-clipboard-list"
+                  cardTitle="Ongoing project"
+                  cardText="Find a good one to accomplish task for one times"
+                  id="projectType"
+                  formControlName="ProjectType"
+                  value="Ongoing project"
+                  ngDefaultControl
+                ></app-card>
+              </div>
+
+              <div class="col-xs-4">
+                <app-card
+                  cardIcon="fas fa-2x fa-th-large"
+                  cardTitle="Complex project"
+                  cardText="Find a good one to accomplish task for one times"
+                  id="projectType"
+                  formControlName="ProjectType"
+                  value="Complex project"
+                  ngDefaultControl
+                ></app-card>
+              </div>
+            </div>
+          </div>
+
+          <br />
+
+          <!-- screening Question -->
+
+          <div class="mt-2">
+            <p class="mb-3 sub-title" mt-5>Screening Questions (optional)</p>
+            <p class="plain-text">
+              Add screening questions and/or require a cover letter
+            </p>
+            <div class="form-group">
+              <label for="files" class="light text-success plain-text mt-4 mb-0"
+                ><b class="">+ Add a question</b>
+              </label>
+              <input
+                type="file"
+                id="files"
+                class="text-center form-control"
+                hidden
+                accept="image/*,.pdf"
+                formControlName="ScreeningQuestion"
+              />
+            </div>
+
+            <p class="hint text-muted mt-0">
+              Require to allow freelancers and agencies to introduce themselves.
+            </p>
+          </div>
+          <hr />
+          <br />
+
+          <!-- Skills needed -->
+
+          <div class="form-group mb-5">
+            <label for="comment" class="sub-title mb-3">
+              What skills and expertise are important to you?
+            </label>
+            <input
+              type="text"
+              class="form-control mb-3"
+              #inputskill
+              (keydown.enter)="addSkill(inputskill.value)"
+              formControlName="Skills"
+              [(ngModel)]="skill"
+            />
+
+            <span
+              class="chips text-white px-4 pb-1 m-2 plain-text text"
+              *ngFor="let skill of skills"
+              #span
+              (click)="removeSkill(span.value)"
+            >
+              <span
+                class="small ml-1"
+                [ngClass]="{
+                  'glyphicon glyphicon-ok': inputskill.value != ''
+                }"
+              ></span>
+
+              {{ skill }}
+            </span>
+
+            <div
+              *ngIf="
+                (detailsForm.invalid &&
+                  detailsForm.controls['Skills'].touched) ||
+                detailsForm.controls['Skills'].touched
+              "
+            >
+              <p
+                *ngIf="detailsForm.controls['Skills'].hasError('required')"
+                class="text-danger hint"
+              >
+                required
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <!-- the # Freelancer needed -->
+
+      <div class="card mx-5">
+        <div class="card-body mx-5">
+          <div class="form-group mb-5 mt-2">
+            <label for="cardId" class="sub-title"
+              >How many people do you need for this job?</label
+            >
+            <div class="row">
+              <app-card
+                cardIcon="fas fa-user"
+                cardTitle="One freelancer"
+                class="col-xs-4"
+                id="freelancerType"
+                formControlName="FreelancerNumber"
+                value="One freelancer"
+                ngDefaultControl
+              ></app-card>
+
+              <app-card
+                cardIcon="fas  fa-users"
+                cardTitle="More than one freelancer"
+                class="col-xs-4"
+                id="freelancerType"
+                formControlName="FreelancerNumber"
+                value="More than one freelancer"
+                ngDefaultControl
+              ></app-card>
+            </div>
+          </div>
+
+          <br />
+
+          <!-- Level of Experience  -->
+
+          <div class="form-group mb-5">
+            <label for="cardId" class="sub-title"
+              >What level of experience should your freelancer have?</label
+            >
+            <div class="row">
+              <app-card
+                cardTitle="Entry Level"
+                cardText="Find a good one to accomplish task for one times"
+                class="col-xs-4"
+                id="X_level"
+                formControlName="ExperienceLevel"
+                value="Entry Level"
+                ngDefaultControl
+              ></app-card>
+
+              <app-card
+                cardTitle="Intermediate"
+                cardText="Find a good one to accomplish task for one times"
+                class="col-xs-4"
+                id="X_level"
+                formControlName="ExperienceLevel"
+                value="Intermediate"
+                ngDefaultControl
+              ></app-card>
+
+              <app-card
+                cardTitle="Expert"
+                cardText="Find a good one to accomplish task for one times"
+                class="col-xs-4"
+                id="X_level"
+                formControlName="ExperienceLevel"
+                value="Expert"
+                ngDefaultControl
+              ></app-card>
+            </div>
+          </div>
+
+          <hr />
+          <br />
+          <button
+            type="button"
+            class="btn btn-outline-gray text-success btn-lg py-2 px-5 mr-3"
+          >
+            <b>Back</b>
+          </button>
+          <button
+            type="button"
+            class="btn btn-success btn-lg py-2 px-5"
+            (click)="storeData()"
+            routerLink="/post-job/budget"
+            [disabled]="!detailsForm.valid"
+          >
+            <b>Next</b>
+          </button>
+        </div>
+      </div>
+      <!-- </div> -->
+    </form>
+  </div>
+</section>

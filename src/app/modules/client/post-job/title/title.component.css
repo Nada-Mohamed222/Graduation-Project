@@ -1,13 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.min.css";
-
-html,
-body {
-  height: 100%;
-}
-.light {
+/* .light {
   font-weight: lighter;
   position: relative;
+  bottom: 1vh;
 }
 
 .border-dashed {
@@ -34,6 +28,11 @@ body {
 }
 
 .hint {
-  font-size: 13px;
+  font-size:13px;
   font-weight: normal;
+} */
+
+#next {
+  background-color: #3daa49;
+  color: white;
 }

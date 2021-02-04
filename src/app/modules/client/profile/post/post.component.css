@@ -1,0 +1,14 @@
+.right {
+  position: absolute;
+  right: 0px;
+}
+.card-header {
+  position: relative;
+}
+.text-bold {
+  color: black;
+  font-weight: 500;
+}
+.plain-text:hover {
+  color: #47a815;
+}

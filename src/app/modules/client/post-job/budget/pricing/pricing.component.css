@@ -1,0 +1,16 @@
+label {
+  position: relative;
+  bottom: 3px;
+}
+.glyphicon {
+  position: absolute;
+  padding: 9px;
+}
+/* div {
+  position: relative;
+} */
+.hour {
+  position: absolute;
+  top: 13%;
+  left: 91%;
+}
