@@ -1,0 +1,22 @@
+p {
+  margin-bottom: 0;
+}
+
+.background-badge {
+  background-color: rgb(212, 212, 212);
+}
+
+.text-color {
+  color: #37a000;
+}
+
+.header-link-jobs:visited,
+.header-link-jobs:link,
+.header-link-jobs:active {
+  color: #37a000;
+}
+
+.header-link-jobs:hover {
+  color: #37a000;
+  text-decoration: underline;
+}

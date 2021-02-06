@@ -41,7 +41,7 @@ export class FreelancerService {
     return this._apiServices.get("job");
   }
 
-  getAJob(id:number){
+  getAJob(id:string){
     return this._apiServices.get(`job/`+id);
   }
   delete(id:number)

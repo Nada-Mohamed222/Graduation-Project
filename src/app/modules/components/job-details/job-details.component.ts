@@ -10,9 +10,18 @@ export class JobDetailsComponent implements OnInit {
 
   constructor(private _freelancerService:FreelancerService) { }
 
-  job:Object;
+  job:Object={};
 
-  ngOnInit(): void {
+  ngOnInit(): void{
+    this._freelancerService.getAJob("601c99ddcc10330028461610").subscribe((response:any)=> {
+      console.log(response)
+      this.job = response;   
+      console.log(this.job)
+    },error=>{
+      alert("Error")
+    }
+
+    )
   }
 
 }
