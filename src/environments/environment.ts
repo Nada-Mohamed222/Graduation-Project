@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiURL:"https://api-upwork-graduation-project.herokuapp.com"
+  // apiURL:"https://api-upwork-graduation-project.herokuapp.com"
+  apiURL:"http://localhost:5000"
 };
 
 /*

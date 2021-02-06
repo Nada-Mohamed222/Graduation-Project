@@ -30,29 +30,12 @@ export class ProfilephotoComponent implements OnInit {
       profile: ['',[Validators.required]]     
     }); 
   }
-  updatePhoto()
-  {
-    let freelancerSignUp:Freelancer = new Freelancer();
-    const formData = new FormData();
-    formData.append('ImageURL', this.formGroup.get('profile').value);
-    console.log(this.formGroup.get('profile').value);
-    // freelancerSignUp.ImageURL = formData.has('profile');
-
-    console.log(formData);
-    this._freelancerService.update(formData).subscribe(response => {
-      this.freelancerSignUpArr.push(freelancerSignUp);
-      // this.router.navigateByUrl('/freelancer/location');
-      console.log("Response ",response);
-    },error =>{
-      alert("Sorry error occurred");
-    })
   
-  }
-
   //setting Profile Photo from data
   storeData(){
     const profilePhoto = {
-      // photo: this.formGroup.controls['Title'].value,
+      photo: this.uploadedImage,
+      url: this.inputImage
     };
     this._sharingData.setProfilePhotoData(profilePhoto);
     console.log(profilePhoto);
@@ -61,29 +44,18 @@ export class ProfilephotoComponent implements OnInit {
   onSelectImage(event) { // called each time file input changes
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
-      // this.uploadedImage = event.target.files[0];
-      const file = event.target.files[0];
-      this.formGroup.get('profile').setValue(file);
+      this.uploadedImage = event.target.files[0];
+      // const file = event.target.files[0];
+      // console.log(file);
+      // this.formGroup.get('profile').setValue(file);
+      // console.log(file);
 
       reader.readAsDataURL(event.target.files[0]); // read file as data url
-
       reader.onload = (event) => { // called once readAsDataURL is completed
         this.inputImage = event.target.result;
       }
     }
   }
 
-  // processFile(image:any){
-  //   if (event.target.files && event.target.files[0]) {
-  //     var reader = new FileReader();
-
-  //     reader.readAsDataURL(event.target.files[0]); // read file as data url
-
-  //     reader.onload = (event) => { // called once readAsDataURL is completed
-  //       this.url = event.target.result;
-  //     }
-  //   }
-    // this.inputImage = URL.createObjectURL(image.target.files[0]);
-    // this.inputImage = image.target.files[0];
-    // console.log(this.inputImage);
+  
   }

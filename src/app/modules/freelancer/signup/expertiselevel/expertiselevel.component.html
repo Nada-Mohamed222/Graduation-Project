@@ -93,7 +93,7 @@
                                 <div class="col-lg-4 col-md-6 col-xs-12">
                                     <div class="card-group">
                                         <div class="card border-secondary">
-                                            <input formControlName="expertiseLevel" type="radio" id="radioBtnID1" class="float-right ml-2 expertise-radioBtn" name="radioBtn">
+                                            <input formControlName="ExpertiseLevel" value="Entry" type="radio" id="radioBtnID1" class="float-right ml-2 expertise-radioBtn" name="ExpertiseLevel">
                                             <label for="radioBtnID1">
                                                 <div class="card-body">
                                                     <h5 class="card-title text-center heading-levelExpertise">Entry level</h5>
@@ -107,7 +107,7 @@
                                 <div class="col-lg-4 col-md-6 col-xs-12">
                                     <div class="card-group">
                                         <div class="card border-secondary">
-                                            <input formControlName="expertiseLevel" type="radio" id="radioBtnID2" class="float-right ml-2 expertise-radioBtn" name="radioBtn">
+                                            <input formControlName="ExpertiseLevel" value="Intermediate" type="radio" id="radioBtnID2" class="float-right ml-2 expertise-radioBtn" name="ExpertiseLevel">
                                             <label for="radioBtnID2" >
                                                 <div class="card-body">
                                                     <h5 class="card-title text-center heading-levelExpertise">Intermediate</h5>
@@ -121,7 +121,7 @@
                                 <div class="col-lg-4 col-md-6 col-xs-12">
                                     <div class="card-group">
                                         <div class="card border-secondary">
-                                            <input formControlName="expertiseLevel" type="radio" id="radioBtnID3" class="float-right ml-2 expertise-radioBtn" name="radioBtn">
+                                            <input formControlName="ExpertiseLevel" value="Expert" type="radio" id="radioBtnID3" class="float-right ml-2 expertise-radioBtn" name="ExpertiseLevel">
                                             <label for="radioBtnID3">
                                                 <div class="card-body">
                                                     <h5 class="card-title text-center heading-levelExpertise">Expert</h5>
@@ -136,7 +136,7 @@
                     </form>
                     <div class="card-footer mt-5 mb-4" style="background-color: transparent;">
                         <a routerLink="/freelancer/expertise" class="btn btn-success back-btn float-left mt-3">Back</a>
-                        <a routerLink="/freelancer/languages" class="btn btn-success fill-out-btn float-right mt-3">Next</a>
+                        <a routerLink="/freelancer/languages" class="btn btn-success fill-out-btn float-right mt-3" (click)="storeData()">Next</a>
                     </div>
                 </div>
             </div>

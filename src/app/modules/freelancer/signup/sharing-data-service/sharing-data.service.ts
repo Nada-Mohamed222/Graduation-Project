@@ -66,9 +66,10 @@ export class SharingDataService {
   }
 
   //getting data
-  //getting expertise data
+  //getting expertise 
   getExpertiseData()
   {
+    console.log(this.expertise);
     return this.expertise;
   }
   //getting expertiseLevel data
@@ -94,6 +95,7 @@ export class SharingDataService {
   //getting profilePhoto data
   getProfilePhotoData()
   {
+    console.log(this.profilePhoto)
    return this.profilePhoto;
   }
   //getting location data

@@ -40,7 +40,7 @@
                         <a routerLink="/freelancer/hourlyrate" class="btn btn-success back-btn float-left mt-3">Back</a>
                         <!-- <a routerLink="/freelancer/profilephoto" class="btn btn-success fill-out-btn float-right mt-3">Next</a> -->
                         <a routerLink="/freelancer/profilephoto">
-                            <button [disabled]="formGroup.invalid" type="button" class="btn btn-success fill-out-btn float-right mt-3">Next</button>
+                            <button [disabled]="formGroup.invalid" type="button" class="btn btn-success fill-out-btn float-right mt-3" (click)="storeData()">Next</button>
                         </a>
                     </div>
                 </div>

@@ -18,20 +18,13 @@
                             <span class="ml-4" style="color: #37A000;"><i class="fas fa-question-circle fa-lg"></i></span>
                         </div>
                         <div class="mt-5">
-                            
-                            <!-- <span style="color: gray;"><i class="fas fa-user-circle fa-8x icon-profile-photo ml-5"></i></span> -->
-                        
-                            <!-- <img src= "../../../../../assets/images/avatar.png" alt="Avatar Logo" class="ml-3" style="width: 15%;"> -->
-                            <img [src]= "inputImage"  class="ml-3" style="width: 20%; border-radius: 50%;">
-                            
+                            <img [src]= "inputImage"  class="ml-3" style="width: 20%;border-radius: 50%; object-fit: cover;">
                             <form [formGroup]="formGroup">
-
                                 <div> 
                                     <label for="uploadImage" class="btn">
                                         <span class="btn btn-success back-btn float-left mt-4"><i class="fas fa-plus fa-lg mr-2"></i>Add Profile Photo</span>
                                     </label>  
                                     <input formControlName="profile" type='file' (change)="onSelectImage($event)" id="uploadImage" style="visibility:hidden;">
-                                    <!-- <input type="file" id="image_uploads" (change)="onSelectImage($event)" name="image_uploads" style="visibility:hidden;" accept=".jpg, .jpeg, .png" multiple> -->
                                 </div>
                             </form>
                         </div>
@@ -39,8 +32,9 @@
                     <a routerLink="/freelancer/location" class="ml-4 mt-5 skip-profilePhoto">Skip this step</a>
                     <div class="card-footer mt-5 mb-4" style="background-color: transparent;">
                         <a routerLink="/freelancer/titleoverview" class="btn btn-success back-btn1 float-left mt-3">Back</a>
-                        <a class="btn btn-success fill-out-btn float-right mt-3" (click)="updatePhoto()">Next</a>
-                        <!-- routerLink="/freelancer/location" -->
+                        <a routerLink="/freelancer/location">
+                            <button [disabled]="formGroup.invalid" type="button" class="btn btn-success fill-out-btn float-right mt-3" (click)="storeData()">Next</button>
+                        </a>
                     </div>
                 </div>
             </div>

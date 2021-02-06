@@ -1,3 +1,4 @@
+import { JwtTokenService } from './../../services/jwt-token.service';
 import { FreelancerService } from './../../services/freelancer.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -19,7 +20,10 @@ export class HomeComponent implements OnInit {
   freelancerSignUpArr :Freelancer[] = [];
   formGroup: FormGroup;
 
-  constructor( private _formBuilder:FormBuilder,private _freelancerService:FreelancerService,private router: Router) { }
+  constructor( private _formBuilder:FormBuilder,
+    private _freelancerService:FreelancerService,
+    private router: Router,
+    private _jwtTokenService:JwtTokenService) { }
 
   ngOnInit(): void {
     
@@ -45,19 +49,29 @@ export class HomeComponent implements OnInit {
     freelancerSignUp.Email = email;
     freelancerSignUp.Password = password;
     freelancerSignUp.UserName = username;
-    // freelancerSignUp.ImageURL = "https://static.thenounproject.com/png/363640-200.png";
     this._freelancerService.signUp(freelancerSignUp).subscribe(response => {
-      this.freelancerSignUpArr.push(freelancerSignUp);
+      // this.freelancerSignUpArr.push(freelancerSignUp);
       // alert("Add New User is Donee");
+      this.loginBtn(email,password);
       this.router.navigateByUrl('/freelancer/getstarted');
       console.log("Response ",response);
     },error =>{
       alert("Sorry error occurred");
     })
-  
   }
 
-  @Output() statusEvent = new EventEmitter<Boolean>();
+ 
+  loginBtn(email,password)
+  {
+    let freelancerLogin:Freelancer = new Freelancer();
+    freelancerLogin.Email = email;
+    freelancerLogin.Password = password;
+    this._freelancerService.login(freelancerLogin).subscribe((response:any) => {
+      this._jwtTokenService.decodeToken(response.token);
+    },error =>{
+      alert("Sorry error occurred");
+    })
+  }
 
   changeStatus() {
     this.isSignedUp = true;

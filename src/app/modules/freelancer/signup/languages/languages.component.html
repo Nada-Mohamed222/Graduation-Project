@@ -68,28 +68,13 @@
                             
                         </form>
                         <br>
-                        <!-- <div class="form-row">
-                            <div class="col-lg-6">
-                                <label for="inputState">Language</label>
-                                    <select id="inputState" class="form-control" style="font-size: 15px;">
-                                        <option selected>Arabic</option>
-                                        <option>British</option>
-                                        <option>Bulgaria</option>
-                                        <option>Burundi</option>
-                                        <option>Cambodia</option>  
-                                    </select>
-                            </div>
-                            <div class="col-lg-6">
-
-                            </div>
-                        </div> -->
                         
                     </div>
                     <div class="card-footer mt-5 mb-4" style="background-color: transparent;">
                         <a routerLink="/freelancer/expertiselevel" class="btn btn-success back-btn1 float-left mt-3">Back</a>
                         <!-- <a routerLink="/freelancer/hourlyrate" class="btn btn-success fill-out-btn float-right mt-3">Next</a> -->
                         <a routerLink="/freelancer/hourlyrate">
-                            <button [disabled]="formGroup.invalid" type="button" class="btn btn-success fill-out-btn float-right mt-3">Next</button>
+                            <button [disabled]="formGroup.invalid" type="button" class="btn btn-success fill-out-btn float-right mt-3" (click)="storeData()">Next</button>
                         </a>
                     </div>
                 </div>

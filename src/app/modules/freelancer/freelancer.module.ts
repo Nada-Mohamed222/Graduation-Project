@@ -1,3 +1,4 @@
+import { ReviewProfileComponent } from './signup/review-profile/review-profile.component';
 import { ProfileComponent } from './signup/profile/profile.component';
 import { PhoneComponent } from './signup/phone/phone.component';
 import { LocationComponent } from './signup/location/location.component';
@@ -28,6 +29,7 @@ const routes:Routes=[
   {path: 'profilephoto',component:ProfilephotoComponent},
   {path: 'location',component:LocationComponent},
   {path: 'phone',component:PhoneComponent},
+  {path: 'reviewprofile',component:ReviewProfileComponent},
   {path: 'profile',component:ProfileComponent}
 ];
 @NgModule({

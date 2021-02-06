@@ -15,13 +15,16 @@ export class ExpertiseComponent implements OnInit {
   skills:string[] = [];
   formGroup: FormGroup;
   constructor(private _formBuilder:FormBuilder,private _sharingData:SharingDataService) {}
-
+  
   ngOnInit(): void {
+    const expertiseData:any =this._sharingData.getExpertiseData();
+    console.log(expertiseData);
     this.formGroup = this._formBuilder.group({
       // MainServices:['',[Validators.required,Validators.minLength(3),Validators.maxLength(10)]],
       // MainSkills:['',[Validators.required,Validators.minLength(3),Validators.maxLength(10)]],
+      // expertiseData.mainService ?  expertiseData.mainService  :  ''
       MainServices:['',[Validators.required]],
-      MainSkills:['',[Validators.required]],
+      MainSkills:['',[Validators.required]]
     })
   }
 

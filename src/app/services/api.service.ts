@@ -14,6 +14,11 @@ export class ApiService {
     return this._httpClient.get(`${environment.apiURL}/${url}`)
   }
 
+  Loginpost(url:string,body:any)
+  {
+    return this._httpClient.post(`${environment.apiURL}/${url}`,body,{withCredentials:true});
+  }
+
   post(url:string,body:any)
   {
     return this._httpClient.post(`${environment.apiURL}/${url}`,body);
@@ -21,7 +26,7 @@ export class ApiService {
 
   Patch(url:string,body:any)
   {
-    return this._httpClient.patch(`${environment.apiURL}/${url}`,body);
+    return this._httpClient.patch(`${environment.apiURL}/${url}`,body,{withCredentials:true});
   }
 
   delete(url:string)
