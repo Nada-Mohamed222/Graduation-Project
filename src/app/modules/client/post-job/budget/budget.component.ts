@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class BudgetComponent implements OnInit {
   radioType: string;
-  isFixed: boolean = false;
+  isFixed: boolean = true;
   isByHour: boolean = false;
 
   budgetForm: FormGroup;
@@ -27,7 +27,7 @@ export class BudgetComponent implements OnInit {
 
   ngOnInit(): void {
     this.budgetForm = this._formBuilder.group({
-      PaymentType: [, [Validators.required]],
+      PaymentType: ['Fixed price', [Validators.required]],
       // Price: ['', [Validators.required]],
     });
   }
@@ -40,17 +40,15 @@ export class BudgetComponent implements OnInit {
     if (type == 'Pay a fixed price') {
       this.isFixed = true;
       this.isByHour = false;
+      this.isHourlyFormVaild = false;
     }
     if (type == 'Pay by hour') {
       this.isByHour = true;
       this.isFixed = false;
+      this.isFixedFormVaild = false;
     }
     console.log(`isFixed : ${this.isFixed} -- isByHour : ${this.isByHour}`);
   }
-
-  // isFixed(fixed:boolean){
-  //   console.log(`fixed prise ${fixed}`)
-  // }
 
   // settting strat form data
   storeData() {
@@ -78,12 +76,14 @@ export class BudgetComponent implements OnInit {
   }
   //form custome validation
   isBudgetValid() {
-    if (
-      (this.budgetForm.valid && this.isFixedFormVaild) ||
-      (this.budgetForm.valid && this.isHourlyFormVaild)
-    ) {
+    console.log(`****** budget ${this.budgetForm.valid}`);
+    console.log(`****** fixed ${this.isFixedFormVaild}`);
+    console.log(`****** hourly ${this.isHourlyFormVaild}`);
+    if (this.isFixedFormVaild || this.isHourlyFormVaild) {
       return true;
-    } else return false;
+    } else {
+      return false;
+    }
   }
   //store data and navigate to review page
   StoreDataAndNavigate() {

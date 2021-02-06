@@ -1,9 +1,15 @@
 <div class="card-body">
   <div class="row">
     <p class="col-xs-12">
-      <a class="plain-text text-bold" href="">{{ PostTitle | someText }}</a>
+      <a class="plain-text text-bold" href="">{{ jobName }}</a>
     </p>
-    <p class="col-xs-12 plain-text text-muted">{{ priceType }}</p>
+    <p class="text-muted hint col-xs-12">
+      <b>{{ paymentType }}</b> - {{ experienceLevel }} : {{ price }} $
+    </p>
+    <p class="col-xs-12 plain-text">{{ description | someText }}</p>
+  </div>
+  <div class="skills mx-2 mt-0 text-center hint" *ngFor="let skill of skills">
+    <app-chip skill="{{ skill }}"></app-chip>
   </div>
   <div class="row">
     <p class="col-xs-4 sub-title text-success">{{ viewsNumber }}</p>

@@ -1,6 +1,6 @@
 import { SharingDataService } from './../../../shared/services/sharing-data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-fixed-input',
@@ -8,8 +8,12 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./fixed-input.component.css'],
 })
 export class FixedInputComponent implements OnInit {
+  @Input() title: string;
+  @Input() icon: string;
+
   fixedInput: FormGroup;
   price: number;
+
   @Output() isFixedVaild = new EventEmitter<boolean>();
 
   constructor(
@@ -37,7 +41,7 @@ export class FixedInputComponent implements OnInit {
   // settting strat form data
   storeData() {
     const fixedPrice = {
-      price: `${this.fixedInput.controls['Price'].value}$`,
+      price: this.fixedInput.controls['Price'].value,
     };
 
     this._sharingData.setFixedPricData(fixedPrice);

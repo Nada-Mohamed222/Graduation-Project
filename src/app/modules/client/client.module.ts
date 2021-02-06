@@ -7,6 +7,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { PostComponent } from './profile/post/post.component';
 import { SliderComponent } from './profile/slider/slider.component';
 import { SomeTextPipe } from '../../modules/client/shared/pipes/some-text.pipe';
+import { ReversePipe } from './shared/pipes/reverse.pipe';
+import { ChipComponent } from './shared/components/chip/chip.component';
 
 const routes: Routes = [{ path: 'profile', component: ProfileComponent }];
 
@@ -17,6 +19,8 @@ const routes: Routes = [{ path: 'profile', component: ProfileComponent }];
     PostComponent,
     SliderComponent,
     SomeTextPipe,
+    ReversePipe,
+    ChipComponent,
   ],
   imports: [CommonModule, RouterModule.forChild(routes)],
 

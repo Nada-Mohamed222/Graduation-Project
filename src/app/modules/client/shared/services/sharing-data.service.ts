@@ -2,7 +2,7 @@ import { FixedInputComponent } from './../../post-job/budget/fixed-input/fixed-i
 import { PricingComponent } from './../../post-job/budget/pricing/pricing.component';
 import { BudgetComponent } from './../../post-job/budget/budget.component';
 import { DetailsComponent } from './../../post-job/details/details.component';
-import { TitleComponent } from './../../post-job/title/title.component';
+import { TitleComponent } from '../../post-job/title/title.component';
 import { Injectable } from '@angular/core';
 
 @Injectable({

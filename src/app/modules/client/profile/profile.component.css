@@ -12,3 +12,6 @@
 .plain-text:hover {
   color: #47a815;
 }
+.skills {
+  display: inline;
+}

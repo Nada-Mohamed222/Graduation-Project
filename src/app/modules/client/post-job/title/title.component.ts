@@ -1,4 +1,4 @@
-import { SharingDataService } from './../../shared/services/sharing-data.service';
+import { SharingDataService } from '../../shared/services/sharing-data.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -25,7 +25,7 @@ export class TitleComponent implements OnInit {
   ngOnInit(): void {
     this.startForm = this._formBuilder.group({
       JobName: ['', [Validators.required]],
-      option: ['', [Validators.required]],
+      option: ['Front-End Development', [Validators.required]],
       Description: [
         '',
         [

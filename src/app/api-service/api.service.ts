@@ -8,22 +8,15 @@ export class ApiService {
   constructor(private _httpClient: HttpClient) {}
   // body >> data to be sent
   post(url: string, body: any) {
-    return this._httpClient.post(`${environment.apiURL}/${url}`, body);
+    //post to api
+    return this._httpClient.post(`${environment.apiURL}${url}`, body);
+
+    //post to firebase
+    //return this._httpClient.post(`${environment.apiURL}`, body);
   }
 
-  // get(url:string)
-  //   {
-  //     return this._httpClient.get(`${environment.apiURL}/${url}`);
-  //   }
-
-  // PUT(url:string,body:any)
-  // {
-  //   return this._httpClient.put(`${environment.apiURL}/${url}`,body);
-  // }
-
-  // delete(url:string)
-  // {
-  //   return this._httpClient.delete(`${environment.apiURL}/${url}`);
-  // }
-  // }
+  get(url: string) {
+    // return this._httpClient.get(`${environment.apiURL}`);
+    return this._httpClient.get(`${environment.apiURL}${url}`);
+  }
 }

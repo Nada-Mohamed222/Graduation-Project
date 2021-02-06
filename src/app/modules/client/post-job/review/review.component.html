@@ -1,10 +1,15 @@
 <div class="my-3 post">
-  <button type="button" class="btn btn-success btn-lg py-2 px-5">
+  <button
+    type="button"
+    class="btn btn-success btn-lg py-2 px-5"
+    (click)="postJob()"
+  >
     <h4><b>Post Job Now</b></h4>
   </button>
 </div>
 
 <div>
+  <!-- start -->
   <app-basic-card
     title="Start"
     subtitle1="Title"
@@ -18,6 +23,7 @@
     route="/post-job/title"
   ></app-basic-card>
 
+  <!-- details -->
   <app-basic-card
     title="Details"
     subtitle1="Project Type"
@@ -33,10 +39,11 @@
     route="/post-job/details"
   ></app-basic-card>
 
+  <!-- budget -->
   <app-basic-card
     title="Budget"
     subtitle1="Hourly or Fixed"
-    [content1]="pricetype"
+    [content1]="paymentType"
     subtitle2="Budget"
     [content2]="price"
     [subtitle3]="dutationTitle"

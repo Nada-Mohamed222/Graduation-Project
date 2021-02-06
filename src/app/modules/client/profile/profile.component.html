@@ -23,7 +23,25 @@
           </p>
         </div>
         <!-- post content -->
-        <app-post></app-post>
+        <div *ngFor="let job of jobs | reverse; let currentIndex = index">
+          <app-post
+            jobName="{{ job.data.Name }}"
+            paymentType="{{ job.data.PaymentType }}"
+            experienceLevel="{{ job.data.ExpertiseLevel }}"
+            price="{{ job.data.Price }}"
+            description="{{ job.data.Description }}"
+            priceType="{{ job.data.PaymentType }}"
+          ></app-post>
+          <div
+            class="skills mx-2 mt-0 text-center hint"
+            *ngFor="let skill of job.data.Skills"
+          >
+            <app-chip skill="{{ skill }}"></app-chip>
+          </div>
+
+          <p class="hint text-muted mt-2 mx-2"><b>Proposal : </b>1 :4</p>
+          <hr />
+        </div>
       </div>
     </div>
 

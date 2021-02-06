@@ -100,6 +100,8 @@
               </div> -->
               <div class="fixed-price" *ngIf="radioInput2.checked">
                 <app-fixed-input
+                  title="Do you have a specific budget?"
+                  icon="glyphicon glyphicon-usd text-muted"
                   (isFixedVaild)="FixedValidation($event)"
                 ></app-fixed-input>
               </div>

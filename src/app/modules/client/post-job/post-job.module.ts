@@ -16,7 +16,6 @@ import { NaveItemComponent } from './side-nav/nave-item/nave-item.component';
 import { ReviewComponent } from './review/review.component';
 import { BasicCardComponent } from '../shared/components/basic-card/basic-card.component';
 import { FixedInputComponent } from './budget/fixed-input/fixed-input.component';
-
 const routes: Routes = [
   // {path:'',component:PostJobComponent},
   // {path: 'home', component: HomeComponent},

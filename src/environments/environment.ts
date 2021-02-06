@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiURL: '',
+  //firebase url
+  // apiURL: 'https://aswanmearn-default-rtdb.firebaseio.com/jobs.json',
+  apiURL: 'https://api-upwork-graduation-project.herokuapp.com/',
 };
 
 /*

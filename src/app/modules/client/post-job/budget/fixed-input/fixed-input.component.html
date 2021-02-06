@@ -1,6 +1,6 @@
 <!-- <div class="fixed-price"> -->
 <form [formGroup]="fixedInput">
-  <label for="" class="sub-title">Do you have a specific budget?</label>
+  <label for="" class="sub-title">{{ title }}</label>
   <div class="row">
     <div class="col-sm-4">
       <input
@@ -10,7 +10,8 @@
         formControlName="Price"
         (change)="checkValidationAndStoreData()"
       />
-      <span class="glyphicon glyphicon-usd text-muted icon"></span>
+
+      <span [class]="icon" id="icon"></span>
 
       <div
         *ngIf="

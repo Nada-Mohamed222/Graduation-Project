@@ -13,7 +13,7 @@ export class PricingComponent implements OnInit {
   rangeFrom: string;
   rangeTo: string;
   projectDuration: string;
-  hourlyPrice: string;
+  hourlyPrice: number;
 
   @Output() isHourlyVaild = new EventEmitter<boolean>();
 
@@ -26,7 +26,7 @@ export class PricingComponent implements OnInit {
     this.pricingForm = this._formBuilder.group({
       //controls validations
       RangeFrom: ['', [Validators.required]],
-      RangeTo: ['', [Validators.required]],
+
       ProjectDuration: ['', [Validators.required]],
     });
   }
@@ -46,7 +46,9 @@ export class PricingComponent implements OnInit {
 
   // settting strat form data
   storeData() {
-    const hourly = `${this.pricingForm.controls['RangeFrom'].value}$ : ${this.pricingForm.controls['RangeTo'].value}$`;
+    // const hourly = `${this.pricingForm.controls['RangeFrom'].value}$ : ${this.pricingForm.controls['RangeTo'].value}$`;
+    const hourly = this.pricingForm.controls['RangeFrom'].value;
+
     const pricing = {
       // rangeFrom: this.pricingForm.controls['RangeFrom'].value,
       // rangeTo: this.pricingForm.controls['RangeTo'].value,

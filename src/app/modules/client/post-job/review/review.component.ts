@@ -1,5 +1,7 @@
+import { Job } from './../../../../models/job';
+import { JobPost } from '../../../../api-service/job-post.service';
 import { SharingDataService } from './../../shared/services/sharing-data.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-review',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./review.component.css'],
 })
 export class ReviewComponent implements OnInit {
-  constructor(private _sharingData: SharingDataService) {}
+  constructor(
+    private _sharingData: SharingDataService,
+
+    private injector: Injector
+  ) {}
 
   ngOnInit(): void {}
 
@@ -24,17 +30,15 @@ export class ReviewComponent implements OnInit {
     if (this.budgetData.payment === 'Hourly') {
       this.dutationTitle = 'Project Duration';
       this.projectDuration = this.pricingData.projectDuration;
-      return 'Hourly';
+      return 'HourlyRate';
     }
     if (this.budgetData.payment === 'Fixed price') {
       this.dutationTitle = '';
       this.projectDuration = '';
 
-      return 'Fixed price';
+      return 'FixedPrice';
     }
   }
-
-  pricetype = this.checkType();
 
   checkPrice() {
     if (this.budgetData.payment === 'Hourly') {
@@ -44,5 +48,43 @@ export class ReviewComponent implements OnInit {
       return this.fixedPricingData.price;
     }
   }
+
+  paymentType = this.checkType();
   price = this.checkPrice();
+
+  //post job data
+
+  postJob() {
+    const _postJobService = this.injector.get(JobPost);
+    let start = this.startData;
+    let details = this.detailsData;
+
+    let job = new Job(
+      start.jobName,
+      start.category,
+      start.description,
+      details.projectType,
+      details.skillsNeed,
+      details.experienceLevel,
+      // 4,
+      this.paymentType,
+      // this.price,
+      this.price,
+      1
+      // this.projectDuration
+    );
+
+    _postJobService.postJob(job).subscribe(
+      (response) => {
+        console.log(job);
+        console.log('Done');
+        console.log(response);
+      },
+      (error) => {
+        console.log('ايرور يختاااااااااي');
+        console.log(error);
+        console.log(job);
+      }
+    );
+  }
 }

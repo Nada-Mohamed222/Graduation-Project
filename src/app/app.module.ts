@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { PostJobModule } from './modules/client/post-job/post-job.module';
-import { SomeTextPipe } from './modules/client/shared/pipes/some-text.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 // import { CardComponent } from './modules/shared/card/card.component';
 // import {ClientModule} from "./modules/client/client.module";
@@ -15,12 +15,13 @@ import { SomeTextPipe } from './modules/client/shared/pipes/some-text.pipe';
 @NgModule({
   declarations: [
     AppComponent,
+
     // SomeTextPipe,
     // SideNavComponent
     // CardComponent,
     // PostJobComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, PostJobModule],
+  imports: [BrowserModule, AppRoutingModule, PostJobModule, HttpClientModule],
   //   exports: [
   //     SomeTextPipe,
   //  ],
