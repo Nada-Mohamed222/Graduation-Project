@@ -1,12 +1,8 @@
 .footer-background-color{
     background-color: #1D4354 !important;
 }
-
-.footer-fontSize{
-    font-size: 13px;
-}
 footer{
-    height: 60vh !important;
+    height: 90vh !important;
 }
 .icons-color{
     background-color: #336278;

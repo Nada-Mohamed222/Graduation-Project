@@ -10,6 +10,8 @@ import { SharedModule } from './shared/shared.module';
 // import { HomeComponent } from './shared/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './modules/components/login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { JobDetailsComponent } from './modules/components/job-details/job-details.component';
 // import { SignupModule } from './modules/freelancer/signup/signup.module';
 
 
@@ -20,6 +22,7 @@ import { LoginComponent } from './modules/components/login/login.component';
     HeaderComponent,
     // HomeComponent,
     LoginComponent,
+    JobDetailsComponent,
     // SignupModule
   ],
   imports: [
@@ -30,7 +33,8 @@ import { LoginComponent } from './modules/components/login/login.component';
     SharedModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
     // SignupModule
   ],
   providers: [],

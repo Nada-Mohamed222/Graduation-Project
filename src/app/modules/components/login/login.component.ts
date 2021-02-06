@@ -2,6 +2,7 @@ import { JwtTokenService } from './../../../services/jwt-token.service';
 import { FreelancerService } from './../../../services/freelancer.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 import { Freelancer } from 'src/app/models/freelancer';
 
 @Component({
@@ -11,29 +12,19 @@ import { Freelancer } from 'src/app/models/freelancer';
 })
 export class LoginComponent implements OnInit {
 
-  freelancer :Freelancer[] = [];
   formGroup:FormGroup;
   constructor(private _formBuilder:FormBuilder, 
     private _freelancerService:FreelancerService,
-    private _jwtTokenService:JwtTokenService) { }
+    private _jwtTokenService:JwtTokenService,
+    private router: Router,
+    ) { }
+
 
   ngOnInit(): void {
     this.formGroup = this._formBuilder.group({
       Email:['',[Validators.required,Validators.email]],
       Password:['',[Validators.required,Validators.minLength(6),Validators.maxLength(16)]],
     })
-  }
-
-  parseCookies(cookies = document.cookie) {
-    let cookieStore = {};
-    if (!!cookies === false) { return; }
-    const cookiesArr = cookies.split(';');
-    for (const cookie of cookiesArr) {
-        const cookieArr = cookie.split('=');
-        let token = cookieStore[cookieArr[0].trim()] = cookieArr[1];
-        // return token;
-        console.log(token);
-    }
   }
 
   loginBtn(email,password)
@@ -44,10 +35,17 @@ export class LoginComponent implements OnInit {
       freelancerLogin.Email = email;
       freelancerLogin.Password = password;
       this._freelancerService.login(freelancerLogin).subscribe((response:any) => {
-        this.freelancer.push(freelancerLogin);
-        console.log("Response ",response);
-        this.parseCookies();
+        // this.parseCookies();
         this._jwtTokenService.decodeToken(response.token);
+        this._freelancerService.get().subscribe((response:any)=> {
+          if (response.isVerified === true){
+            this.router.navigateByUrl('/freelancer/profile');
+          } 
+          else{
+            this.router.navigateByUrl('/freelancer/getstarted');}
+        },error => {
+          alert("Something broken happened")
+        })
       },error =>{
         alert("Sorry error occurred");
       })

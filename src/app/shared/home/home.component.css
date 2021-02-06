@@ -13,8 +13,6 @@
     top: 50%;   
     transform: translate(-50%, -50%);
     box-shadow: 3px 3px 3px white;
-    width: 40%;
-    height: 90%;
 }
 .card-heading{
     font-size:24px;
@@ -70,7 +68,6 @@
     margin-left: 300px;
 }
 .bg-media{
-    /* background-color: #ebebeb; */
     background-color:#f1f2f4;
 }
 .heading-desc{
@@ -84,7 +81,6 @@
     font-size: 15px;
 }
 .btn-size-home{
-    width: 32%;
     font-size: 15px;
     font-weight: bold;
     align-items: center;
@@ -117,7 +113,7 @@
         font-size:20px;
     }
     .btn-size-home{
-        width: 40%;
+        /* width: 40%; */
         font-size: 9px;
     }
     .create-btn-size-home{
@@ -170,7 +166,7 @@
         font-size:20px;
     }
     .btn-size-home{
-        width: 30%;
+        /* width: 30%; */
         font-size: 11px;
     }
     .create-btn-size-home{
@@ -222,7 +218,7 @@
         font-size:23px;
     }
     .btn-size-home{
-        width: 30%;
+        /* width: 30%; */
         font-size: 15px;
     }
     .checkout-styling-home{
@@ -276,7 +272,7 @@
         font-size:23px;
     }
     .btn-size-home{
-        width: 35%;
+        /* width: 35%; */
         font-size: 15px;
     }
     .create-btn-size-home{

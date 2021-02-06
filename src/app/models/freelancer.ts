@@ -8,7 +8,7 @@ export class Freelancer{
     MainService: String;
     Skills: Array<String>;
     ExpertiseLevel: String;
-    Languages: Object;
+    Languages: String;
     HourlyRate: Number;
     Title: String;
     ProfessionalOverview: String;
@@ -17,5 +17,4 @@ export class Freelancer{
     PhoneNumber: Number;
     Availability: Number;
     Connects: Number;
-
 }

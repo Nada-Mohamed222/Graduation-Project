@@ -11,8 +11,9 @@ import { SharingDataService } from '../sharing-data-service/sharing-data.service
 })
 export class ExpertiseComponent implements OnInit {
 
-  skill:string = "";
-  skills:string[] = [];
+  skill: string = '';
+  skills: string[] = [];
+
   formGroup: FormGroup;
   constructor(private _formBuilder:FormBuilder,private _sharingData:SharingDataService) {}
   
@@ -38,19 +39,17 @@ export class ExpertiseComponent implements OnInit {
     console.log(expertise);
   }
 
-
-  addSkill(skill:string)
-  {
-    if(this.skill.length < 4){
+   //adding skills
+  addSkill(skill: string) {
+    if (this.skills.length < 10) {
       this.skills.push(skill);
       this.skill = '';
     }
   }
-
-  removeSkill(skill:string)
-  {
+  //removeing skill
+  removeSkill(skill: string) {
     let index = this.skills.indexOf(skill);
-    this.skills.splice(index,1);
+    this.skills.splice(index, 1);
   }
 
 }

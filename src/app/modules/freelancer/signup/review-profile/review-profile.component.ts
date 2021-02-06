@@ -20,6 +20,7 @@ export class ReviewProfileComponent implements OnInit {
   locationData:any;
   phoneData:any;
   inputImage:any;
+  isVerified:boolean = false;
   // freelancerSignUpArr :Freelancer[] = [];
   getNameOfTheFreeelancer:Freelancer = new Freelancer();
   formGroup:FormGroup;
@@ -35,6 +36,7 @@ export class ReviewProfileComponent implements OnInit {
       console.log(error);
       alert("Wrong Error!");
     })
+
 
     this.expertiseData = this._sharingData.getExpertiseData();
     this.expertiseLevelData = this._sharingData.getExpertiseLevelData();
@@ -68,6 +70,8 @@ export class ReviewProfileComponent implements OnInit {
     formData.append('Country', this.locationData.country);
     //Phone Number
     formData.append('PhoneNumber', this.phoneData.phone);
+
+    formData.append('isVerified', "true");
 
     this._freelancerService.update(formData).subscribe(response => {
       console.log("Response ",response);
