@@ -1,125 +1,303 @@
 <div class="container-fluid backGround-color pb-5 pt-5">
-    <div class="row no-gutters justify-content-center mx-auto w-70">
-        <div class="col-lg-12">
-            <!-- Concratulation card Profile -->
-            <div class="container-fluid backGround-color pb-5">
-                <div class="card justify-content-center mx-auto shadow-lg" >
-                    <div class="row">
-                        <div class="col-lg-3 mt-2">
-                            <img src="../../../../../assets/images/upwork-computer.jpg" alt="Upwork" style="width: 90%;">
-                        </div><!--col-lg-3-->
+  <div class="row no-gutters justify-content-center mx-auto w-75 mb-5">
+    <div class="col-md-2 fontsize-sidebar pr-3">
+      <strong class="h3 font-weight-bold"> Find Work </strong>
+    </div>
 
-                        <!-- <div class="toast bg-secondary mt-4" data-autohide="false">
-                            <div class="toast-body">
-                                <button type="button" style="position: relative; top: 0; right: 0;" class="ml-2 bg-dark mb-1 close p-2 text-light" data-dismiss="toast">&times;</button>
-                                <h3 class="mr-auto text-light p-2">Hey!</h3>
-                                <h5 class="p-2">People are looking at your profile. Find out who.</h5>
-                            </div>
-                            
-                        </div> -->
-                        <div class="col-lg-9">
-                            <h2>Congratulations! You're now part of Upwork!</h2>
-                            <div class="card-body mb-2">
-                                <h4 class="card-title">Tips to get started:</h4>
-                                <span class="fontsize-card-header"><i class="icon-color fas fa-check fa-lg mr-3"></i>Complete your profile. Add portfolio items, testimonials, and certifications to stand out.</span><br>
-                                <span class="fontsize-card-header"><i class="icon-color fas fa-check fa-lg mr-3"></i>You'll win more jobs by using the Upwork app.</span><br>
-                                <span class="fontsize-card-header"><i class="icon-color fas fa-check fa-lg mr-3"></i>Submit eye-catching proposals. And remember, it can often take more than 5 proposals to win your first client.</span><br>
-                                <span class="fontsize-card-header"><i class="icon-color fas fa-check fa-lg mr-3"></i>Read up on Upwork Payment Protection for working through Upwork.</span><br>
-                            </div>
-                        </div><!--col-lg-9-->
-                    </div><!--row-->
-                </div>
+    <div class="col-md-8 rounded-md">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control pl-4"
+          placeholder="Search for jobs"
+          aria-label="Search for jobs"
+          aria-describedby="basic-addon2"
+        />
+        <div class="input-group-append">
+          <span class="input-group-text bg-color" id="basic-addon2"
+            ><i class="fas fa-search text-white"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 fontsize-sidebar pl-3"></div>
+  </div>
+
+  <div class="row no-gutters justify-content-center mx-auto w-75">
+    <div class="col-md-2 fontsize-sidebar pr-3">
+      <a routerLink="#">
+        <div class="row w-100 m-0 pt-2 pb-2 active" routerLinkActive="active">
+          <div class="col-md-1 p-0"></div>
+          <strong class="col-md-8 p-0">My Feed</strong>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-8 rounded-md">
+      <div class="card justify-content-center mx-auto shadow-md">
+        <div
+          class="card-header get-started-title"
+          style="background-color: transparent"
+        >
+          <div class="row p-2">
+            <div class="col-md-10">
+              <p class="h2 inline">My Feed</p>
             </div>
+            <div class="col-md-2">
+              <div class="dropdown">
+                <button
+                  class="float-right btn rounded-circle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <span><i class="fas fa-ellipsis-h"></i></span>
+                </button>
+                <div
+                  class="dropdown-menu square mt-3 shadow-md"
+                  aria-labelledby="dropdownMenuButton"
+                >
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div> <!--row-->
-</div> <!--container-fluid-->
 
+        <div
+          *ngFor="let job of jobs; let currentIndex = index"
+          class="card-body mb-2 p-4 border-bottom"
+        >
+          <div class="row mb-4">
+            <div class="col-md-10">
+              <p class="card-title h4">
+                <a routerLink="/job" class="header-link-jobs">
+                  {{ job.data.Name }}
+                </a>
+              </p>
+            </div>
+            <div class="col-md-2">
+              <div
+                class="float-right rounded-circle border border-secondary p-2 cursor-pointer"
+              >
+                <i class="far fa-heart"></i>
+              </div>
+            </div>
+          </div>
 
-<div class="container-fluid backGround-color pb-5 pt-5">
-    <div class="row no-gutters justify-content-center mx-auto w-70">
-        <div class="col-lg-2 fontsize-sidebar">
-            <a routerLink="#" >
-                <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
-                    <div class="col-lg-1 p-0"></div>
-                    <div class="col-lg-8 p-0">My Feed</div>
-                </div>
-            </a>
-            <a routerLink="#" >
-                <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
-                    <div class="col-lg-1 p-0"></div>
-                    <div class="col-lg-8 p-0">Best Matches</div>
-                </div>
-            </a>
-            <a routerLink="#">
-                <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
-                    <div class="col-lg-1 p-0"></div>
-                    <div class="col-lg-8 p-0">Recommended</div>
-                </div>
-            </a>
-            
+          <p class="card-text text-muted paragraph-fontSize">
+            <span style="font-weight: bold">{{ job.data.PaymentType }} - </span>
+            <span> {{ job.data.ExpertiseLevel }} - </span>
+            <span> Est. Time: {{ job.data.Duration }}, </span>
+            <span> Est. Budget: {{ job.data.Price }},</span>
+            <span>{{ job.data.WeeklyHoursRequired }} hrs/week - </span>
+            <span>{{ job.data.createdAt.slice(0, 10) }}</span>
+          </p>
+          <p
+            class="paragraph-content-fontSize"
+            style="background-color: transparent; border: 0"
+          >
+            {{
+              job.data.Description.length > 400
+                ? (job.data.Description | slice: 0:400) + "..."
+                : job.data.Description
+            }}
+          </p>
+          <div *ngFor="let skill of job.data.Skills" class="mb-2 float-left">
+            <a href="#" class="badge background-badge ml-2 p-2 rounded-pill">{{
+              skill
+            }}</a>
+          </div>
+          <br />
+
+          <div class="mt-3">
+            <p class="h6">
+              Proposals:
+              <span class="text-muted">{{ job.data.Proposals.length }}</span>
+            </p>
+          </div>
+          <div class="mt-3">
+            <!-- <span class="ml-2">
+              <span class="fa fa-star text-color"></span>
+              <span class="fa fa-star text-color"></span>
+              <span class="fa fa-star text-color"></span>
+              <span class="fa fa-star text-color"></span>
+              <span class="fa fa-star text-color"></span>
+            </span> -->
+
+            <!-- <span class="ml-2 text-muted"><strong>$500+</strong> spent</span> -->
+            <span class="ml-2 text-muted"
+              ><i class="fas fa-map-marker-alt"></i
+              ><span class="ml-2">{{ job.data.Country }}</span></span
+            >
+          </div>
         </div>
-        <div class="col-lg-8">
-            <div class="card justify-content-center mx-auto shadow-lg" >
-                <div class="card-header get-started-title" style="background-color: transparent;">
-                    <h2>My Feeds</h2>
+      </div>
+    </div>
+
+    <div class="col-md-2 fontsize-sidebar pl-3">
+      <div class="h6">
+        <img
+          src="https://www.djelfa.info/mobi/img/avatar/avatar.png"
+          class="image-sidebar rounded-circle"
+        />
+        <strong class="ml-2">My Profile</strong>
+      </div>
+
+      <div class="mt-3 text-color">
+        <i class="fas fa-eye"></i>
+        <a href="" class="profile-link-jobs"
+          ><strong class="ml-2">View Profile</strong></a
+        >
+      </div>
+      <div class="mt-3">
+        <strong>Availability</strong>
+      </div>
+
+      <div class="row pl-3 mt-3">
+        <div class="col-lg-1 p-0">
+          <i class="far fa-clock mt-2"></i>
+        </div>
+        <div class="col-lg-10 p-0 pl-3 pr-1">As Needed - Open to Offers</div>
+        <div class="col-lg-1 p-0">
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn p-0"
+            data-toggle="modal"
+            data-target="#staticBackdrop"
+          >
+            <i
+              class="fas fa-pen cursor-pointer rounded-circle bg-white p-2 border border-secondary"
+            ></i>
+          </button>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="staticBackdrop"
+            data-backdrop="static"
+            data-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <strong
+                    class="h4"
+                    class="modal-title"
+                    id="staticBackdropLabel"
+                    >Change availability</strong
+                  >
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
-                <div class="card-body mb-2">
-                    <h4 class="card-title">
-                        <a href="#" class="header-link-jobs">Full time job for full stack php/ wp /react talent</a>
-                    </h4>
-                    <p class="card-text text-muted paragraph-fontSize">Hourly- Expert Est. Time: More than 6 months, 30+ hrs/week - Posted 56 minutes ago</p>
-                    <p class="paragraph-content-fontSize" style="background-color: transparent; border: 0;">
-                        We are a small boutique web development company looking for trusted, talented full stack 
-                        developers to work with.
-                        <br>
-                        Job is about 75% front end and 25% back end and servers.
-                        <br>
-                        Our main focus is PHP (wordpress / magento / custom) with lots of API integrations and in
-                        particular super clean code, lighthouse focused....
-                        <br>
-                        React is important as well as it is the front end of several important projects.
-                        Good understanding and experience with cPanel / AWS / Lambda / EC2 / Node JS / Python 
-                        is also good.
-                        <br>
-                        You will work on our timezone (IST) Sun-Thu 9am - 6pm and communicate with the rest of
-                        the office mainly using slack & skype while tracking all your hours in system.
-                        <br>
-                        Do not contact if you cannot handle these requirements fully please.
-                        Send your CV & samples of your work please along with your hourly and monthly rate.
-                        <br>
-                        
-                        Good luck   
-                    </p>
-                    <div class="mb-2">
-                        <a href="#" class="badge background-badge">Website Development</a>
-                        <a href="#" class="badge background-badge ml-2">API</a>
-                        <a href="#" class="badge background-badge ml-2">Adobe Photoshop</a>
-                        <a href="#" class="badge background-badge ml-2">PHP</a>
-                        <a href="#" class="badge background-badge ml-2">Apache HTTP Server</a>
+                <div class="modal-body">
+                  <div class="row mb-3">
+                    <div class="col-md-6 border-right">
+                      <p>
+                        Are you available to take on new work? Knowing when you
+                        are available helps Upwork find the right jobs for you.
+                      </p>
                     </div>
 
-                    <div class="mt-3">
-                        <h5>Poposel: <span class="text-muted">Less than 5</span></h5>
-                    </div>
-                    <div class="mt-3">
-                        <span class="fontsize-card-header"><i class="fas fa-badge-check fa-lg"></i> Payment Verified</span>
-                        <div>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
+                    <div class="col-md-6">
+                      <strong> I am currently available for </strong>
+                      <div class="mt-4">
+                        <div class="form-check mt-2">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="availability"
+                            id="availability1"
+                          />
+                          <label class="form-check-label" for="availability1">
+                            More than 30 hrs/week
+                          </label>
                         </div>
+
+                        <div class="form-check mt-2">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="availability"
+                            id="availability2"
+                          />
+                          <label class="form-check-label" for="availability2">
+                            Less than 30 hrs/week
+                          </label>
+                        </div>
+
+                        <div class="form-check mt-2">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="availability"
+                            id="availability3"
+                            checked
+                          />
+                          <label class="form-check-label" for="availability3">
+                            As needed - open to offers
+                          </label>
+                        </div>
+                      </div>
                     </div>
-                    
+                  </div>
                 </div>
-                
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn text-color"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn bg-color text-white">
+                    Understood
+                  </button>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
 
-        <div class="col-lg-2">
-            
+      <div class="row pl-3 mt-3">
+        <div
+          class="progress mt-2 col-md-9 p-0 bg-secondary"
+          style="height: 6px"
+        >
+          <div
+            class="progress-bar bg-color"
+            role="progressbar"
+            style="width: 65%"
+            aria-valuenow="100"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
         </div>
-    </div><!--row-->
+        <div class="col-md-3"><span>65%</span></div>
+      </div>
+
+      <div class="mt-3">
+        <a href="" class="profile-link-jobs">
+          <strong> 60 available connects </strong>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!--row-->
 </div>
-

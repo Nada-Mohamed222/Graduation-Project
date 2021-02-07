@@ -10,14 +10,6 @@ import { HttpHeaders, HttpRequest  } from '@angular/common/http';
 })
 export class FreelancerService {
   
-  // options = new HttpHeaders({'Content-Type': 'application/json', 'Content-Length': '99999' });
-  // options = new HttpHeaders().set('Content-Type', 'application/json').set();
-  // options3 = new HttpHeaders().set('withCredentials', true);
-
-
-  // headers = new HttpHeaders();
-  // options = this.headers.set('Content-Type', 'application/json', 'Content-Length', 99999,'withCredentials', true );
-  
   constructor(private _apiServices:ApiService) { }
 
   login(freelancer:Freelancer)
@@ -45,6 +37,13 @@ export class FreelancerService {
     return this._apiServices.get(`talent/${localStorage.getItem("UserName")}`);
   }
 
+  getAllJobs(){
+    return this._apiServices.get("job");
+  }
+
+  getAJob(id:number){
+    return this._apiServices.get(`job/`+id);
+  }
   delete(id:number)
   {
     return this._apiServices.delete(`freelancer/delete?id=`+id);

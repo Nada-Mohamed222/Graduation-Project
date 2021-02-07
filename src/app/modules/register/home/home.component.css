@@ -13,8 +13,6 @@
     top: 50%;   
     transform: translate(-50%, -50%);
     box-shadow: 3px 3px 3px white;
-    width: 40%;
-    height: 90%;
 }
 .card-heading{
     font-size:24px;
@@ -70,7 +68,6 @@
     margin-left: 300px;
 }
 .bg-media{
-    /* background-color: #ebebeb; */
     background-color:#f1f2f4;
 }
 .heading-desc{
@@ -84,7 +81,6 @@
     font-size: 15px;
 }
 .btn-size-home{
-    width: 32%;
     font-size: 15px;
     font-weight: bold;
     align-items: center;
@@ -107,7 +103,7 @@
 @media (max-width:575px)
 {
     .bg-color{
-        height:110vh !important; 
+        /* height:110vh !important;  */
     }
     .card-center{
         width: 50%;
@@ -117,11 +113,9 @@
         font-size:20px;
     }
     .btn-size-home{
-        width: 40%;
         font-size: 9px;
     }
     .create-btn-size-home{
-        width: 40%;
         font-size: 9px;
         margin-bottom: 50px;
     }
@@ -162,21 +156,16 @@
         height:90vh !important; 
     }
     .card-center{
-        width: 70%;
-        height: 90%;
         top: 43%;
     }
     .card-heading{
         font-size:20px;
     }
     .btn-size-home{
-        width: 30%;
         font-size: 11px;
     }
     .create-btn-size-home{
-        width: 40%;
         font-size: 11px;
-        margin-bottom: 200px;
     }
     .checkout-styling-home{
         font-size: 7px;
@@ -211,18 +200,15 @@
 @media (min-width:768px) and (max-width:920px)
 {
     .bg-color{
-        height:90vh !important; 
+        /* height:90vh !important;  */
     }
     .card-center{
-        width: 70%;
-        height: 85%;
-        top: 43%;
+        top: 50%;
     }
     .card-heading{
         font-size:23px;
     }
     .btn-size-home{
-        width: 30%;
         font-size: 15px;
     }
     .checkout-styling-home{
@@ -265,22 +251,18 @@
 @media (min-width:921px) and (max-width:1200px)
 {
     .bg-color{
-        height:90vh !important; 
+        /* height:90vh !important;  */
     }
     .card-center{
-        width: 70%;
-        height: 85%;
-        top: 43%;
+        top: 50%;
     }
     .card-heading{
         font-size:23px;
     }
     .btn-size-home{
-        width: 35%;
         font-size: 15px;
     }
     .create-btn-size-home{
-        width: 45%;
         font-size: 15px;
         margin-bottom: 100px;
     }

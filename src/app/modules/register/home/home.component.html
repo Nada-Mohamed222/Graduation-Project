@@ -1,36 +1,3 @@
-<!-- <p>home works!</p> -->
-<!-- add icon to the input -->
-<!-- <div class="input-group">
-    <div class="input-group">
-        <div class="input-group-addon">
-            <i class="fas fa-envelope fa-lg"></i> 
-        </div>
-        <input class="form-control home-input-size" id="email" name="email" type="email" placeholder="Work email address"/>
-    </div>
-</div>
-<br><br>
-<a href="#" class="btn btn-success home-btn">Create My Account</a> -->
-<!--Home Page(enter with your email)-->
-<!-- <div class="container-fluid bg-color">
-    <div class="card card-center">
-        <div class="card-body mt-2">
-            <h5 class="card-title card-heading">Get your free account</h5><br>
-            <div class="input-group">
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <i class="fa fa-envelope-o"></i> 
-                    </div>
-                    <input class="form-control home-input-size" id="email" name="email" type="email" placeholder="Work email address"/>
-                </div>
-                
-                <input class="home-input-size" id="email" name="email" type="email" placeholder="Work email address"/>
-            </div>
-            <br><br>
-            <a href="#" class="btn btn-success home-btn">Continue with Email</a>
-        </div>
-    </div>
-</div> -->
-
 <!--Home Page(enter the rest of your information)-->
 <div class="container-fluid bg-color">
     <div class="card card-center mt-5">
@@ -152,7 +119,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <h3 class="text-justify-center">I want to:</h3>
+                    <h6 class="text-justify-center">I want to:</h6>
                     <button type="button" class="btn btn-success btn-size-home" (click)="apperUserName('client')">Hire for a Project</button>
                     <button type="button" class="btn btn-success ml-3 btn-size-home" (click)="apperUserName('freelancer')">Work as a Freelancer</button>
                     
@@ -185,10 +152,9 @@
                 </div>
                 <!-- [disabled]="formGroup.invalid" -->
                 <!-- routerLink="/freelancer/getstarted" -->
-                
-                <button (click)="addNewAccount(InputFirstName.value , InputLastName.value , InputPassword.value, InputEmail.value , InputUserName.value)" type="submit" [disabled]="formGroup.invalid" class="btn btn-success create-btn-size-home mt-1">Create My Account</button>
+                <!-- [disabled]="formGroup.invalid"  -->
+                <button (click)="addNewAccount(InputFirstName.value , InputLastName.value , InputPassword.value, InputEmail.value , InputUserName.value)" type="submit" class="btn btn-success create-btn-size-home">Create My Account</button>
             
-                
             </form>
         </div>
     </div>

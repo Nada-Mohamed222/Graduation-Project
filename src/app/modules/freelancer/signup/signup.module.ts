@@ -1,3 +1,4 @@
+import { FreelancerService } from 'src/app/services/freelancer.service';
 import { ExpertiselevelComponent } from './expertiselevel/expertiselevel.component';
 import { ExpertiseComponent } from './expertise/expertise.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -42,6 +43,8 @@ const routes:Routes=[
     ReviewProfileComponent
   ],
   imports: [
-    CommonModule,RouterModule.forChild(routes),ReactiveFormsModule,FormsModule]
+    CommonModule,RouterModule.forChild(routes),ReactiveFormsModule,FormsModule],
+  providers: [FreelancerService],
+
 })
 export class SignupModule { }

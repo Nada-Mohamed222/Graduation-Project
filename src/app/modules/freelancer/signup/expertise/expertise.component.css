@@ -41,7 +41,9 @@ mat-chip {
 }
 
 /*Skills*/
+
 .chips{
-    background-color: #336278;
+    background-color: #336278;     
     border-radius: 30px;
+    color:white !important;
 }

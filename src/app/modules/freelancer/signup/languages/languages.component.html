@@ -1,6 +1,6 @@
 <div class="container-fluid backGround-color pb-5 pt-5">
     <div class="row no-gutters justify-content-center mx-auto w-70">
-        <div class="col-lg-3 h-100 mx-auto">
+        <div class="col-lg-3 h-100 mx-auto d-none d-lg-block">
             <app-sidebar></app-sidebar>
         </div>
 
@@ -10,11 +10,11 @@
             <div class="container-fluid backGround-color pb-5">
                 <div class="card justify-content-center mx-auto shadow-lg" >
                     <div class="card-header get-started-title" style="background-color: transparent;">
-                        <h2>Languages</h2>
-                        <h5 class="text-muted">4 of 9</h5>
+                        <h4>Languages</h4>
+                        <h6 class="text-muted">4 of 9</h6>
                     </div>
                     <div class="card-body mb-2">
-                        <h4 class="card-title">What is your English proficiency?</h4>
+                        <h5 class="card-title">What is your English proficiency?</h5>
                         <form [formGroup]="formGroup">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1"></label>
@@ -31,7 +31,7 @@
 
                             </div>
                             <!-- Add anther language -->
-                            <div class="form-row mt-5">
+                            <!-- <div class="form-row mt-5">
                                 <div class="form-group col-md-5" *ngIf="HaveAntherLanguage">
                                     <label for="exampleFormControlSelect2"  class="selectOptions-fontSize-form">Language</label>
                                     <select class="form-control fs-categories" id="exampleFormControlSelect2">
@@ -64,10 +64,9 @@
                                 <a routerLink="#" class="btn btn-success back-btn float-left mt-4" (click)="addAntherLanguage()">
                                     <i class="fas fa-plus fa-lg mr-2"></i>Add Language
                                 </a>
-                            </div>
+                            </div> -->
                             
                         </form>
-                        <br>
                         
                     </div>
                     <div class="card-footer mt-5 mb-4" style="background-color: transparent;">
