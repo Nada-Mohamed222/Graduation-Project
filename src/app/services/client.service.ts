@@ -1,15 +1,12 @@
+import { Freelancer } from './../models/freelancer';
 import { ApiService } from './api.service';
 import { Injectable } from '@angular/core';
-import { Freelancer } from '../models/freelancer';
-import { HttpHeaders, HttpRequest  } from '@angular/common/http';
-
-
 
 @Injectable({
   providedIn: 'root'
 })
-export class FreelancerService {
-  
+export class ClientService {
+
   constructor(private _apiServices:ApiService) { }
 
   login(freelancer:Freelancer)
@@ -32,9 +29,9 @@ export class FreelancerService {
     return this._apiServices.Patch(`talent/${localStorage.getItem("UserName")}`,freelancer)
   }
 
-  get()
+  getClient(UserName:string)
   {
-    return this._apiServices.get(`talent/${localStorage.getItem("UserName")}`);
+    return this._apiServices.get(`employer/${UserName}`);
   }
 
   getAllJobs(){

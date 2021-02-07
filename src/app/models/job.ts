@@ -20,7 +20,7 @@ export class Job{
     TalentUserName: String
     TalentRating: Number;
     TalentReview: String;
-    Proposals: Array<string>;
+    Proposals: Array<string> =[];
     ConnectsNeeded: Number;
     Status: String;
     
