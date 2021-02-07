@@ -12,7 +12,7 @@ import { SharingDataService } from '../sharing-data-service/sharing-data.service
 export class ExpertiseComponent implements OnInit {
 
   skill:string = "";
-  skills:string[] = [];
+  skills:Array<string> = [];
   formGroup: FormGroup;
   constructor(private _formBuilder:FormBuilder,private _sharingData:SharingDataService) {}
   
@@ -20,9 +20,6 @@ export class ExpertiseComponent implements OnInit {
     const expertiseData:any =this._sharingData.getExpertiseData();
     console.log(expertiseData);
     this.formGroup = this._formBuilder.group({
-      // MainServices:['',[Validators.required,Validators.minLength(3),Validators.maxLength(10)]],
-      // MainSkills:['',[Validators.required,Validators.minLength(3),Validators.maxLength(10)]],
-      // expertiseData.mainService ?  expertiseData.mainService  :  ''
       MainServices:['',[Validators.required]],
       MainSkills:['',[Validators.required]]
     })
@@ -32,7 +29,7 @@ export class ExpertiseComponent implements OnInit {
   storeData(){
     const expertise = {
       mainService: this.formGroup.controls['MainServices'].value,
-      mainSkills: this.formGroup.controls['MainSkills'].value
+      mainSkills: this.skills
     };
     this._sharingData.setExpertiseData(expertise);
     console.log(expertise);

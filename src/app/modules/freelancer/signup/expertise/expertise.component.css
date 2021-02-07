@@ -1,47 +1,56 @@
 /*sidebar start*/
 .active {
-    border-left: #37A000 3px solid;
+  border-left: #37a000 3px solid;
 }
-.correct-icon-color{
-    color: #37A000;
+.correct-icon-color {
+  color: #37a000;
 }
-a:hover, a:visited, a:link, a:active{  
-    text-decoration: none;
-    color: black;
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+  color: black;
 }
 /*sidebar end*/
 
 /*skills start*/
 mat-chip {
-    background-color: green !important;
-    color: white !important;
+  background-color: green !important;
+  color: white !important;
 }
 /*skills end*/
 
-.w-70{
-    width:70%;
+.w-70 {
+  width: 70%;
 }
 .backGround-color {
-    background-color: #ebebeb;
+  background-color: #ebebeb;
 }
 
-.fs-categories{
-    font-size: 15px;
+.fs-categories {
+  font-size: 15px;
 }
-.fill-out-btn{
-    background-color: #37A000; 
-    font-size: 13px;
-    width: 25%;
+.fill-out-btn {
+  background-color: #37a000;
+  font-size: 13px;
+  width: 25%;
 }
-.back-btn{
-    color: #37A000; 
-    background-color: white;
-    font-size: 13px;
-    width: 25%;
+.back-btn {
+  color: #37a000;
+  background-color: white;
+  font-size: 13px;
+  width: 25%;
 }
 
 /*Skills*/
-.chips{
-    background-color: #336278;
-    border-radius: 30px;
+.chips {
+  background-color: #336278;
+  border-radius: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  .w-70 {
+    width: 100%;
+  }
 }

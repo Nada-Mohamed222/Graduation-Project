@@ -41,6 +41,10 @@ export class FreelancerService {
     return this._apiServices.get("job");
   }
 
+  searchBySkill(skill:string){
+    return this._apiServices.get(`job/search/${skill}`);
+  }
+
   getAJob(id:string){
     return this._apiServices.get(`job/`+id);
   }

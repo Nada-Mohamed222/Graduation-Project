@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { FreelancerService } from './../../../../services/freelancer.service';
 import { Freelancer } from 'src/app/models/freelancer';
@@ -26,7 +27,7 @@ export class ReviewProfileComponent implements OnInit {
   formGroup:FormGroup;
 
   constructor(private _sharingData:SharingDataService,
-    private _freelancerService:FreelancerService) { }
+    private _freelancerService:FreelancerService, private router:Router) { }
 
   ngOnInit(): void {
     this._freelancerService.get().subscribe((response:Freelancer)=>{
@@ -76,6 +77,7 @@ export class ReviewProfileComponent implements OnInit {
 
     this._freelancerService.update(formData).subscribe(response => {
       console.log("Response ",response);
+      this.router.navigate(["/freelancer/profile"])
     },error =>{
       console.log(error);
       alert("Sorry error occurred");

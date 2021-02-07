@@ -4,6 +4,7 @@ import { Job } from 'src/app/models/job';
 import { Component, OnInit } from '@angular/core';
 import { FreelancerService } from './../../../services/freelancer.service';
 import { ActivatedRoute } from '@angular/router';
+import { Freelancer } from 'src/app/models/freelancer';
 
 @Component({
   selector: 'app-job-details',
@@ -16,10 +17,19 @@ export class JobDetailsComponent implements OnInit {
   job:Job= new Job();
   clientJobs:Array<Job>=[];
   client:Client = new Client(); 
+  freelancer: Freelancer= new Freelancer();
 
   constructor(private _freelancerService:FreelancerService, private _clientService:ClientService, private route: ActivatedRoute) { }
 
   ngOnInit(): void{
+    this._freelancerService.get().subscribe((response:Freelancer)=>{
+      this.freelancer = response;
+      console.log(response)
+    },error=>{
+      console.log(error);
+      alert("Wrong Error!");
+    })
+
     this.route.params.subscribe(params =>{this.id =  params["id"]
     window.scrollTo(0, 0);
     this._freelancerService.getAJob(this.id).subscribe((response:any)=> {
