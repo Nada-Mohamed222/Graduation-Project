@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 // import { HomeComponent } from './shared/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './modules/components/login/login.component';
+import { LoginComponent } from './../app/modules/register/login/login.component';
 // import { SignupModule } from './modules/freelancer/signup/signup.module';
 
 

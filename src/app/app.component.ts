@@ -1,5 +1,5 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core'; 
-import { HomeComponent } from './shared/home/home.component';
+import { HomeComponent } from './../app/modules/register/home/home.component';
 
 @Component({
   selector: 'app-root',
