@@ -1,4 +1,4 @@
-import { LoginComponent } from './modules/components/login/login.component';
+import { LoginComponent } from './../app/modules/register/login/login.component'
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { JobDetailsComponent } from './modules/components/job-details/job-details.component';

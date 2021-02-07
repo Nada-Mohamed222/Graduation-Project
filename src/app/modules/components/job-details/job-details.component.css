@@ -16,6 +16,10 @@ p {
   color: #37a000;
 }
 
+.submit-btn-color{
+  background-color: #37a000;
+}
+
 .header-link-jobs:hover {
   color: #37a000;
   text-decoration: underline;

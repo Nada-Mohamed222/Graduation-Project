@@ -1,5 +1,5 @@
-import { JwtTokenService } from './../../services/jwt-token.service';
-import { FreelancerService } from './../../services/freelancer.service';
+import { JwtTokenService } from './../../../services/jwt-token.service';
+import { FreelancerService } from './../../../services/freelancer.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Freelancer } from 'src/app/models/freelancer';

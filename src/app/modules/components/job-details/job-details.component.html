@@ -64,7 +64,7 @@
               <h5>Activity on this job</h5>
               <p class="text-secondary pb-2">
                 Proposals:
-                <span class="text-dark">{{ job.Proposals.length }}</span>
+                <span class="text-dark">{{job.Proposals.length}}</span>
               </p>
             </div>
           </div>
@@ -73,7 +73,7 @@
     </div>
     <div class="card shadow-md col-sm-12 col-lg-3">
       <div class="my-3 mx-auto">
-        <button type="button" class="btn btn-success">Submit a proposal</button>
+        <button type="button" class="btn btn-success submit-btn-color">Submit a proposal</button>
       </div>
       <p>Available Connects: 52</p>
       <hr />
@@ -94,8 +94,8 @@
           <p class="py-2">
             <strong>{{ job.Country }}</strong>
           </p>
-          <p class="pb-2"><strong>28 Jobs posted</strong></p>
-          <small class="text-secondary pb-2">Member since Oct 25, 2017 </small>
+          <p class="pb-2"><strong>{{client.Jobs.length}} Jobs posted</strong></p>
+          <small class="text-secondary pb-2">Member since {{ client.createdAt.slice(0, 10) }}</small>
         </div>
       </div>
     </div>
