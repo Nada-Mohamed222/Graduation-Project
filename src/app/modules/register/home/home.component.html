@@ -152,10 +152,9 @@
                 </div>
                 <!-- [disabled]="formGroup.invalid" -->
                 <!-- routerLink="/freelancer/getstarted" -->
-                
-                <button (click)="addNewAccount(InputFirstName.value , InputLastName.value , InputPassword.value, InputEmail.value , InputUserName.value)" type="submit" [disabled]="formGroup.invalid" class="btn btn-success create-btn-size-home mt-1">Create My Account</button>
+                <!-- [disabled]="formGroup.invalid"  -->
+                <button (click)="addNewAccount(InputFirstName.value , InputLastName.value , InputPassword.value, InputEmail.value , InputUserName.value)" type="submit" class="btn btn-success create-btn-size-home">Create My Account</button>
             
-                
             </form>
         </div>
     </div>

@@ -2,7 +2,7 @@ import { FreelancerService } from 'src/app/services/freelancer.service';
 import { ExpertiselevelComponent } from './expertiselevel/expertiselevel.component';
 import { ExpertiseComponent } from './expertise/expertise.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './../../../shared/home/home.component';
+import { HomeComponent } from './../../../../app/modules/register/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
