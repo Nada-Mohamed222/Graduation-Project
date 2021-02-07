@@ -76,7 +76,10 @@
           <div class="row mb-4">
             <div class="col-md-10">
               <p class="card-title h4">
-                <a routerLink="/job" class="header-link-jobs">
+                <a
+                  routerLink="/job/{{ job.data._id }}"
+                  class="header-link-jobs"
+                >
                   {{ job.data.Name }}
                 </a>
               </p>

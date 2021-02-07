@@ -8,5 +8,5 @@ export class Client{
     ImageURL: String;
     Country: String;
     Jobs:Array<Object>=[];
-    createdAt:Date = new Date();
+    createdAt:String;
 }

@@ -9,7 +9,7 @@ const routes: Routes = [
   {path:'signup',
   loadChildren:() => import('../app/modules/freelancer/signup/signup.module').then(m=>m.SignupModule)},
   {path:'login',component:LoginComponent},
-  {path:'job',component:JobDetailsComponent}
+  {path:'job/:id',component:JobDetailsComponent}
 ];
 
 @NgModule({

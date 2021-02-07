@@ -41,6 +41,11 @@ export class ClientService {
   getAJob(id:string){
     return this._apiServices.get(`job/`+id);
   }
+
+  getAllEmployerJob(UserName:string){
+    return this._apiServices.get(`employer/${UserName}/jobs`);
+  }
+
   delete(id:number)
   {
     return this._apiServices.delete(`freelancer/delete?id=`+id);
