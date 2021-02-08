@@ -1,0 +1,30 @@
+.login-btn{
+    background-color: #37A000; 
+    font-size: 15px;
+    font-weight: bold;
+}
+.w-70{
+    width:70%;
+}
+.backGround-color {
+    background-color: #ebebeb;
+}
+
+.fs-categories{
+    font-size: 15px;
+}
+
+.back-btn{
+    color: #37A000; 
+    background-color: white;
+    font-size: 13px;
+    width: 25%;
+}
+
+.sign-up-btn{
+    background-color: white;
+    color: #37A000;
+    font-size: 13px;
+    font-weight: bold;
+    width:40%
+}

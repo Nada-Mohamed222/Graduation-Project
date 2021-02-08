@@ -1,0 +1,167 @@
+<div class="container backGround-color pb-5 pt-5">
+  <div class="row no-gutters mx-auto mb-2">
+    <strong class="h3 font-weight-bold"> Job Details</strong>
+  </div>
+  <div class="row">
+    <div class="card justify-content-center shadow-md col-sm-12 col-lg-9">
+      <div
+        class="card-header get-started-title"
+        style="background-color: transparent"
+      >
+        <div class="row p-1">
+          <p class="h4">{{ job.Name }}</p>
+        </div>
+        <hr />
+        <div>
+          <a class="text-success">{{ job.Category }}</a>
+        </div>
+        <small>Posted 15 minutes ago</small>
+        <div class="pt-2">
+          <small class="fas fa-map-marker-alt" aria-hidden="true">
+            {{ job.Country }}</small
+          >
+        </div>
+        <small class="text-secondary">
+          Required Connects: {{ job.ConnectsNeeded }}
+        </small>
+        <hr />
+        <div>
+          <p>
+            {{ job.Description }}
+          </p>
+        </div>
+        <hr />
+        <div>
+          <div class="row ml-3">
+            <div class="col-sm-6 col-lg-5">
+              <strong>${{ job.Price }}</strong
+              ><br />
+              <small class="text-secondary">Fixed Price</small>
+            </div>
+            <div class="col-sm-6 col-lg-5">
+              <strong>{{ job.ExpertiseLevel }}</strong
+              ><br />
+              <small class="text-secondary">Experience level</small>
+            </div>
+          </div>
+          <hr />
+          <div>
+            <p><strong>Project Type: </strong>{{ job.JobType }}</p>
+          </div>
+          <hr />
+          <div>
+            <h5>Skills and Expertise</h5>
+            <div *ngFor="let skill of job.Skills" class="mb-2 float-left">
+              <a
+                routerLink="/job/search/{{ skill }}"
+                class="badge background-badge ml-2 p-2 rounded-pill"
+                >{{ skill }}</a
+              >
+            </div>
+            <br />
+            <hr />
+            <div>
+              <h5>Activity on this job</h5>
+              <p class="text-secondary pb-2">
+                Proposals:
+                <span class="text-dark">{{ job.Proposals.length }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card shadow-md col-sm-12 col-lg-3">
+      <div class="my-3 mx-auto">
+        <button type="button" class="btn btn-success submit-btn-color">
+          Submit a proposal
+        </button>
+      </div>
+      <p>Available Connects: {{ freelancer.Connects }}</p>
+      <hr />
+      <div>
+        <h5>About the client</h5>
+        <div>
+          <span class="pb-2">Rating:</span>
+
+          <span class="ml-2">
+            <span class="fa fa-star text-success"></span>
+            <span class="fa fa-star text-success"></span>
+            <span class="fa fa-star text-success"></span>
+            <span class="fa fa-star text-success"></span>
+            <span class="fa fa-star text-color"></span>
+          </span>
+        </div>
+        <div>
+          <p class="py-2">
+            <strong>{{ job.Country }}</strong>
+          </p>
+          <p class="pb-2">
+            <strong>{{ client.Jobs.length }} Jobs posted</strong>
+          </p>
+          <small class="text-secondary pb-2"
+            >Member since
+            {{
+              client.createdAt ? client.createdAt.slice(0, 10) : 0
+            }}​​​​​​</small
+          >
+        </div>
+      </div>
+    </div>
+    <div
+      *ngIf="clientJobs.length > 0"
+      class="mt-3 card justify-content-center shadow-md col-sm-12 col-lg-12"
+    >
+      <div class="card-header" style="background-color: transparent">
+        <div class="col-md-12 p-2">
+          <p class="h2">Client's recent history</p>
+        </div>
+      </div>
+
+      <div *ngFor="let job of clientJobs; let currentIndex = index">
+        <div
+          *ngIf="currentIndex >= clientJobs.length - 5"
+          class="card-body mb-1 p-4"
+        >
+          <p class="card-title h5">
+            <a routerLink="/job/{{ job._id }}" class="header-link-jobs">
+              {{ job.Name }}
+            </a>
+          </p>
+          <!-- </div> -->
+
+          <div class="mb-1">
+            <span>
+              <span class="fa fa-star text-color"></span>
+              <span class="fa fa-star text-color"></span>
+              <span class="fa fa-star text-color"></span>
+              <span class="fa fa-star text-color"></span>
+              <span class="fa fa-star text-color"></span>
+            </span>
+
+            <span
+              >Ariel is a joy to work with. I highly recommended her to anyone
+              gets the opportunity to work together. Thank you
+            </span>
+          </div>
+
+          <div>
+            <span>To freelancer: </span>
+
+            <span class="header-link-jobs">Mukesh T </span>
+
+            <span>
+              <span class="fa fa-star text-color"></span>
+              <span class="fa fa-star text-color"></span>
+              <span class="fa fa-star text-color"></span>
+              <span class="fa fa-star text-color"></span>
+              <span class="fa fa-star text-color"></span>
+            </span>
+
+            <span> Amazing Experience! Very fast and great knowledge.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

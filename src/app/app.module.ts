@@ -1,11 +1,23 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
+// import { HomeComponent } from './shared/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './../app/modules/register/login/login.component';
+
+import { JobDetailsComponent } from './modules/components/job-details/job-details.component';
+// import { SignupModule } from './modules/freelancer/signup/signup.module';
+
 
 import { PostJobModule } from './modules/client/post-job/post-job.module';
-import { HttpClientModule } from '@angular/common/http';
+
 
 // import { CardComponent } from './modules/shared/card/card.component';
 // import {ClientModule} from "./modules/client/client.module";
@@ -20,8 +32,27 @@ import { HttpClientModule } from '@angular/common/http';
     // SideNavComponent
     // CardComponent,
     // PostJobComponent
+    FooterComponent,
+    HeaderComponent,
+    // HomeComponent,
+    LoginComponent,
+    JobDetailsComponent,
+    // SignupModule
   ],
-  imports: [BrowserModule, AppRoutingModule, PostJobModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    SharedModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    NgModule,
+    PostJobModule
+    // SignupModule
+  ],
+  // imports: [BrowserModule, AppRoutingModule, PostJobModule, HttpClientModule],
   //   exports: [
   //     SomeTextPipe,
   //  ],

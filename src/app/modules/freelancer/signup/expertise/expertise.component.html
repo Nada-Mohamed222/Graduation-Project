@@ -1,0 +1,241 @@
+<div class="container-fluid backGround-color pb-5 pt-5">
+  <div class="row no-gutters justify-content-center mx-auto w-70">
+    <div class="col-lg-3 h-100 mx-auto d-none d-lg-block">
+      <!-- <app-sidebar></app-sidebar> -->
+      <!-- /#sidebar-wrapper-->
+      <a routerLink="freelancer/getstarted">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-arrow-up fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Get Started</div>
+          <div class="col-lg-1 p-0">
+            <i class="fas fa-check-circle correct-icon-color"></i>
+          </div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/expertise">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="far fa-id-badge fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Expertise</div>
+          <div class="col-lg-1 p-0">
+            <i class="fas fa-check-circle correct-icon-color"></i>
+          </div>
+        </div>
+      </a>
+      <a routerLink="/freelancer/expertiselevel">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="far fa-chart-bar fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Expertise Level</div>
+          <div class="col-lg-1 p-0">
+            <i class="fas fa-check-circle correct-icon-color"></i>
+          </div>
+        </div>
+      </a>
+      <a routerLink="/freelancer/languages">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0">
+            <i class="fas fa-microphone fa-lg"></i>
+          </div>
+          <div class="col-lg-8 p-0">Languages</div>
+          <div class="col-lg-1 p-0">
+            <i class="fas fa-check-circle correct-icon-color"></i>
+          </div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/hourlyrate">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0">
+            <i class="fas fa-dollar-sign fa-lg"></i>
+          </div>
+          <div class="col-lg-8 p-0">Hourly Rate</div>
+          <div class="col-lg-1 p-0">
+            <i class="fas fa-check-circle correct-icon-color"></i>
+          </div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/titleoverview">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-user-md fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Title &Overview</div>
+          <div class="col-lg-1 p-0">
+            <i class="fas fa-check-circle correct-icon-color"></i>
+          </div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/profilephoto">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="far fa-id-card fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Profile Photo</div>
+          <div class="col-lg-1 p-0">
+            <i class="fas fa-check-circle correct-icon-color"></i>
+          </div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/location">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0">
+            <i class="fas fa-map-marker-alt fa-lg"></i>
+          </div>
+          <div class="col-lg-8 p-0">Location</div>
+          <div class="col-lg-1 p-0">
+            <i class="fas fa-check-circle correct-icon-color"></i>
+          </div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/phone">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-phone fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Phone</div>
+          <div class="col-lg-1 p-0">
+            <i class="fas fa-check-circle correct-icon-color"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-lg-9 h-100">
+      <!-- Expertise -->
+      <div class="container-fluid backGround-color pb-5">
+        <div class="card justify-content-center mx-auto shadow-lg">
+          <div
+            class="card-header get-started-title"
+            style="background-color: transparent"
+          >
+            <h2>Expertise</h2>
+            <h5 class="text-muted">2 of 9</h5>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Tell us about the work you do</h4>
+            <br />
+            <h4 class="card-text pg-desc-getStarted">
+              What is the main service you offer?
+            </h4>
+
+            <form [formGroup]="formGroup">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1"></label>
+                <select
+                  formControlName="MainServices"
+                  required
+                  class="form-control fs-categories"
+                  id="exampleFormControlSelect1"
+                >
+                  <option>Web, Mobile & Software Dev</option>
+                  <option>Accounting & Consulting</option>
+                  <option>Admin Support</option>
+                  <option>Customer Service</option>
+                  <option>Data Science & Analytics</option>
+                  <option>Design & Creactive</option>
+                  <option>Engineering & Architecture</option>
+                  <option>IT & Networking</option>
+                  <option>Legal</option>
+                  <option>Sales & Marketing</option>
+                  <option>Translation</option>
+                  <option>Writing</option>
+                </select>
+                <div
+                  *ngIf="
+                    formGroup.controls['MainServices'].invalid &&
+                    (formGroup.controls['MainServices'].touched ||
+                      formGroup.controls['MainServices'].dirty)
+                  "
+                >
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="
+                      formGroup.controls['MainSkills'].hasError('required')
+                    "
+                    >Required MainServices</small
+                  >
+                </div>
+              </div>
+              <h5 class="card-text pg-desc-getStarted">
+                What skills do you offer clients?
+              </h5>
+              <div class="form-group mb-5">
+                <label for="comment" class="sub-title mb-3"></label>
+                <input
+                  type="text"
+                  class="form-control mb-3"
+                  #inputskill
+                  (keydown.enter)="
+                    addSkill(inputskill.value); inputskill.value = ''
+                  "
+                  formControlName="Skills"
+                  [(ngModel)]="skill"
+                />
+
+                <span
+                  class="chips text-white px-4 pb-1 m-2 plain-text text"
+                  *ngFor="let skill of skills"
+                  #span
+                  (click)="removeSkill(span.value)"
+                >
+                  <span
+                    class="small ml-1"
+                    [ngClass]="{
+                      'glyphicon glyphicon-ok': inputskill.value != ''
+                    }"
+                  ></span>
+                  {{ skill }}
+                </span>
+
+                <div
+                  *ngIf="
+                    (formGroup.invalid &&
+                      formGroup.controls['MainSkills'].touched) ||
+                    formGroup.controls['MainSkills'].touched
+                  "
+                >
+                  <p
+                    *ngIf="
+                      formGroup.controls['MainSkills'].hasError('required')
+                    "
+                    class="text-danger hint"
+                  >
+                    required skills
+                  </p>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div
+            class="card-footer mt-5 mb-4"
+            style="background-color: transparent"
+          >
+            <a
+              routerLink="/freelancer/getstarted"
+              class="btn btn-success back-btn float-left mt-3"
+              >Back</a
+            >
+            <!-- <a routerLink="/freelancer/expertiselevel" class="btn btn-success fill-out-btn float-right mt-3" [disabled]="formGroup.invalid">Next</a> -->
+            <a routerLink="/freelancer/expertiselevel">
+              <!-- [disabled]="formGroup.invalid" -->
+              <button
+                type="button"
+                class="btn btn-success fill-out-btn float-right mt-3"
+                (click)="storeData()"
+              >
+                Next
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

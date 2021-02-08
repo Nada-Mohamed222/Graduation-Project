@@ -2,25 +2,52 @@ export class Job {
   //job properties
 
   //start data
-  Name: string;
-  Category: string;
-  Description: string;
-  additionalFiles?: string;
+  // Name: string;
+  // Category: string;
+  // Description: string;
+  // additionalFiles?: string;
 
-  // details data
-  JobType: string;
-  Skills?: string;
-  freelancerNumber: number;
-  ExpertiseLevel: string;
-  screeningQuestion?: string;
+  // // details data
+  // JobType: string;
+  // Skills?: string;
+  // freelancerNumber: number;
+  // ExpertiseLevel: string;
+  // screeningQuestion?: string;
 
-  // budget data
-  // EarningType: string;
-  // Earning: number;
+  // // budget data
+  // // EarningType: string;
+  // // Earning: number;
 
-  PaymentType: string;
-  Price: number;
-  Duration: number;
+  // PaymentType: string;
+  // Price: number;
+  // Duration: number;
+  EmployerUserName: String;
+  Name: String;
+  Category: String;
+  Description: String;
+  JobType: String;
+  
+  // may cause error
+  Skills:string;
+  
+  ExpertiseLevel: String;
+  TalentsRequired: Number;
+  Country: String;
+  JobSuccessScore: Number;
+  EnglishLevel: String;
+  Earning: Number;
+  PaymentType: String;
+  Price: Number;
+  Duration: Number;
+  WeeklyHoursRequired: Number;
+  EmployerRating: Number;
+  EmployerReview: String;
+  TalentUserName: String
+  TalentRating: Number;
+  TalentReview: String;
+  Proposals: Array<string> =[];
+  ConnectsNeeded: Number;
+  Status: String;
 
   constructor(
     Name: string,
@@ -60,3 +87,4 @@ export class Job {
     this.Duration = Duration;
   }
 }
+

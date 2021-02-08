@@ -1,0 +1,55 @@
+<div class="container-fluid backGround-color pb-5 pt-5">
+    <div class="row no-gutters justify-content-center mx-auto w-70">
+        <div class="col-lg-3 h-100 mx-auto d-none d-lg-block">
+            <app-sidebar></app-sidebar>
+        </div>
+
+        <div class="col-lg-9 h-100">
+            <!-- title and overview -->
+            <div class="container-fluid backGround-color pb-5">
+                <div class="card justify-content-center mx-auto shadow-lg" >
+                    <div class="card-header get-started-title" style="background-color: transparent;">
+                        <h2>Title & Overview</h2>
+                        <h5 class="text-muted">6 of 9</h5>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="https://www.upwork.com/resources/9-tips-create-freelancer-profile-stands-out" target="_blank" style="color:#37A000 ;">Learn More</a> about writing a great profile or browse profiles in your category.</h4><br>
+                        <!-- <span class="card-text pg-desc-titleOverview">Title</span> -->
+                        <form [formGroup]="formGroup">
+                            <div class="form-group">
+                                <label for="exampleFormControlTitle" class="pg-desc-titleOverview">Title</label>
+                                <span class="ml-4" style="color: #37A000;"><i class="fas fa-question-circle fa-lg"></i></span>
+                                <input formControlName="Title" type="email" class="form-control input-desc-titleOverview" id="exampleFormControlTitle" placeholder="Example: Web, Mobile & Software Dev">
+                                <div *ngIf ="formGroup.controls['Title'].invalid && (formGroup.controls['Title'].touched ||  formGroup.controls['Title'].dirty)">
+                                    <small class="form-text text-danger" *ngIf="formGroup.controls['Title'].hasError('required')">Required Title</small>
+                                </div>
+                            </div>
+                            <div class="form-group mt-5">
+                                <label for="exampleFormControlTextarea1" class="pg-desc-titleOverview">Professional Overview</label>
+                                <span class="ml-4" style="color: #37A000;"><i class="fas fa-question-circle fa-lg"></i></span>
+                                <textarea formControlName="ProfessionalOverview" class="form-control textarea-desc-titleOverview" #inputCharacter (keyup)="countCharacters(inputCharacter.value)" maxlength="5000" id="exampleFormControlTextarea1" rows="3" placeholder="Highlight your top skills, experience, and interests. This is one of the first things clients will see on your profile."></textarea>
+                                <div *ngIf ="formGroup.controls['ProfessionalOverview'].invalid && (formGroup.controls['ProfessionalOverview'].touched ||  formGroup.controls['ProfessionalOverview'].dirty)">
+                                    <small class="form-text text-danger" *ngIf="formGroup.controls['Title'].hasError('required')">Required Professional Overview</small>
+                                </div>
+                                <span class="float-right textarea-titleOverview">{{remaningCharacters}} characters left</span>
+                            </div>
+                        </form>
+                    </div>
+                    <a routerLink="/freelancer/profilephoto" class="ml-4 skip-titleOverview">Skip this step</a>
+                    <div class="card-footer mt-5 mb-4" style="background-color: transparent;">
+                        <a routerLink="/freelancer/hourlyrate" class="btn btn-success back-btn float-left mt-3">Back</a>
+                        <!-- <a routerLink="/freelancer/profilephoto" class="btn btn-success fill-out-btn float-right mt-3">Next</a> -->
+                        <a routerLink="/freelancer/profilephoto">
+                            <button [disabled]="formGroup.invalid" type="button" class="btn btn-success fill-out-btn float-right mt-3" (click)="storeData()">Next</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        
+    </div>
+</div>
+

@@ -1,0 +1,38 @@
+.login-btn{
+    background-color: #37A000; 
+    font-size: 15px;
+    font-weight: bold;
+}
+.w-70{
+    width:70%;
+}
+.backGround-color {
+    background-color: #ebebeb;
+}
+
+.fs-categories{
+    font-size: 15px;
+}
+.fontsize-location{
+    font-size:12px;
+}
+.circle-icon {
+    border-radius: 50%;
+    border: 1px solid #ebebeb;
+}
+.bold-hourlyRate{
+    font-weight: bold;
+}
+.fontSize-skills{
+    font-weight: bold;
+}
+.fill-out-btn{
+    background-color: #37A000; 
+    font-size: 15px;
+}
+.fontsize-reviewProfile-desc{
+    font-size: 13px;
+}
+.fontsize-reviewProfile-title{
+    font-size: 16px;
+}

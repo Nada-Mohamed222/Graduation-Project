@@ -1,0 +1,14 @@
+.footer-background-color{
+    background-color: #1D4354 !important;
+}
+
+.footer-fontSize{
+    font-size: 13px;
+}
+footer{
+    height: 60vh !important;
+}
+.icons-color{
+    background-color: #336278;
+    border: 1px solid #336278;
+}
