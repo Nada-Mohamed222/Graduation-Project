@@ -38,7 +38,7 @@ export class DetailsComponent implements OnInit {
       Skills: [''],
       ScreeningQuestion: [''],
       FreelancerNumber: ['One freelancer'],
-      ExperienceLevel: ['Entery'],
+      ExperienceLevel: ['Entry'],
     });
   }
 
@@ -114,7 +114,9 @@ export class DetailsComponent implements OnInit {
   }
   //store if vaild
   StoreDataAndNavigate() {
-    if (this.isDetailsValid()) this.storeData();
-    else console.log('not valid');
+    if (this.isDetailsValid()) {
+      this.storeData();
+      this._sharingData.isDetailsDone.next(true);
+    } else console.log('not valid');
   }
 }

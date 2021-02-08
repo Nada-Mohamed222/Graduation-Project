@@ -6,24 +6,28 @@
     routerLink="/post-job/title"
     itemTitle="Start"
     icon="fas fa-pencil-alt ml-0"
+    activateCondition="{{ true }}"
   ></app-nave-item>
   <!-- Details -->
   <app-nave-item
     routerLink="/post-job/details"
     itemTitle="Details"
     icon="far fa-clipboard"
+    activateCondition="{{ isStartDone }}"
   ></app-nave-item>
   <!-- Budget -->
   <app-nave-item
     routerLink="/post-job/budget"
     itemTitle="Budget"
     icon="fas fa-dollar-sign mr-3"
+    activateCondition="{{ isDetailsDone }}"
   ></app-nave-item>
   <!-- Budget -->
   <app-nave-item
-    routerLink="/post-job/review"
+    routerLink="/review"
     itemTitle="Review"
     icon="fas fa-check"
+    activateCondition="{{ isBudgetDone }}"
   ></app-nave-item>
 </section>
 

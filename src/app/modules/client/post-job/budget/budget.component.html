@@ -122,6 +122,7 @@
             <button
               type="button"
               class="btn btn-outline-gray text-success btn-lg py-2 px-5 mr-3"
+              routerLink="/post-job/details"
             >
               <b>Back</b>
             </button>
@@ -130,6 +131,7 @@
               class="btn btn-success btn-lg py-2 px-5"
               (click)="StoreDataAndNavigate()"
               [disabled]="!isBudgetValid()"
+              routerLink="/post-job/review"
             >
               <!-- 
                    (click)="storeData()"

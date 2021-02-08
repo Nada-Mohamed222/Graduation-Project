@@ -30,13 +30,13 @@ export class ReviewComponent implements OnInit {
     if (this.budgetData.payment === 'Hourly') {
       this.dutationTitle = 'Project Duration';
       this.projectDuration = this.pricingData.projectDuration;
-      return 'HourlyRate';
+      return 'Hourly';
     }
     if (this.budgetData.payment === 'Fixed price') {
       this.dutationTitle = '';
       this.projectDuration = '';
 
-      return 'FixedPrice';
+      return 'Fixed Price';
     }
   }
 
@@ -70,8 +70,8 @@ export class ReviewComponent implements OnInit {
       this.paymentType,
       // this.price,
       this.price,
+
       1
-      // this.projectDuration
     );
 
     _postJobService.postJob(job).subscribe(

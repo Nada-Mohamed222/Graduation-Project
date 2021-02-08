@@ -89,7 +89,8 @@ export class BudgetComponent implements OnInit {
   StoreDataAndNavigate() {
     if (this.isBudgetValid()) {
       this.storeData();
-      this.router.navigateByUrl('/review');
+      // this.router.navigateByUrl('/review');
+      this._sharingData.isBudgetDone.next(true);
     } else console.log('not valid');
   }
 }

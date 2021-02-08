@@ -25,16 +25,16 @@
         <!-- post content -->
         <div *ngFor="let job of jobs | reverse; let currentIndex = index">
           <app-post
-            jobName="{{ job.data.Name }}"
-            paymentType="{{ job.data.PaymentType }}"
-            experienceLevel="{{ job.data.ExpertiseLevel }}"
-            price="{{ job.data.Price }}"
-            description="{{ job.data.Description }}"
-            priceType="{{ job.data.PaymentType }}"
+            jobName="{{ job.Name }}"
+            paymentType="{{ job.PaymentType }}"
+            experienceLevel="{{ job.ExpertiseLevel }}"
+            price="{{ job.Price }}"
+            description="{{ job.Description }}"
+            priceType="{{ job.PaymentType }}"
           ></app-post>
           <div
             class="skills mx-2 mt-0 text-center hint"
-            *ngFor="let skill of job.data.Skills"
+            *ngFor="let skill of job.Skills"
           >
             <app-chip skill="{{ skill }}"></app-chip>
           </div>

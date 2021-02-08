@@ -9,6 +9,7 @@ import { Job } from 'src/app/models/job';
 })
 export class ProfileComponent implements OnInit {
   jobs: {};
+  skills = ['html', 'css'];
   constructor(private _getJob: JobPost) {}
 
   ngOnInit(): void {
@@ -27,10 +28,12 @@ export class ProfileComponent implements OnInit {
       )
       .subscribe(
         (posts) => {
-          this.jobs = posts.slice(1)[0];
-          console.log(this.jobs);
+          console.log(posts);
+          this.jobs = posts;
+          console.log(this.jobs[0]);
         },
         (error) => {
+          console.log(' ايروررررر ياني');
           console.log(error);
         }
       );

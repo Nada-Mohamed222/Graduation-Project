@@ -1,7 +1,11 @@
 <div class="row nav-item mb-4">
   <div class="col-md-7 sm-size">
     <strong class="mr">
-      <a [routerLink]="routerlink" routerLinkActive="active">
+      <a
+        [routerLink]="routerlink"
+        routerLinkActive="active"
+        [ngClass]="{ disabled: !activateCondition }"
+      >
         <span [class]="icon"></span>
         {{ itemTitle }}</a
       >
@@ -9,6 +13,9 @@
   </div>
 
   <div class="col-md-5 icons">
-    <i class="fas fa-check-circle text-success mr"></i>
+    <i
+      class="fas fa-check-circle text-success mr"
+      [ngClass]="{ disabled: !activateCondition }"
+    ></i>
   </div>
 </div>

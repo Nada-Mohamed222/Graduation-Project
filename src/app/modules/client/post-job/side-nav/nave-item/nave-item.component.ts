@@ -11,6 +11,16 @@ export class NaveItemComponent implements OnInit {
   @Input() routerlink: string;
   @Input() itemTitle: string;
 
+  activateCondition = false;
+
+  @Input('activateCondition')
+  // get showTitle(): boolean {
+  //   return this.activateCondition;
+  // }
+  set showTitle(value: boolean) {
+    this.activateCondition = '' + value !== 'false';
+  }
+
   constructor() {}
 
   ngOnInit(): void {}

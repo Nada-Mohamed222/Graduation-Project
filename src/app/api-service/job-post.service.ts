@@ -17,6 +17,6 @@ export class JobPost {
   }
 
   getJobs() {
-    return this._apiService.get(`job/`);
+    return this._apiService.get(`employer/employer1/jobs`);
   }
 }

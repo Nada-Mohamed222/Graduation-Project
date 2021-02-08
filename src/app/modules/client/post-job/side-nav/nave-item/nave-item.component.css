@@ -3,10 +3,10 @@
   position: relative;
   left: 35%;
 }
-
+/* 
 .active-link:active {
   border-left: 4px solid #47a815;
-}
+} */
 p {
   display: inline;
 }
@@ -21,4 +21,8 @@ span {
 }
 .icons {
   padding-left: 0px;
+}
+.disabled {
+  color: gray !important;
+  cursor: not-allowed !important;
 }
