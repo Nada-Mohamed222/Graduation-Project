@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './../app/modules/register/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JobDetailsComponent } from './modules/components/job-details/job-details.component';
+import { ViewProfileComponent } from './modules/components/view-profile/view-profile.component';
 // import { SignupModule } from './modules/freelancer/signup/signup.module';
 
 
@@ -23,6 +24,7 @@ import { JobDetailsComponent } from './modules/components/job-details/job-detail
     // HomeComponent,
     LoginComponent,
     JobDetailsComponent,
+    ViewProfileComponent,
     // SignupModule
   ],
   imports: [

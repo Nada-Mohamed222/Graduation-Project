@@ -13,8 +13,6 @@
     top: 50%;   
     transform: translate(-50%, -50%);
     box-shadow: 3px 3px 3px white;
-    width: 40%;
-    height: 90%;
 }
 .card-heading{
     font-size:24px;
@@ -39,6 +37,12 @@
     font-size: 20px;
     text-align: center;
     margin-top: 20px;
+}
+/* .changeType:checked +label{
+} */
+[type="radio"]:checked ~ label {
+    background-color: #133501;
+
 }
 .home-img{
     width: 100%;
@@ -84,14 +88,12 @@
     font-size: 15px;
 }
 .btn-size-home{
-    width: 32%;
     font-size: 15px;
     font-weight: bold;
     align-items: center;
     background-color: #37A000;
 }
 .create-btn-size-home{
-    width: 32%;
     font-size: 15px;
     font-weight: bold;
     align-items: center;
@@ -106,26 +108,31 @@
 }
 @media (max-width:575px)
 {
-    .bg-color{
-        /* height:110vh !important;  */
-    }
     .card-center{
-        width: 50%;
-        height: 100%;
+        margin: 0 auto;
+        float: none; 
+        height: 114%;
+        left: 50%;   
+        top: 50%;   
+        transform: translate(-50%, -50%);
+        box-shadow: 3px 3px 3px white;
     }
     .card-heading{
-        font-size:20px;
+        font-size:17px;
     }
     .btn-size-home{
         font-size: 9px;
     }
     .create-btn-size-home{
         font-size: 9px;
-        margin-bottom: 50px;
+        margin-bottom: 10px;
     }
     .checkout-styling-home{
         font-size: 10px;
     } 
+    input[type="checkbox"]{
+        margin: 0 0 0 0;
+    }
     .home-img{
         width: 40%;
         margin-left: 180px;
@@ -156,12 +163,6 @@
 
 @media (min-width:576px) and (max-width:767px)
 {
-    .bg-color{
-        height:90vh !important; 
-    }
-    .card-center{
-        top: 43%;
-    }
     .card-heading{
         font-size:20px;
     }
@@ -203,12 +204,6 @@
 }
 @media (min-width:768px) and (max-width:920px)
 {
-    .bg-color{
-        /* height:90vh !important;  */
-    }
-    .card-center{
-        top: 50%;
-    }
     .card-heading{
         font-size:23px;
     }
@@ -219,7 +214,6 @@
         font-size: 10px;
     }
     .create-btn-size-home{
-        width: 40%;
         font-size: 15px;
         margin-bottom: 100px;
     }
@@ -254,9 +248,6 @@
 }
 @media (min-width:921px) and (max-width:1200px)
 {
-    .bg-color{
-        /* height:90vh !important;  */
-    }
     .card-center{
         top: 50%;
     }

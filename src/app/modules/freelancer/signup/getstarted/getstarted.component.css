@@ -43,7 +43,7 @@ a:hover, a:visited, a:link, a:active{
 .fill-out-btn{
     background-color: #37A000; 
     font-size: 13px;
-    width: 30%;
+    width:25%
 }
 .pg-desc-getStarted{
     font-size: 16px;
@@ -56,7 +56,6 @@ a:hover, a:visited, a:link, a:active{
     .fill-out-btn{
         background-color: #37A000; 
         font-size: 7px;
-        width: 100%;
     }
     .pg-desc-getStarted{
         font-size: 13px;
@@ -71,7 +70,6 @@ a:hover, a:visited, a:link, a:active{
     .fill-out-btn{
         background-color: #37A000; 
         font-size: 11px;
-        width: 60%;
     }
     .pg-desc-getStarted{
         font-size: 12px;
@@ -86,7 +84,6 @@ a:hover, a:visited, a:link, a:active{
     .fill-out-btn{
         background-color: #37A000; 
         font-size: 13px;
-        width: 80%;
     }
     .pg-desc-getStarted{
         font-size: 13px;
@@ -100,7 +97,6 @@ a:hover, a:visited, a:link, a:active{
     .fill-out-btn{
         background-color: #37A000; 
         font-size: 15px;
-        width: 80%;
     }
     .pg-desc-getStarted{
         font-size: 15px;

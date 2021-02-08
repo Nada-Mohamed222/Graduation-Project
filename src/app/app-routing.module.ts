@@ -1,3 +1,4 @@
+import { ViewProfileComponent } from './modules/components/view-profile/view-profile.component';
 import { ProfileComponent } from './modules/freelancer/signup/profile/profile.component';
 import { LoginComponent } from './../app/modules/register/login/login.component'
 import { NgModule } from '@angular/core';
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'job/search/:skill',component:ProfileComponent,pathMatch: 'full', data:{search: true}},
   {path:'job/:id',component:JobDetailsComponent,pathMatch: 'full'},
+  {path:'viewprofile',component:ViewProfileComponent},
 ];
 
 @NgModule({
