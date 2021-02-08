@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-export class Client {}
-=======
 export class Client{
     Email: String;
     UserName: String;
@@ -13,4 +10,3 @@ export class Client{
     Jobs:Array<Object>=[];
     createdAt:String;
 }
->>>>>>> 80810d95dad3b0c51d406ba4f772ecc9f964ceaf

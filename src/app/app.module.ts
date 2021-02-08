@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 // import { HomeComponent } from './shared/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './../app/modules/register/login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { JobDetailsComponent } from './modules/components/job-details/job-details.component';
 // import { SignupModule } from './modules/freelancer/signup/signup.module';
@@ -48,8 +49,8 @@ import { PostJobModule } from './modules/client/post-job/post-job.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgModule,
-    PostJobModule
+    NgbModule,
+    PostJobModule,
     // SignupModule
   ],
   // imports: [BrowserModule, AppRoutingModule, PostJobModule, HttpClientModule],

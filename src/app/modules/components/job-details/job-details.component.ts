@@ -14,7 +14,7 @@ import { Freelancer } from 'src/app/models/freelancer';
 export class JobDetailsComponent implements OnInit {
 
   id:string = "";
-  job:Job= new Job();
+  job:Job;
   clientJobs:Array<Job>=[];
   client:Client = new Client(); 
   freelancer: Freelancer= new Freelancer();

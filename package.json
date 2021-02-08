@@ -23,13 +23,10 @@
     "@angular/platform-browser-dynamic": "~11.0.5",
     "@angular/router": "~11.0.5",
     "@fortawesome/angular-fontawesome": "^0.8.1",
-<<<<<<< HEAD
-    "bootstrap": "^4.5.3",
-=======
     "@ng-bootstrap/ng-bootstrap": "^9.0.2",
     "bootstrap": "^4.6.0",
->>>>>>> 80810d95dad3b0c51d406ba4f772ecc9f964ceaf
     "jwt-decode": "^3.1.2",
+    "ng-modules": "^3.0.11",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

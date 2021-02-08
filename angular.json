@@ -127,10 +127,6 @@
   },
   "defaultProject": "graduation-project",
   "cli": {
-<<<<<<< HEAD
     "analytics": "8610f7ff-5832-490f-9b51-c3db064f940b"
-=======
-    "analytics": "e069c9e2-726f-45b7-b095-3dfd1ae262a5"
->>>>>>> 80810d95dad3b0c51d406ba4f772ecc9f964ceaf
   }
 }
