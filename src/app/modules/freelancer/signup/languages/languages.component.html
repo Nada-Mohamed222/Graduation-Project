@@ -25,7 +25,7 @@
                                     <option>Fluent</option>
                                     <option>Native or Bilingual</option>
                                 </select>
-                                <div *ngIf ="formGroup.controls['Language'].invalid && (formGroup.controls['Language'].touched ||  formGroup.controls['Language'].dirty)">
+                                <div *ngIf ="(formGroup.controls['Language'].invalid) && ((formGroup.controls['Language'].touched) ||  (formGroup.controls['Language'].dirty))">
                                     <small class="form-text text-danger" *ngIf="formGroup.controls['Language'].hasError('required')">Required Language</small>
                                 </div>
 

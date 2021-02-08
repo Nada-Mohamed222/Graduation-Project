@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
     freelancerSignUp.Email = email;
     freelancerSignUp.Password = password;
     freelancerSignUp.UserName = username;
-    this._freelancerService.signUp(freelancerSignUp).subscribe(response => {
+    this._freelancerService.signUp(freelancerSignUp, this.signUpType).subscribe(response => {
       // this.freelancerSignUpArr.push(freelancerSignUp);
       // alert("Add New User is Donee");
       this.loginBtn(email,password);
@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
     let freelancerLogin:Freelancer = new Freelancer();
     freelancerLogin.Email = email;
     freelancerLogin.Password = password;
-    this._freelancerService.login(freelancerLogin).subscribe((response:any) => {
+    this._freelancerService.login(freelancerLogin, this.signUpType).subscribe((response:any) => {
       this._jwtTokenService.decodeToken(response.token);
     },error =>{
       alert("Sorry error occurred");

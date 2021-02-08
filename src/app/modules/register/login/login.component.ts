@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       let freelancerLogin:Freelancer = new Freelancer();
       freelancerLogin.Email = email;
       freelancerLogin.Password = password;
-      this._freelancerService.login(freelancerLogin).subscribe((response:any) => {
+      this._freelancerService.login(freelancerLogin, "talent").subscribe((response:any) => {
         // this.parseCookies();
         this._jwtTokenService.decodeToken(response.token);
         this._freelancerService.get().subscribe((response:any)=> {

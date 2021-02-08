@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { SharingDataService } from '../sharing-data-service/sharing-data.service';
@@ -12,9 +13,12 @@ export class HourlyrateComponent implements OnInit {
   inputMoney:number = 8.00;
   deductedAmount: number = 2.00;
   formGroup:FormGroup;
-  constructor(private _formBuilder:FormBuilder,private _sharingData:SharingDataService) { }
+  constructor(private _formBuilder:FormBuilder,private _sharingData:SharingDataService ,private router: Router) { }
 
   ngOnInit(): void {
+    if (!this._sharingData.isEligible.hourlyRate) {
+      this.router.navigateByUrl('/freelancer/languages');
+    }
     this.formGroup = this._formBuilder.group({
       HourlyRate: ['',[Validators.required,Validators.min(5)]]    
     })

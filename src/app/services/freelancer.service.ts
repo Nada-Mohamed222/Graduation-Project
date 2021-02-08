@@ -12,14 +12,14 @@ export class FreelancerService {
   
   constructor(private _apiServices:ApiService) { }
 
-  login(freelancer:Freelancer)
+  login(freelancer:Freelancer, type:string)
   {
-    return this._apiServices.Loginpost(`talent/login`,freelancer);
+    return this._apiServices.Loginpost(`${type}/login`,freelancer);
   }
 
-  signUp(freelancer:Freelancer)
+  signUp(freelancer:Freelancer, type:string)
   {
-    return this._apiServices.post(`talent/signup`,freelancer);
+    return this._apiServices.post(`${type}/signup`,freelancer);
   }
 
   create(freelancer:Freelancer)

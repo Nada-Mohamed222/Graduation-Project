@@ -1,3 +1,4 @@
+import { SharingDataService } from './../../modules/freelancer/signup/sharing-data-service/sharing-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _sharingData:SharingDataService) { }
+
+  completedData: any;
 
   ngOnInit(): void {
+    this.completedData = this._sharingData.isEligible;
   }
 
 }

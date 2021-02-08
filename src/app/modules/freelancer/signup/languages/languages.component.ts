@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { SharingDataService } from '../sharing-data-service/sharing-data.service';
@@ -11,9 +12,12 @@ export class LanguagesComponent implements OnInit {
 
   HaveAntherLanguage:boolean = false;
   formGroup:FormGroup;
-  constructor(private _formBulider:FormBuilder, private _sharingData:SharingDataService) { }
+  constructor(private _formBulider:FormBuilder, private _sharingData:SharingDataService, private router: Router) { }
 
   ngOnInit(): void {
+    if (!this._sharingData.isEligible.languages) {
+      this.router.navigateByUrl('/freelancer/expertiselevel');
+    }
     this.formGroup = this._formBulider.group({
       Language:['',[Validators.required]]
     })

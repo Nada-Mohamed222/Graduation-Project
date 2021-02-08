@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharingDataService } from '../sharing-data-service/sharing-data.service';
@@ -8,11 +9,13 @@ import { SharingDataService } from '../sharing-data-service/sharing-data.service
   styleUrls: ['./location.component.css']
 })
 export class LocationComponent implements OnInit {
-
   formGroup:FormGroup;
-  constructor(private _formBuilder:FormBuilder,private _sharingData:SharingDataService) { }
+  constructor(private _formBuilder:FormBuilder,private _sharingData:SharingDataService ,private router: Router) { }
 
   ngOnInit(): void {
+    if (!this._sharingData.isEligible.location) {
+      this.router.navigateByUrl('/freelancer/profilephoto');
+    }
     this.formGroup = this._formBuilder.group({
       Location: ['',[Validators.required]]     
     }); 

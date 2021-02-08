@@ -26,6 +26,9 @@ export class ProfilephotoComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    if (!this._sharingData.isEligible.profilePhoto) {
+      this.router.navigateByUrl('/freelancer/titleoverview');
+    }
     this.formGroup = this._formBuilder.group({
       profile: ['',[Validators.required]]     
     }); 

@@ -30,6 +30,9 @@ export class ReviewProfileComponent implements OnInit {
     private _freelancerService:FreelancerService, private router:Router) { }
 
   ngOnInit(): void {
+    if (!this._sharingData.isEligible.review) {
+      this.router.navigateByUrl('/freelancer/phone');
+    }
     this._freelancerService.get().subscribe((response:Freelancer)=>{
       this.getNameOfTheFreeelancer = response;
       console.log(response);

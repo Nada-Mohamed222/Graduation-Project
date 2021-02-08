@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SharingDataService } from '../sharing-data-service/sharing-data.service';
@@ -11,6 +12,7 @@ import { SharingDataService } from '../sharing-data-service/sharing-data.service
 })
 export class ExpertiseComponent implements OnInit {
 
+  completedData: any;
   skill:string = "";
   skills:Array<string> = [];
   formGroup: FormGroup;
@@ -18,10 +20,10 @@ export class ExpertiseComponent implements OnInit {
   
   ngOnInit(): void {
     const expertiseData:any =this._sharingData.getExpertiseData();
-    console.log(expertiseData);
+    this.completedData = this._sharingData.isEligible;
     this.formGroup = this._formBuilder.group({
       MainServices:['',[Validators.required]],
-      MainSkills:['',[Validators.required]]
+      MainSkills:['']
     })
   }
 
@@ -32,14 +34,13 @@ export class ExpertiseComponent implements OnInit {
       mainSkills: this.skills
     };
     this._sharingData.setExpertiseData(expertise);
-    console.log(expertise);
   }
 
 
-  addSkill(skill:string)
+  addSkill(skills:string)
   {
-    if(this.skill.length < 4){
-      this.skills.push(skill);
+    if(this.skills.length < 4){
+      this.skills.push(skills);
       this.skill = '';
     }
   }

@@ -40,7 +40,7 @@
 }
 /* .changeType:checked +label{
 } */
-[type="radio"]:checked ~ label {
+input[type="radio"]:checked + label {
     background-color: #133501;
 
 }

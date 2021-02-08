@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharingDataService } from '../sharing-data-service/sharing-data.service';
@@ -8,11 +9,15 @@ import { SharingDataService } from '../sharing-data-service/sharing-data.service
   styleUrls: ['./expertiselevel.component.css']
 })
 export class ExpertiselevelComponent implements OnInit {
-
   formGroup: FormGroup;
-  constructor(private _formBuilder:FormBuilder,private _sharingData:SharingDataService) { }
+  completedData: any;
+  constructor(private _formBuilder:FormBuilder ,private _sharingData:SharingDataService ,private router: Router) { }
 
   ngOnInit(): void {
+    if (!this._sharingData.isEligible.expertiseLevel) {
+      this.router.navigateByUrl('/freelancer/expertise');
+    }
+    this.completedData = this._sharingData.isEligible;
     this.formGroup = this._formBuilder.group({
       ExpertiseLevel:['',[Validators.required]],
     })
@@ -23,7 +28,6 @@ export class ExpertiselevelComponent implements OnInit {
       expertiseLevel: this.formGroup.controls['ExpertiseLevel'].value,
     };
     this._sharingData.setExpertiseLevelData(expertiseLevel);
-    console.log(expertiseLevel);
   }
 
 }

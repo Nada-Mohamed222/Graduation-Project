@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { SharingDataService } from '../sharing-data-service/sharing-data.service';
@@ -11,9 +12,12 @@ export class TitleoverviewComponent implements OnInit {
 
   remaningCharacters:number = 5000;
   formGroup:FormGroup;
-  constructor(private _formBuilder:FormBuilder,private _sharingData:SharingDataService) { }
+  constructor(private _formBuilder:FormBuilder,private _sharingData:SharingDataService ,private router: Router) { }
 
   ngOnInit(): void {
+    if (!this._sharingData.isEligible.titleOverview) {
+      this.router.navigateByUrl('/freelancer/hourlyrate');
+    }
     this.formGroup = this._formBuilder.group({
       Title:['',[Validators.required]],
       ProfessionalOverview:['',[Validators.required,Validators.maxLength(5000)]]

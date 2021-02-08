@@ -4,7 +4,7 @@
         <div class="col-lg-1 p-0"></div>
         <div class="col-lg-2 p-0"><i class="fas fa-arrow-up fa-lg"></i></div>
         <div class="col-lg-8 p-0">Get Started</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+        <!-- <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"></i></div> -->
     </div>
 </a>
 
@@ -13,7 +13,7 @@
         <div class="col-lg-1 p-0"></div>
         <div class="col-lg-2 p-0"><i class="far fa-id-badge fa-lg"></i></div>
         <div class="col-lg-8 p-0">Expertise</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color" *ngIf="completedData.languages"></i></div>
     </div>
 </a>
 <a routerLink="/freelancer/expertiselevel">
@@ -21,7 +21,7 @@
         <div class="col-lg-1 p-0"></div>
         <div class="col-lg-2 p-0"><i class="far fa-chart-bar fa-lg"></i></div>
         <div class="col-lg-8 p-0">Expertise Level</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color" *ngIf="completedData.languages"></i></div>
     </div>
 </a>
 <a routerLink="/freelancer/languages" >
@@ -29,7 +29,7 @@
         <div class="col-lg-1 p-0"></div>
         <div class="col-lg-2 p-0"><i class="fas fa-microphone fa-lg"></i></div>
         <div class="col-lg-8 p-0">Languages</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color" *ngIf="completedData.hourlyRate"></i></div>
     </div>
 </a>
 
@@ -38,7 +38,7 @@
         <div class="col-lg-1 p-0"></div>
         <div class="col-lg-2 p-0"><i class="fas fa-dollar-sign fa-lg"></i></div>
         <div class="col-lg-8 p-0">Hourly Rate</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color" *ngIf="completedData.titleOverview"></i></div>
     </div>
 </a>
 
@@ -47,7 +47,7 @@
         <div class="col-lg-1 p-0"></div>
         <div class="col-lg-2 p-0"><i class="fas fa-user-md fa-lg"></i></div>
         <div class="col-lg-8 p-0">Title &Overview</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color" *ngIf="completedData.profilePhoto"></i></div>
     </div>
 </a>
 
@@ -56,7 +56,7 @@
         <div class="col-lg-1 p-0"></div>
         <div class="col-lg-2 p-0"><i class="far fa-id-card fa-lg"></i></div>
         <div class="col-lg-8 p-0">Profile Photo</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color" *ngIf="completedData.location"></i></div>
     </div>
 </a>
 
@@ -65,7 +65,7 @@
         <div class="col-lg-1 p-0"></div>
         <div class="col-lg-2 p-0"><i class="fas fa-map-marker-alt fa-lg"></i></div>
         <div class="col-lg-8 p-0">Location</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color" *ngIf="completedData.phone"></i></div>
     </div>
 </a>
 
@@ -74,6 +74,6 @@
         <div class="col-lg-1 p-0"></div>
         <div class="col-lg-2 p-0"><i class="fas fa-phone fa-lg"></i></div>
         <div class="col-lg-8 p-0">Phone</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color" *ngIf="completedData.review"></i></div>
     </div>
 </a>
