@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Job } from './../../../../models/job';
 import { JobPost } from '../../../../api-service/job-post.service';
 import { SharingDataService } from './../../shared/services/sharing-data.service';
@@ -11,7 +12,7 @@ import { Component, Injector, OnInit } from '@angular/core';
 export class ReviewComponent implements OnInit {
   constructor(
     private _sharingData: SharingDataService,
-
+    private router: Router,
     private injector: Injector
   ) {}
 
@@ -76,6 +77,7 @@ export class ReviewComponent implements OnInit {
 
     _postJobService.postJob(job).subscribe(
       (response) => {
+        this.router.navigateByUrl('/client/profile');
         console.log(job);
         console.log('Done');
         console.log(response);
