@@ -20,16 +20,16 @@ export class FreelancerService {
     return this._apiServices.post(`${type}/signup`, freelancer);
   }
 
-  create(freelancer: Freelancer) {
-    return this._apiServices.post(`freelancer/post`, freelancer);
-  }
-
   update(freelancer: any) {
     return this._apiServices.Patch(`talent/${localStorage.getItem("UserName")}`, freelancer)
   }
 
   get() {
     return this._apiServices.get(`talent/${localStorage.getItem("UserName")}`);
+  }
+  
+  getByUserName(username:string) {
+    return this._apiServices.get(`talent/${username}`);
   }
 
   getAllJobs() {

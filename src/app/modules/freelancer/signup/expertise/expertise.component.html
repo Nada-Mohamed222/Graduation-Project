@@ -104,8 +104,8 @@
       <div class="container-fluid backGround-color pb-5">
         <div class="card justify-content-center mx-auto shadow-lg">
           <div class="card-header get-started-title" style="background-color: transparent">
-            <h2>Expertise</h2>
-            <h5 class="text-muted">2 of 9</h5>
+            <h4>Expertise</h4>
+            <h6 class="text-muted">2 of 9</h6>
           </div>
           <div class="card-body">
             <h5 class="card-title">Tell us about the work you do</h5>
@@ -149,7 +149,9 @@
                 <label for="comment" class="sub-title mb-3"></label>
                 <input type="text" class="form-control mb-3" #inputskill (keydown.enter)="
                     addSkill(inputskill.value); inputskill.value = ''
-                  " formControlName="MainSkills" [(ngModel)]="skill" />
+                  "formControlName="MainSkills"  [(ngModel)]="skill" />
+
+                <!-- <input type="text" class="form-control mb-3" formControlName="MainSkills" value="{{skills.toString()}}"/> -->
 
                 <span class="chips text-white px-4 pb-1 m-2 plain-text text" *ngFor="let skill of skills" #span
                   (click)="removeSkill(span.value)">
@@ -167,7 +169,7 @@
                   <p *ngIf="
                       formGroup.controls['MainSkills'].hasError('required')
                     " class="text-danger hint">
-                    required skills
+                    Required skills
                   </p>
                 </div>
               </div>
@@ -177,8 +179,7 @@
             <a routerLink="/freelancer/getstarted" class="btn btn-success back-btn float-left mt-3">Back</a>
             <!-- <a routerLink="/freelancer/expertiselevel" class="btn btn-success fill-out-btn float-right mt-3" [disabled]="formGroup.invalid">Next</a> -->
             <a routerLink="/freelancer/expertiselevel">
-              <!-- [disabled]="formGroup.invalid" -->
-              <button type="button" class="btn btn-success fill-out-btn float-right mt-3 text-white"
+              <button [disabled]="formGroup.invalid" type="button" class="btn btn-success fill-out-btn float-right mt-3 text-white"
                 (click)="storeData()">
                 Next
               </button>

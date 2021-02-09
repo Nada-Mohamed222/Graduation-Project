@@ -25,7 +25,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'job/search/:skill',component:ProfileComponent,pathMatch: 'full', data:{search: true}},
   {path:'job/:id',component:JobDetailsComponent,pathMatch: 'full'},
-  {path:'viewprofile',component:ViewProfileComponent},
+  {path:'freelancer/:username',component:ViewProfileComponent},
 ];
 
 @NgModule({

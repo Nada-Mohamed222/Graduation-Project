@@ -52,7 +52,12 @@ export class HomeComponent implements OnInit {
       // this.freelancerSignUpArr.push(freelancerSignUp);
       // alert("Add New User is Donee");
       this.loginBtn(email, password);
-      this.router.navigateByUrl('/freelancer/getstarted');
+      if (this.signUpType === "employer") {
+        this.router.navigateByUrl('/post-job/title');
+      }
+      if (this.signUpType === "talent") {
+        this.router.navigateByUrl('/freelancer/getstarted');
+      }
       console.log("Response ", response);
     }, error => {
       alert("Sorry error occurred");

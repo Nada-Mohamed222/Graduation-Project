@@ -6,17 +6,17 @@
                 <div class="card justify-content-center mx-auto shadow-lg border" >
                     <div class="card-header" style="background-color: transparent;">
                         <div class="media p-3">
-                            <img src="./../../../../assets/images/hire.png" alt="Profile Photo" class="mr-3 rounded-circle"
+                            <img src="http://localhost:5000/{{freelancer.ImageURL}}" alt="Profile Photo" class="mr-3 rounded-circle"
                               style="
                                 height: 100px !important;
                                 width: 100px !important;
                                 border-radius: 50%;
                                 object-fit: cover;"/>
                             <div class="media-body">
-                              <h4>Nada Mohamed</h4>
+                              <h4>{{freelancer.FirstName}} {{freelancer.LastName}}</h4>
                               <span class="fontsize-location ml-2">
                                   <i class="fas fa-map-marker-alt fa-lg pr-3"></i>
-                                  Location and Time
+                                  {{freelancer.Country}}
                                 </span>
                             </div>
                     </div>
@@ -27,47 +27,86 @@
                             <div class="col-lg-3">
                                 <div class="active"></div>
                                 <h4>View Profile</h4><br>
-                                <p class="mb-4">Full Stack Development</p>
+                                <p class="mb-4">{{freelancer.MainService}}</p>
                                 <hr>
                                 
                                 <div class="active"></div>
                                 <div>
                                     <h5 class="mb-3 mt-5">Availability</h5>
-                                    <h6>Available</h6>
-                                    <p>As Needed - Open to Offers</p><br><br>
+                                    <p>{{freelancer.Availability}}</p><br><br>
                                 </div>
 
                                 <div>
-                                    <h5 class="mb-3">Languages</h5>
-                                    <strong>English</strong>
-                                    <p>:Fluent</p>
-                                    <!-- <p class="font-weight">English<span>: Fluent</span></p> -->
+                                    <h5 class="mb-3">English Proficiency</h5>
+                                    <strong>{{freelancer.Languages}}</strong>
                                 </div>
                             </div>
 
                             <div class="col-lg-9">
                                 <div>
-                                    <span class="font-weight">Full Stack Web Developer</span>
-                                    <span class="float-right font-weight ml-3">$10.00/hr</span><br>
-                                    <p class="mt-5">Full Stack Web Developer with the passion of creating,
-                                        maintaining and enhancing web applications using many 
-                                        technologies and expertise in MEARN Stack.
+                                    <span class="font-weight">{{freelancer.Title}}</span>
+                                    <span class="float-right font-weight ml-3">${{freelancer.HourlyRate}}/hr</span><br>
+                                    <p class="mt-5">
+                                        {{freelancer.ProfessionalOverview}}
                                     </p>
                                 </div>
 
                                 <hr>
                                 <div class="mt-5">
                                     <h4>Skills</h4>
-                                    <p class="mt-4">HTML, CSS, JS</p>
+                                    <div *ngFor="let skill of freelancer.Skills" class="mb-2 float-left">
+                                        <a
+                                          routerLink="/job/search/{{ skill }}"
+                                          class="badge background-badge ml-2 p-2 rounded-pill"
+                                          >{{ skill }}</a>
+                                    </div>
                                 </div>
-
+                                <br>
                                 <hr>
-                                <div class="mt-5">
-                                    <h4>Other Experiences</h4>
-                                    <h6 class="mt-4">Machine Learning Developer Track Beginners Level</h6>
-                                    <p>Certified Machine Learning Developer from google</p>
-                                </div>
 
+                                <div class="mt-5">
+                                    <h4>Recent Job History</h4>
+                                        <div class="card-body mb-1 p-2">
+                                          <p class="card-title h5">
+                                            <a routerLink="/job/" class="header-link-jobs">
+                                             job name
+                                            </a>
+                                          </p>
+                                          <!-- </div> -->
+                                
+                                          <div class="mb-1">
+                                            <span>
+                                                <span class="fa fa-star text-color"></span>
+                                                <span class="fa fa-star text-color"></span>
+                                                <span class="fa fa-star text-color"></span>
+                                                <span class="fa fa-star text-color"></span>
+                                                <span class="fa fa-star text-color"></span>
+                                            </span>
+                                
+                                            <span
+                                              >Ariel is a joy to work with. I highly recommended her to anyone
+                                              gets the opportunity to work together. Thank you
+                                            </span>
+                                          </div>
+                                
+                                          <div>
+                                            <span>To freelancer: </span>
+                                
+                                            <span class="header-link-jobs">Mukesh T </span>
+                                
+                                            <span>
+                                              <span class="fa fa-star text-color"></span>
+                                              <span class="fa fa-star text-color"></span>
+                                              <span class="fa fa-star text-color"></span>
+                                              <span class="fa fa-star text-color"></span>
+                                              <span class="fa fa-star text-color"></span>
+                                            </span>
+                                
+                                            <span> Amazing Experience! Very fast and great knowledge.</span>
+                                          </div>
+                                        </div>
+                                      
+                                </div>
                             </div>
 
                         </div>
