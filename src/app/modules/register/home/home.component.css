@@ -1,292 +1,350 @@
 /*Home page with all of the information*/
-.bg-color{
-    background-color:#1D4354;
-    height:100vh !important; 
-    width: 100% !important;
+.bg-color {
+  background-color: #1D4354;
+  height: 100vh !important;
+  width: 100% !important;
 }
-.card-center{
-    margin: 0 auto;
-    float: none; 
-    margin-bottom: 10px;
-    position: absolute;
-    left: 50%;   
-    top: 50%;   
-    transform: translate(-50%, -50%);
-    box-shadow: 3px 3px 3px white;
+
+.card-center {
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 3px 3px 3px white;
 }
-.card-heading{
-    font-size:24px;
-    text-align: center;
+
+.card-heading {
+  font-size: 24px;
+  text-align: center;
 }
+
 .home-input-size,
-.home-btn{
-    margin-top: 20px;
-    font-size: 15px;
-    margin: auto;
+.home-btn {
+  margin-top: 20px;
+  font-size: 15px;
+  margin: auto;
 }
-.home-input-size{
-    width: 50%;
+
+.home-input-size {
+  width: 50%;
 }
-.home-btn{
-    width: 40%;
-    margin-left: 170px;
-    border-radius: 10px;
-    font-weight: bold;
+
+.home-btn {
+  width: 40%;
+  margin-left: 170px;
+  border-radius: 10px;
+  font-weight: bold;
 }
-.heading-of-images{
-    font-size: 20px;
-    text-align: center;
-    margin-top: 20px;
+
+.heading-of-images {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
+
 /* .changeType:checked +label{
 } */
-input[type="radio"]:checked + label {
-    background-color: #133501;
+input[type="radio"]:checked+label {
+  background-color: #133501;
 
 }
-.home-img{
-    width: 100%;
-    margin-top: 10px;
-    margin-left: 50px;
+
+.home-img {
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 50px;
 }
-.home-img1{
-    width: 100px;
-    margin-top: 10px;
-    margin-left: 100px;
+
+.home-img1 {
+  width: 100px;
+  margin-top: 10px;
+  margin-left: 100px;
 }
-.home-img2{
-    width: 50px;
-    margin-top: 20px;
-    margin-left: 150px;
+
+.home-img2 {
+  width: 50px;
+  margin-top: 20px;
+  margin-left: 150px;
 }
-.home-img3{
-    width: 130%;
+
+.home-img3 {
+  width: 130%;
+  margin-bottom: 10px;
+  margin-left: 150px;
+}
+
+.home-img4 {
+  width: 60%;
+  margin-left: 250px;
+}
+
+.home-img5 {
+  width: 60%;
+  margin-top: 40px;
+  margin-left: 300px;
+}
+
+.bg-media {
+  /* background-color: #ebebeb; */
+  background-color: #f1f2f4;
+}
+
+.heading-desc {
+  font-size: 20px;
+}
+
+.paragraph-desc {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+::-webkit-input-placeholder {
+  font-size: 15px;
+}
+
+.btn-size-home {
+  font-size: 15px;
+  font-weight: bold;
+  align-items: center;
+  background-color: #37A000;
+}
+
+.create-btn-size-home {
+  font-size: 15px;
+  font-weight: bold;
+  align-items: center;
+  margin-left: 33%;
+  background-color: #37A000;
+}
+
+.checkout-styling-home {
+  font-size: 12px;
+}
+
+.input-fontSize-form {
+  font-size: 13px;
+}
+
+@media (max-width:575px) {
+  .card-center {
+    margin: 0 auto;
+    float: none;
+    height: 114%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 3px 3px 3px white;
+  }
+
+  .card-heading {
+    font-size: 17px;
+  }
+
+  .btn-size-home {
+    font-size: 9px;
+  }
+
+  .create-btn-size-home {
+    font-size: 9px;
     margin-bottom: 10px;
-    margin-left: 150px;
+  }
+
+  .checkout-styling-home {
+    font-size: 10px;
+  }
+
+  input[type="checkbox"] {
+    margin: 0 0 0 0;
+  }
+
+  .home-img {
+    width: 40%;
+    margin-left: 180px;
+  }
+
+  .home-img1 {
+    width: 120px;
+    margin-left: 200px;
+  }
+
+  .home-img2 {
+    width: 50px;
+    margin-top: 30px;
+    margin-left: 250px;
+  }
+
+  .home-img3 {
+    width: 50%;
+    margin-left: 170px;
+  }
+
+  .home-img4 {
+    width: 25%;
+    margin-left: 220px;
+  }
+
+  .home-img5 {
+    width: 20%;
+    margin-bottom: 40px;
+    margin-left: 240px;
+  }
 }
-.home-img4{
+
+@media (min-width:576px) and (max-width:767px) {
+  .card-heading {
+    font-size: 20px;
+  }
+
+  .btn-size-home {
+    font-size: 11px;
+  }
+
+  .create-btn-size-home {
+    font-size: 11px;
+  }
+
+  .checkout-styling-home {
+    font-size: 7px;
+  }
+
+  .home-img {
+    width: 40%;
+    margin-left: 250px;
+  }
+
+  .home-img1 {
+    width: 130px;
+    margin-left: 250px;
+  }
+
+  .home-img2 {
+    width: 60px;
+    margin-top: 30px;
+    margin-left: 280px;
+  }
+
+  .home-img3 {
+    width: 50%;
+    margin-left: 200px;
+  }
+
+  .home-img4 {
+    width: 25%;
+    margin-left: 260px;
+  }
+
+  .home-img5 {
+    width: 20%;
+    margin-bottom: 40px;
+    margin-left: 260px;
+  }
+}
+
+@media (min-width:768px) and (max-width:920px) {
+  .card-heading {
+    font-size: 23px;
+  }
+
+  .btn-size-home {
+    font-size: 15px;
+  }
+
+  .checkout-styling-home {
+    font-size: 10px;
+  }
+
+  .create-btn-size-home {
+    font-size: 15px;
+    margin-bottom: 100px;
+  }
+
+  .home-img {
+    width: 60%;
+    margin-left: 140px;
+  }
+
+  .home-img1 {
+    width: 130px;
+    margin-left: 250px;
+    margin-top: 10px;
+  }
+
+  .home-img2 {
+    width: 60px;
+    margin-top: 30px;
+    margin-left: 180px;
+  }
+
+  .home-img3 {
+    width: 90%;
+    margin-left: 200px;
+  }
+
+  .home-img4 {
+    width: 40%;
+    margin-left: 160px;
+    margin-bottom: 20px;
+  }
+
+  .home-img5 {
+    width: 50%;
+    margin-bottom: 20px;
+    margin-left: 260px;
+  }
+}
+
+@media (min-width:921px) and (max-width:1200px) {
+  .card-center {
+    top: 50%;
+  }
+
+  .card-heading {
+    font-size: 23px;
+  }
+
+  .btn-size-home {
+    font-size: 15px;
+  }
+
+  .create-btn-size-home {
+    font-size: 15px;
+    margin-bottom: 100px;
+  }
+
+  .home-img {
+    width: 100%;
+    margin-left: 140px;
+  }
+
+  .home-img1 {
+    width: 100px;
+    margin-left: 170px;
+    margin-top: 10px;
+  }
+
+  .home-img2 {
+    width: 50px;
+    margin-top: 30px;
+    margin-left: 200px;
+  }
+
+  .home-img3 {
+    width: 120%;
+    margin-left: 200px;
+  }
+
+  .home-img4 {
     width: 60%;
     margin-left: 250px;
-}
-.home-img5{
-    width: 60%;
-    margin-top: 40px;
-    margin-left: 300px;
-}
-.bg-media{
-    /* background-color: #ebebeb; */
-    background-color:#f1f2f4;
-}
-.heading-desc{
-    font-size: 20px;
-}
-.paragraph-desc{
-    font-size: 15px;
-    line-height: 1.7;
-}
-::-webkit-input-placeholder {
-    font-size: 15px;
-}
-.btn-size-home{
-    font-size: 15px;
-    font-weight: bold;
-    align-items: center;
-    background-color: #37A000;
-}
-.create-btn-size-home{
-    font-size: 15px;
-    font-weight: bold;
-    align-items: center;
-    margin-left: 33%;
-    background-color: #37A000;
-}
-.checkout-styling-home{
-    font-size: 12px;
-}
-.input-fontSize-form{
-    font-size: 13px;
-}
-@media (max-width:575px)
-{
-    .card-center{
-        margin: 0 auto;
-        float: none; 
-        height: 114%;
-        left: 50%;   
-        top: 50%;   
-        transform: translate(-50%, -50%);
-        box-shadow: 3px 3px 3px white;
-    }
-    .card-heading{
-        font-size:17px;
-    }
-    .btn-size-home{
-        font-size: 9px;
-    }
-    .create-btn-size-home{
-        font-size: 9px;
-        margin-bottom: 10px;
-    }
-    .checkout-styling-home{
-        font-size: 10px;
-    } 
-    input[type="checkbox"]{
-        margin: 0 0 0 0;
-    }
-    .home-img{
-        width: 40%;
-        margin-left: 180px;
-    }
-    .home-img1{
-        width: 120px;
-        margin-left: 200px;
-    }
-    .home-img2{
-        width: 50px;
-        margin-top: 30px;
-        margin-left: 250px;
-    }
-    .home-img3{
-        width: 50%;
-        margin-left: 170px;
-    }
-    .home-img4{
-        width: 25%;
-        margin-left: 220px;
-    }
-    .home-img5{
-        width: 20%;
-        margin-bottom: 40px;
-        margin-left: 240px;
-    }
-}
+    margin-bottom: 20px;
+  }
 
-@media (min-width:576px) and (max-width:767px)
-{
-    .card-heading{
-        font-size:20px;
-    }
-    .btn-size-home{
-        font-size: 11px;
-    }
-    .create-btn-size-home{
-        font-size: 11px;
-    }
-    .checkout-styling-home{
-        font-size: 7px;
-    } 
-    .home-img{
-        width: 40%;
-        margin-left: 250px;
-    }
-    .home-img1{
-        width: 130px;
-        margin-left: 250px;
-    }
-    .home-img2{
-        width: 60px;
-        margin-top: 30px;
-        margin-left: 280px;
-    }
-    .home-img3{
-        width: 50%;
-        margin-left: 200px;
-    }
-    .home-img4{
-        width: 25%;
-        margin-left: 260px;
-    }
-    .home-img5{
-        width: 20%;
-        margin-bottom: 40px;
-        margin-left: 260px;
-    }
-}
-@media (min-width:768px) and (max-width:920px)
-{
-    .card-heading{
-        font-size:23px;
-    }
-    .btn-size-home{
-        font-size: 15px;
-    }
-    .checkout-styling-home{
-        font-size: 10px;
-    }
-    .create-btn-size-home{
-        font-size: 15px;
-        margin-bottom: 100px;
-    }
-    .home-img{
-        width: 60%;
-        margin-left: 140px;
-    }
-    .home-img1{
-        width: 130px;
-        margin-left: 250px;
-        margin-top: 10px;
-    }
-    .home-img2{
-        width: 60px;
-        margin-top: 30px;
-        margin-left: 180px;
-    }
-    .home-img3{
-        width: 90%;
-        margin-left: 200px;
-    }
-    .home-img4{
-        width: 40%;
-        margin-left: 160px;
-        margin-bottom: 20px;
-    }
-    .home-img5{
-        width: 50%;
-        margin-bottom: 20px;
-        margin-left: 260px;
-    }
-}
-@media (min-width:921px) and (max-width:1200px)
-{
-    .card-center{
-        top: 50%;
-    }
-    .card-heading{
-        font-size:23px;
-    }
-    .btn-size-home{
-        font-size: 15px;
-    }
-    .create-btn-size-home{
-        font-size: 15px;
-        margin-bottom: 100px;
-    }
-    .home-img{
-        width: 100%;
-        margin-left: 140px;
-    }
-    .home-img1{
-        width: 100px;
-        margin-left: 170px;
-        margin-top: 10px;
-    }
-    .home-img2{
-        width: 50px;
-        margin-top: 30px;
-        margin-left: 200px;
-    }
-    .home-img3{
-        width: 120%;
-        margin-left: 200px;
-    }
-    .home-img4{
-        width: 60%;
-        margin-left: 250px;
-        margin-bottom: 20px;
-    }
-    .home-img5{
-        width: 60%;
-        margin-bottom: 20px;
-        margin-left: 270px;
-    }
+  .home-img5 {
+    width: 60%;
+    margin-bottom: 20px;
+    margin-left: 270px;
+  }
 }

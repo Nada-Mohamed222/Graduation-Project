@@ -12,31 +12,31 @@ import { SharingDataService } from '../sharing-data-service/sharing-data.service
 })
 export class ReviewProfileComponent implements OnInit {
 
-  expertiseData:any;
-  expertiseLevelData:any;
-  LanguageData:any;
-  HourlyRateData:any;
-  TitleOverviewData:any;
-  profilePhotoData:any;
-  locationData:any;
-  phoneData:any;
-  inputImage:any;
-  isVerified:boolean = false;
+  expertiseData: any;
+  expertiseLevelData: any;
+  LanguageData: any;
+  HourlyRateData: any;
+  TitleOverviewData: any;
+  profilePhotoData: any;
+  locationData: any;
+  phoneData: any;
+  inputImage: any;
+  isVerified: boolean = false;
   // freelancerSignUpArr :Freelancer[] = [];
-  getNameOfTheFreeelancer:Freelancer = new Freelancer();
-  formGroup:FormGroup;
+  getNameOfTheFreeelancer: Freelancer = new Freelancer();
+  formGroup: FormGroup;
 
-  constructor(private _sharingData:SharingDataService,
-    private _freelancerService:FreelancerService, private router:Router) { }
+  constructor(private _sharingData: SharingDataService,
+    private _freelancerService: FreelancerService, private router: Router) { }
 
   ngOnInit(): void {
     if (!this._sharingData.isEligible.review) {
       this.router.navigateByUrl('/freelancer/phone');
     }
-    this._freelancerService.get().subscribe((response:Freelancer)=>{
+    this._freelancerService.get().subscribe((response: Freelancer) => {
       this.getNameOfTheFreeelancer = response;
       console.log(response);
-    },error=>{
+    }, error => {
       console.log(error);
       alert("Wrong Error!");
     })
@@ -52,8 +52,7 @@ export class ReviewProfileComponent implements OnInit {
     this.phoneData = this._sharingData.getPhoneData();
   }
 
-  submitData()
-  {
+  submitData() {
     // let freelancerSignUp:Freelancer = new Freelancer();
     const formData = new FormData();
     // Expertise
@@ -79,9 +78,9 @@ export class ReviewProfileComponent implements OnInit {
     formData.append('isVerified', "true");
 
     this._freelancerService.update(formData).subscribe(response => {
-      console.log("Response ",response);
+      console.log("Response ", response);
       this.router.navigate(["/freelancer/profile"])
-    },error =>{
+    }, error => {
       console.log(error);
       alert("Sorry error occurred");
     })

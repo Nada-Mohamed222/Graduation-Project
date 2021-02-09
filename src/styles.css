@@ -1,2 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+html,
+body {
+  height: 100%;
+}
+.light {
+  font-weight: lighter;
+  position: relative;
+}
+
+.border-dashed {
+  border: 2px dashed #47a815;
+}
+
+.btn-outline-gray {
+  border: 1px solid #bbbcbb;
+}
+
+.main-title {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.sub-title {
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.plain-text {
+  font-size: 15px;
+  font-weight: 444;
+}
+
+.hint {
+  font-size: 13px;
+  font-weight: normal;
+}

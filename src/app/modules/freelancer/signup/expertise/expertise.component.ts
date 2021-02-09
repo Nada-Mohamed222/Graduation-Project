@@ -13,22 +13,22 @@ import { SharingDataService } from '../sharing-data-service/sharing-data.service
 export class ExpertiseComponent implements OnInit {
 
   completedData: any;
-  skill:string = "";
-  skills:Array<string> = [];
+  skill: string = "";
+  skills: Array<string> = [];
   formGroup: FormGroup;
-  constructor(private _formBuilder:FormBuilder,private _sharingData:SharingDataService) {}
-  
+  constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService) { }
+
   ngOnInit(): void {
-    const expertiseData:any =this._sharingData.getExpertiseData();
+    const expertiseData: any = this._sharingData.getExpertiseData();
     this.completedData = this._sharingData.isEligible;
     this.formGroup = this._formBuilder.group({
-      MainServices:['',[Validators.required]],
-      MainSkills:['']
+      MainServices: ['', [Validators.required]],
+      MainSkills: ['']
     })
   }
 
   //setting expertise from data
-  storeData(){
+  storeData() {
     const expertise = {
       mainService: this.formGroup.controls['MainServices'].value,
       mainSkills: this.skills
@@ -37,18 +37,16 @@ export class ExpertiseComponent implements OnInit {
   }
 
 
-  addSkill(skills:string)
-  {
-    if(this.skills.length < 4){
+  addSkill(skills: string) {
+    if (this.skills.length < 4) {
       this.skills.push(skills);
       this.skill = '';
     }
   }
 
-  removeSkill(skill:string)
-  {
+  removeSkill(skill: string) {
     let index = this.skills.indexOf(skill);
-    this.skills.splice(index,1);
+    this.skills.splice(index, 1);
   }
 
 }

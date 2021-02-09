@@ -27,7 +27,10 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              
+             
+            ]
           },
           "configurations": {
             "production": {
@@ -124,6 +127,6 @@
   },
   "defaultProject": "graduation-project",
   "cli": {
-    "analytics": "e069c9e2-726f-45b7-b095-3dfd1ae262a5"
+    "analytics": "8610f7ff-5832-490f-9b51-c3db064f940b"
   }
 }

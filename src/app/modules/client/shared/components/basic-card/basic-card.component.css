@@ -1,0 +1,19 @@
+plain-text {
+  font-size: 12px;
+  font-weight: 500;
+}
+p {
+  margin-bottom: 15px;
+}
+.fa-pen {
+  font-size: 15px;
+  position: absolute;
+  left: 90%;
+  border: 1px solid;
+  padding: 13px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+h3 {
+  display: inline;
+}

@@ -1,0 +1,12 @@
+.pricing {
+  position: relative;
+}
+
+.fixed-price {
+  position: relative;
+  /* position: absolute; */
+}
+/* .icon {
+  position: absolute;
+  padding: 9px;
+} */

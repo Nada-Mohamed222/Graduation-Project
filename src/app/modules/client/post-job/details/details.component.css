@@ -1,0 +1,12 @@
+.chips{
+    background-color: #336278;
+    
+    border-radius: 30px;
+    
+}
+.small{
+    font-size:xx-small;
+    position:relative;
+    left:-1%;
+ 
+}

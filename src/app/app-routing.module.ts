@@ -6,6 +6,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { JobDetailsComponent } from './modules/components/job-details/job-details.component';
 
 const routes: Routes = [
+  {
+    path: 'post-job',
+    loadChildren: () =>
+      import('./modules/client/post-job/post-job.module').then(
+        (m) => m.PostJobModule
+      ),
+  },
+  {
+    path: 'client',
+    loadChildren: () =>
+      import('../app/modules/client/client.module').then((m) => m.ClientModule),
+  },
   {path:'freelancer',
   loadChildren:() => import('../app/modules/freelancer/freelancer.module').then(m=>m.FreelancerModule)},
   {path:'signup',
@@ -18,6 +30,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

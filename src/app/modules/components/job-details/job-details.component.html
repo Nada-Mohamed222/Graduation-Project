@@ -53,7 +53,7 @@
             <h5>Skills and Expertise</h5>
             <div *ngFor="let skill of job.Skills" class="mb-2 float-left">
               <a
-                href="#"
+                routerLink="/job/search/{{ skill }}"
                 class="badge background-badge ml-2 p-2 rounded-pill"
                 >{{ skill }}</a
               >
@@ -77,7 +77,7 @@
           Submit a proposal
         </button>
       </div>
-      <p>Available Connects: {{freelancer.Connects}}</p>
+      <p>Available Connects: {{ freelancer.Connects }}</p>
       <hr />
       <div>
         <h5>About the client</h5>

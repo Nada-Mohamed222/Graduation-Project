@@ -1,0 +1,6 @@
+.post {
+  position: absolute;
+  top: -3;
+  right: 4%;
+  z-index: 1;
+}

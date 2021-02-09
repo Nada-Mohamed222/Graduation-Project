@@ -10,20 +10,20 @@ import { SharingDataService } from '../sharing-data-service/sharing-data.service
 })
 export class LanguagesComponent implements OnInit {
 
-  HaveAntherLanguage:boolean = false;
-  formGroup:FormGroup;
-  constructor(private _formBulider:FormBuilder, private _sharingData:SharingDataService, private router: Router) { }
+  HaveAntherLanguage: boolean = false;
+  formGroup: FormGroup;
+  constructor(private _formBulider: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
 
   ngOnInit(): void {
     if (!this._sharingData.isEligible.languages) {
       this.router.navigateByUrl('/freelancer/expertiselevel');
     }
     this.formGroup = this._formBulider.group({
-      Language:['',[Validators.required]]
+      Language: ['', [Validators.required]]
     })
   }
   //setting Language from data
-  storeData(){
+  storeData() {
     const languages = {
       language: this.formGroup.controls['Language'].value,
     };
@@ -31,7 +31,7 @@ export class LanguagesComponent implements OnInit {
     console.log(languages);
   }
 
-  addAntherLanguage(){
+  addAntherLanguage() {
     this.HaveAntherLanguage = true
   }
 }

@@ -7,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
-  constructor(private _sharingData:SharingDataService) { }
-
   completedData: any;
+
+  constructor(private _sharingData: SharingDataService) { }
 
   ngOnInit(): void {
     this.completedData = this._sharingData.isEligible;

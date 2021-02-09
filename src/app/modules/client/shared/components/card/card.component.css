@@ -1,0 +1,20 @@
+i {
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: 15px;
+  margin-left: 9%;
+}
+
+.card:hover {
+  background-color: #f8f9fa;
+}
+input {
+  display: block;
+}
+@media screen and(max-width:768px) {
+  .card p {
+    display: none;
+  }
+}

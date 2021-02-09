@@ -4,106 +4,109 @@
       <!-- <app-sidebar></app-sidebar> -->
       <!-- /#sidebar-wrapper-->
       <a routerLink="/freelancer/getstarted">
-        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+        <div class="row w-100 m-0 pt-2 pb-2 " routerLinkActive="active">
           <div class="col-lg-1 p-0"></div>
           <div class="col-lg-2 p-0"><i class="fas fa-arrow-up fa-lg"></i></div>
           <div class="col-lg-8 p-0">Get Started</div>
-          <div class="col-lg-1 p-0">
-          </div>
+          <!-- <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"></i></div> -->
         </div>
       </a>
+
       <a routerLink="/freelancer/expertise">
-        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled': !completedData.expertiseLevel}">
           <div class="col-lg-1 p-0"></div>
           <div class="col-lg-2 p-0"><i class="far fa-id-badge fa-lg"></i></div>
           <div class="col-lg-8 p-0">Expertise</div>
-          <i class="fas fa-check-circle correct-icon-color"></i>
-          <div class="col-lg-1 p-0">
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.expertiseLevel}"></i>
           </div>
         </div>
       </a>
       <a routerLink="/freelancer/expertiselevel">
-        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled': !completedData.languages}">
           <div class="col-lg-1 p-0"></div>
           <div class="col-lg-2 p-0"><i class="far fa-chart-bar fa-lg"></i></div>
           <div class="col-lg-8 p-0">Expertise Level</div>
-          <div class="col-lg-1 p-0">
-            <i class="fas fa-check-circle correct-icon-color" *ngIf="completedData.languages"></i>
-          </div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.languages}"></i></div>
         </div>
       </a>
       <a routerLink="/freelancer/languages">
-        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled': !completedData.languages}">
           <div class="col-lg-1 p-0"></div>
-          <div class="col-lg-2 p-0">
-            <i class="fas fa-microphone fa-lg"></i>
-          </div>
+          <div class="col-lg-2 p-0"><i class="fas fa-microphone fa-lg"></i></div>
           <div class="col-lg-8 p-0">Languages</div>
-          <div class="col-lg-1 p-0">
-          </div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.hourlyRate}"></i></div>
         </div>
       </a>
+
       <a routerLink="/freelancer/hourlyrate">
-        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled': !completedData.hourlyRate}">
           <div class="col-lg-1 p-0"></div>
-          <div class="col-lg-2 p-0">
-            <i class="fas fa-dollar-sign fa-lg"></i>
-          </div>
+          <div class="col-lg-2 p-0"><i class="fas fa-dollar-sign fa-lg"></i></div>
           <div class="col-lg-8 p-0">Hourly Rate</div>
-          <div class="col-lg-1 p-0">
-          </div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.titleOverview}"></i></div>
         </div>
       </a>
+
       <a routerLink="/freelancer/titleoverview">
-        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled': !completedData.titleOverview}">
           <div class="col-lg-1 p-0"></div>
           <div class="col-lg-2 p-0"><i class="fas fa-user-md fa-lg"></i></div>
           <div class="col-lg-8 p-0">Title &Overview</div>
-          <div class="col-lg-1 p-0">
-          </div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.profilePhoto}"></i></div>
         </div>
       </a>
+
       <a routerLink="/freelancer/profilephoto">
-        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled': !completedData.profilePhoto}">
           <div class="col-lg-1 p-0"></div>
           <div class="col-lg-2 p-0"><i class="far fa-id-card fa-lg"></i></div>
           <div class="col-lg-8 p-0">Profile Photo</div>
-          <div class="col-lg-1 p-0">
-          </div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.location}"></i></div>
         </div>
       </a>
+
       <a routerLink="/freelancer/location">
-        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled': !completedData.location}">
           <div class="col-lg-1 p-0"></div>
-          <div class="col-lg-2 p-0">
-            <i class="fas fa-map-marker-alt fa-lg"></i>
-          </div>
+          <div class="col-lg-2 p-0"><i class="fas fa-map-marker-alt fa-lg"></i></div>
           <div class="col-lg-8 p-0">Location</div>
-          <div class="col-lg-1 p-0">
-          </div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.phone}"></i></div>
         </div>
       </a>
+
       <a routerLink="/freelancer/phone">
-        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active" [ngClass]="{'disabled': !completedData.phone}">
           <div class="col-lg-1 p-0"></div>
           <div class="col-lg-2 p-0"><i class="fas fa-phone fa-lg"></i></div>
           <div class="col-lg-8 p-0">Phone</div>
-          <div class="col-lg-1 p-0">
-          </div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.review}"></i></div>
         </div>
       </a>
+
     </div>
 
     <div class="col-lg-9 h-100">
       <!-- Expertise level -->
       <div class="container-fluid backGround-color pb-5">
         <div class="card justify-content-center mx-auto shadow-lg">
-          <div
-            class="card-header get-started-title"
-            style="background-color: transparent"
-          >
-            <h4>Expertise Level</h4>
-            <h6 class="text-muted">3 of 9</h6>
+          <div class="card-header get-started-title" style="background-color: transparent">
+            <h2>Expertise Level</h2>
+            <h5 class="text-muted">3 of 9</h5>
           </div>
           <!-- class="btn-group btn-group-toggle" data-toggle="buttons" -->
           <form [formGroup]="formGroup">
@@ -116,24 +119,14 @@
                 <div class="col-lg-4 col-md-12 col-xs-12">
                   <div class="card-group" style="height: 180px">
                     <div class="card border-secondary">
-                      <input
-                        formControlName="ExpertiseLevel"
-                        value="Entry"
-                        type="radio"
-                        id="radioBtnID1"
-                        class="float-right ml-2 expertise-radioBtn"
-                        name="ExpertiseLevel"
-                      />
+                      <input formControlName="ExpertiseLevel" value="Entry" type="radio" id="radioBtnID1"
+                        class="float-right ml-2 expertise-radioBtn" name="ExpertiseLevel" />
                       <label for="radioBtnID1">
                         <div class="card-body">
-                          <h5
-                            class="card-title text-center heading-levelExpertise"
-                          >
+                          <h5 class="card-title text-center heading-levelExpertise">
                             Entry level
                           </h5>
-                          <p
-                            class="card-text text-center text-muted pg-levelExpertise"
-                          >
+                          <p class="card-text text-center text-muted pg-levelExpertise">
                             I am relatively new to this field
                           </p>
                         </div>
@@ -145,24 +138,14 @@
                 <div class="col-lg-4 col-md-12 col-xs-12">
                   <div class="card-group" style="height: 180px">
                     <div class="card border-secondary">
-                      <input
-                        formControlName="ExpertiseLevel"
-                        value="Intermediate"
-                        type="radio"
-                        id="radioBtnID2"
-                        class="float-right ml-2 expertise-radioBtn"
-                        name="ExpertiseLevel"
-                      />
+                      <input formControlName="ExpertiseLevel" value="Intermediate" type="radio" id="radioBtnID2"
+                        class="float-right ml-2 expertise-radioBtn" name="ExpertiseLevel" />
                       <label for="radioBtnID2">
                         <div class="card-body">
-                          <h5
-                            class="card-title text-center heading-levelExpertise"
-                          >
+                          <h5 class="card-title text-center heading-levelExpertise">
                             Intermediate
                           </h5>
-                          <p
-                            class="card-text text-center text-muted pg-levelExpertise"
-                          >
+                          <p class="card-text text-center text-muted pg-levelExpertise">
                             I have substantial experience in this field
                           </p>
                         </div>
@@ -174,24 +157,14 @@
                 <div class="col-lg-4 col-md-12 col-xs-12">
                   <div class="card-group" style="height: 180px">
                     <div class="card border-secondary">
-                      <input
-                        formControlName="ExpertiseLevel"
-                        value="Expert"
-                        type="radio"
-                        id="radioBtnID3"
-                        class="float-right ml-2 expertise-radioBtn"
-                        name="ExpertiseLevel"
-                      />
+                      <input formControlName="ExpertiseLevel" value="Expert" type="radio" id="radioBtnID3"
+                        class="float-right ml-2 expertise-radioBtn" name="ExpertiseLevel" />
                       <label for="radioBtnID3">
                         <div class="card-body">
-                          <h5
-                            class="card-title text-center heading-levelExpertise"
-                          >
+                          <h5 class="card-title text-center heading-levelExpertise">
                             Expert
                           </h5>
-                          <p
-                            class="card-text text-center text-muted pg-levelExpertise"
-                          >
+                          <p class="card-text text-center text-muted pg-levelExpertise">
                             I have comprehensive and deep expertise in this
                             field
                           </p>
@@ -203,21 +176,10 @@
               </div>
             </div>
           </form>
-          <div
-            class="card-footer mt-5 mb-4"
-            style="background-color: transparent"
-          >
-            <a
-              routerLink="/freelancer/expertise"
-              class="btn btn-success back-btn float-left mt-3"
-              >Back</a
-            >
-            <a
-              routerLink="/freelancer/languages"
-              class="btn btn-success fill-out-btn float-right mt-3"
-              (click)="storeData()"
-              >Next</a
-            >
+          <div class="card-footer mt-5 mb-4" style="background-color: transparent">
+            <a routerLink="/freelancer/expertise" class="btn btn-success back-btn float-left mt-3">Back</a>
+            <a routerLink="/freelancer/languages" class="btn btn-success fill-out-btn float-right mt-3"
+              (click)="storeData()">Next</a>
           </div>
         </div>
       </div>

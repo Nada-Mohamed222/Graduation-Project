@@ -1,0 +1,148 @@
+<!-- range of price  -->
+<!-- range from -->
+<form [formGroup]="pricingForm">
+  <div class="row mb-3">
+    <!-- <div class="col-xs-12">
+    <input
+      type="checkbox"
+      name="price range"
+      id="priceRange"
+      class="plain-text mr-2"
+    />
+    <label for="priceRange" class="hint mb-3">Set your own hourly range</label>
+
+    <br />
+  </div> -->
+
+    <!-- price range form -->
+
+    <div class="col-xs-4">
+      <span class="glyphicon glyphicon-usd text-muted"></span>
+      <input
+        type="number"
+        name=""
+        id="pricingRange"
+        class="form-control form-control-lg text-right"
+        placeholder="0.00"
+        formControlName="RangeFrom"
+      />
+      <p class="hour hint text-muted">/h</p>
+      <div
+        *ngIf="
+          (pricingForm.invalid && pricingForm.controls['RangeFrom'].touched) ||
+          pricingForm.controls['RangeFrom'].touched
+        "
+      >
+        <p
+          *ngIf="pricingForm.controls['RangeFrom'].hasError('required')"
+          class="text-danger hint"
+        >
+          required
+        </p>
+      </div>
+    </div>
+
+    <!-- to T~T -->
+
+    <!-- <div class="mt-1 ml-4 plain-text text-center">
+      <b class="">to</b>
+    </div> -->
+
+    <!-- range to -->
+
+    <!-- <div class="col-xs-2">
+      <span class="glyphicon glyphicon-usd text-muted"></span>
+      <input
+        type="number"
+        name=""
+        id=""
+        class="form-control form-control-lg text-right"
+        placeholder="0.00"
+        formControlName="RangeTo"
+      />
+      <span class="hour hint text-muted">/h</span>
+
+      <div
+        *ngIf="
+          (pricingForm.invalid && pricingForm.controls['RangeTo'].touched) ||
+          pricingForm.controls['RangeTo'].touched
+        "
+      >
+        <p
+          *ngIf="pricingForm.controls['RangeTo'].hasError('required')"
+          class="text-danger hint"
+        >
+          required
+        </p>
+      </div>
+    </div> -->
+  </div>
+
+  <br />
+  <hr />
+
+  <!-- project duration -->
+
+  <div class="row">
+    <label for="" class="col-xs-12 sub-title mt-3"
+      >How long do you expect this project to last?</label
+    >
+
+    <!-- duration > 6 months -->
+
+    <div class="col-xs-4">
+      <app-card
+        cardIcon="glyphicon glyphicon-calendar"
+        cardTitle="More than 6 months"
+        value="More than 6 months"
+        formControlName="ProjectDuration"
+        ngDefaultControl
+        (change)="checkValidationAndStoreData()"
+      >
+      </app-card>
+    </div>
+
+    <!-- period 3 : 6 months -->
+
+    <div class="col-xs-4">
+      <app-card
+        cardIcon="glyphicon glyphicon-calendar"
+        cardTitle="3 to 6 months"
+        value="3 to 6 months"
+        formControlName="ProjectDuration"
+        ngDefaultControl
+        (change)="checkValidationAndStoreData()"
+      >
+      </app-card>
+    </div>
+
+    <!-- period 1 : 3 months -->
+
+    <div class="col-xs-4">
+      <app-card
+        cardIcon="glyphicon glyphicon-calendar"
+        cardTitle="1 to 3 months"
+        value="1 to 3 months"
+        formControlName="ProjectDuration"
+        ngDefaultControl
+        (change)="checkValidationAndStoreData()"
+      >
+      </app-card>
+    </div>
+
+    <!-- period < 1  month -->
+
+    <div class="col-xs-4 mt-3">
+      <app-card
+        cardIcon="glyphicon glyphicon-calendar"
+        cardTitle="less than 1 month"
+        value="less than 1 month"
+        formControlName="ProjectDuration"
+        ngDefaultControl
+        (change)="checkValidationAndStoreData()"
+      >
+        >
+      </app-card>
+    </div>
+  </div>
+</form>

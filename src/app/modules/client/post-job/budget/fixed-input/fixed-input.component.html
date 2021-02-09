@@ -1,0 +1,32 @@
+<!-- <div class="fixed-price"> -->
+<form [formGroup]="fixedInput">
+  <label for="" class="sub-title">{{ title }}</label>
+  <div class="row">
+    <div class="col-sm-4">
+      <input
+        type="number"
+        class="form-control form-control-lg text-right"
+        placeholder="0"
+        formControlName="Price"
+        (change)="checkValidationAndStoreData()"
+      />
+
+      <span [class]="icon" id="icon"></span>
+
+      <div
+        *ngIf="
+          (fixedInput.invalid && fixedInput.controls['Price'].touched) ||
+          fixedInput.controls['Price'].touched
+        "
+      >
+        <p
+          *ngIf="fixedInput.controls['Price'].hasError('required')"
+          class="text-danger hint"
+        >
+          required
+        </p>
+      </div>
+    </div>
+  </div>
+</form>
+<!-- </div> -->

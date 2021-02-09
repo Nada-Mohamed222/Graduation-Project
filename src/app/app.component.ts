@@ -1,6 +1,7 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core'; 
 import { HomeComponent } from './../../src/app/modules/register/home/home.component';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

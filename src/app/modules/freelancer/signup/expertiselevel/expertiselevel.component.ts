@@ -11,7 +11,7 @@ import { SharingDataService } from '../sharing-data-service/sharing-data.service
 export class ExpertiselevelComponent implements OnInit {
   formGroup: FormGroup;
   completedData: any;
-  constructor(private _formBuilder:FormBuilder ,private _sharingData:SharingDataService ,private router: Router) { }
+  constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
 
   ngOnInit(): void {
     if (!this._sharingData.isEligible.expertiseLevel) {
@@ -19,11 +19,11 @@ export class ExpertiselevelComponent implements OnInit {
     }
     this.completedData = this._sharingData.isEligible;
     this.formGroup = this._formBuilder.group({
-      ExpertiseLevel:['',[Validators.required]],
+      ExpertiseLevel: ['', [Validators.required]],
     })
   }
   //setting expertiselevel from data
-  storeData(){
+  storeData() {
     const expertiseLevel = {
       expertiseLevel: this.formGroup.controls['ExpertiseLevel'].value,
     };
