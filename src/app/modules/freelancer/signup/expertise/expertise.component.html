@@ -111,10 +111,7 @@
       <!-- Expertise -->
       <div class="container-fluid backGround-color pb-5">
         <div class="card justify-content-center mx-auto shadow-lg">
-          <div
-            class="card-header get-started-title"
-            style="background-color: transparent"
-          >
+          <div class="card-header get-started-title" style="background-color: transparent">
             <h2>Expertise</h2>
             <h5 class="text-muted">2 of 9</h5>
           </div>
@@ -128,12 +125,8 @@
             <form [formGroup]="formGroup">
               <div class="form-group">
                 <label for="exampleFormControlSelect1"></label>
-                <select
-                  formControlName="MainServices"
-                  required
-                  class="form-control fs-categories"
-                  id="exampleFormControlSelect1"
-                >
+                <select formControlName="MainServices" required class="form-control fs-categories"
+                  id="exampleFormControlSelect1">
                   <option>Web, Mobile & Software Dev</option>
                   <option>Accounting & Consulting</option>
                   <option>Admin Support</option>
@@ -147,20 +140,14 @@
                   <option>Translation</option>
                   <option>Writing</option>
                 </select>
-                <div
-                  *ngIf="
+                <div *ngIf="
                     formGroup.controls['MainServices'].invalid &&
                     (formGroup.controls['MainServices'].touched ||
                       formGroup.controls['MainServices'].dirty)
-                  "
-                >
-                  <small
-                    class="form-text text-danger"
-                    *ngIf="
+                  ">
+                  <small class="form-text text-danger" *ngIf="
                       formGroup.controls['MainSkills'].hasError('required')
-                    "
-                    >Required MainServices</small
-                  >
+                    ">Required MainServices</small>
                 </div>
               </div>
               <h5 class="card-text pg-desc-getStarted">
@@ -168,68 +155,38 @@
               </h5>
               <div class="form-group mb-5">
                 <label for="comment" class="sub-title mb-3"></label>
-                <input
-                  type="text"
-                  class="form-control mb-3"
-                  #inputskill
-                  (keydown.enter)="
+                <input type="text" class="form-control mb-3" #inputskill (keydown.enter)="
                     addSkill(inputskill.value); inputskill.value = ''
-                  "
-                  formControlName="Skills"
-                  [(ngModel)]="skill"
-                />
+                  " formControlName="MainSkills" [(ngModel)]="skill" />
 
-                <span
-                  class="chips text-white px-4 pb-1 m-2 plain-text text"
-                  *ngFor="let skill of skills"
-                  #span
-                  (click)="removeSkill(span.value)"
-                >
-                  <span
-                    class="small ml-1"
-                    [ngClass]="{
+                <span class="chips text-white px-4 pb-1 m-2 plain-text text" *ngFor="let skill of skills" #span
+                  (click)="removeSkill(span.value)">
+                  <span class="small ml-1" [ngClass]="{
                       'glyphicon glyphicon-ok': inputskill.value != ''
-                    }"
-                  ></span>
+                    }"></span>
                   {{ skill }}
                 </span>
 
-                <div
-                  *ngIf="
+                <div *ngIf="
                     (formGroup.invalid &&
                       formGroup.controls['MainSkills'].touched) ||
                     formGroup.controls['MainSkills'].touched
-                  "
-                >
-                  <p
-                    *ngIf="
+                  ">
+                  <p *ngIf="
                       formGroup.controls['MainSkills'].hasError('required')
-                    "
-                    class="text-danger hint"
-                  >
+                    " class="text-danger hint">
                     required skills
                   </p>
                 </div>
               </div>
             </form>
           </div>
-          <div
-            class="card-footer mt-5 mb-4"
-            style="background-color: transparent"
-          >
-            <a
-              routerLink="/freelancer/getstarted"
-              class="btn btn-success back-btn float-left mt-3"
-              >Back</a
-            >
+          <div class="card-footer mt-5 mb-4" style="background-color: transparent">
+            <a routerLink="/freelancer/getstarted" class="btn btn-success back-btn float-left mt-3">Back</a>
             <!-- <a routerLink="/freelancer/expertiselevel" class="btn btn-success fill-out-btn float-right mt-3" [disabled]="formGroup.invalid">Next</a> -->
             <a routerLink="/freelancer/expertiselevel">
               <!-- [disabled]="formGroup.invalid" -->
-              <button
-                type="button"
-                class="btn btn-success fill-out-btn float-right mt-3"
-                (click)="storeData()"
-              >
+              <button type="button" class="btn btn-success fill-out-btn float-right mt-3" (click)="storeData()">
                 Next
               </button>
             </a>

@@ -7,6 +7,7 @@ import { ExpertiselevelComponent } from '../expertiselevel/expertiselevel.compon
 import { HourlyrateComponent } from '../hourlyrate/hourlyrate.component';
 import { ProfilephotoComponent } from '../profilephoto/profilephoto.component';
 import { PhoneComponent } from '../phone/phone.component';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,17 @@ import { PhoneComponent } from '../phone/phone.component';
 export class SharingDataService {
 
   constructor() { }
+
+  isEligible: any = {
+    expertiseLevel: false,
+    languages: false,
+    hourlyRate: false,
+    titleOverview: false,
+    profilePhoto: false,
+    location: false,
+    phone: false,
+    review: false
+  }
 
   expertise: ExpertiseComponent;
   expertiseLevel: ExpertiselevelComponent;
@@ -25,87 +37,78 @@ export class SharingDataService {
   phone: PhoneComponent;
 
   //setting expertise data
-  setExpertiseData(object:any)
-  {
+  setExpertiseData(object: any) {
     this.expertise = object;
+    this.isEligible.expertiseLevel = true;
   }
   //setting expertiseLevel data
-  setExpertiseLevelData(object:any)
-  {
-    this.expertiseLevel= object;
+  setExpertiseLevelData(object: any) {
+    this.expertiseLevel = object;
+    this.isEligible.languages = true;
   }
   //setting language data
-  setLanguageData(object:any)
-  {
-    this.language= object;
+  setLanguageData(object: any) {
+    this.language = object;
+    this.isEligible.hourlyRate = true;
   }
   //setting hourlyRate data
-  setHourlyRateData(object:any)
-  {
-    this.hourlyRate= object;
+  setHourlyRateData(object: any) {
+    this.hourlyRate = object;
+    this.isEligible.titleOverview = true;
   }
   //setting titleOverview data
-  setTitleOverviewData(object:any)
-  {
-    this.titleOverview= object;
+  setTitleOverviewData(object: any) {
+    this.titleOverview = object;
+    this.isEligible.profilePhoto = true;
   }
   //setting profilePhoto data
-  setProfilePhotoData(object:any)
-  {
-    this.profilePhoto= object;
+  setProfilePhotoData(object: any) {
+    this.profilePhoto = object;
+    this.isEligible.location = true;
   }
   //setting location data
-  setLocationData(object:any)
-  {
-    this.location= object;
+  setLocationData(object: any) {
+    this.location = object;
+    this.isEligible.phone = true;
   }
   //setting phone data
-  setPhoneData(object:any)
-  {
-    this.phone= object;
+  setPhoneData(object: any) {
+    this.phone = object;
+    this.isEligible.review = true;
   }
 
   //getting data
   //getting expertise 
-  getExpertiseData()
-  {
-    console.log(this.expertise);
+  getExpertiseData() {
     return this.expertise;
   }
   //getting expertiseLevel data
-  getExpertiseLevelData()
-  {
+  getExpertiseLevelData() {
     return this.expertiseLevel;
   }
   //getting language data
-  getLanguageData()
-  {
+  getLanguageData() {
     return this.language;
   }
   //getting hourlyRate data
-  getHourlyRateData()
-  {
+  getHourlyRateData() {
     return this.hourlyRate;
   }
   //getting titleOverview data
-  getTitleOverviewData()
-  {
+  getTitleOverviewData() {
     return this.titleOverview;
   }
   //getting profilePhoto data
-  getProfilePhotoData()
-  {
+  getProfilePhotoData() {
     console.log(this.profilePhoto)
-   return this.profilePhoto;
+    return this.profilePhoto;
   }
   //getting location data
-  getLocationData()
-  {
+  getLocationData() {
     return this.location;
   }
   //getting phone data
-  getPhoneData()
-  {
+  getPhoneData() {
     return this.phone;
   }
 }

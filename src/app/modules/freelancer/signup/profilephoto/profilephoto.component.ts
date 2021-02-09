@@ -15,24 +15,27 @@ export class ProfilephotoComponent implements OnInit {
 
   // url: string;
   // inputImage:any = "https://www.djelfa.req.body.info/mobi/img/avatar/avatar.png";
-  inputImage:any = "../../../../../assets/images/avatar.png";
-  uploadedImage:any;
-  freelancerSignUpArr :Freelancer[] = [];
-  formGroup:FormGroup;
+  inputImage: any = "../../../../../assets/images/avatar.png";
+  uploadedImage: any;
+  freelancerSignUpArr: Freelancer[] = [];
+  formGroup: FormGroup;
 
-  constructor(private _formBuilder:FormBuilder,
-    private _sharingData:SharingDataService,
-    private _freelancerService:FreelancerService,
+  constructor(private _formBuilder: FormBuilder,
+    private _sharingData: SharingDataService,
+    private _freelancerService: FreelancerService,
     private router: Router) { }
 
   ngOnInit(): void {
+    if (!this._sharingData.isEligible.profilePhoto) {
+      this.router.navigateByUrl('/freelancer/titleoverview');
+    }
     this.formGroup = this._formBuilder.group({
-      profile: ['',[Validators.required]]     
-    }); 
+      profile: ['', [Validators.required]]
+    });
   }
-  
+
   //setting Profile Photo from data
-  storeData(){
+  storeData() {
     const profilePhoto = {
       photo: this.uploadedImage,
       url: this.inputImage
@@ -40,7 +43,7 @@ export class ProfilephotoComponent implements OnInit {
     this._sharingData.setProfilePhotoData(profilePhoto);
     console.log(profilePhoto);
   }
- 
+
   onSelectImage(event) { // called each time file input changes
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
@@ -57,5 +60,5 @@ export class ProfilephotoComponent implements OnInit {
     }
   }
 
-  
-  }
+
+}
