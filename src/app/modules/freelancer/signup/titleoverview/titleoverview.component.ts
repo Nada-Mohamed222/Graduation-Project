@@ -12,9 +12,11 @@ export class TitleoverviewComponent implements OnInit {
 
   remaningCharacters: number = 5000;
   formGroup: FormGroup;
+  completedData: any;
   constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
 
   ngOnInit(): void {
+    this.completedData = this._sharingData.isEligible;
     if (!this._sharingData.isEligible.titleOverview) {
       this.router.navigateByUrl('/freelancer/hourlyrate');
     }

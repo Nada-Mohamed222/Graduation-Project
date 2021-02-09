@@ -5,6 +5,7 @@ html,
 body {
   height: 100%;
 }
+
 .light {
   font-weight: lighter;
   position: relative;
@@ -36,4 +37,9 @@ body {
 .hint {
   font-size: 13px;
   font-weight: normal;
+}
+
+.disabled-sidebar-item {
+  /* color: gray !important; */
+  cursor: not-allowed !important;
 }

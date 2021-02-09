@@ -1,36 +1,62 @@
+/*sidebar start*/
+.active {
+  border-left: #37a000 3px solid;
+}
+
+.correct-icon-color {
+  color: #37a000;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+  color: black;
+}
+
+/*sidebar end*/
 .backGround-color {
-    background-color: #ebebeb;
+  background-color: #ebebeb;
 }
-.fs-categories{
-    font-size: 15px;
+
+.fs-categories {
+  font-size: 15px;
 }
-.fill-out-btn{
-    background-color: #37A000; 
-    font-size: 13px;
-    width: 25%;
+
+.fill-out-btn {
+  background-color: #37A000;
+  font-size: 13px;
+  width: 25%;
 }
-.back-btn{
-    color: #37A000; 
-    background-color: white;
-    font-size: 13px;
-    width: 25%;
+
+.back-btn {
+  color: #37A000;
+  background-color: white;
+  font-size: 13px;
+  width: 25%;
 }
-.heading-HourlyRate{
-    font-size: 15px;
+
+.heading-HourlyRate {
+  font-size: 15px;
 }
-.w-70{
-    width:70%;
+
+.w-70 {
+  width: 70%;
 }
-.pg-HourlyRate{
-    font-size: 14px;
+
+.pg-HourlyRate {
+  font-size: 14px;
 }
-.input-dollar-iocn{
-    outline: none;
-    background-color: transparent;
-    border: none;
+
+.input-dollar-iocn {
+  outline: none;
+  background-color: transparent;
+  border: none;
 }
-.skip-hourlyRate{
-    font-size: 15px;
-    color: #37A000;
-    font-weight: bold;
+
+.skip-hourlyRate {
+  font-size: 15px;
+  color: #37A000;
+  font-weight: bold;
 }

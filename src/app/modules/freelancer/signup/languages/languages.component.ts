@@ -12,9 +12,11 @@ export class LanguagesComponent implements OnInit {
 
   HaveAntherLanguage: boolean = false;
   formGroup: FormGroup;
+  completedData: any;
   constructor(private _formBulider: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
 
   ngOnInit(): void {
+    this.completedData = this._sharingData.isEligible;
     if (!this._sharingData.isEligible.languages) {
       this.router.navigateByUrl('/freelancer/expertiselevel');
     }

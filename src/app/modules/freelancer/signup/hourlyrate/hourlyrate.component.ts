@@ -13,9 +13,11 @@ export class HourlyrateComponent implements OnInit {
   inputMoney: number = 8.00;
   deductedAmount: number = 2.00;
   formGroup: FormGroup;
+  completedData: any;
   constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
 
   ngOnInit(): void {
+    this.completedData = this._sharingData.isEligible;
     if (!this._sharingData.isEligible.hourlyRate) {
       this.router.navigateByUrl('/freelancer/languages');
     }

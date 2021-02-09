@@ -1,131 +1,239 @@
 <div class="container-fluid backGround-color pb-5 pt-5">
-    <div class="row no-gutters justify-content-center mx-auto w-70">
-        <div class="col-lg-3 h-100 mx-auto d-none d-lg-block">
-            <app-sidebar></app-sidebar>
+  <div class="row no-gutters justify-content-center mx-auto w-70">
+    <div class="col-lg-3 h-100 mx-auto d-none d-lg-block">
+      <a routerLink="/freelancer/getstarted">
+        <div class="row w-100 m-0 pt-2 pb-2 " routerLinkActive="active">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-arrow-up fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Get Started</div>
+          <!-- <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"></i></div> -->
         </div>
+      </a>
 
-        <div class="col-lg-9 h-100">
-            <!-- hourly rate -->
-            <div class="container-fluid backGround-color pb-5">
-                <div class="card justify-content-center mx-auto shadow-lg" >
-                    <div class="card-header get-started-title" style="background-color: transparent;">
-                        <h4>Hourly Rate</h4>
-                        <h6 class="text-muted">5 of 9</h6>
+      <a routerLink="/freelancer/expertise">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="far fa-id-badge fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Expertise</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.expertiseLevel}"></i>
+          </div>
+        </div>
+      </a>
+      <a routerLink="/freelancer/expertiselevel">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.expertiseLevel}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="far fa-chart-bar fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Expertise Level</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.languages}"></i></div>
+        </div>
+      </a>
+      <a routerLink="/freelancer/languages">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.languages}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-microphone fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Languages</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.hourlyRate}"></i></div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/hourlyrate">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.hourlyRate}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-dollar-sign fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Hourly Rate</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.titleOverview}"></i></div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/titleoverview">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.titleOverview}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-user-md fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Title &Overview</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.profilePhoto}"></i></div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/profilephoto">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.profilePhoto}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="far fa-id-card fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Profile Photo</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.location}"></i></div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/location">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.location}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-map-marker-alt fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Location</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.phone}"></i></div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/phone">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.phone}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-phone fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Phone</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.review}"></i></div>
+        </div>
+      </a> </div>
+
+    <div class="col-lg-9 h-100">
+      <!-- hourly rate -->
+      <div class="container-fluid backGround-color pb-5">
+        <div class="card justify-content-center mx-auto shadow-lg">
+          <div class="card-header get-started-title" style="background-color: transparent;">
+            <h4>Hourly Rate</h4>
+            <h6 class="text-muted">5 of 9</h6>
+          </div>
+          <div class="card-body">
+            <p class="card-title heading-HourlyRate">Clients will see this rate on your profile and in search results
+              once you publish your profile.
+              You can adjust your rate every time you submit a proposal.
+            </p><br>
+
+            <!-- Hourly rate -->
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-xs-12 mt-3">
+                <h5>Hourly Rate</h5>
+                <p class="text-muted pg-HourlyRate">Total amount the client will see</p>
+              </div>
+              <div class="col-lg-6 col-md-6 col-xs-12">
+                <form [formGroup]="formGroup">
+                  <div class="form-group">
+                    <div class="col-xs-5">
+                      <div class="input-group mt-3 w-100 h-100">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text bg-transparent"><i
+                              class="fas fa-dollar-sign fa-lg border-right-0"></i></span>
+                        </div>
+                        <input formControlName="HourlyRate" type="text" class="form-control"
+                          aria-label="Amount (to the nearest dollar)" placeholder="10.00" #inputHourlyRate
+                          (keyup)="totalMoney(inputHourlyRate.value)">
+                        <div
+                          *ngIf="formGroup.controls['HourlyRate'].invalid && (formGroup.controls['HourlyRate'].touched ||  formGroup.controls['HourlyRate'].dirty)">
+                          <small class="form-text text-danger"
+                            *ngIf="formGroup.controls['HourlyRate'].hasError('required')">Required Hourly Rate</small>
+                          <small class="form-text text-danger"
+                            *ngIf="formGroup.controls['HourlyRate'].hasError('minlength')">Min Value is 5</small>
+                        </div>
+                      </div>
                     </div>
-                    <div class="card-body">
-                        <p class="card-title heading-HourlyRate">Clients will see this rate on your profile and in search results once you publish your profile. 
-                            You can adjust your rate every time you submit a proposal.
-                        </p><br>
-                
-                        <!-- Hourly rate -->
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-xs-12 mt-3">
-                                <h5>Hourly Rate</h5>
-                                <p class="text-muted pg-HourlyRate">Total amount the client will see</p>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-xs-12">
-                                <form [formGroup]="formGroup">
-                                    <div class="form-group">
-                                        <div class="col-xs-5">
-                                            <div class="input-group mt-3 w-100 h-100">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text bg-transparent"><i class="fas fa-dollar-sign fa-lg border-right-0"></i></span>
-                                                </div>
-                                                <input formControlName="HourlyRate" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="10.00" #inputHourlyRate (keyup)="totalMoney(inputHourlyRate.value)">
-                                                <div *ngIf="formGroup.controls['HourlyRate'].invalid && (formGroup.controls['HourlyRate'].touched ||  formGroup.controls['HourlyRate'].dirty)">
-                                                    <small class="form-text text-danger" *ngIf="formGroup.controls['HourlyRate'].hasError('required')">Required Hourly Rate</small>
-                                                    <small class="form-text text-danger" *ngIf="formGroup.controls['HourlyRate'].hasError('minlength')">Min Value is 5</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div> <!--row-->
-                        <hr>
-                        
-                        <!-- Upwork Service Fee  -->
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-xs-12 mt-3">
-                                <h5>Upwork Service Fee</h5>
-                                <p class="text-muted pg-HourlyRate">The Upwork Service Fee is 20% when you begin a contract with a new client.
-                                    Once you bill over $500 with your client, the fee will be 10%.
-                                </p>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-xs-12">
-                                <form>
-                                    <div class="form-group">
-                                        <div class="col-xs-5">
-                                            <div class="input-group mt-3 w-100 h-100">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text bg-transparent"><i class="fas fa-dollar-sign fa-lg border-right-0"></i></span>
-                                                </div>
-                                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" disabled value="{{deductedAmount}}" >
-                                                <!-- <p class="mt-1 ml-3 pg-HourlyRate">/hr</p> -->
-                                            </div>
-                                            <!-- <div class="mt-5 w-100 h-100">
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!--row-->
+            <hr>
+
+            <!-- Upwork Service Fee  -->
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-xs-12 mt-3">
+                <h5>Upwork Service Fee</h5>
+                <p class="text-muted pg-HourlyRate">The Upwork Service Fee is 20% when you begin a contract with a new
+                  client.
+                  Once you bill over $500 with your client, the fee will be 10%.
+                </p>
+              </div>
+              <div class="col-lg-6 col-md-6 col-xs-12">
+                <form>
+                  <div class="form-group">
+                    <div class="col-xs-5">
+                      <div class="input-group mt-3 w-100 h-100">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text bg-transparent"><i
+                              class="fas fa-dollar-sign fa-lg border-right-0"></i></span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" disabled
+                          value="{{deductedAmount}}">
+                        <!-- <p class="mt-1 ml-3 pg-HourlyRate">/hr</p> -->
+                      </div>
+                      <!-- <div class="mt-5 w-100 h-100">
                                                 <span class="bg-transparent ml-2"><i class="fas fa-dollar-sign fa-lg border-right-0"></i></span>
                                                 <span class="ml-4 pg-HourlyRate">-0.00</span>
                                                 <span class="ml-3 ml-3 pg-HourlyRate">/hr</span>
                                             </div> -->
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div><!--row-->
-                        
-                        <hr>
-
-                        <!-- You'll receive -->
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-xs-12 mt-3">
-                                <h5>You'll receive</h5>
-                                <p class="text-muted pg-HourlyRate">The estimated amount you'll receive after service fees</p>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-xs-12">
-                                <form>
-                                    <div class="form-group">
-                                        <div class="col-xs-5">
-                                            <div class="input-group mt-3 w-100 h-100">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text bg-transparent"><i class="fas fa-dollar-sign fa-lg border-right-0"></i></span>
-                                                </div>
-                                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" disabled placeholder="{{inputMoney}}" >
-                                                <!-- <p class="mt-1 ml-3 pg-HourlyRate">/hr</p> -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div> <!--row-->
-                        
-                        <hr>
-
-                        <div class="row m-2" style="background-color: #f9f9f9;">
-                            <div class="col-lg-7 col-md-6 col-xs-12 mt-3">
-                                <h5>Upwork service fees can be as low as 5%</h5>
-                            </div>
-                            <div class="col-lg-5 col-md-6 col-xs-12">
-                                <img src="../../../../../assets/images/hourlyrate.svg" alt="Rates" class="ml-5" style="width: 60%;">
-                            </div>
-                        </div> <!--row-->
                     </div>
-                    <a routerLink="/freelancer/titleoverview" class="ml-4 skip-hourlyRate">Skip this step</a>
-                    <div class="card-footer mt-5 mb-4" style="background-color: transparent;">
-                        <a routerLink="/freelancer/languages" class="btn btn-success back-btn float-left mt-3">Back</a>
-                        <!-- <a routerLink="/freelancer/titleoverview" class="btn btn-success fill-out-btn float-right mt-3">Next</a> -->
-                        <a routerLink="/freelancer/titleoverview">
-                            <button [disabled]="formGroup.invalid" type="button" class="btn btn-success fill-out-btn float-right mt-3" (click)="storeData()">Next</button>
-                        </a>
-                    </div>
-                </div>
+                  </div>
+                </form>
+              </div>
             </div>
+            <!--row-->
 
+            <hr>
 
+            <!-- You'll receive -->
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-xs-12 mt-3">
+                <h5>You'll receive</h5>
+                <p class="text-muted pg-HourlyRate">The estimated amount you'll receive after service fees</p>
+              </div>
+              <div class="col-lg-6 col-md-6 col-xs-12">
+                <form>
+                  <div class="form-group">
+                    <div class="col-xs-5">
+                      <div class="input-group mt-3 w-100 h-100">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text bg-transparent"><i
+                              class="fas fa-dollar-sign fa-lg border-right-0"></i></span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" disabled
+                          placeholder="{{inputMoney}}">
+                        <!-- <p class="mt-1 ml-3 pg-HourlyRate">/hr</p> -->
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!--row-->
 
+            <hr>
 
+            <div class="row m-2" style="background-color: #f9f9f9;">
+              <div class="col-lg-7 col-md-6 col-xs-12 mt-3">
+                <h5>Upwork service fees can be as low as 5%</h5>
+              </div>
+              <div class="col-lg-5 col-md-6 col-xs-12">
+                <img src="../../../../../assets/images/hourlyrate.svg" alt="Rates" class="ml-5" style="width: 60%;">
+              </div>
+            </div>
+            <!--row-->
+          </div>
+          <a routerLink="/freelancer/titleoverview" class="ml-4 skip-hourlyRate">Skip this step</a>
+          <div class="card-footer mt-5 mb-4" style="background-color: transparent;">
+            <a routerLink="/freelancer/languages" class="btn btn-success back-btn float-left mt-3">Back</a>
+            <!-- <a routerLink="/freelancer/titleoverview" class="btn btn-success fill-out-btn float-right mt-3">Next</a> -->
+            <a routerLink="/freelancer/titleoverview">
+              <button [disabled]="formGroup.invalid" type="button" class="btn btn-success fill-out-btn float-right mt-3"
+                (click)="storeData()">Next</button>
+            </a>
+          </div>
         </div>
-        
-    </div>
-</div>
+      </div>
 
+
+
+
+    </div>
+
+  </div>
+</div>

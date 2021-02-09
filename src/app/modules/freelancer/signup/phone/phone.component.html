@@ -1,45 +1,142 @@
 <div class="container-fluid backGround-color pb-5 pt-5">
-    <div class="row no-gutters justify-content-center mx-auto w-70">
-        <div class="col-lg-3 h-100 mx-auto d-none d-lg-block">
-            <app-sidebar></app-sidebar>
+  <div class="row no-gutters justify-content-center mx-auto w-70">
+    <div class="col-lg-3 h-100 mx-auto d-none d-lg-block">
+      <a routerLink="/freelancer/getstarted">
+        <div class="row w-100 m-0 pt-2 pb-2 " routerLinkActive="active">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-arrow-up fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Get Started</div>
+          <!-- <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"></i></div> -->
         </div>
+      </a>
 
-        <div class="col-lg-9 h-100">
+      <a routerLink="/freelancer/expertise">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="far fa-id-badge fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Expertise</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.expertiseLevel}"></i>
+          </div>
+        </div>
+      </a>
+      <a routerLink="/freelancer/expertiselevel">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.expertiseLevel}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="far fa-chart-bar fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Expertise Level</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.languages}"></i></div>
+        </div>
+      </a>
+      <a routerLink="/freelancer/languages">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.languages}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-microphone fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Languages</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.hourlyRate}"></i></div>
+        </div>
+      </a>
 
-            <!-- phone -->
-            <div class="container-fluid backGround-color pb-5">
-                <div class="card justify-content-center mx-auto shadow-lg" >
-                    <div class="card-header get-started-title" style="background-color: transparent;">
-                        <h4>Phone number</h4>
-                        <h6 class="text-muted">9 of 9</h6>
-                    </div>
+      <a routerLink="/freelancer/hourlyrate">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.hourlyRate}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-dollar-sign fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Hourly Rate</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.titleOverview}"></i></div>
+        </div>
+      </a>
 
-                    <form [formGroup]="formGroup">
-                        <div class="card-body mb-2">
-                            <div class="mt-2">
-                                <h5 class="card-title">Add your phone number.</h5>
-                                <div class="form-group">
-                                    <label for="InputPhone" class="pg-desc-phone mt-3">Phone</label>
-                                    <input formControlName="Phone" type="tel" class="form-control pg-desc-phone" id="InputPhone" placeholder="Enter number">
-                                    <div *ngIf="formGroup.controls['Phone'].invalid && (formGroup.controls['Phone'].touched ||  formGroup.controls['Phone'].dirty)">
-                                        <small class="form-text text-danger" *ngIf="formGroup.controls['Phone'].hasError('required')">Required Last Phone</small>
-                                        <small class="form-text text-danger" *ngIf="formGroup.controls['Phone'].hasError('minlength')">Min Length is 8</small>
-                                        <small class="form-text text-danger" *ngIf="formGroup.controls['Phone'].hasError('maxlength')">Max Length is 11</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <p class="pg-desc-phone ml-4">Your phone number will not be shared with clients.</p>
-                    <div class="card-footer mt-5 mb-4" style="background-color: transparent;">
-                        <a routerLink="/freelancer/location" class="btn btn-success back-btn1 float-left mt-3">Back</a>
-                        <a routerLink="/freelancer/reviewprofile" class="btn btn-success fill-out-btn float-right mt-3" (click)="storeData()">Preview Profile</a>
-                    </div>
+      <a routerLink="/freelancer/titleoverview">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.titleOverview}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-user-md fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Title &Overview</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.profilePhoto}"></i></div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/profilephoto">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.profilePhoto}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="far fa-id-card fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Profile Photo</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.location}"></i></div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/location">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.location}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-map-marker-alt fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Location</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.phone}"></i></div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/phone">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.phone}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-phone fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Phone</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.review}"></i></div>
+        </div>
+      </a> </div>
+
+    <div class="col-lg-9 h-100">
+
+      <!-- phone -->
+      <div class="container-fluid backGround-color pb-5">
+        <div class="card justify-content-center mx-auto shadow-lg">
+          <div class="card-header get-started-title" style="background-color: transparent;">
+            <h4>Phone number</h4>
+            <h6 class="text-muted">9 of 9</h6>
+          </div>
+
+          <form [formGroup]="formGroup">
+            <div class="card-body mb-2">
+              <div class="mt-2">
+                <h5 class="card-title">Add your phone number.</h5>
+                <div class="form-group">
+                  <label for="InputPhone" class="pg-desc-phone mt-3">Phone</label>
+                  <input formControlName="Phone" type="tel" class="form-control pg-desc-phone" id="InputPhone"
+                    placeholder="Enter number">
+                  <div
+                    *ngIf="formGroup.controls['Phone'].invalid && (formGroup.controls['Phone'].touched ||  formGroup.controls['Phone'].dirty)">
+                    <small class="form-text text-danger"
+                      *ngIf="formGroup.controls['Phone'].hasError('required')">Required Last Phone</small>
+                    <small class="form-text text-danger" *ngIf="formGroup.controls['Phone'].hasError('minlength')">Min
+                      Length is 8</small>
+                    <small class="form-text text-danger" *ngIf="formGroup.controls['Phone'].hasError('maxlength')">Max
+                      Length is 11</small>
+                  </div>
                 </div>
+              </div>
             </div>
-
+          </form>
+          <p class="pg-desc-phone ml-4">Your phone number will not be shared with clients.</p>
+          <div class="card-footer mt-5 mb-4" style="background-color: transparent;">
+            <a routerLink="/freelancer/location" class="btn btn-success back-btn1 float-left mt-3">Back</a>
+            <a routerLink="/freelancer/reviewprofile" class="btn btn-success fill-out-btn float-right mt-3"
+              (click)="storeData()">Preview Profile</a>
+          </div>
         </div>
-        
-    </div>
-</div>
+      </div>
 
+    </div>
+
+  </div>
+</div>

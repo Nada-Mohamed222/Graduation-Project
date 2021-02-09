@@ -19,6 +19,7 @@ export class ProfilephotoComponent implements OnInit {
   uploadedImage: any;
   freelancerSignUpArr: Freelancer[] = [];
   formGroup: FormGroup;
+  completedData: any;
 
   constructor(private _formBuilder: FormBuilder,
     private _sharingData: SharingDataService,
@@ -26,6 +27,7 @@ export class ProfilephotoComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    this.completedData = this._sharingData.isEligible;
     if (!this._sharingData.isEligible.profilePhoto) {
       this.router.navigateByUrl('/freelancer/titleoverview');
     }

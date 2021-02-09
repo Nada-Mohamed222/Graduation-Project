@@ -11,9 +11,11 @@ import { SharingDataService } from '../sharing-data-service/sharing-data.service
 export class PhoneComponent implements OnInit {
 
   formGroup: FormGroup;
+  completedData: any;
   constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
 
   ngOnInit(): void {
+    this.completedData = this._sharingData.isEligible;
     if (!this._sharingData.isEligible.phone) {
       this.router.navigateByUrl('/freelancer/location');
     }
