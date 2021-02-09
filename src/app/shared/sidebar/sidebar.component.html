@@ -1,79 +1,89 @@
 <!-- /#sidebar-wrapper-->
-<a routerLink="/freelancer/getstarted" >
-    <div class="row w-100 m-0 pt-2 pb-2 " routerLinkActive="active">
-        <div class="col-lg-1 p-0"></div>
-        <div class="col-lg-2 p-0"><i class="fas fa-arrow-up fa-lg"></i></div>
-        <div class="col-lg-8 p-0">Get Started</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
-    </div>
+<a routerLink="/freelancer/getstarted">
+  <div class="row w-100 m-0 pt-2 pb-2 " routerLinkActive="active">
+    <div class="col-lg-1 p-0"></div>
+    <div class="col-lg-2 p-0"><i class="fas fa-arrow-up fa-lg"></i></div>
+    <div class="col-lg-8 p-0">Get Started</div>
+    <!-- <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"></i></div> -->
+  </div>
 </a>
 
-<a routerLink="/freelancer/expertise" >
-    <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
-        <div class="col-lg-1 p-0"></div>
-        <div class="col-lg-2 p-0"><i class="far fa-id-badge fa-lg"></i></div>
-        <div class="col-lg-8 p-0">Expertise</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
+<a routerLink="/freelancer/expertise">
+  <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+    [ngClass]="{'disabled': !completedData.expertiseLevel}">
+    <div class="col-lg-1 p-0"></div>
+    <div class="col-lg-2 p-0"><i class="far fa-id-badge fa-lg"></i></div>
+    <div class="col-lg-8 p-0">Expertise</div>
+    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+        [ngClass]="{'text-muted': !completedData.expertiseLevel}"></i>
     </div>
+  </div>
 </a>
 <a routerLink="/freelancer/expertiselevel">
-    <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
-        <div class="col-lg-1 p-0"></div>
-        <div class="col-lg-2 p-0"><i class="far fa-chart-bar fa-lg"></i></div>
-        <div class="col-lg-8 p-0">Expertise Level</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
-    </div>
+  <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active" [ngClass]="{'disabled': !completedData.languages}">
+    <div class="col-lg-1 p-0"></div>
+    <div class="col-lg-2 p-0"><i class="far fa-chart-bar fa-lg"></i></div>
+    <div class="col-lg-8 p-0">Expertise Level</div>
+    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+        [ngClass]="{'text-muted': !completedData.languages}"></i></div>
+  </div>
 </a>
-<a routerLink="/freelancer/languages" >
-    <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
-        <div class="col-lg-1 p-0"></div>
-        <div class="col-lg-2 p-0"><i class="fas fa-microphone fa-lg"></i></div>
-        <div class="col-lg-8 p-0">Languages</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
-    </div>
+<a routerLink="/freelancer/languages">
+  <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active" [ngClass]="{'disabled': !completedData.languages}">
+    <div class="col-lg-1 p-0"></div>
+    <div class="col-lg-2 p-0"><i class="fas fa-microphone fa-lg"></i></div>
+    <div class="col-lg-8 p-0">Languages</div>
+    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+        [ngClass]="{'text-muted': !completedData.hourlyRate}"></i></div>
+  </div>
 </a>
 
 <a routerLink="/freelancer/hourlyrate">
-    <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
-        <div class="col-lg-1 p-0"></div>
-        <div class="col-lg-2 p-0"><i class="fas fa-dollar-sign fa-lg"></i></div>
-        <div class="col-lg-8 p-0">Hourly Rate</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
-    </div>
+  <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active" [ngClass]="{'disabled': !completedData.hourlyRate}">
+    <div class="col-lg-1 p-0"></div>
+    <div class="col-lg-2 p-0"><i class="fas fa-dollar-sign fa-lg"></i></div>
+    <div class="col-lg-8 p-0">Hourly Rate</div>
+    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+        [ngClass]="{'text-muted': !completedData.titleOverview}"></i></div>
+  </div>
 </a>
 
 <a routerLink="/freelancer/titleoverview">
-    <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
-        <div class="col-lg-1 p-0"></div>
-        <div class="col-lg-2 p-0"><i class="fas fa-user-md fa-lg"></i></div>
-        <div class="col-lg-8 p-0">Title &Overview</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
-    </div>
+  <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active" [ngClass]="{'disabled': !completedData.titleOverview}">
+    <div class="col-lg-1 p-0"></div>
+    <div class="col-lg-2 p-0"><i class="fas fa-user-md fa-lg"></i></div>
+    <div class="col-lg-8 p-0">Title &Overview</div>
+    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+        [ngClass]="{'text-muted': !completedData.profilePhoto}"></i></div>
+  </div>
 </a>
 
 <a routerLink="/freelancer/profilephoto">
-    <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
-        <div class="col-lg-1 p-0"></div>
-        <div class="col-lg-2 p-0"><i class="far fa-id-card fa-lg"></i></div>
-        <div class="col-lg-8 p-0">Profile Photo</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
-    </div>
+  <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active" [ngClass]="{'disabled': !completedData.profilePhoto}">
+    <div class="col-lg-1 p-0"></div>
+    <div class="col-lg-2 p-0"><i class="far fa-id-card fa-lg"></i></div>
+    <div class="col-lg-8 p-0">Profile Photo</div>
+    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+        [ngClass]="{'text-muted': !completedData.location}"></i></div>
+  </div>
 </a>
 
-<a routerLink="/freelancer/location" >
-    <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
-        <div class="col-lg-1 p-0"></div>
-        <div class="col-lg-2 p-0"><i class="fas fa-map-marker-alt fa-lg"></i></div>
-        <div class="col-lg-8 p-0">Location</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
-    </div>
+<a routerLink="/freelancer/location">
+  <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active" [ngClass]="{'disabled': !completedData.location}">
+    <div class="col-lg-1 p-0"></div>
+    <div class="col-lg-2 p-0"><i class="fas fa-map-marker-alt fa-lg"></i></div>
+    <div class="col-lg-8 p-0">Location</div>
+    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+        [ngClass]="{'text-muted': !completedData.phone}"></i></div>
+  </div>
 </a>
 
-<a routerLink="/freelancer/phone" >
-    <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
-        <div class="col-lg-1 p-0"></div>
-        <div class="col-lg-2 p-0"><i class="fas fa-phone fa-lg"></i></div>
-        <div class="col-lg-8 p-0">Phone</div>
-        <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color "></i></div>
-    </div>
+<a routerLink="/freelancer/phone">
+  <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active" [ngClass]="{'disabled': !completedData.phone}">
+    <div class="col-lg-1 p-0"></div>
+    <div class="col-lg-2 p-0"><i class="fas fa-phone fa-lg"></i></div>
+    <div class="col-lg-8 p-0">Phone</div>
+    <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+        [ngClass]="{'text-muted': !completedData.review}"></i></div>
+  </div>
 </a>
