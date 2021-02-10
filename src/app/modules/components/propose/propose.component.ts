@@ -1,17 +1,17 @@
 import { Client } from './../../../models/client';
 import { ClientService } from './../../../services/client.service';
-import { Job } from 'src/app/models/job';
+import { Job } from 'src/app/models/job 2';
 import { Component, OnInit } from '@angular/core';
 import { FreelancerService } from './../../../services/freelancer.service';
 import { ActivatedRoute } from '@angular/router';
 import { Freelancer } from 'src/app/models/freelancer';
 
 @Component({
-  selector: 'app-job-details',
-  templateUrl: './job-details.component.html',
-  styleUrls: ['./job-details.component.css']
+  selector: 'app-propose',
+  templateUrl: './propose.component.html',
+  styleUrls: ['./propose.component.css']
 })
-export class JobDetailsComponent implements OnInit {
+export class ProposeComponent implements OnInit {
 
   id: string = "";
   job: Job = new Job();
@@ -54,6 +54,5 @@ export class JobDetailsComponent implements OnInit {
       )
     })
   }
-
 
 }

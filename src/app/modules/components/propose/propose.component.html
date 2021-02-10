@@ -1,0 +1,80 @@
+<div class="container backGround-color pb-5 pt-5">
+  <div class="row no-gutters mx-auto mb-2">
+    <strong class="h3 font-weight-bold"> Job Details</strong>
+  </div>
+  <div class="row">
+    <div class="card justify-content-center shadow-md col-sm-12 col-lg-9">
+      <div class="card-header get-started-title" style="background-color: transparent">
+        <div class="row p-1">
+          <p class="h4">{{ job.Name }}</p>
+        </div>
+        <hr />
+        <div>
+          <a class="text-success">{{ job.Category }}</a>
+        </div>
+        <small>Posted At {{job.createdAt.slice(0, 10)}}</small>
+        <div class="pt-2">
+          <small class="fas fa-map-marker-alt" aria-hidden="true">
+            {{ job.Country ? job.Country : "Worldwide" }}</small>
+        </div>
+        <small class="text-secondary">
+          Required Connects: {{ job.ConnectsNeeded }}
+        </small>
+        <hr />
+        <div>
+          <p>
+            {{ job.Description }}
+          </p>
+        </div>
+        <hr />
+        <div>
+          <div class="row">
+            <div class="col-sm-6 col-lg-5">
+              <strong>${{ job.Price }}</strong><br />
+              <small class="text-secondary">Fixed Price</small>
+            </div>
+            <div class="col-sm-6 col-lg-5">
+              <strong>{{ job.ExpertiseLevel }}</strong><br />
+              <small class="text-secondary">Experience level</small>
+            </div>
+          </div>
+          <hr />
+          <div>
+            <h5>Skills and Expertise</h5>
+            <div *ngFor="let skill of job.Skills" class="mb-2 float-left">
+              <a routerLink="/job/search/{{ skill }}"
+                class="badge background-badge ml-2 p-2 rounded-pill">{{ skill }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card shadow-md col-sm-12 col-lg-3">
+      <div class="my-4">
+        <div class="mb-2 pl-3">
+          <strong>Project Type: </strong>
+          <p class="text-muted">{{ job.JobType }}</p>
+        </div>
+        <div class="mb-2 pl-3">
+          <strong>Project Type: </strong>
+          <p class="text-muted">{{ job.JobType }}</p>
+        </div>
+        <div class="mb-2 pl-3">
+          <strong>Project Type: </strong>
+          <p class="text-muted">{{ job.JobType }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-3 card justify-content-center shadow-md col-sm-12 col-lg-12">
+      <div class="card-header" style="background-color: transparent">
+        <div class="col-md-12 p-2">
+          <p class="h2">Additional details</p>
+        </div>
+      </div>
+
+      <div class="card-body mb-1 p-4">
+
+      </div>
+    </div>
+  </div>
+</div>

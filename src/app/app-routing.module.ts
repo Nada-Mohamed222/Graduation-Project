@@ -1,3 +1,4 @@
+import { ProposeComponent } from './modules/components/propose/propose.component';
 import { ViewProfileComponent } from './modules/components/view-profile/view-profile.component';
 import { ProfileComponent } from './modules/freelancer/signup/profile/profile.component';
 import { LoginComponent } from './../app/modules/register/login/login.component'
@@ -18,18 +19,23 @@ const routes: Routes = [
     loadChildren: () =>
       import('../app/modules/client/client.module').then((m) => m.ClientModule),
   },
-  {path:'freelancer',
-  loadChildren:() => import('../app/modules/freelancer/freelancer.module').then(m=>m.FreelancerModule)},
-  {path:'signup',
-  loadChildren:() => import('../app/modules/freelancer/signup/signup.module').then(m=>m.SignupModule)},
-  {path:'login',component:LoginComponent},
-  {path:'job/search/:skill',component:ProfileComponent,pathMatch: 'full', data:{search: true}},
-  {path:'job/:id',component:JobDetailsComponent,pathMatch: 'full'},
-  {path:'freelancer/:username',component:ViewProfileComponent},
+  {
+    path: 'freelancer',
+    loadChildren: () => import('../app/modules/freelancer/freelancer.module').then(m => m.FreelancerModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('../app/modules/freelancer/signup/signup.module').then(m => m.SignupModule)
+  },
+  { path: 'login', component: LoginComponent },
+  { path: 'job/search/:skill', component: ProfileComponent, pathMatch: 'full', data: { search: true } },
+  { path: 'job/:id', component: JobDetailsComponent, pathMatch: 'full' },
+  { path: 'job/:id/apply', component: ProposeComponent, pathMatch: 'full' },
+  { path: 'freelancer/:username', component: ViewProfileComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
