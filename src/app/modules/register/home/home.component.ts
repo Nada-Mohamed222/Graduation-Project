@@ -1,7 +1,7 @@
 import { JwtTokenService } from './../../../services/jwt-token.service';
 import { FreelancerService } from './../../../services/freelancer.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Freelancer } from 'src/app/models/freelancer';
 import { Router } from '@angular/router';
 
@@ -31,11 +31,21 @@ export class HomeComponent implements OnInit {
       FirstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
       LastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
       Password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-      Email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(30), Validators.email]],
-      UserName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
+      Email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(30), Validators.email, this.cannotContainSpace]],
+      UserName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10),this.cannotContainSpace]],
     })
 
   }
+
+  cannotContainSpace(control: AbstractControl) : ValidationErrors | null {
+    if((control.value as string).indexOf(' ') >= 0){
+        return {cannotContainSpace: true}
+    }
+
+    return null;
+}
+
+
   apperUserName(type) {
     this.isAppeared = true;
     this.signUpType = type;

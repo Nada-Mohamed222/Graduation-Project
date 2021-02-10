@@ -2,71 +2,161 @@
 <div class="container-fluid bg-color">
   <div class="card card-center mt-5">
     <div class="card-body">
-      <h5 class="card-title card-heading">Get your free account</h5><br>
+      <h5 class="card-title card-heading">Get your free account</h5>
+      <br />
 
       <form [formGroup]="formGroup">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputFirstName"></label>
-            <input formControlName="FirstName" type="text" class="form-control input-fontSize-form" id="inputFirstName"
-              placeholder="First name" #InputFirstName>
+            <input
+              formControlName="FirstName"
+              type="text"
+              class="form-control input-fontSize-form"
+              id="inputFirstName"
+              placeholder="First name"
+              #InputFirstName
+            />
             <div
-              *ngIf="formGroup.controls['FirstName'].invalid && (formGroup.controls['FirstName'].touched ||  formGroup.controls['FirstName'].dirty)">
-              <small class="form-text text-danger" *ngIf="formGroup.controls['FirstName'].hasError('required')">Required
-                First Name</small>
-              <small class="form-text text-danger" *ngIf="formGroup.controls['FirstName'].hasError('minlength')">Min
-                Length is 3</small>
-              <small class="form-text text-danger" *ngIf="formGroup.controls['FirstName'].hasError('maxlength')">Max
-                Length is 10</small>
+              *ngIf="
+                formGroup.controls['FirstName'].invalid &&
+                (formGroup.controls['FirstName'].touched ||
+                  formGroup.controls['FirstName'].dirty)
+              "
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="formGroup.controls['FirstName'].hasError('required')"
+                >Required First Name</small
+              >
+              <small
+                class="form-text text-danger"
+                *ngIf="formGroup.controls['FirstName'].hasError('minlength')"
+                >Min Length is 3</small
+              >
+              <small
+                class="form-text text-danger"
+                *ngIf="formGroup.controls['FirstName'].hasError('maxlength')"
+                >Max Length is 10</small
+              >
             </div>
           </div>
           <div class="form-group col-md-6">
             <label for="inputLastName"></label>
-            <input formControlName="LastName" type="text" class="form-control input-fontSize-form" id="inputLastName"
-              placeholder="Last name" #InputLastName>
+            <input
+              formControlName="LastName"
+              type="text"
+              class="form-control input-fontSize-form"
+              id="inputLastName"
+              placeholder="Last name"
+              #InputLastName
+            />
             <div
-              *ngIf="formGroup.controls['LastName'].invalid && (formGroup.controls['LastName'].touched ||  formGroup.controls['LastName'].dirty)">
-              <small class="form-text text-danger" *ngIf="formGroup.controls['LastName'].hasError('required')">Required
-                Last Name</small>
-              <small class="form-text text-danger" *ngIf="formGroup.controls['LastName'].hasError('minlength')">Min
-                Length is 3</small>
-              <small class="form-text text-danger" *ngIf="formGroup.controls['LastName'].hasError('maxlength')">Max
-                Length is 10</small>
+              *ngIf="
+                formGroup.controls['LastName'].invalid &&
+                (formGroup.controls['LastName'].touched ||
+                  formGroup.controls['LastName'].dirty)
+              "
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="formGroup.controls['LastName'].hasError('required')"
+                >Required Last Name</small
+              >
+              <small
+                class="form-text text-danger"
+                *ngIf="formGroup.controls['LastName'].hasError('minlength')"
+                >Min Length is 3</small
+              >
+              <small
+                class="form-text text-danger"
+                *ngIf="formGroup.controls['LastName'].hasError('maxlength')"
+                >Max Length is 10</small
+              >
             </div>
           </div>
         </div>
         <div class="form-group">
           <label for="inputPassword"></label>
-          <input formControlName="Password" type="password" class="form-control input-fontSize-form" id="inputPassword"
-            placeholder="Create a password" #InputPassword>
+          <input
+            formControlName="Password"
+            type="password"
+            class="form-control input-fontSize-form"
+            id="inputPassword"
+            placeholder="Create a password"
+            #InputPassword
+          />
           <div
-            *ngIf="formGroup.controls['Password'].invalid && (formGroup.controls['Password'].touched ||  formGroup.controls['Password'].dirty)">
-            <small class="form-text text-danger" *ngIf="formGroup.controls['Password'].hasError('required')">Required
-              Password</small>
-            <small class="form-text text-danger" *ngIf="formGroup.controls['Password'].hasError('minlength')">Min Length
-              is 6</small>
-            <small class="form-text text-danger" *ngIf="formGroup.controls['Password'].hasError('maxlength')">Max Length
-              is 20</small>
+            *ngIf="
+              formGroup.controls['Password'].invalid &&
+              (formGroup.controls['Password'].touched ||
+                formGroup.controls['Password'].dirty)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="formGroup.controls['Password'].hasError('required')"
+              >Required Password</small
+            >
+            <small
+              class="form-text text-danger"
+              *ngIf="formGroup.controls['Password'].hasError('minlength')"
+              >Min Length is 6</small
+            >
+            <small
+              class="form-text text-danger"
+              *ngIf="formGroup.controls['Password'].hasError('maxlength')"
+              >Max Length is 20</small
+            >
           </div>
         </div>
         <div class="form-group">
           <label for="inputEmail"></label>
-          <input formControlName="Email" type="email" class="form-control input-fontSize-form" id="inputEmail"
-            placeholder="Email address" #InputEmail>
+          <input
+            formControlName="Email"
+            type="email"
+            class="form-control input-fontSize-form"
+            id="inputEmail"
+            placeholder="Email address"
+            #InputEmail
+          />
           <div
-            *ngIf="formGroup.controls['Email'].invalid && (formGroup.controls['Email'].touched ||  formGroup.controls['Email'].dirty)">
-            <small class="form-text text-danger" *ngIf="formGroup.controls['Email'].hasError('required')">Required
-              Email</small>
-            <small class="form-text text-danger" *ngIf="formGroup.controls['Email'].hasError('minlength')">Min Length is
-              5</small>
-            <small class="form-text text-danger" *ngIf="formGroup.controls['Email'].hasError('maxlength')">Max Length is
-              30</small>
+            *ngIf="
+              formGroup.controls['Email'].invalid &&
+              (formGroup.controls['Email'].touched ||
+                formGroup.controls['Email'].dirty)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="formGroup.controls['Email'].hasError('required')"
+              >Required Email</small
+            >
+            <small
+              class="form-text text-danger"
+              *ngIf="formGroup.controls['Email'].hasError('cannotContainSpace')"
+              >Spaces are not allowed</small
+            >
+            <small
+              class="form-text text-danger"
+              *ngIf="formGroup.controls['Email'].hasError('minlength')"
+              >Min Length is 5</small
+            >
+            <small
+              class="form-text text-danger"
+              *ngIf="formGroup.controls['Email'].hasError('maxlength')"
+              >Max Length is 30</small
+            >
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-12">
             <label for="inputState"></label>
-            <select id="inputState" class="form-control" style="font-size: 15px;">
+            <select
+              id="inputState"
+              class="form-control"
+              style="font-size: 15px"
+            >
               <option selected>Egypt</option>
               <option>Albania</option>
               <option>Algeria</option>
@@ -141,15 +231,35 @@
         <div class="text-center">
           <h4 class="text-justify-center">I want to:</h4>
           <div class="btn-group" data-toggle="buttons">
-            <input class="changeType" type="radio" name="options" hidden id="option1" value="employer">
-            <label for="option1" class="btn btn-success form-check-label btn-size-home"
-              (click)="apperUserName('employer')">
+            <input
+              class="changeType"
+              type="radio"
+              name="options"
+              hidden
+              id="option1"
+              value="employer"
+            />
+            <label
+              for="option1"
+              class="btn btn-success form-check-label btn-size-home"
+              (click)="apperUserName('employer')"
+            >
               Hire for a Project
             </label>
 
-            <input class="changeType" type="radio" name="options" hidden id="option2" value="talent">
-            <label for="option2" class="btn btn-success form-check-label btn-size-home ml-3"
-              (click)="apperUserName('talent')">
+            <input
+              class="changeType"
+              type="radio"
+              name="options"
+              hidden
+              id="option2"
+              value="talent"
+            />
+            <label
+              for="option2"
+              class="btn btn-success form-check-label btn-size-home ml-3"
+              (click)="apperUserName('talent')"
+            >
               Work as a Freelancer
             </label>
           </div>
@@ -159,40 +269,93 @@
           <label for="inputUserName"></label>
           <!-- *ngIf="isAppeared"  -->
 
-          <input [hidden]="!isAppeared" formControlName="UserName" type="text" class="form-control input-fontSize-form"
-            id="inputUserName" placeholder="Username" #InputUserName>
+          <input
+            [hidden]="!isAppeared"
+            formControlName="UserName"
+            type="text"
+            class="form-control input-fontSize-form"
+            id="inputUserName"
+            placeholder="Username"
+            #InputUserName
+          />
           <div
-            *ngIf="formGroup.controls['UserName'].invalid && (formGroup.controls['UserName'].touched ||  formGroup.controls['UserName'].dirty)">
-            <small class="form-text text-danger" *ngIf="formGroup.controls['UserName'].hasError('required')">Required
-              UserName</small>
-            <small class="form-text text-danger" *ngIf="formGroup.controls['UserName'].hasError('minlength')">Min Length
-              is 5</small>
-            <small class="form-text text-danger" *ngIf="formGroup.controls['UserName'].hasError('maxlength')">Max Length
-              is 10</small>
+            *ngIf="
+              formGroup.controls['UserName'].invalid &&
+              (formGroup.controls['UserName'].touched ||
+                formGroup.controls['UserName'].dirty)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="formGroup.controls['UserName'].hasError('required')"
+              >Required UserName</small
+            >
+            <small
+              class="form-text text-danger"
+              *ngIf="
+                formGroup.controls['UserName'].hasError('cannotContainSpace')
+              "
+              >Spaces are not allowed</small
+            >
+
+            <small
+              class="form-text text-danger"
+              *ngIf="formGroup.controls['UserName'].hasError('minlength')"
+              >Min Length is 5</small
+            >
+            <small
+              class="form-text text-danger"
+              *ngIf="formGroup.controls['UserName'].hasError('maxlength')"
+              >Max Length is 10</small
+            >
           </div>
         </div>
 
         <div class="form-group">
           <div class="form-check">
-            <input class="form-check-input" checked="checked" type="checkbox" id="gridCheck">
-            <label class="form-check-label ml-5 mt-1 checkout-styling-home" for="gridCheck">
-              Yes! Send me genuinely useful emails every now and then to help me get the most out of Upwork.
+            <input
+              class="form-check-input"
+              checked="checked"
+              type="checkbox"
+              id="gridCheck"
+            />
+            <label
+              class="form-check-label ml-5 mt-1 checkout-styling-home"
+              for="gridCheck"
+            >
+              Yes! Send me genuinely useful emails every now and then to help me
+              get the most out of Upwork.
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-            <label class="form-check-label ml-5 mt-1 checkout-styling-home" for="gridCheck1">
-              Yes, I understand and agree to the Upwork Terms of Service, including the User Agreement and Privacy
-              Policy.
+            <input class="form-check-input" type="checkbox" id="gridCheck1" />
+            <label
+              class="form-check-label ml-5 mt-1 checkout-styling-home"
+              for="gridCheck1"
+            >
+              Yes, I understand and agree to the Upwork Terms of Service,
+              including the User Agreement and Privacy Policy.
             </label>
           </div>
         </div>
         <!-- [disabled]="formGroup.invalid" -->
         <!-- routerLink="/freelancer/getstarted" -->
         <button
-          (click)="addNewAccount(InputFirstName.value , InputLastName.value , InputPassword.value, InputEmail.value , InputUserName.value)"
-          type="submit" class="btn btn-success create-btn-size-home">Create My Account</button>
-
+          (click)="
+            addNewAccount(
+              InputFirstName.value,
+              InputLastName.value,
+              InputPassword.value,
+              InputEmail.value,
+              InputUserName.value
+            )
+          "
+          [disabled]="formGroup.invalid"
+          type="submit"
+          class="btn btn-success create-btn-size-home"
+        >
+          Create My Account
+        </button>
       </form>
     </div>
   </div>
@@ -200,67 +363,120 @@
 
 <h4 class="heading-of-images">Trusted by 5M+ businesses</h4>
 <div class="row mt-5 w-75 justify-content-md-center">
-  <br><br>
+  <br /><br />
   <div class="col-lg-2 mt-2 col-md-6">
-    <img src="../../../assets/images/Microsoft-Logo.png" class="home-img" alt="Microsoft Logo">
+    <img
+      src="../../../assets/images/Microsoft-Logo.png"
+      class="home-img"
+      alt="Microsoft Logo"
+    />
   </div>
   <div class="col-lg-2 mt-4 col-md-6">
-    <img src="../../../assets/images/aribnb.png" class="home-img1" alt="Airbnb Logo">
+    <img
+      src="../../../assets/images/aribnb.png"
+      class="home-img1"
+      alt="Airbnb Logo"
+    />
   </div>
   <div class="col-lg-2 col-md-6">
-    <img src="../../../assets/images/General_Electric.png" class="home-img2  mt-4" alt="Electric Logo">
+    <img
+      src="../../../assets/images/General_Electric.png"
+      class="home-img2 mt-4"
+      alt="Electric Logo"
+    />
   </div>
   <div class="col-lg-2 col-md-6">
-    <img src="../../../assets/images/automattic.png" class="home-img3  mt-4" alt="Automattic Logo">
+    <img
+      src="../../../assets/images/automattic.png"
+      class="home-img3 mt-4"
+      alt="Automattic Logo"
+    />
   </div>
   <div class="col-lg-2 col-md-6">
-    <img src="../../../assets/images/bissell.png" class="home-img4 mt-4" alt="Bissell Logo">
+    <img
+      src="../../../assets/images/bissell.png"
+      class="home-img4 mt-4"
+      alt="Bissell Logo"
+    />
   </div>
   <div class="col-lg-2 col-md-6">
-    <img src="../../../assets/images/COTY_LOGO.png" class="home-img5" alt="COTY Logo">
+    <img
+      src="../../../assets/images/COTY_LOGO.png"
+      class="home-img5"
+      alt="COTY Logo"
+    />
   </div>
 </div>
 <!--Before Footer Find what you need -->
 <div class="container-fluid bg-media">
-  <<<<<<< HEAD <div class="row mt-5">
+  <div class="row mt-5">
     <div class="col-lg-4">
       <div class="media p-3">
-        <img src="../assets/images/findJob.png" alt="Find Job" class="mt-3 rounded-circle" style="width:90px;">
+        <img
+          src="../assets/images/findJob.png"
+          alt="Find Job"
+          class="mt-3 rounded-circle"
+          style="width: 90px"
+        />
         <div class="media-body">
           <h4 class="heading-desc ml-3">Find what you need</h4>
-          <p class="paragraph-desc ml-3">Choose from specialized freelancers and agencies with 5,000+ skills.</p>
+          <p class="paragraph-desc ml-3">
+            Choose from specialized freelancers and agencies with 5,000+ skills.
+          </p>
         </div>
       </div>
-      =======
       <div class="row mt-5">
         <div class="col-lg-4">
           <div class="media p-3">
-            <img src="../assets/images/findJob.png" alt="Find Job" class="mt-3 rounded-circle" style="width:90px;">
+            <img
+              src="../assets/images/findJob.png"
+              alt="Find Job"
+              class="mt-3 rounded-circle"
+              style="width: 90px"
+            />
             <div class="media-body">
               <h4 class="heading-desc ml-3">Find what you need</h4>
-              <p class="paragraph-desc ml-3">Choose from specialized freelancers and agencies with 5,000+ skills.</p>
-              >>>>>>> master
+              <p class="paragraph-desc ml-3">
+                Choose from specialized freelancers and agencies with 5,000+
+                skills.
+              </p>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="media p-3">
-            <img src="../assets/images/hire.png" alt="Post Job" class="mt-3 rounded-circle" style="width:90px;">
+            <img
+              src="../assets/images/hire.png"
+              alt="Post Job"
+              class="mt-3 rounded-circle"
+              style="width: 90px"
+            />
             <div class="media-body">
               <h4 class="heading-desc ml-3">Post today, hire tomorrow</h4>
-              <p class="paragraph-desc ml-3">Get custom quotes right away on terms you negotiate directly.</p>
+              <p class="paragraph-desc ml-3">
+                Get custom quotes right away on terms you negotiate directly.
+              </p>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="media p-3">
-            <img src="../assets/images/confidence.png" alt="Pay For This Job" class="mt-3 rounded-circle"
-              style="width:90px;">
+            <img
+              src="../assets/images/confidence.png"
+              alt="Pay For This Job"
+              class="mt-3 rounded-circle"
+              style="width: 90px"
+            />
             <div class="media-body">
               <h4 class="heading-desc ml-3">Engage with confidence</h4>
-              <p class="paragraph-desc ml-3">Only pay for work you authorize, with secure billing and invoices.</p>
+              <p class="paragraph-desc ml-3">
+                Only pay for work you authorize, with secure billing and
+                invoices.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
