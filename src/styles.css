@@ -43,3 +43,8 @@ body {
   /* color: gray !important; */
   cursor: not-allowed !important;
 }
+
+::selection {
+  color: white;
+  background: #47a815;
+}
