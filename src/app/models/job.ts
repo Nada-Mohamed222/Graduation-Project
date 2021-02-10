@@ -26,10 +26,10 @@ export class Job {
   Category: String;
   Description: String;
   JobType: String;
-  
+
   // may cause error
-  Skills:string;
-  
+  Skills: string;
+
   ExpertiseLevel: String;
   TalentsRequired: Number;
   Country: String;
@@ -45,22 +45,23 @@ export class Job {
   TalentUserName: String
   TalentRating: Number;
   TalentReview: String;
-  Proposals: Array<string> =[];
+  Proposals: Array<string> = [];
   ConnectsNeeded: Number;
   Status: String;
+  createdAt: String;
 
   constructor(
-    Name: string,
-    Category: string,
-    Description: string,
+    Name?: string,
+    Category?: string,
+    Description?: string,
 
-    JobType: string,
-    Skills: string,
-    ExpertiseLevel: string,
-    // freelancerNumber: number = 4,
+    JobType?: string,
+    Skills?: string,
+    ExpertiseLevel?: string,
+    // freelancerNumber?: number = 4,
 
-    PaymentType: string,
-    Price: number,
+    PaymentType?: string,
+    Price?: number,
     // payment={"fixed":10}
 
     // PaymentType: { [EarningType: string] : number | string },
@@ -69,7 +70,7 @@ export class Job {
     // EarningType: boolean,
     // Earning: number,
 
-    Duration: number
+    Duration?: number
   ) {
     this.Name = Name;
     this.Category = Category;
