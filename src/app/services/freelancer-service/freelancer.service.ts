@@ -32,6 +32,9 @@ export class FreelancerService {
     return this._apiServices.get(`talent/${localStorage.getItem('UserName')}`);
   }
 
+  getFreelancerProfile(userName: string) {
+    return this._apiServices.get(`talent/${userName}`);
+  }
   getAllJobs() {
     return this._apiServices.get('job');
   }

@@ -1,0 +1,18 @@
+<h3>proprsal</h3>
+<div class="container">
+  <div class="col-md-12">
+    <div class="card">
+      <div *ngFor="let p of proposals">
+        <app-proposal-card
+          image="{{ p.TalentID.ImageURL }}"
+          freelancerName="{{
+            p.TalentID.FirstName + ' ' + p.TalentID.LastName
+          }}"
+          jobTitle="{{ p.TalentID.Title }}"
+          coverLetter="{{ p.CoverLetter }}"
+          (click)="getFreelancerProfile()"
+        ></app-proposal-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,6 +10,7 @@ import { ReversePipe } from './../shared/pipes/reverse.pipe';
 import { ChipComponent } from './../shared/components/chip/chip.component';
 import { ProposalsComponent } from './../profile/proposals/proposals.component';
 import { JobsComponent } from './jobs/jobs.component';
+import { ProposalCardComponent } from './proposals/proposal-card/proposal-card.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,7 @@ const routes: Routes = [
     ChipComponent,
     ProposalsComponent,
     JobsComponent,
+    ProposalCardComponent,
   ],
   imports: [CommonModule, RouterModule.forChild(routes)],
 

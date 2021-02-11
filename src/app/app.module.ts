@@ -9,20 +9,14 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
-// import { HomeComponent } from './shared/home/home.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './../app/modules/register/login/login.component';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { JobDetailsComponent } from './modules/components/job-details/job-details.component';
-// import { SignupModule } from './modules/freelancer/signup/signup.module';
 
 import { PostJobModule } from './modules/client/post-job/post-job.module';
-
-// import { CardComponent } from './modules/shared/card/card.component';
-// import {ClientModule} from "./modules/client/client.module";
-// import { PostJobComponent } from "./modules/client/post-job/post-job.component";
-// import { SideNavComponent } from './modules/client/post-job/side-nav/side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +42,7 @@ import { PostJobModule } from './modules/client/post-job/post-job.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    // NgbModule,
+    NgbModule,
     PostJobModule,
     // SignupModule
   ],

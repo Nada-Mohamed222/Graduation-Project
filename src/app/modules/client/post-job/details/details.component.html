@@ -23,7 +23,7 @@
               >What type of project do you have?</label
             >
             <div class="row">
-              <div class="col-xs-4">
+              <div class="col-md-4">
                 <app-card
                   cardIcon="fas fa-2x fa-user-clock"
                   cardTitle="One-time project"
@@ -36,7 +36,7 @@
                 ></app-card>
               </div>
 
-              <div class="col-xs-4">
+              <div class="col-md-4">
                 <app-card
                   cardIcon="fas fa-2x fa-clipboard-list"
                   cardTitle="Ongoing project"
@@ -48,7 +48,7 @@
                 ></app-card>
               </div>
 
-              <div class="col-xs-4">
+              <div class="col-md-4">
                 <app-card
                   cardIcon="fas fa-2x fa-th-large"
                   cardTitle="Complex project"
@@ -204,16 +204,18 @@
               >What level of experience should your freelancer have?</label
             >
             <div class="row">
-              <app-card
-                cardTitle="Entry Level"
-                cardText="Find a good one to accomplish task for one times"
-                class="col-xs-4"
-                id="X_level"
-                formControlName="ExperienceLevel"
-                value="Entry"
-                [checked]="isEntery"
-                ngDefaultControl
-              ></app-card>
+              <div class="col-md-4">
+                <app-card
+                  cardTitle="Entry Level"
+                  cardText="Find a good one to accomplish task for one times"
+                  class="col-xs-4"
+                  id="X_level"
+                  formControlName="ExperienceLevel"
+                  value="Entry"
+                  [checked]="isEntery"
+                  ngDefaultControl
+                ></app-card>
+              </div>
 
               <app-card
                 cardTitle="Intermediate"

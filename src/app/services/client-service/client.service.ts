@@ -32,6 +32,11 @@ export class ClientService {
       `employer/${localStorage.getItem('UserName')}`
     );
   }
+  // job/:id/proposals
+
+  getJobProposal() {
+    return this._apiServices.get(`job/6025717c75a28efac387b633/proposals`);
+  }
 
   getAllJobs() {
     return this._apiServices.get('job');

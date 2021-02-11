@@ -1,6 +1,3 @@
-import { Router } from '@angular/router';
-import { ClientService } from '../client-service/client.service';
-import { JwtTokenService } from '../jwt-token.service';
 import { Job } from '../../models/job';
 import { ApiService } from '../api.service';
 import { Injectable } from '@angular/core';
@@ -9,12 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class JobPost {
-  constructor(
-    private _apiService: ApiService,
-    private _jwtService: JwtTokenService,
-    private _clientService: ClientService,
-    private router: Router
-  ) {}
+  constructor(private _apiService: ApiService) {}
 
   postJob(job: Job) {
     //post job to firebase
