@@ -1,8 +1,9 @@
+import { Proposals } from './../../../models/proposals';
 import { Client } from './../../../models/client';
-import { ClientService } from './../../../services/client.service';
+import { ClientService } from '../../../services/client-service/client.service';
 import { Job } from 'src/app/models/job';
 import { Component, OnInit } from '@angular/core';
-import { FreelancerService } from './../../../services/freelancer.service';
+import { FreelancerService } from '../../../services/freelancer-service/freelancer.service';
 import { ActivatedRoute } from '@angular/router';
 import { Freelancer } from 'src/app/models/freelancer';
 
@@ -17,7 +18,9 @@ export class JobDetailsComponent implements OnInit {
   job: Job = new Job();
   clientJobs: Array<Job> = [];
   client: Client = new Client();
+  isSubmitted: Boolean= false;
   freelancer: Freelancer = new Freelancer();
+  proposal: Proposals["Proposals"] = new Proposals().Proposals;
 
   constructor(private _freelancerService: FreelancerService, private _clientService: ClientService, private route: ActivatedRoute) { }
 
@@ -35,6 +38,10 @@ export class JobDetailsComponent implements OnInit {
       window.scrollTo(0, 0);
       this._freelancerService.getAJob(this.id).subscribe((response: any) => {
         this.job = response;
+        this.proposal = response.Proposals;
+        console.log(this.proposal);
+        this.checkSubmition();
+
 
         this._clientService.getClient(response.EmployerUserName).subscribe((response: Client) => {
           this.client = response;
@@ -55,5 +62,18 @@ export class JobDetailsComponent implements OnInit {
     })
   }
 
+  
+  checkSubmition(){
+   const check = this.freelancer.Proposals.find(item =>{
+        console.log(item.Job)
+    return item.Job == this.job._id;
+         
+    })
+    console.log(check);
+    
+    if(check){
+      this.isSubmitted = true;
+    }
+  }
 
 }

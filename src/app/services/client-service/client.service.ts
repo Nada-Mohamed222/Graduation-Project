@@ -1,5 +1,5 @@
-import { Freelancer } from './../models/freelancer';
-import { ApiService } from './api.service';
+import { Freelancer } from '../../models/freelancer';
+import { ApiService } from '../api.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({

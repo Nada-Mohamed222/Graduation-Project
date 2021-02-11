@@ -1,5 +1,5 @@
-import { Job } from '../models/job';
-import { ApiService } from './api.service';
+import { Job } from '../../models/job';
+import { ApiService } from '../api.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -13,10 +13,10 @@ export class JobPost {
     // return this._apiService.post(``, job);
 
     //post job to api
-    return this._apiService.post(`/job/Add-job/employer1`, job);
+    return this._apiService.post(`/job/Add-job/newClient5`, job);
   }
 
   getJobs() {
-    return this._apiService.get(`/employer/employer1/jobs`);
+    return this._apiService.get(`/employer/newClient5/jobs`);
   }
 }

@@ -1,5 +1,5 @@
 import { JwtTokenService } from './../../../services/jwt-token.service';
-import { FreelancerService } from './../../../services/freelancer.service';
+import { FreelancerService } from '../../../services/freelancer-service/freelancer.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';

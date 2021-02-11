@@ -1,6 +1,6 @@
-import { ApiService } from './api.service';
+import { ApiService } from '../api.service';
 import { Injectable } from '@angular/core';
-import { Freelancer } from '../models/freelancer';
+import { Freelancer } from '../../models/freelancer';
 import { HttpHeaders, HttpRequest } from '@angular/common/http';
 
 
@@ -43,7 +43,15 @@ export class FreelancerService {
   getAJob(id: string) {
     return this._apiServices.get(`job/` + id);
   }
-  delete(id: number) {
+  delete(id: string) {
     return this._apiServices.delete(`freelancer/delete?id=` + id);
+  }
+
+  submitForm(id: String, proposal: Object){
+    return this._apiServices.post(`job/${id}/${localStorage.getItem("UserName")}/propose`, proposal)
+  }
+
+  getAllProposals(){
+    return this._apiServices.get(`talent/${localStorage.getItem("UserName")}/proposals`)
   }
 }

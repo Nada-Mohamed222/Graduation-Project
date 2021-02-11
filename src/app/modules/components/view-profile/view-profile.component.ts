@@ -1,7 +1,7 @@
 import { Freelancer } from './../../../models/freelancer';
 import { ActivatedRoute } from '@angular/router';
-import { ClientService } from './../../../services/client.service';
-import { FreelancerService } from './../../../services/freelancer.service';
+import { ClientService } from '../../../services/client-service/client.service';
+import { FreelancerService } from '../../../services/freelancer-service/freelancer.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

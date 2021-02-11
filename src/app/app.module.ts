@@ -20,6 +20,7 @@ import { ViewProfileComponent } from './modules/components/view-profile/view-pro
 
 import { PostJobModule } from './modules/client/post-job/post-job.module';
 import { ProposeComponent } from './modules/components/propose/propose.component';
+import { MyProposalsComponent } from "./modules/freelancer/my-proposals/my-proposals.component";
 
 
 // import { CardComponent } from './modules/shared/card/card.component';
@@ -42,6 +43,7 @@ import { ProposeComponent } from './modules/components/propose/propose.component
     JobDetailsComponent,
     ViewProfileComponent,
     ProposeComponent,
+    MyProposalsComponent,
     // SignupModule
   ],
   imports: [

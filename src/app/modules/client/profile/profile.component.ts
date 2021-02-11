@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { JobPost } from 'src/app/api-service/job-post.service';
+import { JobPost } from 'src/app/services/job-service/job-post.service';
 import { map } from 'rxjs/operators';
 import { Job } from 'src/app/models/job';
 @Component({

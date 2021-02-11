@@ -15,6 +15,7 @@ import { EmploymentComponent } from './signup/employment/employment.component';
 import { LanguagesComponent } from './signup/languages/languages.component';
 import { HourlyrateComponent } from './signup/hourlyrate/hourlyrate.component';
 import { ProfilephotoComponent } from './signup/profilephoto/profilephoto.component';
+import { MyProposalsComponent } from './my-proposals/my-proposals.component';
 
 const routes:Routes=[
   // {path:'home',component:HomeComponent},

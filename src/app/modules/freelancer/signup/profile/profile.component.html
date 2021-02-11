@@ -41,7 +41,7 @@
     </div>
 
     <div class="col-md-8 rounded-md">
-      <div class="card justify-content-center mx-auto shadow-md">
+      <div class="card justify-content-center mx-auto shadow-md ">
         <div
           class="card-header get-started-title"
           style="background-color: transparent"
@@ -79,7 +79,7 @@
 
         <div
           *ngFor="let job of jobs; let currentIndex = index"
-          class="card-body mb-2 p-4 border-bottom"
+          class="card-body mb-2 p-4 border-bottom hover-color"
         >
           <div class="row mb-4">
             <div class="col-md-10">
@@ -160,7 +160,9 @@
 
       <div class="mt-3 text-color">
         <i class="fas fa-eye"></i>
-        <a href="" class="profile-link-jobs"
+        <a
+          routerLink="/freelancer/{{ freelancer.UserName }}"
+          class="profile-link-jobs"
           ><strong class="ml-2">View Profile</strong></a
         >
       </div>
@@ -284,22 +286,7 @@
         </div>
       </div>
 
-      <div class="row pl-3 mt-3">
-        <div
-          class="progress mt-2 col-md-9 p-0 bg-secondary"
-          style="height: 6px"
-        >
-          <div
-            class="progress-bar bg-color"
-            role="progressbar"
-            style="width: 65%"
-            aria-valuenow="100"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div>
-        </div>
-        <div class="col-md-3"><span>65%</span></div>
-      </div>
+    
 
       <div class="mt-3">
         <a href="" class="profile-link-jobs">

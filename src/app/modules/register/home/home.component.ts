@@ -1,5 +1,5 @@
 import { JwtTokenService } from './../../../services/jwt-token.service';
-import { FreelancerService } from './../../../services/freelancer.service';
+import { FreelancerService } from '../../../services/freelancer-service/freelancer.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Freelancer } from 'src/app/models/freelancer';
@@ -33,7 +33,8 @@ export class HomeComponent implements OnInit {
       Password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
       Email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(30), Validators.email, this.cannotContainSpace]],
       UserName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10),this.cannotContainSpace]],
-    })
+      CheckRules: [false,[Validators.requiredTrue]]   
+     })
 
   }
 

@@ -1,6 +1,6 @@
 import { Freelancer } from './../../../../models/freelancer';
 import { Router } from '@angular/router';
-import { FreelancerService } from './../../../../services/freelancer.service';
+import { FreelancerService } from '../../../../services/freelancer-service/freelancer.service';
 import { ApiService } from './../../../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';

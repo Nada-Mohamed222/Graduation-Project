@@ -1,9 +1,9 @@
 import { Client } from './../../../models/client';
-import { ClientService } from './../../../services/client.service';
-import { Job } from 'src/app/models/job 2';
+import { ClientService } from '../../../services/client-service/client.service';
+import { Job } from 'src/app/models/job';
 import { Component, OnInit } from '@angular/core';
-import { FreelancerService } from './../../../services/freelancer.service';
-import { ActivatedRoute } from '@angular/router';
+import { FreelancerService } from '../../../services/freelancer-service/freelancer.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Freelancer } from 'src/app/models/freelancer';
 
 @Component({
@@ -19,7 +19,7 @@ export class ProposeComponent implements OnInit {
   client: Client = new Client();
   freelancer: Freelancer = new Freelancer();
 
-  constructor(private _freelancerService: FreelancerService, private _clientService: ClientService, private route: ActivatedRoute) { }
+  constructor(private _freelancerService: FreelancerService, private _clientService: ClientService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this._freelancerService.get().subscribe((response: Freelancer) => {
@@ -55,4 +55,15 @@ export class ProposeComponent implements OnInit {
     })
   }
 
+  submitProposal(CoverLetter: Object){
+
+    this._freelancerService.submitForm(this.job._id, {CoverLetter}).subscribe((response: any) => {
+      console.log(response);
+      this.router.navigateByUrl('/freelancer/my-proposals');
+    },error => {
+      console.log(error);
+    }
+    )
+
+  }
 }

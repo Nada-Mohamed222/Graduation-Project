@@ -5,6 +5,7 @@ import { LoginComponent } from './../app/modules/register/login/login.component'
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { JobDetailsComponent } from './modules/components/job-details/job-details.component';
+import { MyProposalsComponent } from './modules/freelancer/my-proposals/my-proposals.component';
 
 const routes: Routes = [
   {
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: 'job/search/:skill', component: ProfileComponent, pathMatch: 'full', data: { search: true } },
   { path: 'job/:id', component: JobDetailsComponent, pathMatch: 'full' },
   { path: 'job/:id/apply', component: ProposeComponent, pathMatch: 'full' },
-  { path: 'freelancer/:username', component: ViewProfileComponent },
+  { path: 'freelancer/my-proposals', component: MyProposalsComponent , pathMatch: 'full'},
+  { path: 'freelancer/:username', component: ViewProfileComponent , pathMatch: 'full' },
 ];
 
 @NgModule({

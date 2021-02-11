@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Job } from './../../../../models/job';
-import { JobPost } from '../../../../api-service/job-post.service';
+import { JobPost } from '../../../../services/job-service/job-post.service';
 import { SharingDataService } from './../../shared/services/sharing-data.service';
 import { Component, Injector, OnInit } from '@angular/core';
 
@@ -67,9 +67,7 @@ export class ReviewComponent implements OnInit {
       details.projectType,
       details.skillsNeed,
       details.experienceLevel,
-      // 4,
       this.paymentType,
-      // this.price,
       this.price,
 
       1

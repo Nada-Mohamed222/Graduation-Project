@@ -1,4 +1,4 @@
-import { FreelancerService } from 'src/app/services/freelancer.service';
+import { FreelancerService } from 'src/app/services/freelancer-service/freelancer.service';
 import { ExpertiselevelComponent } from './expertiselevel/expertiselevel.component';
 import { ExpertiseComponent } from './expertise/expertise.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

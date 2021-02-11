@@ -1,5 +1,5 @@
 import { environment } from './../../environments/environment';
-import { FreelancerService } from './freelancer.service';
+import { FreelancerService } from './freelancer-service/freelancer.service';
 import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -11,7 +11,7 @@ export class ApiService {
   constructor(private _httpClient:HttpClient) { }
 
   get(url:string){
-    return this._httpClient.get(`${environment.apiURL}/${url}`)
+    return this._httpClient.get(`${environment.apiURL}/${url}`,{withCredentials:true})
   }
 
   Loginpost(url:string,body:any)
@@ -21,7 +21,7 @@ export class ApiService {
 
   post(url:string,body:any)
   {
-    return this._httpClient.post(`${environment.apiURL}/${url}`,body);
+    return this._httpClient.post(`${environment.apiURL}/${url}`,body,{withCredentials:true});
   }
 
   Patch(url:string,body:any)

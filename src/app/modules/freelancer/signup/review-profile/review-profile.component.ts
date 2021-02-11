@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { FreelancerService } from './../../../../services/freelancer.service';
+import { FreelancerService } from '../../../../services/freelancer-service/freelancer.service';
 import { Freelancer } from 'src/app/models/freelancer';
 import { Component, OnInit } from '@angular/core';
 import { SharingDataService } from '../sharing-data-service/sharing-data.service';
