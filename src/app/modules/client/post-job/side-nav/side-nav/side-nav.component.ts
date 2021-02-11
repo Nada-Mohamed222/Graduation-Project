@@ -19,6 +19,7 @@ export class SideNavComponent implements OnInit {
 
   ngOnInit(): void {
     this._sharingData.isStartDone.subscribe((data) => {
+      console.log(`sub value ${data}`);
       this.isStartDone = data;
     });
     this._sharingData.isDetailsDone.subscribe((data) => {

@@ -1,10 +1,10 @@
-import { FreelancerService } from 'src/app/services/freelancer.service';
+import { FreelancerService } from 'src/app/services/freelancer-service/freelancer.service';
 import { ExpertiselevelComponent } from './expertiselevel/expertiselevel.component';
 import { ExpertiseComponent } from './expertise/expertise.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './../../../../app/modules/register/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GetstartedComponent } from './getstarted/getstarted.component';
 import { LanguagesComponent } from './languages/languages.component';
@@ -19,32 +19,33 @@ import { ReviewProfileComponent } from './review-profile/review-profile.componen
 // import { EducationComponent } from './education/education.component';
 // import { EmploymentComponent } from './employment/employment.component';
 
-
-const routes:Routes=[
-  {path:'home',component:HomeComponent}
-];
+const routes: Routes = [{ path: 'home', component: HomeComponent }];
 @NgModule({
   declarations: [
     HomeComponent,
     // SharedModule,
     ExpertiseComponent,
     ExpertiselevelComponent,
-    GetstartedComponent, 
-    // EducationComponent, 
-    // EmploymentComponent, 
-    LanguagesComponent, 
-    HourlyrateComponent, 
-    TitleoverviewComponent, 
-    ProfilephotoComponent, 
-    LocationComponent, 
+    GetstartedComponent,
+    // EducationComponent,
+    // EmploymentComponent,
+    LanguagesComponent,
+    HourlyrateComponent,
+    TitleoverviewComponent,
+    ProfilephotoComponent,
+    LocationComponent,
     PhoneComponent,
     SidebarComponent,
     ProfileComponent,
-    ReviewProfileComponent
+    ReviewProfileComponent,
   ],
   imports: [
-    CommonModule,RouterModule.forChild(routes),ReactiveFormsModule,FormsModule],
+    CommonModule,
+    RouterModule.forChild(routes),
+    ReactiveFormsModule,
+    FormsModule,
+  ],
   providers: [FreelancerService],
-
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class SignupModule { }
+export class SignupModule {}

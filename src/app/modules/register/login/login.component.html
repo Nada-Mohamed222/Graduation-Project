@@ -1,45 +1,143 @@
 <div class="container-fluid backGround-color pb-5 pt-5">
-    <div class="row no-gutters justify-content-center mx-auto w-70">
-        <!-- Login -->
-        <div class="container-fluid backGround-color pb-5">
-            <div class="card justify-content-center mx-auto shadow-lg w-75 h-100" >
-                <div class="card-body">
-                    <h2 class="card-title text-center">Log in and get to work</h2><br>
-                    <form [formGroup]="formGroup">
-                        <div class="form-group">
-                            <label for="Email"></label>
-                            <input #inputEmail formControlName="Email" type="email" class="justify-content-center mx-auto form-control fs-categories w-50" id="Email" placeholder="Enter your Email..">
-                            <div *ngIf ="formGroup.controls['Email'].invalid && (formGroup.controls['Email'].touched ||  formGroup.controls['Email'].dirty)">
-                                <small class="form-text text-danger text-center" *ngIf="formGroup.controls['Email'].hasError('required')">Required Email</small>
-                            </div>
-                        </div>
-                        <div class="form-group text-center">
-                            <label for="Password"></label>
-                            <input #inputPassword formControlName="Password" type="password" class="justify-content-center mx-auto form-control fs-categories w-50" id="Password" placeholder="Enter your Password..">
-                            <div *ngIf ="formGroup.controls['Password'].invalid && (formGroup.controls['Password'].touched ||  formGroup.controls['Password'].dirty)">
-                                <small class="form-text text-danger" *ngIf="formGroup.controls['Password'].hasError('required')">Required Password</small>
-                                <small class="form-text text-danger" *ngIf="formGroup.controls['Password'].hasError('minlength')">Min Length is 6 </small>
-                                <small class="form-text text-danger" *ngIf="formGroup.controls['Password'].hasError('maxlength')">Max Length is 16 </small>
-                            </div>
-                        </div>
-                        <br><br>
-                        <!-- <a routerLink="/freelancer/profile">
-                        </a> -->
-                        <button (click)="loginBtn(inputEmail.value,inputPassword.value)" type="button" class="btn btn-success btn-lg btn-block login-btn w-50 justify-content-center mx-auto">Login</button>
-                    </form>
-                </div>
-                <br>
-                <div class="card-footer mt-5 mb-4" style="background-color: transparent;">
-                    <h4 class="text-center">New to Upwork?</h4>
-                    <div class="form-group justify-content-center mx-auto text-center">
-                        <a routerLink="/signup/home">
-                            <button type="button" class="btn btn-success sign-up-btn mt-3">Sign Up</button>
-                        </a>
-                    </div>
-                </div>
+  <div class="row no-gutters justify-content-center mx-auto w-70">
+    <!-- Login -->
+    <div class="container-fluid backGround-color pb-5">
+      <div class="card justify-content-center mx-auto shadow-lg w-75 h-100">
+        <div class="card-body">
+          <h2 class="card-title text-center">Log in and get to work</h2>
+          <br />
+          <form [formGroup]="formGroup">
+            <div class="form-group">
+              <label for="Email"></label>
+              <input
+                #inputEmail
+                formControlName="Email"
+                type="email"
+                class="justify-content-center mx-auto form-control fs-categories w-50"
+                id="Email"
+                placeholder="Enter your Email.."
+              />
+              <div
+                *ngIf="
+                  formGroup.controls['Email'].invalid &&
+                  (formGroup.controls['Email'].touched ||
+                    formGroup.controls['Email'].dirty)
+                "
+              >
+                <small
+                  class="form-text text-danger text-center"
+                  *ngIf="formGroup.controls['Email'].hasError('required')"
+                  >Required Email</small
+                >
+              </div>
             </div>
-        </div>
-        
-    </div>
-</div>
+            <div class="form-group text-center">
+              <label for="Password"></label>
+              <input
+                #inputPassword
+                formControlName="Password"
+                type="password"
+                class="justify-content-center mx-auto form-control fs-categories w-50"
+                id="Password"
+                placeholder="Enter your Password.."
+              />
+              <div
+                *ngIf="
+                  formGroup.controls['Password'].invalid &&
+                  (formGroup.controls['Password'].touched ||
+                    formGroup.controls['Password'].dirty)
+                "
+              >
+                <small
+                  class="form-text text-danger"
+                  *ngIf="formGroup.controls['Password'].hasError('required')"
+                  >Required Password</small
+                >
+                <small
+                  class="form-text text-danger"
+                  *ngIf="formGroup.controls['Password'].hasError('minlength')"
+                  >Min Length is 6
+                </small>
+                <small
+                  class="form-text text-danger"
+                  *ngIf="formGroup.controls['Password'].hasError('maxlength')"
+                  >Max Length is 16
+                </small>
+              </div>
+            </div>
+            <br />
 
+            <!----------------------- client or freelancer  ----------------------->
+            <div class="form-group col-md-12 text-center text-muted">
+              <div
+                class="user-type mr-5"
+                (click)="handleUserType(usertypeInput.value)"
+              >
+                <label for="client">
+                  <input
+                    type="radio"
+                    id="client"
+                    value="client"
+                    name="UserType"
+                    formControlName="UserType"
+                    #usertypeInput
+                  />
+                  <i
+                    class="fas fa-x fa-user-tie mx-2"
+                    [ngClass]="{ selected: isClientSelected }"
+                  ></i>
+                  <h6 [ngClass]="{ black: isClientSelected }">Client</h6>
+                </label>
+              </div>
+              <div
+                class="user-type ml-5 ml-sm-0"
+                (click)="handleUserType(usertypeInput2.value)"
+              >
+                <label for="freelancer">
+                  <input
+                    type="radio"
+                    id="freelancer"
+                    value="freelancer"
+                    name="UserType"
+                    formControlName="UserType"
+                    #usertypeInput2
+                  />
+                  <i
+                    class="fas fa-x fa-user-cog mx-2"
+                    [ngClass]="{ selected: isFreeLancerSelcted }"
+                  ></i>
+                  <h6 [ngClass]="{ black: isFreeLancerSelcted }">Freelancer</h6>
+                </label>
+              </div>
+            </div>
+
+            <!----------------------- ******************  ----------------------->
+            <button
+              (click)="login(inputEmail.value, inputPassword.value)"
+              type="button"
+              class="btn btn-success btn-lg btn-block login-btn w-50 justify-content-center mx-auto"
+              [disabled]="!formGroup.valid"
+            >
+              <!-- ----------------------****************------------------------ -->
+              Login
+            </button>
+          </form>
+        </div>
+        <br />
+        <div
+          class="card-footer mt-5 mb-4"
+          style="background-color: transparent"
+        >
+          <h5 class="text-center">New to Upwork?</h5>
+          <div class="form-group justify-content-center mx-auto text-center">
+            <a routerLink="/signup/home">
+              <button type="button" class="btn btn-success sign-up-btn mt-3">
+                Sign Up
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

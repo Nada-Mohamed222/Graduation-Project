@@ -1,6 +1,6 @@
 import { CssSelector } from '@angular/compiler';
 import { Component, Injector, Input, OnInit } from '@angular/core';
-import { JobPost } from 'src/app/api-service/job-post.service';
+import { JobPost } from 'src/app/services/job-service/job-post.service';
 import { Job } from 'src/app/models/job';
 
 @Component({

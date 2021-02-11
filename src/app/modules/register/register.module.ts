@@ -5,15 +5,15 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
-const routes:Routes=[
-  {path:'home',component:HomeComponent}
-];
+const routes: Routes = [{ path: 'home', component: HomeComponent }];
 @NgModule({
-  declarations: [LoginComponent,HomeComponent],
-  imports: [
-    CommonModule
+  declarations: [
+    LoginComponent,
+    HomeComponent,
+    ReactiveFormsModule,
+    FormsModule,
   ],
+  imports: [CommonModule],
   // exports:[CommonModule,ReactiveFormsModule,FormsModule]
 })
-export class RegisterModule { }
+export class RegisterModule {}
