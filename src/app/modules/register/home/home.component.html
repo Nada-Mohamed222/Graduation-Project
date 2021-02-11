@@ -39,6 +39,7 @@
                 *ngIf="formGroup.controls['FirstName'].hasError('maxlength')"
                 >Max Length is 10</small
               >
+<<<<<<< HEAD
             </div>
           </div>
           <div class="form-group col-md-6">
@@ -75,6 +76,44 @@
               >
             </div>
           </div>
+=======
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputLastName"></label>
+            <input
+              formControlName="LastName"
+              type="text"
+              class="form-control input-fontSize-form"
+              id="inputLastName"
+              placeholder="Last name"
+              #InputLastName
+            />
+            <div
+              *ngIf="
+                formGroup.controls['LastName'].invalid &&
+                (formGroup.controls['LastName'].touched ||
+                  formGroup.controls['LastName'].dirty)
+              "
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="formGroup.controls['LastName'].hasError('required')"
+                >Required Last Name</small
+              >
+              <small
+                class="form-text text-danger"
+                *ngIf="formGroup.controls['LastName'].hasError('minlength')"
+                >Min Length is 3</small
+              >
+              <small
+                class="form-text text-danger"
+                *ngIf="formGroup.controls['LastName'].hasError('maxlength')"
+                >Max Length is 10</small
+              >
+            </div>
+          </div>
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
         </div>
         <div class="form-group">
           <label for="inputPassword"></label>
@@ -134,6 +173,14 @@
             >
             <small
               class="form-text text-danger"
+<<<<<<< HEAD
+=======
+              *ngIf="formGroup.controls['Email'].hasError('cannotContainSpace')"
+              >Spaces are not allowed</small
+            >
+            <small
+              class="form-text text-danger"
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
               *ngIf="formGroup.controls['Email'].hasError('minlength')"
               >Min Length is 5</small
             >
@@ -224,6 +271,7 @@
           </div>
         </div>
         <div class="text-center">
+<<<<<<< HEAD
           <h3 class="text-justify-center">I want to:</h3>
 
           <!-------------------------- hire for a project btn --------------------->
@@ -271,6 +319,77 @@
               *ngIf="formGroup.controls['UserName'].hasError('required')"
               >Required UserName</small
             >
+=======
+          <h4 class="text-justify-center">I want to:</h4>
+          <div class="btn-group" data-toggle="buttons">
+            <input
+              class="changeType"
+              type="radio"
+              name="options"
+              hidden
+              id="option1"
+              value="employer"
+            />
+            <label
+              for="option1"
+              class="btn btn-success form-check-label btn-size-home"
+              (click)="apperUserName('employer')"
+            >
+              Hire for a Project
+            </label>
+
+            <input
+              class="changeType"
+              type="radio"
+              name="options"
+              hidden
+              id="option2"
+              value="talent"
+            />
+            <label
+              for="option2"
+              class="btn btn-success form-check-label btn-size-home ml-3"
+              (click)="apperUserName('talent')"
+            >
+              Work as a Freelancer
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputUserName"></label>
+          <!-- *ngIf="isAppeared"  -->
+
+          <input
+            [hidden]="!isAppeared"
+            formControlName="UserName"
+            type="text"
+            class="form-control input-fontSize-form"
+            id="inputUserName"
+            placeholder="Username"
+            #InputUserName
+          />
+          <div
+            *ngIf="
+              formGroup.controls['UserName'].invalid &&
+              (formGroup.controls['UserName'].touched ||
+                formGroup.controls['UserName'].dirty)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="formGroup.controls['UserName'].hasError('required')"
+              >Required UserName</small
+            >
+            <small
+              class="form-text text-danger"
+              *ngIf="
+                formGroup.controls['UserName'].hasError('cannotContainSpace')
+              "
+              >Spaces are not allowed</small
+            >
+
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
             <small
               class="form-text text-danger"
               *ngIf="formGroup.controls['UserName'].hasError('minlength')"
@@ -284,6 +403,7 @@
           </div>
         </div>
 
+<<<<<<< HEAD
         <!-- <div class="form-group mt-1">
           <div class="form-check">
             <input
@@ -304,16 +424,32 @@
             <input class="form-check-input" type="checkbox" id="gridCheck1" />
             <label
               class="form-check-label ml-5 mt-1 checkout-styling-home"
+=======
+        <div class="form-group">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              formControlName="CheckRules"
+              type="checkbox"
+              id="gridCheck1"
+            />
+            <label
+              class="form-check-label ml-5 mt-1 checkout-styling-home"
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
               for="gridCheck1"
             >
               Yes, I understand and agree to the Upwork Terms of Service,
               including the User Agreement and Privacy Policy.
             </label>
           </div>
+<<<<<<< HEAD
         </div> -->
         <!-- [disabled]="formGroup.invalid" -->
         <!-- routerLink="/freelancer/getstarted" -->
         <!-- [disabled]="formGroup.invalid"  -->
+=======
+        </div>
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
         <button
           (click)="
             addNewAccount(
@@ -324,6 +460,10 @@
               InputUserName.value
             )
           "
+<<<<<<< HEAD
+=======
+          [disabled]="formGroup.invalid"
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
           type="submit"
           class="btn btn-success create-btn-size-home"
         >
@@ -382,7 +522,11 @@
 </div>
 <!--Before Footer Find what you need -->
 <div class="container-fluid bg-media">
+<<<<<<< HEAD
   <div class="row mt-5 mb-5">
+=======
+  <div class="row mt-5">
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
     <div class="col-lg-4">
       <div class="media p-3">
         <img

@@ -67,9 +67,7 @@ export class ReviewComponent implements OnInit {
       details.projectType,
       details.skillsNeed,
       details.experienceLevel,
-      // 4,
       this.paymentType,
-      // this.price,
       this.price,
 
       1

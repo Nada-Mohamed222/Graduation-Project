@@ -5,7 +5,7 @@ import { Client } from './../../../models/client';
 import { JwtTokenService } from './../../../services/jwt-token.service';
 import { FreelancerService } from '../../../services/freelancer-service/freelancer.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Freelancer } from 'src/app/models/freelancer';
 import { Router } from '@angular/router';
 
@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   isSignedUp: boolean = true;
   freelancerSignUpArr: Freelancer[] = [];
 
+<<<<<<< HEAD
   formGroup: FormGroup;
 
   // user observable
@@ -82,11 +83,47 @@ export class HomeComponent implements OnInit {
     });
   }
 
+=======
+  signUpType: string = "";
+  isAppeared: boolean = false;
+  isSignedUp: boolean = true;
+  freelancerSignUpArr: Freelancer[] = [];
+  formGroup: FormGroup;
+
+  constructor(private _formBuilder: FormBuilder,
+    private _freelancerService: FreelancerService,
+    private router: Router,
+    private _jwtTokenService: JwtTokenService) { }
+
+  ngOnInit(): void {
+
+    this.formGroup = this._formBuilder.group({
+      FirstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+      LastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+      Password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
+      Email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(30), Validators.email, this.cannotContainSpace]],
+      UserName: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10),this.cannotContainSpace]],
+      CheckRules: [false,[Validators.requiredTrue]]   
+     })
+
+  }
+
+  cannotContainSpace(control: AbstractControl) : ValidationErrors | null {
+    if((control.value as string).indexOf(' ') >= 0){
+        return {cannotContainSpace: true}
+    }
+
+    return null;
+}
+
+
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
   apperUserName(type) {
     this.isAppeared = true;
     this.signUpType = type;
   }
 
+<<<<<<< HEAD
   changeStatus() {
     this.isSignedUp = true;
     // this.statusEvent.emit(this.isSignedUp)
@@ -94,12 +131,16 @@ export class HomeComponent implements OnInit {
 
   //handling freeLancer
   addNewFreelancer(firstName, lastName, password, email, username) {
+=======
+  addNewAccount(firstName, lastName, password, email, username) {
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
     let freelancerSignUp: Freelancer = new Freelancer();
     freelancerSignUp.FirstName = firstName;
     freelancerSignUp.LastName = lastName;
     freelancerSignUp.Email = email;
     freelancerSignUp.Password = password;
     freelancerSignUp.UserName = username;
+<<<<<<< HEAD
     this._freelancerService.signUp(freelancerSignUp).subscribe(
       (response) => {
         // this.freelancerSignUpArr.push(freelancerSignUp);
@@ -114,10 +155,30 @@ export class HomeComponent implements OnInit {
     );
   }
 
+=======
+    this._freelancerService.signUp(freelancerSignUp, this.signUpType).subscribe(response => {
+      // this.freelancerSignUpArr.push(freelancerSignUp);
+      // alert("Add New User is Donee");
+      this.loginBtn(email, password);
+      if (this.signUpType === "employer") {
+        this.router.navigateByUrl('/post-job/title');
+      }
+      if (this.signUpType === "talent") {
+        this.router.navigateByUrl('/freelancer/getstarted');
+      }
+      console.log("Response ", response);
+    }, error => {
+      alert("Sorry error occurred");
+    })
+  }
+
+
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
   loginBtn(email, password) {
     let freelancerLogin: Freelancer = new Freelancer();
     freelancerLogin.Email = email;
     freelancerLogin.Password = password;
+<<<<<<< HEAD
     this._freelancerService.login(freelancerLogin).subscribe(
       (response: any) => {
         //fixme:
@@ -127,6 +188,13 @@ export class HomeComponent implements OnInit {
         alert('Sorry error occurred');
       }
     );
+=======
+    this._freelancerService.login(freelancerLogin, this.signUpType).subscribe((response: any) => {
+      this._jwtTokenService.decodeToken(response.token);
+    }, error => {
+      alert("Sorry error occurred");
+    })
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
   }
 
   //---------------- handling client signup--------------------//

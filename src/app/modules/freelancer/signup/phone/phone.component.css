@@ -1,42 +1,65 @@
-.w-70{
-    width:70%;
+/*sidebar start*/
+.active {
+  border-left: #37a000 3px solid;
 }
+
+.correct-icon-color {
+  color: #37a000;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+  color: black;
+}
+
+/*sidebar end*/
+.w-70 {
+  width: 70%;
+}
+
 .backGround-color {
-    background-color: #ebebeb;
-}
-.fill-out-btn{
-    background-color: #37A000; 
-    font-size: 15px;
-    width: 25%;
-}
-.back-btn1{
-    color: #37A000; 
-    background-color: white;
-    font-size: 15px;
-    width: 25%;
+  background-color: #ebebeb;
 }
 
-.pg-desc-phone{
-    font-size: 16px;
+.fill-out-btn {
+  background-color: #37A000;
+  font-size: 15px;
 }
 
-@media (max-width:575px){
-    .back-btn{
-        width: 55%;
-    }   
+.back-btn1 {
+  color: #37A000;
+  background-color: white;
+  font-size: 15px;
+  width: 25%;
 }
-@media (min-width:576px) and (max-width:767px){
-    .back-btn{
-        width: 70%;
-    }   
+
+.pg-desc-phone {
+  font-size: 16px;
 }
-@media (min-width:768px) and (max-width:920px){
-    .back-btn{
-        width: 70%;
-    }   
+
+@media (max-width:575px) {
+  .back-btn {
+    width: 55%;
+  }
 }
-@media (min-width:921px) and (max-width:1200px){
-    .back-btn{
-        width: 70%;
-    }   
+
+@media (min-width:576px) and (max-width:767px) {
+  .back-btn {
+    width: 70%;
+  }
+}
+
+@media (min-width:768px) and (max-width:920px) {
+  .back-btn {
+    width: 70%;
+  }
+}
+
+@media (min-width:921px) and (max-width:1200px) {
+  .back-btn {
+    width: 70%;
+  }
 }

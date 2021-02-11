@@ -1,34 +1,126 @@
 <div class="container-fluid backGround-color pb-5 pt-5">
-    <div class="row no-gutters justify-content-center mx-auto w-70">
-        <div class="col-lg-3 h-100 mx-auto d-none d-lg-block">
-            <app-sidebar></app-sidebar>
+  <div class="row no-gutters justify-content-center mx-auto w-70">
+    <div class="col-lg-3 h-100 mx-auto d-none d-lg-block">
+      <!-- <app-sidebar></app-sidebar> -->
+      <a routerLink="/freelancer/getstarted">
+        <div class="row w-100 m-0 pt-2 pb-2 " routerLinkActive="active">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-arrow-up fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Get Started</div>
+          <!-- <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"></i></div> -->
         </div>
+      </a>
 
-        <div class="col-lg-9 h-100">
-            <!-- Get-started -->
-            <div class="container-fluid backGround-color">
-                <div class="card justify-content-center mx-auto shadow-lg">
-                    <div class="card-header get-started-title">
-                        <!-- <h3>Get Started</h3> -->
-                        <img src="../../../../../assets/images/create-profile-getStarted.png" alt="Create Account"
-                            class="w-100">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">Join Upwork as a freelancer</h4>
-                        <p class="card-text text-muted pg-desc-getStarted">Thanks for your interest in Upwork!
-                            As the world’s largest talent platform, we connect millions of
-                            businesses with independent professionals like you.
-                        </p>
-                        <p class="card-text text-muted pg-desc-getStarted">To get started, all you need to do is
-                            fill out a profile.</p>
-                        <br>
-                        <a routerLink="/freelancer/expertise" class="btn btn-success fill-out-btn ml-5 float-right">Continue</a>
-                    </div>
-                </div>
-            </div>
-
+      <a routerLink="/freelancer/expertise">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="far fa-id-badge fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Expertise</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.expertiseLevel}"></i>
+          </div>
         </div>
-        
+      </a>
+      <a routerLink="/freelancer/expertiselevel">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.expertiseLevel}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="far fa-chart-bar fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Expertise Level</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.languages}"></i></div>
+        </div>
+      </a>
+      <a routerLink="/freelancer/languages">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.languages}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-microphone fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Languages</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.hourlyRate}"></i></div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/hourlyrate">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.hourlyRate}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-dollar-sign fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Hourly Rate</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.titleOverview}"></i></div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/titleoverview">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.titleOverview}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-user-md fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Title &Overview</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.profilePhoto}"></i></div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/profilephoto">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.profilePhoto}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="far fa-id-card fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Profile Photo</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.location}"></i></div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/location">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.location}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-map-marker-alt fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Location</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.phone}"></i></div>
+        </div>
+      </a>
+
+      <a routerLink="/freelancer/phone">
+        <div class="row w-100 m-0 pt-2 pb-2" routerLinkActive="active"
+          [ngClass]="{'disabled-sidebar-item': !completedData.phone}">
+          <div class="col-lg-1 p-0"></div>
+          <div class="col-lg-2 p-0"><i class="fas fa-phone fa-lg"></i></div>
+          <div class="col-lg-8 p-0">Phone</div>
+          <div class="col-lg-1 p-0"><i class="fas fa-check-circle correct-icon-color"
+              [ngClass]="{'text-muted': !completedData.review}"></i></div>
+        </div>
+      </a>
     </div>
+
+    <div class="col-lg-9 h-100">
+      <!-- Get-started -->
+      <div class="container-fluid backGround-color">
+        <div class="card justify-content-center mx-auto shadow-lg">
+          <div class="card-header get-started-title">
+            <!-- <h3>Get Started</h3> -->
+            <img src="../../../../../assets/images/create-profile-getStarted.png" alt="Create Account" class="w-100">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Join Upwork as a freelancer</h4>
+            <p class="card-text text-muted pg-desc-getStarted">Thanks for your interest in Upwork!
+              As the world’s largest talent platform, we connect millions of
+              businesses with independent professionals like you.
+            </p>
+            <p class="card-text text-muted pg-desc-getStarted">To get started, all you need to do is
+              fill out a profile.</p>
+            <br>
+            <a routerLink="/freelancer/expertise" class="btn btn-success fill-out-btn ml-5 float-right">Continue</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </div>
-            

@@ -1,11 +1,20 @@
 .active {
-    border-left: #37A000 3px solid;
-}
-.correct-icon-color{
-    color: #37A000;
-}
-a:hover, a:visited, a:link, a:active{  
-    text-decoration: none;
-    color: black;
+  border-left: #37A000 3px solid;
 }
 
+.correct-icon-color {
+  color: #37A000;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+  color: black;
+}
+
+.disabled {
+  /* color: gray !important; */
+  cursor: not-allowed !important;
+}

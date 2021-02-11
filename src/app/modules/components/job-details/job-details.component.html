@@ -15,10 +15,10 @@
         <div>
           <a class="text-success">{{ job.Category }}</a>
         </div>
-        <small>Posted 15 minutes ago</small>
+        <small>Posted At {{ job.createdAt.slice(0, 10) }}</small>
         <div class="pt-2">
           <small class="fas fa-map-marker-alt" aria-hidden="true">
-            {{ job.Country }}</small
+            {{ job.Country ? job.Country : "Worldwide" }}</small
           >
         </div>
         <small class="text-secondary">
@@ -32,7 +32,7 @@
         </div>
         <hr />
         <div>
-          <div class="row ml-3">
+          <div class="row">
             <div class="col-sm-6 col-lg-5">
               <strong>${{ job.Price }}</strong
               ><br />
@@ -64,7 +64,7 @@
               <h5>Activity on this job</h5>
               <p class="text-secondary pb-2">
                 Proposals:
-                <span class="text-dark">{{ job.Proposals.length }}</span>
+                <span class="text-dark">{{ proposal.length }}</span>
               </p>
             </div>
           </div>
@@ -72,14 +72,22 @@
       </div>
     </div>
     <div class="card shadow-md col-sm-12 col-lg-3">
-      <div class="my-3 mx-auto">
-        <button type="button" class="btn btn-success submit-btn-color">
-          Submit a proposal
-        </button>
+      <div *ngIf="!isSubmitted">
+        <div class="my-3 mx-auto">
+          <a routerLink="apply">
+            <button
+              type="button"
+              [disabled]="freelancer.Connects < job.ConnectsNeeded"
+              class="btn btn-success submit-btn-color"
+            >
+              Submit a proposal
+            </button>
+          </a>
+          <p>Available Connects: {{ freelancer.Connects }}</p>
+          <hr />
+        </div>
       </div>
-      <p>Available Connects: {{ freelancer.Connects }}</p>
-      <hr />
-      <div>
+      <div class="pt-3">
         <h5>About the client</h5>
         <div>
           <span class="pb-2">Rating:</span>
@@ -124,7 +132,7 @@
           class="card-body mb-1 p-4"
         >
           <p class="card-title h5">
-            <a routerLink="/job/{{ job._id }}" class="header-link-jobs">
+            <a class="header-link-jobs">
               {{ job.Name }}
             </a>
           </p>
@@ -148,7 +156,12 @@
           <div>
             <span>To freelancer: </span>
 
-            <span class="header-link-jobs">Mukesh T </span>
+            <a
+              routerLink="/freelancer/{{ job.TalentUserName }}"
+              class="header-link-jobs"
+            >
+              Mukash {{ job.TalentUserName }}
+            </a>
 
             <span>
               <span class="fa fa-star text-color"></span>

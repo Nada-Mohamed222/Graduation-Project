@@ -15,6 +15,7 @@ import { Client } from 'src/app/models/client';
 export class LoginComponent implements OnInit {
   formGroup: FormGroup;
 
+<<<<<<< HEAD
   userType: string;
   isClientSelected = false;
   isFreeLancerSelcted = false;
@@ -25,10 +26,20 @@ export class LoginComponent implements OnInit {
     private _jwtTokenService: JwtTokenService,
     private router: Router
   ) {}
+=======
+  formGroup: FormGroup;
+  constructor(private _formBuilder: FormBuilder,
+    private _freelancerService: FreelancerService,
+    private _jwtTokenService: JwtTokenService,
+    private router: Router,
+  ) { }
+
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
 
   ngOnInit(): void {
     this.formGroup = this._formBuilder.group({
       Email: ['', [Validators.required, Validators.email]],
+<<<<<<< HEAD
       Password: [
         '',
         [
@@ -42,10 +53,18 @@ export class LoginComponent implements OnInit {
   }
 
   FreelancerLogin(email, password) {
+=======
+      Password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(16)]],
+    })
+  }
+
+  loginBtn(email, password) {
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
     if (email && password) {
       let freelancerLogin: Freelancer = new Freelancer();
       freelancerLogin.Email = email;
       freelancerLogin.Password = password;
+<<<<<<< HEAD
 
       this._freelancerService.login(freelancerLogin).subscribe(
         (response: any) => {
@@ -107,10 +126,32 @@ export class LoginComponent implements OnInit {
       );
     } else {
       alert('Please enter your name and password!');
+=======
+      this._freelancerService.login(freelancerLogin, "talent").subscribe((response: any) => {
+        // this.parseCookies();
+        this._jwtTokenService.decodeToken(response.token);
+        this._freelancerService.get().subscribe((response: any) => {
+          if (response.isVerified === true) {
+            this.router.navigateByUrl('/freelancer/profile');
+          }
+          else {
+            this.router.navigateByUrl('/freelancer/getstarted');
+          }
+        }, error => {
+          alert("Something broken happened")
+        })
+      }, error => {
+        alert("Sorry error occurred");
+      })
+    }
+    else {
+      alert("Please enter your name and password!");
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
     }
   }
   //--------------------handle type---------------//
 
+<<<<<<< HEAD
   handleUserType(type: string) {
     if (type === 'client') {
       this.userType = 'client';
@@ -139,3 +180,6 @@ export class LoginComponent implements OnInit {
     }
   }
 }
+=======
+}
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8

@@ -14,6 +14,7 @@ import { SharingDataService } from '../sharing-data-service/sharing-data.service
 export class ProfilephotoComponent implements OnInit {
   // url: string;
   // inputImage:any = "https://www.djelfa.req.body.info/mobi/img/avatar/avatar.png";
+<<<<<<< HEAD
   inputImage: any = '../../../../../assets/images/avatar.png';
   uploadedImage: any;
   freelancerSignUpArr: Freelancer[] = [];
@@ -25,10 +26,30 @@ export class ProfilephotoComponent implements OnInit {
     private _freelancerService: FreelancerService,
     private router: Router
   ) {}
+=======
+  inputImage: any = "../../../../../assets/images/avatar.png";
+  uploadedImage: any;
+  freelancerSignUpArr: Freelancer[] = [];
+  formGroup: FormGroup;
+  completedData: any;
+
+  constructor(private _formBuilder: FormBuilder,
+    private _sharingData: SharingDataService,
+    private _freelancerService: FreelancerService,
+    private router: Router) { }
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
 
   ngOnInit(): void {
+    this.completedData = this._sharingData.isEligible;
+    if (!this._sharingData.isEligible.profilePhoto) {
+      this.router.navigateByUrl('/freelancer/titleoverview');
+    }
     this.formGroup = this._formBuilder.group({
+<<<<<<< HEAD
       profile: ['', [Validators.required]],
+=======
+      profile: ['', [Validators.required]]
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
     });
   }
 
@@ -42,8 +63,12 @@ export class ProfilephotoComponent implements OnInit {
     console.log(profilePhoto);
   }
 
+<<<<<<< HEAD
   onSelectImage(event) {
     // called each time file input changes
+=======
+  onSelectImage(event) { // called each time file input changes
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
       this.uploadedImage = event.target.files[0];
@@ -59,4 +84,10 @@ export class ProfilephotoComponent implements OnInit {
       };
     }
   }
+<<<<<<< HEAD
 }
+=======
+
+
+}
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8

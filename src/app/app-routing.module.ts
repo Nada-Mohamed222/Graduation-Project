@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import { ProfileComponent } from './modules/client/profile/profile.component';
 import { LoginComponent } from './../app/modules/register/login/login.component';
+=======
+import { ProposeComponent } from './modules/components/propose/propose.component';
+import { ViewProfileComponent } from './modules/components/view-profile/view-profile.component';
+import { ProfileComponent } from './modules/freelancer/signup/profile/profile.component';
+import { LoginComponent } from './../app/modules/register/login/login.component'
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { JobDetailsComponent } from './modules/components/job-details/job-details.component';
+import { MyProposalsComponent } from './modules/freelancer/my-proposals/my-proposals.component';
 
 const routes: Routes = [
   {
@@ -40,11 +48,28 @@ const routes: Routes = [
     pathMatch: 'full',
     data: { search: true },
   },
+<<<<<<< HEAD
   { path: 'job/:id', component: JobDetailsComponent, pathMatch: 'full' },
+=======
+  {
+    path: 'freelancer',
+    loadChildren: () => import('../app/modules/freelancer/freelancer.module').then(m => m.FreelancerModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('../app/modules/freelancer/signup/signup.module').then(m => m.SignupModule)
+  },
+  { path: 'login', component: LoginComponent },
+  { path: 'job/search/:skill', component: ProfileComponent, pathMatch: 'full', data: { search: true } },
+  { path: 'job/:id', component: JobDetailsComponent, pathMatch: 'full' },
+  { path: 'job/:id/apply', component: ProposeComponent, pathMatch: 'full' },
+  { path: 'freelancer/my-proposals', component: MyProposalsComponent , pathMatch: 'full'},
+  { path: 'freelancer/:username', component: ViewProfileComponent , pathMatch: 'full' },
+>>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -1,56 +1,53 @@
-import { Client } from '../../models/client';
+import { Freelancer } from '../../models/freelancer';
 import { ApiService } from '../api.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ClientService {
-  constructor(private _apiServices: ApiService) {}
 
-  login(client: Client) {
-    return this._apiServices.Loginpost(`employer/login`, client);
+  constructor(private _apiServices:ApiService) { }
+
+  login(freelancer:Freelancer)
+  {
+    return this._apiServices.Loginpost(`talent/login`,freelancer);
   }
 
-  signUp(client: Client) {
-    return this._apiServices.post(`employer/signup`, client);
+  signUp(freelancer:Freelancer)
+  {
+    return this._apiServices.post(`talent/signup`,freelancer);
   }
 
-  // create(freelancer: Freelancer) {
-  //   return this._apiServices.post(`freelancer/post`, freelancer);
-  // }
-
-  // update(freelancer: any) {
-  //   return this._apiServices.Patch(
-  //     `talent/${localStorage.getItem('UserName')}`,
-  //     freelancer
-  //   );
-  // }
-
-  getClient() {
-    return this._apiServices.get(
-      `employer/${localStorage.getItem('UserName')}`
-    );
-  }
-  // job/:id/proposals
-
-  getJobProposal() {
-    return this._apiServices.get(`job/6025717c75a28efac387b633/proposals`);
+  create(freelancer:Freelancer)
+  {
+    return this._apiServices.post(`freelancer/post`,freelancer);
   }
 
-  getAllJobs() {
-    return this._apiServices.get('job');
+  update(freelancer:any)
+  {
+    return this._apiServices.Patch(`talent/${localStorage.getItem("UserName")}`,freelancer)
   }
 
-  getAJob(id: string) {
-    return this._apiServices.get(`job/` + id);
+  getClient(UserName:string)
+  {
+    return this._apiServices.get(`employer/${UserName}`);
   }
 
-  getAllEmployerJob(UserName: string) {
+  getAllJobs(){
+    return this._apiServices.get("job");
+  }
+
+  getAJob(id:string){
+    return this._apiServices.get(`job/`+id);
+  }
+
+  getAllEmployerJob(UserName:string){
     return this._apiServices.get(`employer/${UserName}/jobs`);
   }
 
-  delete(id: number) {
-    return this._apiServices.delete(`freelancer/delete?id=` + id);
+  delete(id:number)
+  {
+    return this._apiServices.delete(`freelancer/delete?id=`+id);
   }
 }

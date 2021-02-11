@@ -1,34 +1,13 @@
 export class Job {
-  //job properties
-
-  //start data
-  // Name: string;
-  // Category: string;
-  // Description: string;
-  // additionalFiles?: string;
-
-  // // details data
-  // JobType: string;
-  // Skills?: string;
-  // freelancerNumber: number;
-  // ExpertiseLevel: string;
-  // screeningQuestion?: string;
-
-  // // budget data
-  // // EarningType: string;
-  // // Earning: number;
-
-  // PaymentType: string;
-  // Price: number;
-  // Duration: number;
+ 
   EmployerUserName: String;
   Name: String;
   Category: String;
   Description: String;
   JobType: String;
-  
+
   // may cause error
-  Skills:string;
+  Skills: string;
   
   ExpertiseLevel: String;
   TalentsRequired: Number;
@@ -45,31 +24,26 @@ export class Job {
   TalentUserName: String
   TalentRating: Number;
   TalentReview: String;
-  Proposals: Array<string> =[];
-  ConnectsNeeded: Number;
+  // Proposals?: Array<object> = [{TalentId: String, CoverLetter: String }];
+  ConnectsNeeded: number;
   Status: String;
+  createdAt: String;
+  _id: String;
+  
 
   constructor(
-    Name: string,
-    Category: string,
-    Description: string,
+    Name?: string,
+    Category?: string,
+    Description?: string,
 
-    JobType: string,
-    Skills: string,
-    ExpertiseLevel: string,
-    // freelancerNumber: number = 4,
+    JobType?: string,
+    Skills?: string,
+    ExpertiseLevel?: string,
 
-    PaymentType: string,
-    Price: number,
-    // payment={"fixed":10}
-
-    // PaymentType: { [EarningType: string] : number | string },
-    // PaymentType: { [EarningType: string] : [price: number | string] },
-    // PaymentType: { (EarningType: string):(price: number) },
-    // EarningType: boolean,
-    // Earning: number,
-
-    Duration: number
+    PaymentType?: string,
+    Price?: number,
+ 
+    Duration?: number
   ) {
     this.Name = Name;
     this.Category = Category;

@@ -13,17 +13,10 @@ export class JobPost {
     // return this._apiService.post(``, job);
 
     //post job to api
-    return this._apiService.post(
-      `job/Add-job/${localStorage.getItem('UserName')}`,
-      job
-    );
+    return this._apiService.post(`/job/Add-job/newClient5`, job);
   }
 
   getJobs() {
-    console.log(localStorage.getItem('UserName'));
-
-    return this._apiService.get(
-      `employer/${localStorage.getItem('UserName')}/jobs`
-    );
+    return this._apiService.get(`/employer/newClient5/jobs`);
   }
 }

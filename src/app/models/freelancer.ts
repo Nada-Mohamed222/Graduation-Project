@@ -6,6 +6,7 @@ export class Freelancer{
     Password: String;
     isVerified: Boolean;
     MainService: String;
+    Proposals:{Job: String, createdAt: String, CoverLetter: String }[];
     Skills: Array<String>;
     ExpertiseLevel: String;
     Languages: String;
@@ -15,6 +16,6 @@ export class Freelancer{
     ImageURL: String;
     Country: String;
     PhoneNumber: Number;
-    Availability: Number;
-    Connects: Number;
+    Availability: String;
+    Connects: number;
 }
