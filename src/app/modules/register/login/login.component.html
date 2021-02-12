@@ -77,7 +77,7 @@
                   <input
                     type="radio"
                     id="client"
-                    value="client"
+                    value="employer"
                     name="UserType"
                     formControlName="UserType"
                     #usertypeInput
@@ -97,7 +97,7 @@
                   <input
                     type="radio"
                     id="freelancer"
-                    value="freelancer"
+                    value="talent"
                     name="UserType"
                     formControlName="UserType"
                     #usertypeInput2
@@ -113,7 +113,7 @@
 
             <!----------------------- ******************  ----------------------->
             <button
-              (click)="login(inputEmail.value, inputPassword.value)"
+              (click)="Login(inputEmail.value, inputPassword.value)"
               type="button"
               class="btn btn-success btn-lg btn-block login-btn w-50 justify-content-center mx-auto"
               [disabled]="!formGroup.valid"

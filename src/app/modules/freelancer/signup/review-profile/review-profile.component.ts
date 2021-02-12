@@ -11,10 +11,6 @@ import { SharingDataService } from '../sharing-data-service/sharing-data.service
   styleUrls: ['./review-profile.component.css'],
 })
 export class ReviewProfileComponent implements OnInit {
-<<<<<<< HEAD
-=======
-
->>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
   expertiseData: any;
   expertiseLevelData: any;
   LanguageData: any;
@@ -29,7 +25,6 @@ export class ReviewProfileComponent implements OnInit {
   getNameOfTheFreeelancer: Freelancer = new Freelancer();
   formGroup: FormGroup;
 
-<<<<<<< HEAD
   constructor(
     private _sharingData: SharingDataService,
     private _freelancerService: FreelancerService,
@@ -37,6 +32,9 @@ export class ReviewProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    if (!this._sharingData.isEligible.review) {
+      this.router.navigateByUrl('/freelancer/phone');
+    }
     this._freelancerService.get().subscribe(
       (response: Freelancer) => {
         this.getNameOfTheFreeelancer = response;
@@ -47,23 +45,6 @@ export class ReviewProfileComponent implements OnInit {
         alert('Wrong Error!');
       }
     );
-=======
-  constructor(private _sharingData: SharingDataService,
-    private _freelancerService: FreelancerService, private router: Router) { }
-
-  ngOnInit(): void {
-    if (!this._sharingData.isEligible.review) {
-      this.router.navigateByUrl('/freelancer/phone');
-    }
-    this._freelancerService.get().subscribe((response: Freelancer) => {
-      this.getNameOfTheFreeelancer = response;
-      console.log(response);
-    }, error => {
-      console.log(error);
-      alert("Wrong Error!");
-    })
-
->>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
 
     this.expertiseData = this._sharingData.getExpertiseData();
     this.expertiseLevelData = this._sharingData.getExpertiseLevelData();
@@ -100,7 +81,6 @@ export class ReviewProfileComponent implements OnInit {
 
     formData.append('isVerified', 'true');
 
-<<<<<<< HEAD
     this._freelancerService.update(formData).subscribe(
       (response) => {
         console.log('Response ', response);
@@ -113,15 +93,3 @@ export class ReviewProfileComponent implements OnInit {
     );
   }
 }
-=======
-    this._freelancerService.update(formData).subscribe(response => {
-      console.log("Response ", response);
-      this.router.navigate(["/freelancer/profile"])
-    }, error => {
-      console.log(error);
-      alert("Sorry error occurred");
-    })
-  }
-
-}
->>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8

@@ -54,8 +54,8 @@ export class JobDetailsComponent implements OnInit {
           this.proposal = response.Proposals;
           console.log(this.proposal);
           this.checkSubmition();
-
-          this._clientService.getClient(response.EmployerUserName).subscribe(
+          // FIXME: remove params
+          this._clientService.getClient().subscribe(
             (response: Client) => {
               this.client = response;
             },

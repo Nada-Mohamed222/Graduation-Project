@@ -1,11 +1,7 @@
 import { ApiResponse } from '../models/api-response';
 import { environment } from './../../environments/environment';
-<<<<<<< HEAD
-import { HttpClient } from '@angular/common/http';
-=======
 import { FreelancerService } from './freelancer-service/freelancer.service';
-import { HttpClient} from '@angular/common/http';
->>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -14,15 +10,10 @@ import { Injectable } from '@angular/core';
 export class ApiService {
   constructor(private _httpClient: HttpClient) {}
 
-<<<<<<< HEAD
   get(url: string) {
-    return this._httpClient.get(`${environment.apiURL}/${url}`);
-=======
-  constructor(private _httpClient:HttpClient) { }
-
-  get(url:string){
-    return this._httpClient.get(`${environment.apiURL}/${url}`,{withCredentials:true})
->>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
+    return this._httpClient.get(`${environment.apiURL}/${url}`, {
+      withCredentials: true,
+    });
   }
 
   Loginpost(url: string, body: any) {
@@ -31,16 +22,10 @@ export class ApiService {
     });
   }
 
-<<<<<<< HEAD
   post(url: string, body: any) {
     return this._httpClient.post(`${environment.apiURL}/${url}`, body, {
       withCredentials: true,
     });
-=======
-  post(url:string,body:any)
-  {
-    return this._httpClient.post(`${environment.apiURL}/${url}`,body,{withCredentials:true});
->>>>>>> 1ac3843f8d2dddca8e8bb87f444211384526ffb8
   }
 
   Patch(url: string, body: any) {
