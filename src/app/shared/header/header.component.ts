@@ -1,4 +1,6 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { LocationStrategy } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  isVisited:boolean = true;
+  constructor(private url:LocationStrategy) {
+    console.log("tfaaaaaaaaaaaaaaaaa")
+   }
 
   ngOnInit(): void {
+    if((this.url.path().includes('/signup/home') || this.url.path().includes('/freelancer/getstarted') || this.url.path().includes('/login') )=== true){
+      this.isVisited = false;
+      console.log("tfaa")
+    }
   }
 
 }

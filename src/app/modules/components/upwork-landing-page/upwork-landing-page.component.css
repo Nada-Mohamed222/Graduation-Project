@@ -1,0 +1,38 @@
+.bg-navbar{
+    background-color:  #1D4354;
+}
+.navbar-collapse{
+    flex-grow: 0;
+}
+.signipBtn{
+    color:white;
+    background-color:#37a000;
+    font-weight:bold;
+}
+.signipBtn:hover{
+    background-color:white;
+    font-weight:bold;
+    color:#37a000;
+}
+.loginBtn{
+    color:white;
+}
+.loginBtn:hover{
+    color:#37a000;
+    font-weight:bold;
+}
+.width-logo{
+    width: 15%;;
+}
+.content-header{
+    color:#1D4354 ;
+}
+.content-paragraph{
+    line-height: 1.7;
+}
+.bg-color{
+    background-color: #f9f9f9;
+}
+.img-width{
+    width:15%;
+}

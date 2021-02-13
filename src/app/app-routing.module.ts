@@ -1,4 +1,5 @@
 import { ProposeComponent } from './modules/components/propose/propose.component';
+import { UpworkLandingPageComponent } from './modules/components/upwork-landing-page/upwork-landing-page.component';
 import { ViewProfileComponent } from './modules/components/view-profile/view-profile.component';
 import { ProfileComponent } from './modules/freelancer/signup/profile/profile.component';
 import { LoginComponent } from './../app/modules/register/login/login.component';
@@ -77,6 +78,7 @@ const routes: Routes = [
     component: ViewProfileComponent,
     pathMatch: 'full',
   },
+  {path:'', component:UpworkLandingPageComponent}
 ];
 
 @NgModule({
