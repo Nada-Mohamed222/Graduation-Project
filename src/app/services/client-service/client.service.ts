@@ -33,6 +33,12 @@ export class ClientService {
     );
   }
 
+  getPublicClient(clientUsername:String) {
+    return this._apiServices.get(
+      `employer/${clientUsername}`
+    );
+  }
+
   //
 
   getJobProposal() {

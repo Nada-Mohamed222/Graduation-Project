@@ -36,6 +36,17 @@ export class TitleComponent implements OnInit {
       ],
       AdditionalFiles: [''],
     });
+
+    // if (localStorage.getItem("start") !== null){
+    //   var start = JSON.parse(localStorage.getItem('start'));
+    //   console.log(start)
+    //   this.startForm.controls['JobName'].setValue(start.jobName);
+    //   this.startForm.controls['option'].setValue(start.category),
+    //   this.startForm.controls['Description'].setValue(start.description),
+    //   this.startForm.controls['AdditionalFiles'].setValue(start.jobName)
+
+
+    // }
   }
 
   wordCounter(text: string) {
@@ -50,7 +61,8 @@ export class TitleComponent implements OnInit {
       description: this.startForm.controls['Description'].value,
       additionalFiles: this.startForm.controls['AdditionalFiles'].value,
     };
-    this._sharingData.setStartData(start);
+    // localStorage.setItem("start", JSON.stringify(start))
+    // this._sharingData.setStartData(start);
     this._sharingData.isStartDone.next(true);
     console.log(start);
     console.log(this.startForm);

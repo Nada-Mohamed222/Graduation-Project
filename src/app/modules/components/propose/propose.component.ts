@@ -44,7 +44,7 @@ export class ProposeComponent implements OnInit {
         (response: any) => {
           this.job = response;
 
-          this._clientService.getClient().subscribe(
+          this._clientService.getPublicClient(this.job.EmployerUserName).subscribe(
             (response: Client) => {
               this.client = response;
             },
