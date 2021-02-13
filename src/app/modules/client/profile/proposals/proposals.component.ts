@@ -1,9 +1,7 @@
 import { Proposals } from './../../../../models/proposals';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Proposal } from './../../../../models/proposal';
 import { FreelancerService } from 'src/app/services/freelancer-service/freelancer.service';
 import { ClientService } from './../../../../services/client-service/client.service';
-import { JobPost } from './../../../../services/job-service/job-post.service';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 
@@ -26,16 +24,16 @@ export class ProposalsComponent implements OnInit {
   proposals = [];
   userName: string;
   jobId: string;
-
+  name: string;
   ngOnInit(): void {
-    // this.route.params.subscribe((params) => {
-    //   this.jobId = params['jobId'];
-    //   this.getAll(this.jobId);
-    // });
-
-    this._sharingData.jobID.subscribe((data) => {
-      this.getAll(data);
+    this.route.params.subscribe((params) => {
+      this.jobId = params['jobId'];
+      this.getAll(this.jobId);
     });
+
+    //   this._sharingData.jobID.subscribe((data) => {
+    //     this.getAll(data);
+    //   });
   }
   // proposal
   getAll(id: string) {
@@ -72,6 +70,15 @@ export class ProposalsComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  acceptedData = [];
+  hire(name: string, title: string) {
+    this.proposals = [];
+    // this.acceptedData.push({ name: name, title: title });
+    // console.log('proposal');
+    // console.log(this.acceptedData);
+    this.router.navigateByUrl(`/profile/accepted-proposals`);
   }
 
   // get the freelancer profile

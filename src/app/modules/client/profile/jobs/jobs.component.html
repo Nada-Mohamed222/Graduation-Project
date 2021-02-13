@@ -1,24 +1,27 @@
-<div class="container">
+<div class="container my-5">
   <div class="row">
-    <div class="col-md-4 align-self-end">
-      <a
+    <!-- <div class="col-md-4 offset-md-9">
+      <button
         routerLink="/post-job/title"
-        class="btn btn-success btn-lg sub-title px-4"
-        >Post a Job
-      </a>
-    </div>
+        class="post-job btn btn-success btn-lg sub-title px-4"
+      >
+        Post a Job
+      </button>
+    </div> -->
   </div>
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <!-- post layout -->
       <div class="card p-3">
         <!-- post header -->
         <div class="card-header bg-white">
           <p class="sub-title d-inline-block">My Postings</p>
-
-          <p class="d-inline-block right mt-1 mr-4">
-            <a class="hint text-success" href="">All postings</a>
-          </p>
+          <button
+            routerLink="/post-job/title"
+            class="post-job btn btn-success btn-lg sub-title px-4 mr-4"
+          >
+            Post a Job
+          </button>
         </div>
         <!-- post content -->
         <div *ngFor="let job of jobs | reverse; let currentIndex = index">
@@ -38,20 +41,18 @@
             <app-chip skill="{{ skill }}"></app-chip>
           </div>
 
-          <p
-            class="hint text-muted mt-2 mx-2"
-            (click)="getjobProposals(job._id)"
-          >
-            <b>Proposal : </b>1 :4
+          <p class="mt-2 mx-4" (click)="getjobProposals(job._id)">
+            <b class="proposals">Proposal : </b>
+            <b>{{ job.Proposals.length }}</b>
           </p>
           <hr />
         </div>
       </div>
     </div>
 
-    <div class="col-md-4 px-5">
-      <!-- slider -->
+    <!-- <div class="col-md-4 px-5">
+      
       <app-slider></app-slider>
-    </div>
+    </div> -->
   </div>
 </div>

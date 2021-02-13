@@ -1,31 +1,25 @@
 <div class="card-body">
   <div class="row">
-    <p class="col-xs-12">
-      <a class="plain-text text-bold" href="">{{ jobName }}</a>
-    </p>
-    <p class="text-muted hint col-xs-12">
+    <div class="col-md-12 mb-1">
+      <h6 class="text-bold">{{ jobName }}</h6>
+    </div>
+    <p class="text-muted hint col-md-12 mt-0">
       <b>{{ paymentType }}</b> - {{ experienceLevel }} : {{ price }} $
     </p>
-    <p class="col-xs-12 plain-text">{{ description | someText }}</p>
+    <p class="col-md-12 plain-text ml-1">{{ description | someText }}</p>
   </div>
   <div class="skills mx-2 mt-0 text-center hint" *ngFor="let skill of skills">
     <app-chip skill="{{ skill }}"></app-chip>
   </div>
   <div class="row">
-    <p class="col-xs-4 sub-title text-success">{{ viewsNumber }}</p>
-    <p class="col-xs-4 sub-title">{{ messagesNumber }}</p>
-    <p class="col-xs-4 sub-title">{{ hiredNumber }}</p>
+    <!-- <p class="col-md-4 sub-title text-success">{{ viewsNumber }}</p> -->
+    <!-- <p class="col-md-4 sub-title">{{ messagesNumber }}</p> -->
+    <!-- <p class="col-md-4 sub-title">{{ hiredNumber }}</p> -->
   </div>
 
   <div class="row">
     <!--   routerLink="/profile/{{ jobId }}/proposals" -->
-    <p
-      class="col-xs-4 plain-text text-muted"
-      (click)="getjobProposals(jobId === 'undefind' ? '' : jobId)"
-    >
-      Proposals
-    </p>
-    <p class="col-xs-4 plain-text text-muted">Messaged</p>
-    <p class="col-xs-4 plain-text text-muted">Hired</p>
+
+    <!-- <p class="col-xs-4 plain-text text-muted">Hired</p> -->
   </div>
 </div>

@@ -11,6 +11,7 @@ import { ChipComponent } from './../shared/components/chip/chip.component';
 import { ProposalsComponent } from './../profile/proposals/proposals.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { ProposalCardComponent } from './proposals/proposal-card/proposal-card.component';
+import { AcceptedProposalsComponent } from './accepted-proposals/accepted-proposals.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,11 @@ const routes: Routes = [
       {
         path: ':jobId/proposals',
         component: ProposalsComponent,
+        data: { noPanel: true },
+      },
+      {
+        path: 'accepted-proposals',
+        component: AcceptedProposalsComponent,
         data: { noPanel: true },
       },
     ],
@@ -38,6 +44,7 @@ const routes: Routes = [
     ProposalsComponent,
     JobsComponent,
     ProposalCardComponent,
+    AcceptedProposalsComponent,
   ],
   imports: [CommonModule, RouterModule.forChild(routes)],
 

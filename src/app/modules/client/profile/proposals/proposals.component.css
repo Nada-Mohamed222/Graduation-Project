@@ -1,0 +1,14 @@
+.hire {
+  position: absolute;
+  right: 5%;
+}
+img {
+  width: 100%;
+  max-width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+.name:hover {
+  color: #3daa49;
+  cursor: pointer;
+}
