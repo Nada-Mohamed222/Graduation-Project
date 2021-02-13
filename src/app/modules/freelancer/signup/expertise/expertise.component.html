@@ -149,7 +149,7 @@
                 <label for="comment" class="sub-title mb-3"></label>
                 <input type="text" class="form-control mb-3" #inputskill (keydown.enter)="
                     addSkill(inputskill.value); inputskill.value = ''
-                  "formControlName="MainSkills"  [(ngModel)]="skill" />
+                  " formControlName="MainSkills" [(ngModel)]="skill" />
 
                 <!-- <input type="text" class="form-control mb-3" formControlName="MainSkills" value="{{skills.toString()}}"/> -->
 
@@ -179,8 +179,8 @@
             <a routerLink="/freelancer/getstarted" class="btn btn-success back-btn float-left mt-3">Back</a>
             <!-- <a routerLink="/freelancer/expertiselevel" class="btn btn-success fill-out-btn float-right mt-3" [disabled]="formGroup.invalid">Next</a> -->
             <a routerLink="/freelancer/expertiselevel">
-              <button [disabled]="formGroup.invalid" type="button" class="btn btn-success fill-out-btn float-right mt-3 text-white"
-                (click)="storeData()">
+              <button [disabled]="formGroup.invalid" type="button"
+                class="btn btn-success fill-out-btn float-right mt-3 text-white" (click)="storeData()">
                 Next
               </button>
             </a>

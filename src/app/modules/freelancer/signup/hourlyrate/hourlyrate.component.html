@@ -128,13 +128,15 @@
                         <input formControlName="HourlyRate" type="text" class="form-control"
                           aria-label="Amount (to the nearest dollar)" placeholder="10.00" #inputHourlyRate
                           (keyup)="totalMoney(inputHourlyRate.value)">
-                        <div
-                          *ngIf="formGroup.controls['HourlyRate'].invalid && (formGroup.controls['HourlyRate'].touched ||  formGroup.controls['HourlyRate'].dirty)">
-                          <small class="form-text text-danger"
-                            *ngIf="formGroup.controls['HourlyRate'].hasError('required')">Required Hourly Rate</small>
-                          <small class="form-text text-danger"
-                            *ngIf="formGroup.controls['HourlyRate'].hasError('minlength')">Min Value is 5</small>
-                        </div>
+                      </div>
+                      <div
+                        *ngIf="formGroup.controls['HourlyRate'].invalid && (formGroup.controls['HourlyRate'].touched ||  formGroup.controls['HourlyRate'].dirty)">
+                        <small class="form-text text-danger"
+                          *ngIf="formGroup.controls['HourlyRate'].hasError('required')">Required Hourly Rate</small>
+                        <small class="form-text text-danger"
+                          *ngIf="formGroup.controls['HourlyRate'].hasError('min')">Min Rate is 5</small>
+                        <small class="form-text text-danger"
+                          *ngIf="formGroup.controls['HourlyRate'].hasError('pattern')">Value is not acceptable</small>
                       </div>
                     </div>
                   </div>
@@ -214,7 +216,7 @@
           </div>
           <!-- <a routerLink="/freelancer/titleoverview" class="ml-4 skip-hourlyRate">Skip this step</a> -->
           <div class="card-footer mt-5 mb-4" style="background-color: transparent;">
-            <a routerLink="/freelancer/languages" class="btn btn-success back-btn float-left mt-3">Back</a>
+            <a routerLink="/freelancer/languages" class="btn btn-success back-btn float-left mt-3 text-primary">Back</a>
             <!-- <a routerLink="/freelancer/titleoverview" class="btn btn-success fill-out-btn float-right mt-3">Next</a> -->
             <a routerLink="/freelancer/titleoverview">
               <button [disabled]="formGroup.invalid" type="button" class="btn btn-success fill-out-btn float-right mt-3"
