@@ -27,14 +27,14 @@ export class SharingDataService {
     review: false
   }
 
-  expertise: ExpertiseComponent;
-  expertiseLevel: ExpertiselevelComponent;
-  language: LanguagesComponent;
-  hourlyRate: HourlyrateComponent;
-  titleOverview: TitleoverviewComponent;
-  profilePhoto: ProfilephotoComponent;
-  location: LocationComponent;
-  phone: PhoneComponent;
+  expertise: object = { mainService: "", mainSkills: [] };
+  expertiseLevel: object = { expertiseLevel: "" };
+  language: object = { language: "" };
+  hourlyRate: object = { hourlyRate: "" };
+  titleOverview: object = { title: "", overview: "" };
+  profilePhoto: object = { photo: "", url: "../../../../../assets/images/avatar.png", };
+  location: object = { country: "" };
+  phone: object = { phone: "" };
 
   //setting expertise data
   setExpertiseData(object: any) {

@@ -110,19 +110,19 @@
           <!-- class="btn-group btn-group-toggle" data-toggle="buttons" -->
           <form [formGroup]="formGroup">
             <div class="card-body card-expertise">
-              <h4 class="card-title heading-levelExpertise">
+              <h4 class="card-title heading-levelExpertise font-weight-bold">
                 What is your level of experience in this field?
               </h4>
               <br />
               <div class="row">
                 <div class="col-lg-4 col-md-12 col-xs-12">
-                  <div class="card-group" style="height: 180px">
+                  <div class="card-group">
                     <div class="card border-secondary">
-                      <input formControlName="ExpertiseLevel" value="Entry" type="radio" id="radioBtnID1"
+                      <input formControlName="ExpertiseLevel" value="Entry" type="radio" hidden id="radioBtnID1"
                         class="float-right ml-2 expertise-radioBtn" name="ExpertiseLevel" />
-                      <label for="radioBtnID1">
+                      <label for="radioBtnID1" class="mb-0" style="height: 180px;">
                         <div class="card-body">
-                          <h5 class="card-title text-center heading-levelExpertise">
+                          <h5 class="card-title text-center heading-levelExpertise font-weight-bold">
                             Entry level
                           </h5>
                           <p class="card-text text-center text-muted pg-levelExpertise">
@@ -135,41 +135,37 @@
                 </div>
 
                 <div class="col-lg-4 col-md-12 col-xs-12">
-                  <div class="card-group" style="height: 180px">
-                    <div class="card border-secondary">
-                      <input formControlName="ExpertiseLevel" value="Intermediate" type="radio" id="radioBtnID2"
-                        class="float-right ml-2 expertise-radioBtn" name="ExpertiseLevel" />
-                      <label for="radioBtnID2">
-                        <div class="card-body">
-                          <h5 class="card-title text-center heading-levelExpertise">
-                            Intermediate
-                          </h5>
-                          <p class="card-text text-center text-muted pg-levelExpertise">
-                            I have substantial experience in this field
-                          </p>
-                        </div>
-                      </label>
-                    </div>
+                  <div class="card border-secondary">
+                    <input formControlName="ExpertiseLevel" value="Intermediate" type="radio" hidden id="radioBtnID2"
+                      class="float-right ml-2 expertise-radioBtn" name="ExpertiseLevel" />
+                    <label for="radioBtnID2" class="mb-0" style="height: 180px;">
+                      <div class="card-body">
+                        <h5 class="card-title text-center heading-levelExpertise font-weight-bold">
+                          Intermediate
+                        </h5>
+                        <p class="card-text text-center text-muted pg-levelExpertise">
+                          I have substantial experience in this field
+                        </p>
+                      </div>
+                    </label>
                   </div>
                 </div>
 
                 <div class="col-lg-4 col-md-12 col-xs-12">
-                  <div class="card-group" style="height: 180px">
-                    <div class="card border-secondary">
-                      <input formControlName="ExpertiseLevel" value="Expert" type="radio" id="radioBtnID3"
-                        class="float-right ml-2 expertise-radioBtn" name="ExpertiseLevel" />
-                      <label for="radioBtnID3">
-                        <div class="card-body">
-                          <h5 class="card-title text-center heading-levelExpertise">
-                            Expert
-                          </h5>
-                          <p class="card-text text-center text-muted pg-levelExpertise">
-                            I have comprehensive and deep expertise in this
-                            field
-                          </p>
-                        </div>
-                      </label>
-                    </div>
+                  <div class="card border-secondary">
+                    <input formControlName="ExpertiseLevel" value="Expert" type="radio" hidden id="radioBtnID3"
+                      class="float-right ml-2 expertise-radioBtn" name="ExpertiseLevel" />
+                    <label for="radioBtnID3" class="mb-0" style="height: 180px;">
+                      <div class="card-body">
+                        <h5 class="card-title text-center heading-levelExpertise font-weight-bold">
+                          Expert
+                        </h5>
+                        <p class="card-text text-center text-muted pg-levelExpertise">
+                          I have comprehensive and deep expertise in this
+                          field
+                        </p>
+                      </div>
+                    </label>
                   </div>
                 </div>
               </div>
@@ -177,7 +173,7 @@
           </form>
           <div class="card-footer mt-5 mb-4" style="background-color: transparent">
             <a routerLink="/freelancer/expertise" class="btn btn-success back-btn float-left mt-3">Back</a>
-            <a routerLink="/freelancer/languages" class="btn btn-success fill-out-btn float-right mt-3"
+            <a routerLink="/freelancer/languages" class="btn btn-success fill-out-btn float-right mt-3 text-white"
               (click)="storeData()">Next</a>
           </div>
         </div>

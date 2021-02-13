@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
     private _freelancerService: FreelancerService,
     private router: Router,
     private _jwtTokenService: JwtTokenService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.formGroup = this._formBuilder.group({
@@ -74,6 +74,7 @@ export class HomeComponent implements OnInit {
           Validators.minLength(5),
           Validators.maxLength(30),
           Validators.email,
+          // Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g),
           this.cannotContainSpace,
         ],
       ],

@@ -14,13 +14,15 @@ export class ExpertiselevelComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
 
   ngOnInit(): void {
+    const expertiseLevelData: any = this._sharingData.getExpertiseLevelData();
     if (!this._sharingData.isEligible.expertiseLevel) {
       this.router.navigateByUrl('/freelancer/expertise');
     }
     this.completedData = this._sharingData.isEligible;
     this.formGroup = this._formBuilder.group({
-      ExpertiseLevel: ['', [Validators.required]],
+      ExpertiseLevel: [expertiseLevelData.expertiseLevel, [Validators.required]],
     })
+    console.log(this.formGroup.controls['ExpertiseLevel'].value)
   }
   //setting expertiselevel from data
   storeData() {

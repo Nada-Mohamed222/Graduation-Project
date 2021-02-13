@@ -15,12 +15,13 @@ export class PhoneComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
 
   ngOnInit(): void {
+    const phoneData: any = this._sharingData.getPhoneData();
     this.completedData = this._sharingData.isEligible;
     if (!this._sharingData.isEligible.phone) {
       this.router.navigateByUrl('/freelancer/location');
     }
     this.formGroup = this._formBuilder.group({
-      Phone: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(11)]],
+      Phone: [phoneData.phone, [Validators.required, Validators.minLength(8), Validators.maxLength(11)]],
     })
   }
 
@@ -30,6 +31,5 @@ export class PhoneComponent implements OnInit {
       phone: this.formGroup.controls['Phone'].value,
     };
     this._sharingData.setPhoneData(phone);
-    console.log(phone);
   }
 }
