@@ -19,7 +19,7 @@ const routes: Routes = [
     children: [
       { path: 'jobs', component: JobsComponent, data: { noPanel: true } },
       {
-        path: 'proposals',
+        path: ':jobId/proposals',
         component: ProposalsComponent,
         data: { noPanel: true },
       },

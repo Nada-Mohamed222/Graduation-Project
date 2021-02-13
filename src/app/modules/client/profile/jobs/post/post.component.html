@@ -18,7 +18,13 @@
   </div>
 
   <div class="row">
-    <p class="col-xs-4 plain-text text-muted">Proposals</p>
+    <!--   routerLink="/profile/{{ jobId }}/proposals" -->
+    <p
+      class="col-xs-4 plain-text text-muted"
+      (click)="getjobProposals(jobId === 'undefind' ? '' : jobId)"
+    >
+      Proposals
+    </p>
     <p class="col-xs-4 plain-text text-muted">Messaged</p>
     <p class="col-xs-4 plain-text text-muted">Hired</p>
   </div>

@@ -29,6 +29,7 @@
             price="{{ job.Price }}"
             description="{{ job.Description }}"
             priceType="{{ job.PaymentType }}"
+            jobId="{{ job._id }}"
           ></app-post>
           <div
             class="skills mx-2 mt-0 text-center hint"
@@ -37,7 +38,12 @@
             <app-chip skill="{{ skill }}"></app-chip>
           </div>
 
-          <p class="hint text-muted mt-2 mx-2"><b>Proposal : </b>1 :4</p>
+          <p
+            class="hint text-muted mt-2 mx-2"
+            (click)="getjobProposals(job._id)"
+          >
+            <b>Proposal : </b>1 :4
+          </p>
           <hr />
         </div>
       </div>

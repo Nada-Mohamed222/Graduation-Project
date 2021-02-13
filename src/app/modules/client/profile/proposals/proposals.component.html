@@ -2,7 +2,7 @@
 <div class="container">
   <div class="col-md-12">
     <div class="card">
-      <div *ngFor="let p of proposals">
+      <div *ngFor="let p of proposals; let i = index">
         <app-proposal-card
           image="{{ p.TalentID.ImageURL }}"
           freelancerName="{{
@@ -10,7 +10,7 @@
           }}"
           jobTitle="{{ p.TalentID.Title }}"
           coverLetter="{{ p.CoverLetter }}"
-          (click)="getFreelancerProfile()"
+          (click)="getFreelancerProfile(p.TalentID.UserName)"
         ></app-proposal-card>
       </div>
     </div>

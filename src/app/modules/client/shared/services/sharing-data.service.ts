@@ -4,7 +4,7 @@ import { BudgetComponent } from './../../post-job/budget/budget.component';
 import { DetailsComponent } from './../../post-job/details/details.component';
 import { TitleComponent } from '../../post-job/title/title.component';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +18,10 @@ export class SharingDataService {
   isDetailsDone = new Subject<boolean>();
   //budget observable to activate review nav
   isBudgetDone = new Subject<boolean>();
+
+  // jobId observable
+  // jobID = new Subject<string>();
+  jobID = new BehaviorSubject<string>(null);
 
   // instanse of components
   start: TitleComponent;

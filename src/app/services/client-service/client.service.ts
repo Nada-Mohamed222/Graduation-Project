@@ -35,8 +35,8 @@ export class ClientService {
 
   //
 
-  getJobProposal() {
-    return this._apiServices.get(`job/6025717c75a28efac387b633/proposals`);
+  getJobProposal(jobId?: string) {
+    return this._apiServices.get(`job/${jobId}/proposals`);
   }
 
   getAllJobs() {

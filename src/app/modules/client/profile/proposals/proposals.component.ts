@@ -1,11 +1,13 @@
-import { Router } from '@angular/router';
+import { Proposals } from './../../../../models/proposals';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Proposal } from './../../../../models/proposal';
 import { FreelancerService } from 'src/app/services/freelancer-service/freelancer.service';
 import { ClientService } from './../../../../services/client-service/client.service';
 import { JobPost } from './../../../../services/job-service/job-post.service';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { Job } from 'src/app/models/job';
+
+import { SharingDataService } from '../../shared/services/sharing-data.service';
 
 @Component({
   selector: 'app-proposals',
@@ -16,16 +18,32 @@ export class ProposalsComponent implements OnInit {
   constructor(
     private _clientService: ClientService,
     private _freelacerService: FreelancerService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
+    private _sharingData: SharingDataService
   ) {}
-  proposals: {};
+
+  proposals = [];
   userName: string;
+  jobId: string;
+
   ngOnInit(): void {
-    this._clientService
-      .getJobProposal()
+    // this.route.params.subscribe((params) => {
+    //   this.jobId = params['jobId'];
+    //   this.getAll(this.jobId);
+    // });
+
+    this._sharingData.jobID.subscribe((data) => {
+      this.getAll(data);
+    });
+  }
+  // proposal
+  getAll(id: string) {
+    return this._clientService
+      .getJobProposal(id)
       .pipe(
         map((response) => {
-          const posts: Proposal[] = [];
+          const posts: Proposals[] = [];
           for (const key in response) {
             if (response.hasOwnProperty(key)) {
               posts.push(response[key]);
@@ -36,26 +54,35 @@ export class ProposalsComponent implements OnInit {
       )
       .subscribe(
         (posts) => {
-          console.log(posts);
+          console.log('ربنا يستر ');
+
+          console.log(posts.slice());
           this.proposals = posts;
-          console.log(this.proposals[0]);
-          this.userName = posts[0].TalentID.UserName;
-          console.log(posts[0].TalentID.UserName);
+
+          console.log('يختاااي');
+          // console.log(this.proposals.CoverLetter);
+          // console.log(this.proposals[0].TalentID.Title);
+          // console.log(this.proposals[0]);
+
+          console.log();
+          console.log(`recieved jobId from observale ${this.jobId}`);
         },
         (error) => {
-          console.log(' ايروررررر ياني');
+          console.log(`recieved jobId from observale ${this.jobId}`);
           console.log(error);
         }
       );
   }
 
-  getFreelancerProfile() {
+  // get the freelancer profile
+  getFreelancerProfile(userName: string) {
     this._freelacerService
-      .getFreelancerProfile(this.userName)
+      .getFreelancerProfile(userName)
       .subscribe((response) => {
         console.log('علي الفريلانسر يلاااااا');
-        console.log(this.userName);
-        this.router.navigateByUrl(`/freelancer/${this.userName}`);
+        // console.log(this.userName);
+        console.log(userName);
+        this.router.navigateByUrl(`/freelancer/${userName}`);
 
         console.log(response);
       });
