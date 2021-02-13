@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import { UpworkLandingPageComponent } from './upwork-landing-page.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('UpworkLandingPageComponent', () => {
+  let component: UpworkLandingPageComponent;
+  let fixture: ComponentFixture<UpworkLandingPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ UpworkLandingPageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(UpworkLandingPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

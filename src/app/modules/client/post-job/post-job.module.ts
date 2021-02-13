@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PostJobComponent } from './post-job.component';
-import { HomeComponent } from './home/home.component';
 import { TitleComponent } from './title/title.component';
 import { SideNavComponent } from './side-nav/side-nav/side-nav.component';
 import { DetailsComponent } from './details/details.component';
@@ -44,7 +43,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    HomeComponent,
     TitleComponent,
     PostJobComponent,
     SideNavComponent,

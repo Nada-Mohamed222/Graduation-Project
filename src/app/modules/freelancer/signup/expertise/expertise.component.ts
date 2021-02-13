@@ -20,10 +20,11 @@ export class ExpertiseComponent implements OnInit {
 
   ngOnInit(): void {
     const expertiseData: any = this._sharingData.getExpertiseData();
+    this.skills = expertiseData.mainSkills;
     this.completedData = this._sharingData.isEligible;
     this.formGroup = this._formBuilder.group({
-      MainServices: ['', [Validators.required]],
-      MainSkills: ['']
+      MainServices: [expertiseData.mainService, [Validators.required]],
+      MainSkills: [expertiseData.mainSkills]
     })
   }
 
@@ -37,9 +38,9 @@ export class ExpertiseComponent implements OnInit {
   }
 
 
-  addSkill(skills: string) {
+  addSkill(skill: string) {
     if (this.skills.length < 4) {
-      this.skills.push(skills);
+      this.skills.push(skill);
       this.skill = '';
     }
   }

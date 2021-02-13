@@ -11,7 +11,6 @@ import { HomeComponent } from './../../src/app/modules/register/home/home.compon
 
 export class AppComponent {
   title = 'graduation-project';
-
   isSignedUp:Boolean = false;
 
   receiveStatus($event) {
@@ -23,4 +22,5 @@ export class AppComponent {
   getStatusFromHome() {
     this.isSignedUp = this.home.isSignedUp
   }
+
 }

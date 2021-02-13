@@ -1,398 +1,383 @@
 <!--Home Page(enter the rest of your information)-->
-<div class="container-fluid bg-color">
-  <div class="card card-center mt-5">
-    <div class="card-body">
-      <h5 class="card-title card-heading">Get your free account</h5>
-      <br />
 
-      <form [formGroup]="formGroup">
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputFirstName"></label>
+<div style="background-color: #1d4354">
+  <div class="container bg-color pt-5 pb-5">
+    <div class="card card-center">
+      <div class="card-body">
+        <h5 class="card-title card-heading">Get your free account</h5>
+        <br />
+
+        <form [formGroup]="formGroup">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputFirstName"></label>
+              <input
+                formControlName="FirstName"
+                type="text"
+                class="form-control input-fontSize-form"
+                id="inputFirstName"
+                placeholder="First name"
+                #InputFirstName
+              />
+              <div
+                *ngIf="
+                  formGroup.controls['FirstName'].invalid &&
+                  (formGroup.controls['FirstName'].touched ||
+                    formGroup.controls['FirstName'].dirty)
+                "
+              >
+                <small
+                  class="form-text text-danger"
+                  *ngIf="formGroup.controls['FirstName'].hasError('required')"
+                  >Required First Name</small
+                >
+                <small
+                  class="form-text text-danger"
+                  *ngIf="formGroup.controls['FirstName'].hasError('minlength')"
+                  >Min Length is 3</small
+                >
+                <small
+                  class="form-text text-danger"
+                  *ngIf="formGroup.controls['FirstName'].hasError('maxlength')"
+                  >Max Length is 10</small
+                >
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputLastName"></label>
+              <input
+                formControlName="LastName"
+                type="text"
+                class="form-control input-fontSize-form"
+                id="inputLastName"
+                placeholder="Last name"
+                #InputLastName
+              />
+              <div
+                *ngIf="
+                  formGroup.controls['LastName'].invalid &&
+                  (formGroup.controls['LastName'].touched ||
+                    formGroup.controls['LastName'].dirty)
+                "
+              >
+                <small
+                  class="form-text text-danger"
+                  *ngIf="formGroup.controls['LastName'].hasError('required')"
+                  >Required Last Name</small
+                >
+                <small
+                  class="form-text text-danger"
+                  *ngIf="formGroup.controls['LastName'].hasError('minlength')"
+                  >Min Length is 3</small
+                >
+                <small
+                  class="form-text text-danger"
+                  *ngIf="formGroup.controls['LastName'].hasError('maxlength')"
+                  >Max Length is 10</small
+                >
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword"></label>
             <input
-              formControlName="FirstName"
-              type="text"
+              formControlName="Password"
+              type="password"
               class="form-control input-fontSize-form"
-              id="inputFirstName"
-              placeholder="First name"
-              #InputFirstName
+              id="inputPassword"
+              placeholder="Create a password"
+              #InputPassword
             />
             <div
               *ngIf="
-                formGroup.controls['FirstName'].invalid &&
-                (formGroup.controls['FirstName'].touched ||
-                  formGroup.controls['FirstName'].dirty)
+                formGroup.controls['Password'].invalid &&
+                (formGroup.controls['Password'].touched ||
+                  formGroup.controls['Password'].dirty)
               "
             >
               <small
                 class="form-text text-danger"
-                *ngIf="formGroup.controls['FirstName'].hasError('required')"
-                >Required First Name</small
+                *ngIf="formGroup.controls['Password'].hasError('required')"
+                >Required Password</small
               >
               <small
                 class="form-text text-danger"
-                *ngIf="formGroup.controls['FirstName'].hasError('minlength')"
-                >Min Length is 3</small
+                *ngIf="formGroup.controls['Password'].hasError('minlength')"
+                >Min Length is 6</small
               >
               <small
                 class="form-text text-danger"
-                *ngIf="formGroup.controls['FirstName'].hasError('maxlength')"
+                *ngIf="formGroup.controls['Password'].hasError('maxlength')"
+                >Max Length is 20</small
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail"></label>
+            <input
+              formControlName="Email"
+              type="email"
+              class="form-control input-fontSize-form"
+              id="inputEmail"
+              placeholder="Email address"
+              #InputEmail
+            />
+            <div
+              *ngIf="
+                formGroup.controls['Email'].invalid &&
+                (formGroup.controls['Email'].touched ||
+                  formGroup.controls['Email'].dirty)
+              "
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="formGroup.controls['Email'].hasError('required')"
+                >Required Email</small
+              >
+              <small
+                class="form-text text-danger"
+                *ngIf="
+                  formGroup.controls['Email'].hasError('cannotContainSpace')
+                "
+                >Spaces are not allowed</small
+              >
+              <small
+                class="form-text text-danger"
+                *ngIf="formGroup.controls['Email'].hasError('minlength')"
+                >Min Length is 5</small
+              >
+              <small
+                class="form-text text-danger"
+                *ngIf="formGroup.controls['Email'].hasError('maxlength')"
+                >Max Length is 30</small
+              >
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="inputState"></label>
+              <select
+                id="inputState"
+                class="form-control"
+                style="font-size: 15px"
+              >
+                <option selected>Egypt</option>
+                <option>Albania</option>
+                <option>Algeria</option>
+                <option>American Samoa</option>
+                <option>Andorra</option>
+                <option>Angola</option>
+                <option>Anguilla</option>
+                <option>Argentina</option>
+                <option>Armenia</option>
+                <option>Aruba</option>
+                <option>Australia</option>
+                <option>Azerbaijan</option>
+                <option>Bahamas</option>
+                <option>Bahrain</option>
+                <option>Bangladesh</option>
+                <option>Barbados</option>
+                <option>Belarus</option>
+                <option>Belgium</option>
+                <option>Belize</option>
+                <option>Benin</option>
+                <option>Bermuda</option>
+                <option>Bhutan</option>
+                <option>Bolivia</option>
+                <option>Botswana</option>
+                <option>Brazil</option>
+                <option>British</option>
+                <option>Bulgaria</option>
+                <option>Burundi</option>
+                <option>Cambodia</option>
+                <option>Cameroon</option>
+                <option>Canada</option>
+                <option>Cape Verde</option>
+                <option>Cayman Islands</option>
+                <option>Central Africa</option>
+                <option>Chad</option>
+                <option>Chile</option>
+                <option>Chine</option>
+                <option>Christmas Island</option>
+                <option>Cocos Islands</option>
+                <option>Colombia</option>
+                <option>Denmark</option>
+                <option>Djibouti</option>
+                <option>Dominica</option>
+                <option>Estonia</option>
+                <option>Eritrea</option>
+                <option>Estonia</option>
+                <option>France</option>
+                <option>Fiji</option>
+                <option>Gabon</option>
+                <option>Gambia</option>
+                <option>Georgia</option>
+                <option>Germany</option>
+                <option>Ghana</option>
+                <option>Greece</option>
+                <option>Guam</option>
+                <option>Guinea</option>
+                <option>Haiti</option>
+                <option>Italy</option>
+                <option>Ireland</option>
+                <option>Israel</option>
+                <option>Japan</option>
+                <option>Jordan</option>
+                <option>Jersey</option>
+                <option>Kuwait</option>
+                <option>Kenya</option>
+                <option>Lebanon</option>
+                <option>Lesotho</option>
+                <option>Macao</option>
+              </select>
+            </div>
+          </div>
+          <div class="text-center">
+            <h4 class="text-justify-center">I want to:</h4>
+            <div class="btn-group" data-toggle="buttons">
+              <input
+                class="changeType"
+                type="radio"
+                name="options"
+                hidden
+                id="option1"
+                value="employer"
+              />
+              <label
+                for="option1"
+                class="btn btn-success form-check-label btn-size-home"
+                (click)="apperUserName('employer')"
+              >
+                Hire for a Project
+              </label>
+
+              <input
+                class="changeType"
+                type="radio"
+                name="options"
+                hidden
+                id="option2"
+                value="talent"
+              />
+              <label
+                for="option2"
+                class="btn btn-success form-check-label btn-size-home ml-3"
+                (click)="apperUserName('talent')"
+              >
+                Work as a Freelancer
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputUserName"></label>
+            <!-- *ngIf="isAppeared"  -->
+
+            <input
+              [hidden]="!isAppeared"
+              formControlName="UserName"
+              type="text"
+              class="form-control input-fontSize-form"
+              id="inputUserName"
+              placeholder="Username"
+              #InputUserName
+            />
+            <div
+              *ngIf="
+                formGroup.controls['UserName'].invalid &&
+                (formGroup.controls['UserName'].touched ||
+                  formGroup.controls['UserName'].dirty)
+              "
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="formGroup.controls['UserName'].hasError('required')"
+                >Required UserName</small
+              >
+              <small
+                class="form-text text-danger"
+                *ngIf="
+                  formGroup.controls['UserName'].hasError('cannotContainSpace')
+                "
+                >Spaces are not allowed</small
+              >
+
+              <small
+                class="form-text text-danger"
+                *ngIf="formGroup.controls['UserName'].hasError('minlength')"
+                >Min Length is 5</small
+              >
+              <small
+                class="form-text text-danger"
+                *ngIf="formGroup.controls['UserName'].hasError('maxlength')"
                 >Max Length is 10</small
               >
             </div>
           </div>
-          <div class="form-group col-md-6">
-            <label for="inputLastName"></label>
-            <input
-              formControlName="LastName"
-              type="text"
-              class="form-control input-fontSize-form"
-              id="inputLastName"
-              placeholder="Last name"
-              #InputLastName
-            />
-            <div
-              *ngIf="
-                formGroup.controls['LastName'].invalid &&
-                (formGroup.controls['LastName'].touched ||
-                  formGroup.controls['LastName'].dirty)
-              "
-            >
-              <small
-                class="form-text text-danger"
-                *ngIf="formGroup.controls['LastName'].hasError('required')"
-                >Required Last Name</small
+
+          <div class="form-group text-center">
+            <div class="form-check" style="padding:0 !important;">
+              <input
+                class="form-check-input pr-2"
+                formControlName="CheckRules"
+                type="checkbox"
+                id="gridCheck1"
+              />
+              <label
+                class="form-check-label checkout-styling-home "
+                for="gridCheck1"
               >
-              <small
-                class="form-text text-danger"
-                *ngIf="formGroup.controls['LastName'].hasError('minlength')"
-                >Min Length is 3</small
-              >
-              <small
-                class="form-text text-danger"
-                *ngIf="formGroup.controls['LastName'].hasError('maxlength')"
-                >Max Length is 10</small
-              >
+                Yes, I understand and agree to the Upwork Terms of Service,
+                including the User Agreement and Privacy Policy.
+              </label>
             </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword"></label>
-          <input
-            formControlName="Password"
-            type="password"
-            class="form-control input-fontSize-form"
-            id="inputPassword"
-            placeholder="Create a password"
-            #InputPassword
-          />
-          <div
-            *ngIf="
-              formGroup.controls['Password'].invalid &&
-              (formGroup.controls['Password'].touched ||
-                formGroup.controls['Password'].dirty)
-            "
-          >
-            <small
-              class="form-text text-danger"
-              *ngIf="formGroup.controls['Password'].hasError('required')"
-              >Required Password</small
-            >
-            <small
-              class="form-text text-danger"
-              *ngIf="formGroup.controls['Password'].hasError('minlength')"
-              >Min Length is 6</small
-            >
-            <small
-              class="form-text text-danger"
-              *ngIf="formGroup.controls['Password'].hasError('maxlength')"
-              >Max Length is 20</small
-            >
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputEmail"></label>
-          <input
-            formControlName="Email"
-            type="email"
-            class="form-control input-fontSize-form"
-            id="inputEmail"
-            placeholder="Email address"
-            #InputEmail
-          />
-          <div
-            *ngIf="
-              formGroup.controls['Email'].invalid &&
-              (formGroup.controls['Email'].touched ||
-                formGroup.controls['Email'].dirty)
-            "
-          >
-            <small
-              class="form-text text-danger"
-              *ngIf="formGroup.controls['Email'].hasError('required')"
-              >Required Email</small
-            >
-            <small
-              class="form-text text-danger"
-              *ngIf="formGroup.controls['Email'].hasError('cannotContainSpace')"
-              >Spaces are not allowed</small
-            >
-            <small
-              class="form-text text-danger"
-              *ngIf="formGroup.controls['Email'].hasError('minlength')"
-              >Min Length is 5</small
-            >
-            <small
-              class="form-text text-danger"
-              *ngIf="formGroup.controls['Email'].hasError('maxlength')"
-              >Max Length is 30</small
-            >
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="inputState"></label>
-            <select
-              id="inputState"
-              class="form-control"
-              style="font-size: 15px"
-            >
-              <option selected>Egypt</option>
-              <option>Albania</option>
-              <option>Algeria</option>
-              <option>American Samoa</option>
-              <option>Andorra</option>
-              <option>Angola</option>
-              <option>Anguilla</option>
-              <option>Argentina</option>
-              <option>Armenia</option>
-              <option>Aruba</option>
-              <option>Australia</option>
-              <option>Azerbaijan</option>
-              <option>Bahamas</option>
-              <option>Bahrain</option>
-              <option>Bangladesh</option>
-              <option>Barbados</option>
-              <option>Belarus</option>
-              <option>Belgium</option>
-              <option>Belize</option>
-              <option>Benin</option>
-              <option>Bermuda</option>
-              <option>Bhutan</option>
-              <option>Bolivia</option>
-              <option>Botswana</option>
-              <option>Brazil</option>
-              <option>British</option>
-              <option>Bulgaria</option>
-              <option>Burundi</option>
-              <option>Cambodia</option>
-              <option>Cameroon</option>
-              <option>Canada</option>
-              <option>Cape Verde</option>
-              <option>Cayman Islands</option>
-              <option>Central Africa</option>
-              <option>Chad</option>
-              <option>Chile</option>
-              <option>Chine</option>
-              <option>Christmas Island</option>
-              <option>Cocos Islands</option>
-              <option>Colombia</option>
-              <option>Denmark</option>
-              <option>Djibouti</option>
-              <option>Dominica</option>
-              <option>Estonia</option>
-              <option>Eritrea</option>
-              <option>Estonia</option>
-              <option>France</option>
-              <option>Fiji</option>
-              <option>Gabon</option>
-              <option>Gambia</option>
-              <option>Georgia</option>
-              <option>Germany</option>
-              <option>Ghana</option>
-              <option>Greece</option>
-              <option>Guam</option>
-              <option>Guinea</option>
-              <option>Haiti</option>
-              <option>Italy</option>
-              <option>Ireland</option>
-              <option>Israel</option>
-              <option>Japan</option>
-              <option>Jordan</option>
-              <option>Jersey</option>
-              <option>Kuwait</option>
-              <option>Kenya</option>
-              <option>Lebanon</option>
-              <option>Lesotho</option>
-              <option>Macao</option>
-            </select>
-          </div>
-        </div>
-        <div class="text-center">
-          <h4 class="text-justify-center">I want to:</h4>
-          <div class="btn-group" data-toggle="buttons">
-            <input
-              class="changeType"
-              type="radio"
-              name="options"
-              hidden
-              id="option1"
-              value="employer"
-            />
-            <label
-              for="option1"
-              class="btn btn-success form-check-label btn-size-home"
-              (click)="apperUserName('employer')"
-            >
-              Hire for a Project
-            </label>
-
-            <input
-              class="changeType"
-              type="radio"
-              name="options"
-              hidden
-              id="option2"
-              value="talent"
-            />
-            <label
-              for="option2"
-              class="btn btn-success form-check-label btn-size-home ml-3"
-              (click)="apperUserName('talent')"
-            >
-              Work as a Freelancer
-            </label>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="inputUserName"></label>
-          <!-- *ngIf="isAppeared"  -->
-
-          <input
-            [hidden]="!isAppeared"
-            formControlName="UserName"
-            type="text"
-            class="form-control input-fontSize-form"
-            id="inputUserName"
-            placeholder="Username"
-            #InputUserName
-          />
-          <div
-            *ngIf="
-              formGroup.controls['UserName'].invalid &&
-              (formGroup.controls['UserName'].touched ||
-                formGroup.controls['UserName'].dirty)
-            "
-          >
-            <small
-              class="form-text text-danger"
-              *ngIf="formGroup.controls['UserName'].hasError('required')"
-              >Required UserName</small
-            >
-            <small
-              class="form-text text-danger"
-              *ngIf="
-                formGroup.controls['UserName'].hasError('cannotContainSpace')
+          <div class="text-center">
+            <button
+              (click)="
+                addNewAccount(
+                  InputFirstName.value,
+                  InputLastName.value,
+                  InputPassword.value,
+                  InputEmail.value,
+                  InputUserName.value
+                )
               "
-              >Spaces are not allowed</small
+              [disabled]="formGroup.invalid"
+              type="submit"
+              class="btn btn-success mx-auto create-btn-size-home"
             >
-
-            <small
-              class="form-text text-danger"
-              *ngIf="formGroup.controls['UserName'].hasError('minlength')"
-              >Min Length is 5</small
-            >
-            <small
-              class="form-text text-danger"
-              *ngIf="formGroup.controls['UserName'].hasError('maxlength')"
-              >Max Length is 10</small
-            >
+              Create My Account
+            </button>
           </div>
-        </div>
-
-        <div class="form-group">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              formControlName="CheckRules"
-              type="checkbox"
-              id="gridCheck1"
-            />
-            <label
-              class="form-check-label ml-5 mt-1 checkout-styling-home"
-              for="gridCheck1"
-            >
-              Yes, I understand and agree to the Upwork Terms of Service,
-              including the User Agreement and Privacy Policy.
-            </label>
-          </div>
-        </div>
-        <button
-          (click)="
-            addNewAccount(
-              InputFirstName.value,
-              InputLastName.value,
-              InputPassword.value,
-              InputEmail.value,
-              InputUserName.value
-            )
-          "
-          [disabled]="formGroup.invalid"
-          type="submit"
-          class="btn btn-success create-btn-size-home"
-        >
-          Create My Account
-        </button>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </div>
 
 <h4 class="heading-of-images">Trusted by 5M+ businesses</h4>
-<div class="row mt-5 w-75 justify-content-md-center">
-  <br /><br />
-  <div class="col-lg-2 mt-2 col-md-6">
-    <img
-      src="../../../assets/images/Microsoft-Logo.png"
-      class="home-img"
-      alt="Microsoft Logo"
-    />
-  </div>
-  <div class="col-lg-2 mt-4 col-md-6">
-    <img
-      src="../../../assets/images/aribnb.png"
-      class="home-img1"
-      alt="Airbnb Logo"
-    />
-  </div>
-  <div class="col-lg-2 col-md-6">
-    <img
-      src="../../../assets/images/General_Electric.png"
-      class="home-img2 mt-4"
-      alt="Electric Logo"
-    />
-  </div>
-  <div class="col-lg-2 col-md-6">
-    <img
-      src="../../../assets/images/automattic.png"
-      class="home-img3 mt-4"
-      alt="Automattic Logo"
-    />
-  </div>
-  <div class="col-lg-2 col-md-6">
-    <img
-      src="../../../assets/images/bissell.png"
-      class="home-img4 mt-4"
-      alt="Bissell Logo"
-    />
-  </div>
-  <div class="col-lg-2 col-md-6">
-    <img
-      src="../../../assets/images/COTY_LOGO.png"
-      class="home-img5"
-      alt="COTY Logo"
-    />
+
+<div class="container d-none d-lg-block mt-3">
+  <div class="row ml-3">
+    <div class="col-lg-3">
+      <img src="../../../../assets/images/microsoft.svg" alt="GE" />
+    </div>
+    <div class="col-lg-2">
+      <img src="../../../../assets/images/airbnb.svg" alt="GE" />
+    </div>
+    <div class="col-lg-1">
+      <img src="../../../../assets/images/ge.svg" alt="GE" />
+    </div>
+    <div class="col-lg-3">
+      <img src="../../../../assets/images/automatic.svg" alt="GE" />
+    </div>
+    <div class="col-lg-2">
+      <img src="../../../../assets/images/bissell.svg" alt="GE" />
+    </div>
+    <div class="col-lg-1">
+      <img src="../../../../assets/images/coty.svg" alt="GE" />
+    </div>
   </div>
 </div>
 <!--Before Footer Find what you need -->
