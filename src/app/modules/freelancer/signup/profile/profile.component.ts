@@ -11,7 +11,10 @@ import { Freelancer } from 'src/app/models/freelancer';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private _freelancerService:FreelancerService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private _freelancerService:FreelancerService, 
+    private route: ActivatedRoute, 
+    private router: Router) { }
+    
   freelancer: Freelancer = new Freelancer();
   skill:string ="";
   jobs:Array<object>=[];
