@@ -29,7 +29,7 @@ export class ReviewProfileComponent implements OnInit {
     private _sharingData: SharingDataService,
     private _freelancerService: FreelancerService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     if (!this._sharingData.isEligible.review) {
@@ -66,7 +66,7 @@ export class ReviewProfileComponent implements OnInit {
     //Expertise Level
     formData.append('ExpertiseLevel', this.expertiseLevelData.expertiseLevel);
     //Languages
-    formData.append('Languages', this.LanguageData.language);
+    formData.append('EnglishProficiency', this.LanguageData.language);
     //Hourly Rate
     formData.append('HourlyRate', this.HourlyRateData.hourlyRate);
     //Title and Overview

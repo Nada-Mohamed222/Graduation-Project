@@ -30,271 +30,267 @@
     <div class="col-md-2 fontsize-sidebar pl-3"></div>
   </div>
 
-  <div class="row no-gutters justify-content-center mx-auto w-75">
-    <div class="col-md-2 fontsize-sidebar pr-3">
-      <a routerLink="#">
-        <div class="row w-100 m-0 pt-2 pb-2 active" routerLinkActive="active">
-          <div class="col-md-1 p-0"></div>
-          <strong class="col-md-8 p-0">My Feed</strong>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-md-8 rounded-md">
-      <div class="card justify-content-center mx-auto shadow-md ">
-        <div
-          class="card-header get-started-title"
-          style="background-color: transparent"
-        >
-          <div class="row p-2">
-            <div class="col-md-10">
-              <p class="h2 inline">
-                {{ skill ? "Search Feed for" : "My feed" }} {{ skill }}
-              </p>
-            </div>
-            <div class="col-md-2">
-              <div class="dropdown">
-                <button
-                  class="float-right btn rounded-circle"
-                  type="button"
-                  id="dropdownMenuButton"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <span><i class="fas fa-ellipsis-h"></i></span>
-                </button>
-                <div
-                  class="dropdown-menu square mt-3 shadow-md"
-                  aria-labelledby="dropdownMenuButton"
-                >
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          *ngFor="let job of jobs; let currentIndex = index"
-          class="card-body mb-2 p-4 border-bottom hover-color"
-        >
-          <div class="row mb-4">
-            <div class="col-md-10">
-              <p class="card-title h4">
-                <a
-                  routerLink="/job/{{ job.data._id }}"
-                  class="header-link-jobs"
-                >
-                  {{ job.data.Name }}
-                </a>
-              </p>
-            </div>
-            <div class="col-md-2">
-              <div
-                class="float-right rounded-circle border border-secondary p-2 cursor-pointer"
-              >
-                <i class="far fa-heart"></i>
-              </div>
-            </div>
-          </div>
-
-          <p class="card-text text-muted paragraph-fontSize">
-            <span style="font-weight: bold">{{ job.data.PaymentType }} - </span>
-            <span> {{ job.data.ExpertiseLevel }} - </span>
-            <span> Est. Time: {{ job.data.Duration }}, </span>
-            <span> Est. Budget: {{ job.data.Price }},</span>
-            <span>{{ job.data.WeeklyHoursRequired }} hrs/week - </span>
-            <span>{{ job.data.createdAt.slice(0, 10) }}</span>
-          </p>
-          <p
-            class="paragraph-content-fontSize"
-            style="background-color: transparent; border: 0"
-          >
-            {{
-              job.data.Description.length > 400
-                ? (job.data.Description | slice: 0:400) + "..."
-                : job.data.Description
-            }}
-          </p>
-          <div *ngFor="let skill of job.data.Skills" class="mb-2 float-left">
-            <a
-              routerLink="/job/search/{{ skill }}"
-              class="badge background-badge ml-2 p-2 rounded-pill"
-              >{{ skill }}</a
-            >
-          </div>
-          <br />
-
-          <div class="mt-3">
-            <p class="h6">
-              Proposals:
-              <span class="text-muted">{{ job.data.Proposals.length }}</span>
-            </p>
-          </div>
-          <div class="mt-3">
-            <span class="ml-2 text-muted"
-              ><i class="fas fa-map-marker-alt"></i
-              ><span class="ml-2">{{ job.data.Country }}</span></span
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-2 fontsize-sidebar pl-3">
-      <div class="h6">
-        <img
-          style="
-            object-fit: cover;
-            height: 40px !important;
-            width: 40px !important;
-          "
-          src="http://localhost:5000/{{ freelancer.ImageURL }}"
-          class="image-sidebar rounded-circle"
-        />
-        <strong class="ml-2">{{ freelancer.FirstName }}</strong>
-      </div>
-
-      <div class="mt-3 text-color">
-        <i class="fas fa-eye"></i>
-        <a
-          routerLink="/freelancer/{{ freelancer.UserName }}"
-          class="profile-link-jobs"
-          ><strong class="ml-2">View Profile</strong></a
-        >
-      </div>
-      <div class="mt-3">
-        <strong>Availability</strong>
-      </div>
-
-      <div class="row pl-3 mt-3">
-        <div class="col-lg-1 p-0">
-          <i class="far fa-clock mt-2"></i>
-        </div>
-        <div class="col-lg-10 p-0 pl-3 pr-1">{{ freelancer.Availability }}</div>
-        <div class="col-lg-1 p-0">
-          <!-- Button trigger modal -->
-          <button
-            type="button"
-            class="btn p-0"
-            data-toggle="modal"
-            data-target="#staticBackdrop"
-          >
-            <i
-              class="fas fa-pen cursor-pointer rounded-circle bg-white p-2 border border-secondary"
-            ></i>
-          </button>
-
-          <!-- Modal -->
+  <div class="container">
+    <div class="row no-gutters justify-content-center mx-auto w-75">
+      <div class="col-md-9 col-sm-12 rounded-md">
+        <div class="card justify-content-center mx-auto shadow-md">
           <div
-            class="modal fade"
-            id="staticBackdrop"
-            data-backdrop="static"
-            data-keyboard="false"
-            tabindex="-1"
-            aria-labelledby="staticBackdropLabel"
-            aria-hidden="true"
+            class="card-header get-started-title"
+            style="background-color: transparent"
           >
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <strong
-                    class="h4"
-                    class="modal-title"
-                    id="staticBackdropLabel"
-                    >Change availability</strong
-                  >
+            <div class="row p-2">
+              <div class="col-md-10">
+                <p class="h2 inline">
+                  {{ skill ? "Search Feed for" : "My feed" }} {{ skill }}
+                </p>
+              </div>
+              <div class="col-md-2">
+                <div class="dropdown">
                   <button
+                    class="float-right btn rounded-circle"
                     type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
+                    id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
                   >
-                    <span aria-hidden="true">&times;</span>
+                    <span><i class="fas fa-ellipsis-h"></i></span>
                   </button>
+                  <div
+                    class="dropdown-menu square mt-3 shadow-md"
+                    aria-labelledby="dropdownMenuButton"
+                  >
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
                 </div>
-                <div class="modal-body">
-                  <div class="row mb-3">
-                    <div class="col-md-6 border-right">
-                      <p>
-                        Are you available to take on new work? Knowing when you
-                        are available helps Upwork find the right jobs for you.
-                      </p>
-                    </div>
+              </div>
+            </div>
+          </div>
 
-                    <div class="col-md-6">
-                      <strong> I am currently available for </strong>
-                      <div class="mt-4">
-                        <div class="form-check mt-2">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="availability"
-                            id="availability1"
-                          />
-                          <label class="form-check-label" for="availability1">
-                            More than 30 hrs/week
-                          </label>
-                        </div>
+          <div
+            *ngFor="let job of jobs; let currentIndex = index"
+            class="card-body mb-2 p-4 border-bottom hover-color"
+          >
+            <div class="row mb-4">
+              <div class="col-md-10">
+                <p class="card-title h4">
+                  <a
+                    routerLink="/job/{{ job.data._id }}"
+                    class="header-link-jobs"
+                  >
+                    {{ job.data.Name }}
+                  </a>
+                </p>
+              </div>
+              <div class="col-md-2">
+                <div
+                  class="float-right rounded-circle border border-secondary p-2 cursor-pointer"
+                >
+                  <i class="far fa-heart"></i>
+                </div>
+              </div>
+            </div>
 
-                        <div class="form-check mt-2">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="availability"
-                            id="availability2"
-                          />
-                          <label class="form-check-label" for="availability2">
-                            Less than 30 hrs/week
-                          </label>
-                        </div>
+            <p class="card-text text-muted paragraph-fontSize">
+              <span style="font-weight: bold"
+                >{{ job.data.PaymentType }} -
+              </span>
+              <span> {{ job.data.ExpertiseLevel }} - </span>
+              <span> Est. Time: {{ job.data.Duration }}, </span>
+              <span> Est. Budget: {{ job.data.Price }},</span>
+              <span>{{ job.data.WeeklyHoursRequired }} hrs/week - </span>
+              <span>{{ job.data.createdAt.slice(0, 10) }}</span>
+            </p>
+            <p
+              class="paragraph-content-fontSize"
+              style="background-color: transparent; border: 0"
+            >
+              {{
+                job.data.Description.length > 400
+                  ? (job.data.Description | slice: 0:400) + "..."
+                  : job.data.Description
+              }}
+            </p>
+            <div *ngFor="let skill of job.data.Skills" class="mb-2 float-left">
+              <a
+                routerLink="/job/search/{{ skill }}"
+                class="badge background-badge ml-2 p-2 rounded-pill"
+                >{{ skill }}</a
+              >
+            </div>
+            <br />
 
-                        <div class="form-check mt-2">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="availability"
-                            id="availability3"
-                            checked
-                          />
-                          <label class="form-check-label" for="availability3">
-                            As needed - open to offers
-                          </label>
+            <div class="mt-3">
+              <p class="h6">
+                Proposals:
+                <span class="text-muted">{{ job.data.Proposals.length }}</span>
+              </p>
+            </div>
+            <div class="mt-3">
+              <span class="ml-2 text-muted"
+                ><i class="fas fa-map-marker-alt"></i
+                ><span class="ml-2">{{ job.data.Country }}</span></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3  fontsize-sidebar pl-3">
+        <div class="h6">
+          <img
+            style="
+              object-fit: cover;
+              height: 40px !important;
+              width: 40px !important;
+            "
+            src="http://localhost:5000/{{ freelancer.ImageURL }}"
+            class="image-sidebar rounded-circle"
+          />
+          <strong class="ml-2">{{ freelancer.FirstName }}</strong>
+        </div>
+
+        <div class="mt-3 text-color">
+          <i class="fas fa-eye"></i>
+          <a
+            routerLink="/freelancer/{{ freelancer.UserName }}"
+            class="profile-link-jobs"
+            ><strong class="ml-2">View Profile</strong></a
+          >
+        </div>
+        <div class="mt-3">
+          <strong>Availability</strong>
+        </div>
+
+        <div class="row pl-3 mt-3">
+          <div class="col-lg-1 p-0">
+            <i class="far fa-clock mt-2"></i>
+          </div>
+          <div class="col-lg-10 p-0 pl-3 pr-1">
+            {{ freelancer.Availability }}
+          </div>
+          <div class="col-lg-1 p-0">
+            <!-- Button trigger modal -->
+            <button
+              type="button"
+              class="btn p-0"
+              data-toggle="modal"
+              data-target="#staticBackdrop"
+            >
+              <i
+                class="fas fa-pen cursor-pointer rounded-circle bg-white p-2 border border-secondary"
+              ></i>
+            </button>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="staticBackdrop"
+              data-backdrop="static"
+              data-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <strong
+                      class="h4"
+                      class="modal-title"
+                      id="staticBackdropLabel"
+                      >Change availability</strong
+                    >
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row mb-3">
+                      <div class="col-md-6 border-right">
+                        <p>
+                          Are you available to take on new work? Knowing when
+                          you are available helps Upwork find the right jobs for
+                          you.
+                        </p>
+                      </div>
+
+                      <div class="col-md-6">
+                        <strong> I am currently available for </strong>
+                        <div class="mt-4">
+                          <div class="form-check mt-2">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="availability"
+                              id="availability1"
+                            />
+                            <label class="form-check-label" for="availability1">
+                              More than 30 hrs/week
+                            </label>
+                          </div>
+
+                          <div class="form-check mt-2">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="availability"
+                              id="availability2"
+                            />
+                            <label class="form-check-label" for="availability2">
+                              Less than 30 hrs/week
+                            </label>
+                          </div>
+
+                          <div class="form-check mt-2">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="availability"
+                              id="availability3"
+                              checked
+                            />
+                            <label class="form-check-label" for="availability3">
+                              As needed - open to offers
+                            </label>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn text-color"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" class="btn bg-color text-white">
-                    Understood
-                  </button>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn text-color"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="button" class="btn bg-color text-white">
+                      Understood
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-    
-
-      <div class="mt-3">
-        <a href="" class="profile-link-jobs">
-          <strong>
-            {{ freelancer.Connects ? freelancer.Connects : 0 }} available
-            connects
-          </strong>
-        </a>
+        <div class="mt-3">
+          <a href="" class="profile-link-jobs">
+            <strong>
+              {{ freelancer.Connects ? freelancer.Connects : 0 }} available
+              connects
+            </strong>
+          </a>
+        </div>
       </div>
     </div>
   </div>

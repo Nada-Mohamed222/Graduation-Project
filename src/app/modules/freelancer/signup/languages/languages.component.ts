@@ -16,12 +16,13 @@ export class LanguagesComponent implements OnInit {
   constructor(private _formBulider: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
 
   ngOnInit(): void {
+    const LanguageData: any = this._sharingData.getLanguageData();
     this.completedData = this._sharingData.isEligible;
     if (!this._sharingData.isEligible.languages) {
       this.router.navigateByUrl('/freelancer/expertiselevel');
     }
     this.formGroup = this._formBulider.group({
-      Language: ['', [Validators.required]]
+      Language: [LanguageData.language, [Validators.required]]
     })
   }
   //setting Language from data
@@ -30,7 +31,6 @@ export class LanguagesComponent implements OnInit {
       language: this.formGroup.controls['Language'].value,
     };
     this._sharingData.setLanguageData(languages);
-    console.log(languages);
   }
 
   addAntherLanguage() {

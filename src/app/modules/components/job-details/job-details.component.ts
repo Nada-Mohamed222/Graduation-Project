@@ -22,7 +22,7 @@ export class JobDetailsComponent implements OnInit {
   id: string = '';
   job: Job = new Job();
   clientJobs: Array<Job> = [];
-  client: Client;
+  client: Client = new Client();
   isSubmitted: Boolean = false;
   freelancer: Freelancer = new Freelancer();
   proposal: Proposals['Proposals'] = new Proposals().Proposals;
@@ -55,7 +55,7 @@ export class JobDetailsComponent implements OnInit {
           console.log(this.proposal);
           this.checkSubmition();
           // FIXME: remove params
-          this._clientService.getClient().subscribe(
+          this._clientService.getPublicClient(this.job.EmployerUserName).subscribe(
             (response: Client) => {
               this.client = response;
             },

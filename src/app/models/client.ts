@@ -11,8 +11,8 @@ export class Client {
   createdAt: String;
 
   constructor(
-    Password: String,
-    Email: String,
+    Password?: String,
+    Email?: String,
     FirstName?: String,
     LastName?: String,
     UserName?: String

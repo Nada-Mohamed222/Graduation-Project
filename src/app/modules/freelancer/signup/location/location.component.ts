@@ -14,12 +14,13 @@ export class LocationComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
 
   ngOnInit(): void {
+    const locationData: any = this._sharingData.getLocationData();
     this.completedData = this._sharingData.isEligible;
     if (!this._sharingData.isEligible.location) {
       this.router.navigateByUrl('/freelancer/profilephoto');
     }
     this.formGroup = this._formBuilder.group({
-      Location: ['', [Validators.required]]
+      Location: [locationData.country, [Validators.required]]
     });
   }
 
@@ -30,7 +31,6 @@ export class LocationComponent implements OnInit {
       country: this.formGroup.controls['Location'].value,
     };
     this._sharingData.setLocationData(location);
-    console.log(location);
   }
 
 }

@@ -16,13 +16,16 @@ export class TitleoverviewComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
 
   ngOnInit(): void {
+    const TitleOverviewData: any = this._sharingData.getTitleOverviewData();
+    console.log(TitleOverviewData);
+
     this.completedData = this._sharingData.isEligible;
     if (!this._sharingData.isEligible.titleOverview) {
       this.router.navigateByUrl('/freelancer/hourlyrate');
     }
     this.formGroup = this._formBuilder.group({
-      Title: ['', [Validators.required]],
-      ProfessionalOverview: ['', [Validators.required, Validators.maxLength(5000)]]
+      Title: [TitleOverviewData.title, [Validators.required]],
+      ProfessionalOverview: [TitleOverviewData.overview, [Validators.required, Validators.maxLength(5000)]]
     })
   }
   countCharacters(inputChar: string) {
