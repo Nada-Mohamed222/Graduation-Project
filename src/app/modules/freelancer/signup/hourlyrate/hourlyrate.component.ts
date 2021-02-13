@@ -10,14 +10,16 @@ import { SharingDataService } from '../sharing-data-service/sharing-data.service
 })
 export class HourlyrateComponent implements OnInit {
 
-  inputMoney: string = "8.00";
-  deductedAmount: string = "2.00";
+  inputMoney: string = "";
+  deductedAmount: string = "";
   formGroup: FormGroup;
   completedData: any;
   constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
 
   ngOnInit(): void {
     const HourlyRateData: any = this._sharingData.getHourlyRateData();
+    this.inputMoney = HourlyRateData.inputMoney;
+    this.deductedAmount = HourlyRateData.deductedAmount;
     this.completedData = this._sharingData.isEligible;
     if (!this._sharingData.isEligible.hourlyRate) {
       this.router.navigateByUrl('/freelancer/languages');
@@ -30,6 +32,8 @@ export class HourlyrateComponent implements OnInit {
   storeData() {
     const HourlyRate = {
       hourlyRate: this.formGroup.controls['HourlyRate'].value,
+      inputMoney: this.inputMoney,
+      deductedAmount: this.deductedAmount
     };
     this._sharingData.setHourlyRateData(HourlyRate);
   }
