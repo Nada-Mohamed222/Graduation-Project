@@ -14,7 +14,7 @@ export class LocationComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
 
   ngOnInit(): void {
-    const locationData: any = this._sharingData.getPhoneData();
+    const locationData: any = this._sharingData.getLocationData();
     this.completedData = this._sharingData.isEligible;
     if (!this._sharingData.isEligible.location) {
       this.router.navigateByUrl('/freelancer/profilephoto');
