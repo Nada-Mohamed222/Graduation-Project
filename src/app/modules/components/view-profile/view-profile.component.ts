@@ -25,7 +25,8 @@ export class ViewProfileComponent implements OnInit {
       this._freelancerService.getByUserName(this.username).subscribe(
         (response: Freelancer) => {
           this.freelancer = response;
-          console.log(response);
+          // response.Skills[0].split(',');
+          console.log(response.Skills[0].split(','));
         },
         (error) => {
           console.log(error);
