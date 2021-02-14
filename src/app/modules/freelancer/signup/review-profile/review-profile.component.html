@@ -30,26 +30,47 @@
           </div>
           <div class="p-3">
             <!-- Main Services -->
-            <h5>
-              {{ expertiseData.mainService
-              }}<i class="fas fa-pen ml-2 circle-icon p-2"></i>
-            </h5>
+            <div class="row">
+              <div class="col-lg-11">
+                <h5>{{ expertiseData.mainService}}</h5>
+              </div>
+              <div class="col-lg-1">
+                <a routerLink="/freelancer/expertise" style="color: #6c757d;">
+                  <i class="fas fa-pen ml-2 circle-icon p-2"></i>
+                </a>
+              </div>
+            </div>    
           </div>
+
           <div class="p-3">
             <!-- Title & OverView -->
-            <span class="fontsize-location"
-              >{{ TitleOverviewData.overview
-              }}<i class="fas fa-pen ml-2 circle-icon p-2"></i
-            ></span>
+            <div class="row">
+              <div class="col-lg-11">
+                <span class="fontsize-location">{{ TitleOverviewData.overview}}</span>
+              </div>
+              <div class="col-lg-1">
+                <a routerLink="/freelancer/titleoverview" style="color: #6c757d;">
+                  <i class="fas fa-pen ml-2 circle-icon p-2"></i>
+                </a>
+              </div>
+            </div>
           </div>
+
           <div class="p-3">
             <!-- Hourly Rate -->
-            <h5 class="bold-hourlyRate fontsize-reviewProfile">
-              $ {{ HourlyRateData.hourlyRate
-              }}<i class="fas fa-pen ml-2 circle-icon p-2"></i>
-            </h5>
-            <span class="fontsize-reviewProfile-desc">Hourly Rate</span>
+            <div class="row">
+              <div class="col-lg-11">
+                <h5 class="bold-hourlyRate fontsize-reviewProfile">$ {{ HourlyRateData.hourlyRate}} </h5>
+              </div>
+              <div class="col-lg-1">
+                <a routerLink="/freelancer/hourlyrate" style="color: #6c757d;">
+                  <i class="fas fa-pen ml-2 circle-icon p-2"></i>
+                </a>
+              </div>
+              <span class="fontsize-reviewProfile-desc ml-2">Hourly Rate</span>
+            </div>
           </div>
+
         </div>
       </div>
       <br /><br />
@@ -57,22 +78,32 @@
       <!--Second Card Skills -->
       <div class="card justify-content-center mx-auto shadow-lg w-75">
         <div
-          class="card-header bg-transparent fontSize-skills p-3 fontsize-reviewProfile-title fontsize-reviewProfile-title"
-        >
-          Skills<i class="fas fa-pen ml-2 circle-icon p-2 float-right"></i>
+          class="card-header bg-transparent fontSize-skills p-3 fontsize-reviewProfile-title fontsize-reviewProfile-title">
+          Skills
+          <a routerLink="/freelancer/expertise" style="color:#6c757d;">
+            <i class="fas fa-pen ml-2 circle-icon p-2 float-right"></i>
+          </a>
         </div>
-        <div class="card-body fontsize-reviewProfile-desc">
-          {{ expertiseData.mainSkills }}
+        <div class="float-right d-flex">
+          <div *ngFor="let skill of expertiseData.mainSkills" class="mb-2 mt-3">
+            <span
+              class="badge background-badge ml-2 p-2 rounded-pill text-white"
+              >{{ skill }}</span
+            >
+          </div>
         </div>
       </div>
 
-      <br /><br />
+      <br/><br />
       <!--Third Card Location -->
       <div class="card justify-content-center mx-auto shadow-lg w-75">
         <div
           class="card-header bg-transparent fontSize-skills p-3 fontsize-reviewProfile-title"
         >
-          Location<i class="fas fa-pen ml-2 circle-icon p-2 float-right"></i>
+          Location
+          <a routerLink="/freelancer/location" style="color: #6c757d;">
+            <i class="fas fa-pen ml-2 circle-icon p-2 float-right"></i>
+          </a>
         </div>
         <div class="card-body fontsize-reviewProfile-desc">
           {{ locationData.country }}
@@ -85,7 +116,10 @@
         <div
           class="card-header bg-transparent fontSize-skills p-3 fontsize-reviewProfile-title"
         >
-          Languages<i class="fas fa-pen ml-2 circle-icon p-2 float-right"></i>
+          Languages
+          <a routerLink="/freelancer/languages" style="color: #6c757d;">
+            <i class="fas fa-pen ml-2 circle-icon p-2 float-right"></i>
+          </a>
         </div>
         <div class="card-body">
           <span class="fontsize-reviewProfile-desc"

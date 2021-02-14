@@ -7,7 +7,9 @@
 .backGround-color {
   background-color: #ebebeb;
 }
-
+.w-7{
+  width: 7%;
+}
 .fs-categories {
   font-size: 15px;
 }

@@ -14,11 +14,11 @@ import { Client } from 'src/app/models/client';
 })
 export class LoginComponent implements OnInit {
   formGroup: FormGroup;
-
   userType: string;
   isClientSelected = false;
   isFreeLancerSelcted = false;
-
+  isLoaded:boolean=false;
+  wrongType:string = "";
   constructor(
     private _formBuilder: FormBuilder,
     private _freelancerService: FreelancerService,
@@ -48,8 +48,10 @@ export class LoginComponent implements OnInit {
       userLogin.Email = email;
       userLogin.Password = password;
 
+      this.isLoaded = true;
       this._freelancerService.login(userLogin, this.userType).subscribe(
         (response: any) => {
+          this.isLoaded = false;
           this._jwtTokenService.decodeToken(response.token);
           console.log(response);
           this._freelancerService.getLogin(this.userType).subscribe(
@@ -74,13 +76,20 @@ export class LoginComponent implements OnInit {
             },
             (error) => {
               console.log(error);
-              alert('Something broken happened');
             }
           );
         },
         (error) => {
+          this.isLoaded = false;
           console.log(error);
-          alert('Sorry error occurred');
+          if(error.error.message == "Wrong email entered!"){
+            this.wrongType = "email";
+            console.log("email tafa")
+          }
+          if(error.error.message == "Wrong password entered!"){
+            this.wrongType = "password";
+            console.log("password tafa")
+          }
         }
       );
     } else {
