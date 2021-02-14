@@ -1,21 +1,10 @@
-<!-- <div class="card w-100 px-0 py-0">
-  <div class="card-body">
-    <label [for]="id">
-      <input type="radio" class="float-right p-0 block" [name]="id" [id]="id" />
 
-      <i [class]="cardIcon"></i>
-
-      <h5 class="card-title text-center">{{ cardTitle }}</h5>
-      <p class="card-text text-center text-muted">{{ cardText }}</p>
-    </label>
-  </div>
-</div> -->
 
 <label class="card w-100 px-0 py-0">
-  <div class="card-body">
+  <div class="card-body change-color">
     <input
       type="radio"
-      class="float-right p-0 block"
+      class="float-right p-0 block card-responsive"
       [name]="id"
       [id]="id"
       [checked]="checked"

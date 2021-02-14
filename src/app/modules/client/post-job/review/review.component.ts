@@ -16,7 +16,9 @@ export class ReviewComponent implements OnInit {
     private injector: Injector
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.startData.jobName);
+  }
 
   startData = this._sharingData.getStartData();
   detailsData = this._sharingData.getDetailsData();
@@ -27,6 +29,7 @@ export class ReviewComponent implements OnInit {
   dutationTitle: string = '';
   projectDuration: string = '';
 
+  
   checkType() {
     if (this.budgetData.payment === 'Hourly') {
       this.dutationTitle = 'Project Duration';
@@ -69,7 +72,6 @@ export class ReviewComponent implements OnInit {
       details.experienceLevel,
       this.paymentType,
       this.price,
-
       1
     );
 

@@ -62,7 +62,7 @@ export class TitleComponent implements OnInit {
       additionalFiles: this.startForm.controls['AdditionalFiles'].value,
     };
     // localStorage.setItem("start", JSON.stringify(start))
-    // this._sharingData.setStartData(start);
+    this._sharingData.setStartData(start);
     this._sharingData.isStartDone.next(true);
     console.log(start);
     console.log(this.startForm);

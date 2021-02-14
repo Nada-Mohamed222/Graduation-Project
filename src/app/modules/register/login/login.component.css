@@ -3,9 +3,7 @@
   font-size: 15px;
   font-weight: bold;
 }
-.w-70 {
-  width: 70%;
-}
+
 .backGround-color {
   background-color: #ebebeb;
 }
@@ -42,4 +40,21 @@ h6,
 }
 .black {
   color: black;
+}
+
+@media (min-width: 1200px) { 
+  .w-70 {
+    width: 60%;
+  }
+  .fixResp {
+    width: 60%;
+  }
+}
+@media (min-width: 992px) { 
+  .w-70 {
+    width: 90%;
+  }
+  .fixResp {
+    width: 60%;
+  }
 }

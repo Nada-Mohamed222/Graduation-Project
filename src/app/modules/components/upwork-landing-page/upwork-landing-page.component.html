@@ -1,69 +1,103 @@
-<nav class="navbar fixed-top navbar-expand-sm bg-navbar">
-    <div class="home-icon">
-        <a class="navbar-brand p-2" href="#">
-            <img src="../../../assets/images/upwork-logo.png" alt="Upwork Logo" class="img-width"/>
+<nav class="navbar fixed-top navbar-expand-sm bg-navbar mb-3">
+  <div class="home-icon">
+    <a class="navbar-brand p-2" href="#">
+      <img
+        src="../../../assets/images/upwork-logo.png"
+        alt="Upwork Logo"
+        class="img-width"
+      />
+    </a>
+  </div>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#collapsibleNavbar"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="container">
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav"></ul>
+    </div>
+    <a class="collapse navbar-collapse navbar-right" id="collapsibleNavbar">
+      <form class="form-inline my-2 my-lg-0">
+        <a routerLink="/login">
+          <button class="btn loginBtn my-2 my-sm-0" type="submit">Login</button>
         </a>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="container">
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-            </ul> 
-        </div>
-        <a class="collapse navbar-collapse navbar-right" id="collapsibleNavbar">
-            <form class="form-inline my-2 my-lg-0">
-                <a routerLink="/login">
-                    <button class="btn loginBtn my-2 my-sm-0" type="submit">Login</button>
-                </a>
-                <a routerLink="/signup/home">
-                    <button class="btn btn-outline-success my-2 my-sm-0 ml-2 signipBtn" type="submit">Sign Up</button>
-                </a>
-            </form>
-        </a> 
-    </div>
+        <a routerLink="/signup/home">
+          <button
+            class="btn btn-outline-success my-2 my-sm-0 ml-2 signipBtn"
+            type="submit"
+          >
+            Sign Up
+          </button>
+        </a>
+      </form>
+    </a>
+  </div>
 </nav>
 
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-lg-5 mt-5">
-            <h1 class="content-header mt-2">Your new home for work</h1>
-            <p class="content-paragraph mt-3">The one-stop work marketplace where you’ll find 
-                thousands of independent freelancers and agencies who can help you prosper.
-            </p>
-            <a routerLink="/signup/home">
-                <button class="btn btn-outline-success my-2 my-sm-0 ml-2 mt-5 signipBtn" type="submit">Post a Job</button>
-            </a>
-        </div>
-        <div class="col-lg-7 mt-5 pl-5">
-            <img src="../../../../assets/images/image1-home-page.png" class="img-fluid" alt="Image2">
-        </div>
+  <div class="row">
+    <div class="col-lg-5 mt-5">
+      <h1 class="content-header mt-2">Your new home for work</h1>
+      <p class="content-paragraph mt-3">
+        The one-stop work marketplace where you’ll find thousands of independent
+        freelancers and agencies who can help you prosper.
+      </p>
+      <a routerLink="/signup/home">
+        <button
+          class="btn btn-outline-success my-2 my-sm-0 ml-2 mt-5 signipBtn"
+          type="submit"
+        >
+          Post a Job
+        </button>
+      </a>
     </div>
 
+    <div class="col-lg-7 mt-5 pl-5">
+      <img
+        src="../../../../assets/images/image1-home-page.png"
+        class="img-fluid"
+        alt="Image2"
+      />
+    </div>
+  </div>
 </div>
 
-<br><br><br>
+<br /><br /><br />
 
 <div class="container mt-5">
-
-    <div class="row mt-5">
-        <div class="col-lg-6 mt-5">
-            <img src="../../../../assets/images/image2-home-page.png" class="img-fluid" alt="Image4">
-        </div>
-
-        <div class="col-lg-6 mt-5">
-            <h1 class="content-header mt-2">I want to find the perfect freelancer or agency</h1>
-            <h3 class="mt-5">You need Talent Marketplace</h3>
-            <p class="content-paragraph mt-2">Put your job into the world’s largest 
-                work marketplace and wait for the proposals to flood in from talented 
-                people around the world. Our AI helps you shortlist candidates who are the best fit.
-                And you can check profiles, portfolios and reviews before you give someone the green light.
-            </p>
-            <a routerLink="/signup/home">
-                <button class="btn btn-outline-success my-2 my-sm-0 ml-2 mb-3 signipBtn" type="submit">Find Out More</button>
-            </a>
-        </div>
-   
+  <div class="row mt-5">
+    <div class="col-lg-6 mt-5">
+      <img
+        src="../../../../assets/images/image2-home-page.png"
+        class="img-fluid"
+        alt="Image4"
+      />
     </div>
+
+    <div class="col-lg-6 mt-5">
+      <h1 class="content-header mt-2">
+        I want to find the perfect freelancer or agency
+      </h1>
+      <h3 class="mt-5">You need Talent Marketplace</h3>
+      <p class="content-paragraph mt-2">
+        Put your job into the world’s largest work marketplace and wait for the
+        proposals to flood in from talented people around the world. Our AI
+        helps you shortlist candidates who are the best fit. And you can check
+        profiles, portfolios and reviews before you give someone the green
+        light.
+      </p>
+      <a routerLink="/signup/home">
+        <button
+          class="btn btn-outline-success my-2 my-sm-0 ml-2 mb-3 fixResp signipBtn"
+          type="submit"
+        >
+          Find Out More
+        </button>
+      </a>
+    </div>
+  </div>
 </div>

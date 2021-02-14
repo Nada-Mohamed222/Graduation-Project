@@ -14,6 +14,12 @@
 .img-width{
     width:13%;
 }
+.spinner-container{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    z-index: 999;
+}
 @media (max-width:575px) {
     .img-width{
         width: 20%;

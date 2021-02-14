@@ -10,7 +10,6 @@
   float: none;
   margin-bottom: 10px;
   position: relative;
-  box-shadow: 3px 3px 3px white;
   width: 50%;
 }
 
@@ -130,7 +129,6 @@ input[type="radio"]:checked+label {
   .card-center {
     margin: 0 auto;
     float: none;
-    box-shadow: 3px 3px 3px white;
     width: 100%;
   }
 

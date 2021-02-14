@@ -1,3 +1,4 @@
+import { SpinnerService } from './../../services/loader/spinner.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { LocationStrategy } from '@angular/common';
@@ -10,7 +11,7 @@ import { LocationStrategy } from '@angular/common';
 export class HeaderComponent implements OnInit {
 
   isVisited:boolean = true;
-  constructor(private url:LocationStrategy) {
+  constructor(private url:LocationStrategy, public spinnerService: SpinnerService ) {
     console.log("tfaaaaaaaaaaaaaaaaa")
    }
 
