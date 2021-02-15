@@ -10,15 +10,13 @@ import { LocationStrategy } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
 
-  isVisited:boolean = true;
-  constructor(private url:LocationStrategy, public spinnerService: SpinnerService ) {
-    console.log("tfaaaaaaaaaaaaaaaaa")
-   }
+  isVisited: boolean = true;
+  constructor(private url: LocationStrategy, public spinnerService: SpinnerService) {
+  }
 
   ngOnInit(): void {
-    if((this.url.path().includes('/signup/home') || this.url.path().includes('/freelancer/getstarted') || this.url.path().includes('/login') )=== true){
+    if ((this.url.path().includes('/signup/home') || this.url.path().includes('/freelancer/getstarted') || this.url.path().includes('/login')) === true) {
       this.isVisited = false;
-      console.log("tfaa")
     }
   }
 

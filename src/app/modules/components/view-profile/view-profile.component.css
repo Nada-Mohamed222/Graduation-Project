@@ -1,12 +1,17 @@
 .active {
-    border-left: gainsboro 1px solid;
+  border-left: gainsboro 1px solid;
 }
 
-.font-weight{
-    font-weight: bold;
-    font-size: 17px;
+.font-weight {
+  font-weight: bold;
+  font-size: 17px;
 }
+
 .background-badge {
-    background-color: #336278;
-    border-radius: 30px;
+  background-color: #336278;
+  border-radius: 30px;
+}
+
+.text-color {
+  color: #37a000;
 }

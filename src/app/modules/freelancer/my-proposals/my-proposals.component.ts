@@ -14,11 +14,8 @@ export class MyProposalsComponent implements OnInit {
   ngOnInit(): void {
     this._freelancerService.getAllProposals().subscribe((response: Array<object>) => {
       this.Proposals = response;
-      console.log(this.Proposals);
-      
     }, error => {
-      console.log(error);
-      alert("Wrong Error!");
+      console.log("Can't get proposals");
     })
   }
 

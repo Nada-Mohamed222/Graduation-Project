@@ -13,11 +13,6 @@ import { Freelancer } from 'src/app/models/freelancer';
   styleUrls: ['./job-details.component.css'],
 })
 export class JobDetailsComponent implements OnInit {
-  // id: string = '';
-  // job: Job;
-  // clientJobs: Array<Job> = [];
-  // client: Client;
-  // freelancer: Freelancer = new Freelancer();
 
   id: string = '';
   job: Job = new Job();
@@ -25,16 +20,16 @@ export class JobDetailsComponent implements OnInit {
   client: Client = new Client();
   isSubmitted: Boolean = false;
   freelancer: Freelancer = new Freelancer();
-  proposal: Proposals['Proposals'] = new Proposals().Proposals;
-
+  // proposal: Proposals['Proposals'] = new Proposals().Proposals;
+  proposals: number = 0;
   constructor(
     private _freelancerService: FreelancerService,
     private _clientService: ClientService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this._freelancerService.get().subscribe(
+    this._freelancerService.getFreelancerAuth().subscribe(
       (response: Freelancer) => {
         this.freelancer = response;
         console.log(response);
@@ -51,8 +46,8 @@ export class JobDetailsComponent implements OnInit {
       this._freelancerService.getAJob(this.id).subscribe(
         (response: any) => {
           this.job = response;
-          this.proposal = response.Proposals;
-          console.log(this.proposal);
+          this.proposals = response.TotalProposals;
+          console.log(this.proposals);
           this.checkSubmition();
           // FIXME: remove params
           this._clientService.getPublicClient(this.job.EmployerUserName).subscribe(
