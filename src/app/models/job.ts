@@ -24,7 +24,6 @@ export class Job {
   TalentUserName: String
   TalentRating: Number;
   TalentReview: String;
-  // Proposals?: Array<object> = [{TalentId: String, CoverLetter: String }];
   ConnectsNeeded: number;
   Status: String;
   createdAt: String;

@@ -16,11 +16,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JobDetailsComponent } from './modules/components/job-details/job-details.component';
 import { ViewProfileComponent } from './modules/components/view-profile/view-profile.component';
 // import { SignupModule } from './modules/freelancer/signup/signup.module';
-
 import { ProposeComponent } from './modules/components/propose/propose.component';
 import { MyProposalsComponent } from './modules/freelancer/my-proposals/my-proposals.component';
 import { PostJobModule } from './modules/client/post-job/post-job.module';
-import { UpworkLandingPageComponent } from './modules/components/upwork-landing-page/upwork-landing-page.component';
 import { ErrorComponent } from './modules/components/error/error.component';
 @NgModule({
   declarations: [
@@ -33,7 +31,6 @@ import { ErrorComponent } from './modules/components/error/error.component';
     ViewProfileComponent,
     ProposeComponent,
     MyProposalsComponent,
-    UpworkLandingPageComponent,
     ErrorComponent,
     // SignupModule
   ],
