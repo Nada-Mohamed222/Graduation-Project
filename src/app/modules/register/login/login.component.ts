@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
           console.log(response);
           this._freelancerService.getLogin(this.userType).subscribe(
             (response: any) => {
+              localStorage.setItem("image", response.ImageURL )
               if (response.isVerified === true) {
                 // -----check user type if verfied
                 if (this.userType === 'talent') {

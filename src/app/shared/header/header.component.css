@@ -1,4 +1,4 @@
-.header-color{
+/* .header-color{
     background-color: #1D4354 !important;
 }
 .navbar{
@@ -20,6 +20,11 @@
     left: 50%;
     z-index: 999;
 }
+.testt{
+    position: absolute;
+    left: 50%;
+    top: 35%;
+}
 @media (max-width:575px) {
     .img-width{
         width: 20%;
@@ -39,4 +44,11 @@
     .img-width{
         width: 15%;
     }
+} */
+
+.back{
+    background-color:#1D4354 !important;
+}
+.imageFix{
+    width: 4% !important;
 }
