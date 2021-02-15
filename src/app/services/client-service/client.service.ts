@@ -33,18 +33,15 @@ export class ClientService {
     );
   }
 
-  getPublicClient(clientUsername:String) {
-    return this._apiServices.get(
-      `employer/${clientUsername}`
-    );
+  getPublicClient(clientUsername: String) {
+    return this._apiServices.get(`employer/${clientUsername}`);
   }
-
-  //
 
   getJobProposal(jobId?: string) {
-    return this._apiServices.get(`job/${jobId}/proposals`);
+    return this._apiServices.get(
+      `job/${localStorage.getItem('UserName')}/${jobId}/proposals`
+    );
   }
-
   getAllJobs() {
     return this._apiServices.get('job');
   }
@@ -59,5 +56,31 @@ export class ClientService {
 
   delete(id: number) {
     return this._apiServices.delete(`employer/delete?id=` + id);
+  }
+
+  //-------------------- post accepted propopsls
+
+  postAcceptedProposals(jobId: string, freelancerUserName: string) {
+    return this._apiServices.Patch(
+      `job/${localStorage.getItem('UserName')}/${jobId}/${freelancerUserName}`,
+      ''
+    );
+  }
+
+  //-------------------- get accepted propopsls
+  getAllAcceptedProposals() {
+    return this._apiServices.get(
+      `employer/${localStorage.getItem('UserName')}/active-jobs`
+    );
+  }
+  // --------------------------------------------
+  //   "/:UserName/:id/:HiredTalentID/end-job",
+
+  //--------------end contract
+  endContract(id: string, HiredTalentID: string) {
+    return this._apiServices.Patch(
+      `job/${localStorage.getItem('UserName')}/${id}/${HiredTalentID}/end-job`,
+      ''
+    );
   }
 }

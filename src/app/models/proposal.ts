@@ -1,6 +1,6 @@
 export class Proposal {
   CoverLetter: string;
-  TalentID: {
+  Talent: {
     FirstName: string;
     LastName: string;
     Title: string;

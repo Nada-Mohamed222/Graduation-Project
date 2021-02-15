@@ -22,6 +22,11 @@ export class SharingDataService {
   // jobId observable
   // jobID = new Subject<string>();
   jobID = new BehaviorSubject<string>(null);
+  //freelancer observale
+  freelancerUsername = new BehaviorSubject<string>(null);
+
+  //show popup
+  showConfirmationPopup = new Subject<boolean>();
 
   // instanse of components
   start: TitleComponent;

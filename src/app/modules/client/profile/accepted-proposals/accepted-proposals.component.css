@@ -2,3 +2,14 @@
   position: absolute;
   right: 5%;
 }
+.hire,
+.hired {
+  position: absolute;
+  right: 5%;
+  z-index: 1;
+}
+
+.name,
+.hint {
+  display: inline;
+}

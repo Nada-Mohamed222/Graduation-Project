@@ -1,0 +1,29 @@
+<!-- <div class="container"> -->
+<div class="card">
+  <i class="fas fa-window-close m-1" (click)="close()"></i>
+
+  <div class="card-body">
+    <h6 class="text-center mb-3">Hire {{ name }}</h6>
+
+    <!-- <div class="justify-content-around"> -->
+    <div class="row justify-content-md-center">
+      <button
+        type="button"
+        class="hire btn btn-success left-btn py-0 hint"
+        (click)="hire(false)"
+      >
+        {{ LeftButton }}
+      </button>
+      |
+      <button
+        type="button"
+        class="hire btn btn-success right-btn py-0 hint"
+        (click)="hire(true)"
+      >
+        {{ rightButton }}
+      </button>
+    </div>
+  </div>
+</div>
+<!-- </div> -->
+<!-- </div> -->
