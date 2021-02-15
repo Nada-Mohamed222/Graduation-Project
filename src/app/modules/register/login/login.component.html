@@ -8,62 +8,39 @@
           <br />
           <form [formGroup]="formGroup">
             <div class="form-group">
-              <div class="alert alert-danger" role="alert" *ngIf ="wrongType">
+              <div class="alert alert-danger" role="alert" *ngIf="wrongType">
                 <span *ngIf="wrongType == 'email'">Wrong email entered!</span>
                 <span *ngIf="wrongType == 'password'">Wrong password entered!</span>
               </div>
               <label for="Email"></label>
-              <input
-                #inputEmail
-                formControlName="Email"
-                type="email"
-                class="justify-content-center mx-auto form-control fs-categories w-50"
-                id="Email"
-                placeholder="Enter your Email.."
-              />
-              <div
-                *ngIf="
+              <input #inputEmail formControlName="Email" type="email"
+                class="justify-content-center mx-auto form-control fs-categories w-50" id="Email"
+                placeholder="Enter your Email.." />
+              <div *ngIf="
                   formGroup.controls['Email'].invalid &&
                   (formGroup.controls['Email'].touched ||
                     formGroup.controls['Email'].dirty)
-                "
-              >
-                <small
-                  class="form-text text-danger text-center"
-                  *ngIf="formGroup.controls['Email'].hasError('required')"
-                  >Required Email</small
-                >
+                ">
+                <small class="form-text text-danger text-center"
+                  *ngIf="formGroup.controls['Email'].hasError('required')">Required Email</small>
               </div>
             </div>
             <div class="form-group text-center">
               <label for="Password"></label>
-              <input
-                #inputPassword
-                formControlName="Password"
-                type="password"
-                class="justify-content-center mx-auto form-control fs-categories w-50"
-                id="Password"
-                placeholder="Enter your Password.."
-              />
-              <div
-                *ngIf="
+              <input #inputPassword formControlName="Password" type="password"
+                class="justify-content-center mx-auto form-control fs-categories w-50" id="Password"
+                placeholder="Enter your Password.." />
+              <div *ngIf="
                   formGroup.controls['Password'].invalid &&
                   (formGroup.controls['Password'].touched ||
                     formGroup.controls['Password'].dirty)">
-                <small
-                  class="form-text text-danger"
-                  *ngIf="formGroup.controls['Password'].hasError('required')"
-                  >Required Password</small
-                >
-                <small
-                  class="form-text text-danger"
-                  *ngIf="formGroup.controls['Password'].hasError('minlength')"
-                  >Min Length is 6
+                <small class="form-text text-danger"
+                  *ngIf="formGroup.controls['Password'].hasError('required')">Required Password</small>
+                <small class="form-text text-danger" *ngIf="formGroup.controls['Password'].hasError('minlength')">Min
+                  Length is 6
                 </small>
-                <small
-                  class="form-text text-danger"
-                  *ngIf="formGroup.controls['Password'].hasError('maxlength')"
-                  >Max Length is 16
+                <small class="form-text text-danger" *ngIf="formGroup.controls['Password'].hasError('maxlength')">Max
+                  Length is 16
                 </small>
               </div>
             </div>
@@ -71,66 +48,38 @@
 
             <!----------------------- client or freelancer  ----------------------->
             <div class="form-group col-md-12 text-center text-muted">
-              <div
-                class="user-type mr-5"
-                (click)="handleUserType(usertypeInput.value)"
-              >
+              <div class="user-type mr-5" [ngClass]="{ selected: userType == 'employer' }"
+                (click)="handleUserType(usertypeInput.value)">
                 <label for="client">
-                  <input
-                    type="radio"
-                    id="client"
-                    value="employer"
-                    name="UserType"
-                    formControlName="UserType"
-                    #usertypeInput
-                  />
-                  <i
-                    class="fas fa-x fa-user-tie mx-2"
-                    [ngClass]="{ selected: isClientSelected }"
-                  ></i>
-                  <h6 [ngClass]="{ black: isClientSelected }">Client</h6>
+                  <input type="radio" id="client" value="employer" name="UserType" formControlName="UserType"
+                    #usertypeInput />
+                  <i class="fas fa-x fa-user-tie mx-2"></i>
+                  <h6>Client</h6>
                 </label>
               </div>
-              <div
-                class="user-type ml-5 ml-sm-0"
-                (click)="handleUserType(usertypeInput2.value)"
-              >
+              <div class="user-type ml-5 ml-sm-0" [ngClass]="{ selected: userType == 'talent' }"
+                (click)="handleUserType(usertypeInput2.value)">
                 <label for="freelancer">
-                  <input
-                    type="radio"
-                    id="freelancer"
-                    value="talent"
-                    name="UserType"
-                    formControlName="UserType"
-                    #usertypeInput2
-                  />
-                  <i
-                    class="fas fa-x fa-user-cog mx-2"
-                    [ngClass]="{ selected: isFreeLancerSelcted }"
-                  ></i>
-                  <h6 [ngClass]="{ black: isFreeLancerSelcted }">Freelancer</h6>
+                  <input type="radio" id="freelancer" value="talent" name="UserType" formControlName="UserType"
+                    #usertypeInput2 />
+                  <i class="fas fa-x fa-user-cog mx-2"></i>
+                  <h6>Freelancer</h6>
                 </label>
               </div>
             </div>
 
             <!----------------------- ******************  ----------------------->
-            <button
-              (click)="Login(inputEmail.value, inputPassword.value)"
-              type="button"
+            <button (click)="Login(inputEmail.value, inputPassword.value)" type="button"
               class="btn btn-success btn-lg btn-block login-btn w-50 justify-content-center mx-auto"
-              [disabled]="!formGroup.valid"
-            >
+              [disabled]="!formGroup.valid">
               <!-- ----------------------****************------------------------ -->
               Login
-              <img src="../../../../assets/images/loader.gif" [hidden]="!isLoaded" class="w-7"/>
+              <img src="../../../../assets/images/loader.gif" [hidden]="!isLoaded" class="w-7" />
             </button>
           </form>
         </div>
         <br />
-        <div
-          class="card-footer mt-5 mb-4"
-          style="background-color: transparent"
-        >
+        <div class="card-footer mt-5 mb-4" style="background-color: transparent">
           <h5 class="text-center">New to Upwork?</h5>
           <div class="form-group justify-content-center mx-auto text-center">
             <a routerLink="/signup/home">
