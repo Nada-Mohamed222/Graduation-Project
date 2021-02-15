@@ -1,0 +1,32 @@
+.hire,
+.hired {
+  position: absolute;
+  right: 5%;
+  z-index: 1;
+}
+.img {
+  width: 100%;
+  max-width: 90px;
+  height: 90px;
+  border-radius: 30%;
+}
+.name:hover {
+  color: #3daa49;
+  cursor: pointer;
+}
+
+.overlay {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  transition: opacity 500ms;
+  /* visibility: hidden; */
+  opacity: 0.1;
+  overflow: hidden;
+}
+.hired {
+  width: 7%;
+  cursor: pointer;
+}

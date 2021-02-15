@@ -12,3 +12,7 @@
 .plain-text:hover {
   color: #47a815;
 }
+.proposals {
+  color: #47a815;
+  cursor: pointer;
+}

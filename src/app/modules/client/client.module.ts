@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ConfirmationComponent } from './shared/components/confirmation/confirmation.component';
 // import { ProfileComponent } from './profile/profile.component';
 // // import { HomeComponent } from "./post-job/home/home.component";
 
@@ -26,6 +27,7 @@ import { CommonModule } from '@angular/common';
     // ReversePipe,
     // ChipComponent,
     // ProposalsComponent,
+    ConfirmationComponent,
   ],
   imports: [
     CommonModule,

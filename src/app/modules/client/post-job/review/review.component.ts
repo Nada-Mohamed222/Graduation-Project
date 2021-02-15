@@ -29,7 +29,7 @@ export class ReviewComponent implements OnInit {
   dutationTitle: string = '';
   projectDuration: string = '';
 
-  
+  // check payment type
   checkType() {
     if (this.budgetData.payment === 'Hourly') {
       this.dutationTitle = 'Project Duration';
@@ -43,7 +43,7 @@ export class ReviewComponent implements OnInit {
       return 'Fixed Price';
     }
   }
-
+  //
   checkPrice() {
     if (this.budgetData.payment === 'Hourly') {
       return this.pricingData.hourlyPrice;

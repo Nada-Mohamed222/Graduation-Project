@@ -1,9 +1,7 @@
 import { Proposals } from './../../../../models/proposals';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Proposal } from './../../../../models/proposal';
 import { FreelancerService } from 'src/app/services/freelancer-service/freelancer.service';
 import { ClientService } from './../../../../services/client-service/client.service';
-import { JobPost } from './../../../../services/job-service/job-post.service';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 
@@ -23,18 +21,31 @@ export class ProposalsComponent implements OnInit {
     private _sharingData: SharingDataService
   ) {}
 
-  proposals = [];
+  proposals: any = [];
   userName: string;
   jobId: string;
+  name: string;
+  showConfirmationPopup = false;
+  jobStatus: any;
+  freelancerUserName: string;
+  hiredId: any;
 
   ngOnInit(): void {
-    // this.route.params.subscribe((params) => {
-    //   this.jobId = params['jobId'];
-    //   this.getAll(this.jobId);
-    // });
+    this.route.params.subscribe((params) => {
+      this.jobId = params['jobId'];
+      this.getAll(this.jobId);
+    });
 
-    this._sharingData.jobID.subscribe((data) => {
-      this.getAll(data);
+    this._sharingData.freelancerUsername.subscribe((data) => {
+      this.freelancerUserName = data;
+    });
+
+    //   this._sharingData.jobID.subscribe((data) => {
+    //     this.getAll(data);
+    //   });
+
+    this._sharingData.showConfirmationPopup.subscribe((data) => {
+      this.showConfirmationPopup = data;
     });
   }
   // proposal
@@ -55,23 +66,30 @@ export class ProposalsComponent implements OnInit {
       .subscribe(
         (posts) => {
           console.log('ربنا يستر ');
-
-          console.log(posts.slice());
-          this.proposals = posts;
-
-          console.log('يختاااي');
-          // console.log(this.proposals.CoverLetter);
-          // console.log(this.proposals[0].TalentID.Title);
-          // console.log(this.proposals[0]);
-
-          console.log();
-          console.log(`recieved jobId from observale ${this.jobId}`);
+          console.log(posts);
+          // array of proposals
+          this.proposals = posts[0];
+          // job status
+          this.jobStatus = posts[1];
+          //
+          this.hiredId = posts[2];
+          console.log('');
+          console.log(this.proposals);
+          console.log(this.jobStatus);
+          // console.log(this.userName);
+          console.log(`recieved jobId from observale  ${this.jobId}`);
         },
         (error) => {
-          console.log(`recieved jobId from observale ${this.jobId}`);
+          console.log(`recieved jobId from observale  ${this.jobId}`);
           console.log(error);
         }
       );
+  }
+
+  confirm(firstName: string, lastName: string, freelancerUserName: string) {
+    this.name = firstName + ' ' + lastName;
+    this.showConfirmationPopup = true;
+    this._sharingData.freelancerUsername.next(freelancerUserName);
   }
 
   // get the freelancer profile
@@ -83,6 +101,7 @@ export class ProposalsComponent implements OnInit {
         // console.log(this.userName);
         console.log(userName);
         this.router.navigateByUrl(`/freelancer/${userName}`);
+        this._sharingData.freelancerUsername.next(userName);
 
         console.log(response);
       });

@@ -1,8 +1,8 @@
 .bg-color {
-  background-color: #1D4354;
+  background-color: #1d4354;
 }
 
-#gridCheck1{
+#gridCheck1 {
   margin-left: 0.1px;
 }
 .card-center {
@@ -10,6 +10,7 @@
   float: none;
   margin-bottom: 10px;
   position: relative;
+
   width: 50%;
 }
 
@@ -44,9 +45,8 @@
 
 /* .changeType:checked +label{
 } */
-input[type="radio"]:checked+label {
+input[type="radio"]:checked + label {
   background-color: #133501;
-
 }
 /* 
 .home-img {
@@ -106,14 +106,14 @@ input[type="radio"]:checked+label {
   font-size: 15px;
   font-weight: bold;
   align-items: center;
-  background-color: #37A000;
+  background-color: #37a000;
 }
 
 .create-btn-size-home {
   font-size: 15px;
   font-weight: bold;
   align-items: center;
-  background-color: #37A000;
+  background-color: #37a000;
 }
 
 .checkout-styling-home {
@@ -125,10 +125,11 @@ input[type="radio"]:checked+label {
   font-size: 13px;
 }
 
-@media (max-width:575px) {
+@media (max-width: 575px) {
   .card-center {
     margin: 0 auto;
     float: none;
+    /* box-shadow: 3px 3px 3px white; */
     width: 100%;
   }
 
@@ -187,7 +188,7 @@ input[type="radio"]:checked+label {
   } */
 }
 
-@media (min-width:576px) and (max-width:767px) {
+@media (min-width: 576px) and (max-width: 767px) {
   .card-center {
     width: 80% !important;
   }
@@ -240,7 +241,7 @@ input[type="radio"]:checked+label {
   } */
 }
 
-@media (min-width:768px) and (max-width:920px) {
+@media (min-width: 768px) and (max-width: 920px) {
   .card-center {
     width: 80% !important;
   }
@@ -296,7 +297,7 @@ input[type="radio"]:checked+label {
   } */
 }
 
-@media (min-width:921px) and (max-width:1200px) {
+@media (min-width: 921px) and (max-width: 1200px) {
   .card-center {
     width: 80%;
   }
@@ -304,8 +305,6 @@ input[type="radio"]:checked+label {
   .card-heading {
     font-size: 23px;
   }
-
-
 
   .create-btn-size-home {
     margin-bottom: 100px;

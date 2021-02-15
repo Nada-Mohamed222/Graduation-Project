@@ -1,0 +1,23 @@
+.card {
+  position: absolute;
+  z-index: 99;
+  left: 20%;
+  /* background: rgba(29, 67, 84); */
+  width: 50%;
+  /* color: #fff; */
+}
+
+i {
+  cursor: pointer;
+  position: absolute;
+  right: 0px;
+}
+i:hover {
+  color: firebrick;
+}
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 70%;
+    left: 15%;
+  }
+}

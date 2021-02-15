@@ -1,5 +1,4 @@
 export class Job {
- 
   EmployerUserName: String;
   Name: String;
   Category: String;
@@ -8,7 +7,7 @@ export class Job {
 
   // may cause error
   Skills: string;
-  
+
   ExpertiseLevel: String;
   TalentsRequired: Number;
   Country: String;
@@ -21,15 +20,14 @@ export class Job {
   WeeklyHoursRequired: Number;
   EmployerRating: Number;
   EmployerReview: String;
-  TalentUserName: String
+  TalentUserName: String;
   TalentRating: Number;
   TalentReview: String;
-  // Proposals?: Array<object> = [{TalentId: String, CoverLetter: String }];
+  // Proposals?: Array<object> = [{Talent: String, CoverLetter: String }];
   ConnectsNeeded: number;
   Status: String;
   createdAt: String;
   _id: String;
-  
 
   constructor(
     Name?: string,
@@ -42,7 +40,7 @@ export class Job {
 
     PaymentType?: string,
     Price?: number,
- 
+
     Duration?: number
   ) {
     this.Name = Name;
@@ -61,4 +59,3 @@ export class Job {
     this.Duration = Duration;
   }
 }
-

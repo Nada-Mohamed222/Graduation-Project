@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { FreelancerService } from './../../../../../services/freelancer-service/freelancer.service';
 import { ClientService } from './../../../../../services/client-service/client.service';
 import { Component, Input, OnInit } from '@angular/core';
@@ -14,8 +15,24 @@ export class ProposalCardComponent implements OnInit {
   @Input() jobTitle: string = 'frontend ';
   @Input() coverLetter: string =
     '    Good morning sir , i will be very happy to serve you and i can do it for you with shortest time possible but we need to discuss the details ofthe project first thank you';
-
-  constructor() {}
+  @Input() userName: string;
+  constructor(
+    private _freelacerService: FreelancerService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
+
+  visitFreelancer(userName: string) {
+    this._freelacerService
+      .getFreelancerProfile(userName)
+      .subscribe((response) => {
+        console.log('علي الفريلانسر يلاااااا');
+        // console.log(this.userName);
+        console.log(userName);
+        this.router.navigateByUrl(`/freelancer/${userName}`);
+
+        console.log(response);
+      });
+  }
 }

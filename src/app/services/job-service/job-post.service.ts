@@ -23,7 +23,7 @@ export class JobPost {
     console.log(localStorage.getItem('UserName'));
 
     return this._apiService.get(
-      `employer/${localStorage.getItem('UserName')}/jobs`
+      `employer/auth/${localStorage.getItem('UserName')}/jobs`
     );
   }
 }

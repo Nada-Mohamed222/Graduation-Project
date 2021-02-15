@@ -1,18 +1,66 @@
-<h3>proprsal</h3>
-<div class="container">
-  <div class="col-md-12">
-    <div class="card">
-      <div *ngFor="let p of proposals; let i = index">
-        <app-proposal-card
-          image="{{ p.TalentID.ImageURL }}"
-          freelancerName="{{
-            p.TalentID.FirstName + ' ' + p.TalentID.LastName
-          }}"
-          jobTitle="{{ p.TalentID.Title }}"
-          coverLetter="{{ p.CoverLetter }}"
-          (click)="getFreelancerProfile(p.TalentID.UserName)"
-        ></app-proposal-card>
+<div class="container my-5">
+  <div class="confirm col-md-12" *ngIf="showConfirmationPopup">
+    <app-confirmation
+      LeftButton="Hire"
+      rightButton="Hire and see all"
+      name="{{ name }}"
+    ></app-confirmation>
+  </div>
+
+  <div [ngClass]="{ overlay: showConfirmationPopup }">
+    <div class="card p-4">
+      <div class="mt-4" *ngFor="let p of proposals; let i = index">
+        <!-- <div class="col-xs-12"> -->
+        <button
+          *ngIf="jobStatus !== 'Ongoing'"
+          type="button"
+          class="hire btn btn-success py-1 px-5"
+          (click)="
+            confirm(p.Talent.FirstName, p.Talent.LastName, p.Talent.UserName)
+          "
+        >
+          Hire
+        </button>
+        <!-- TODO: show if hired -->
+        <img
+          *ngIf="jobStatus === 'Ongoing' && hiredId === p.Talent._id"
+          src="./../../../../../assets/images/hired.svg"
+          class="img-responsive hired"
+          routerLink="/profile/accepted-proposals"
+        />
+        <!-- </div> -->
+        <div class="row">
+          <div class="col-md-2 col-xs-12 ml-2 mb-2">
+            <img
+              src="{{ p.Talent.ImageURL }}"
+              alt="{{ p.Talent.FirstName }} photo"
+              class="img-responsive img"
+            />
+          </div>
+
+          <div class="col-md-4 col-xs-12 ml-2">
+            <h6 class="name" (click)="getFreelancerProfile(p.Talent.UserName)">
+              {{ p.Talent.FirstName + " " + p.Talent.LastName }}
+            </h6>
+
+            <p class="hint text-muted">
+              <b>{{ p.Talent.Title }}</b>
+            </p>
+          </div>
+        </div>
+
+        <div classs="row mt-0">
+          <div class="col-md-8 offset-md-2">
+            <p>
+              {{ p.CoverLetter }}
+            </p>
+          </div>
+        </div>
+        <hr />
       </div>
+      <small class="text-muted text-center"
+        >It is recommended to review the freelancer profile first.</small
+      >
     </div>
   </div>
 </div>

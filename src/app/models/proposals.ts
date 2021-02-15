@@ -1,3 +1,3 @@
 export class Proposals {
-  Proposals: Array<object> = [{ TalentID: {}, CoverLetter: String }];
+  Proposals: Array<object> = [{ Talent: {}, CoverLetter: String }];
 }

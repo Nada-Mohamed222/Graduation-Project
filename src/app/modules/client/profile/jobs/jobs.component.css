@@ -1,0 +1,11 @@
+.proposals {
+  color: #47a815;
+  cursor: pointer;
+}
+.proposals:hover {
+  text-decoration: underline;
+}
+.post-job {
+  position: absolute;
+  right: 0px;
+}
