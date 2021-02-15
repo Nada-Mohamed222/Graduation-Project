@@ -1,6 +1,8 @@
+import { SpinnerService } from './../../services/loader/spinner.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { LocationStrategy } from '@angular/common';
+
 
 @Component({
   selector: 'app-header',
@@ -10,14 +12,17 @@ import { LocationStrategy } from '@angular/common';
 export class HeaderComponent implements OnInit {
 
   isVisited:boolean = true;
-  constructor(private url:LocationStrategy) {
-    console.log("tfaaaaaaaaaaaaaaaaa")
-   }
+  username:string
+  image:string
+  constructor(private url:LocationStrategy, public spinnerService: SpinnerService ) {
+  }
 
   ngOnInit(): void {
+    this.username =  localStorage.getItem('UserName')
+    this.image =  localStorage.getItem('image')
+    // console.log(this.spinnerService.isLoading  + "heerererer") 
     if((this.url.path().includes('/signup/home') || this.url.path().includes('/freelancer/getstarted') || this.url.path().includes('/login') )=== true){
       this.isVisited = false;
-      console.log("tfaa")
     }
   }
 

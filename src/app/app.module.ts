@@ -1,3 +1,4 @@
+import { InterceptorService } from './services/interceptor/interceptor.service';
 // import { AuthInterceptorsService } from './services/auth-service/auth-interceptors.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,6 +21,8 @@ import { ProposeComponent } from './modules/components/propose/propose.component
 import { MyProposalsComponent } from './modules/freelancer/my-proposals/my-proposals.component';
 import { PostJobModule } from './modules/client/post-job/post-job.module';
 import { UpworkLandingPageComponent } from './modules/components/upwork-landing-page/upwork-landing-page.component';
+import { ErrorComponent } from './modules/components/error/error.component';
+import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
 
 @NgModule({
   declarations: [
@@ -33,9 +36,13 @@ import { UpworkLandingPageComponent } from './modules/components/upwork-landing-
     ProposeComponent,
     MyProposalsComponent,
     UpworkLandingPageComponent,
+    ErrorComponent,
     // SignupModule
   ],
   imports: [
+    NavbarModule,
+    WavesModule,
+    ButtonsModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
@@ -53,11 +60,11 @@ import { UpworkLandingPageComponent } from './modules/components/upwork-landing-
   //     SomeTextPipe,
   //  ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: AuthInterceptorsService,
-    //   multi: true,
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

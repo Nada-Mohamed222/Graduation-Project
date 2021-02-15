@@ -7,7 +7,7 @@ import { HttpHeaders, HttpRequest } from '@angular/common/http';
   providedIn: 'root',
 })
 export class FreelancerService {
-  constructor(private _apiServices: ApiService) {}
+  constructor(private _apiServices: ApiService) { }
 
   login(user: {}, type?: string) {
     return this._apiServices.Loginpost(`${type}/login`, user);
@@ -28,6 +28,20 @@ export class FreelancerService {
     return this._apiServices.get(`talent/${localStorage.getItem('UserName')}`);
   }
 
+  getFreelancerPublic(UserName: string) {
+    return this._apiServices.get(`talent/${UserName}`);
+  }
+
+  getFreelancerAuth() {
+    return this._apiServices.get(`talent/auth/${localStorage.getItem('UserName')}`);
+  }
+
+
+  getFreelancerJobsPublic(UserName: string) {
+    return this._apiServices.get(`talent/${UserName}/jobs`);
+  }
+
+
   getLogin(type: string) {
     return this._apiServices.get(`${type}/${localStorage.getItem('UserName')}`);
   }
@@ -36,12 +50,12 @@ export class FreelancerService {
     return this._apiServices.get(`talent/${username}`);
   }
 
-  getAllJobs() {
-    return this._apiServices.get('job');
+  getAllJobs(PageNumber: object) {
+    return this._apiServices.getJobs('job', PageNumber);
   }
 
-  searchBySkill(skill: string) {
-    return this._apiServices.get(`job/search/${skill}`);
+  searchBySkill(skill: string, PageNumber: object) {
+    return this._apiServices.post(`job/${skill}`, PageNumber);
   }
 
   getAJob(id: string) {
@@ -51,7 +65,7 @@ export class FreelancerService {
     return this._apiServices.delete(`freelancer/delete?id=` + id);
   }
 
-  submitForm(id: String, proposal: Object) {
+  submitProposal(id: String, proposal: Object) {
     return this._apiServices.post(
       `job/${id}/${localStorage.getItem('UserName')}/propose`,
       proposal

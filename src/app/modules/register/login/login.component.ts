@@ -14,18 +14,18 @@ import { Client } from 'src/app/models/client';
 })
 export class LoginComponent implements OnInit {
   formGroup: FormGroup;
-
   userType: string;
   isClientSelected = false;
   isFreeLancerSelcted = false;
-
+  isLoaded: boolean = false;
+  wrongType: string = "";
   constructor(
     private _formBuilder: FormBuilder,
     private _freelancerService: FreelancerService,
     private _clientService: ClientService,
     private _jwtTokenService: JwtTokenService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.formGroup = this._formBuilder.group({
@@ -43,49 +43,51 @@ export class LoginComponent implements OnInit {
   }
 
   Login(email, password) {
-    if (email && password) {
-      let userLogin: any = {};
-      userLogin.Email = email;
-      userLogin.Password = password;
+    let userLogin: any = {};
+    userLogin.Email = email;
+    userLogin.Password = password;
 
+      this.isLoaded = true;
       this._freelancerService.login(userLogin, this.userType).subscribe(
         (response: any) => {
+          this.isLoaded = false;
           this._jwtTokenService.decodeToken(response.token);
           console.log(response);
           this._freelancerService.getLogin(this.userType).subscribe(
             (response: any) => {
+              localStorage.setItem("image", response.ImageURL )
               if (response.isVerified === true) {
                 // -----check user type if verfied
                 if (this.userType === 'talent') {
                   this.router.navigateByUrl('/freelancer/profile');
                 } else {
-                  console.log(this.userType);
-                  this.router.navigateByUrl('/profile/jobs');
-                }
-                //---------------------------
-              } else {
-                if (this.userType === 'talent') {
-                  this.router.navigateByUrl('/freelancer/getstarted');
-                } else {
-                  console.log(`not verfied ${this.userType}`);
-                  this.router.navigateByUrl('/post-job/title');
-                }
+                this.router.navigateByUrl('/profile/jobs');
               }
-            },
-            (error) => {
-              console.log(error);
-              alert('Something broken happened');
+              //---------------------------
+            } else {
+              if (this.userType === 'talent') {
+                this.router.navigateByUrl('/freelancer/getstarted');
+              } else {
+                console.log(`not verfied ${this.userType}`);
+                this.router.navigateByUrl('/post-job/title');
+              }
             }
-          );
-        },
-        (error) => {
-          console.log(error);
-          alert('Sorry error occurred');
+          },
+          (error) => {
+            console.log("Can't login with this user");
+          }
+        );
+      },
+      (error) => {
+        this.isLoaded = false;
+        if (error.error.message == "Wrong email entered!") {
+          this.wrongType = "email";
         }
-      );
-    } else {
-      alert('Please enter your name and password!');
-    }
+        if (error.error.message == "Wrong password entered!") {
+          this.wrongType = "password";
+        }
+      }
+    );
   }
 
   //--------------------handle type---------------//

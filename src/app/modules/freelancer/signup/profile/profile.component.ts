@@ -14,43 +14,46 @@ export class ProfileComponent implements OnInit {
     private _freelancerService: FreelancerService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
   freelancer: Freelancer = new Freelancer();
   skill: string = '';
   jobs: Array<object> = [];
   searchedValue: string;
+  PageNumber: any = { PageNumber: 1 }
+  NoMoreJobs: boolean = false;
 
   ngOnInit(): void {
-    this._freelancerService.get().subscribe(
+    this._freelancerService.getFreelancerAuth().subscribe(
       (response: Freelancer) => {
         this.freelancer = response;
-        console.log(response);
       },
       (error) => {
-        console.log(error);
-        alert('Wrong Error!');
+        console.log("Can't get freelancer details");
       }
     );
+    this.loadJobs()
+  }
 
+  submitSearch(searchedValue) {
+    this.router.navigate([`/job/search/${searchedValue}`]);
+  }
+
+  loadJobs() {
     if (!this.route.snapshot.data.search) {
-      window.scrollTo(0, 0);
-      this._freelancerService.getAllJobs().subscribe(
+      this._freelancerService.getAllJobs(this.PageNumber).subscribe(
         (response: any) => {
-          console.log(response);
-          this.jobs = response.jobs;
+          this.updateJobs(response);
         },
         (error) => {
-          alert('Error');
+          console.log("Can't get jobs details");
         }
       );
     } else {
       this.route.params.subscribe((params) => {
         this.skill = params['skill'];
-        window.scrollTo(0, 0);
-        this._freelancerService.searchBySkill(this.skill).subscribe(
+        this._freelancerService.searchBySkill(this.skill, this.PageNumber).subscribe(
           (response: any) => {
-            console.log(response);
-            this.jobs = response.jobs;
+            this.updateJobs(response);
           },
           (error) => {
             alert('Error');
@@ -60,7 +63,11 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  submitSearch(searchedValue) {
-    this.router.navigate([`/job/search/${searchedValue}`]);
+  updateJobs(response: any) {
+    this.jobs = [...this.jobs, ...response.jobs];
+    this.PageNumber.PageNumber++;
+    if (response.jobs.length < 1) {
+      this.NoMoreJobs = true
+    }
   }
 }

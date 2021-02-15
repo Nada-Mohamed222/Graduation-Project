@@ -8,7 +8,7 @@ import jwt_decode from 'jwt-decode';
 export class JwtTokenService {
 
   jwtToken: string;
-  decodedToken: { [key: string]: string } ;
+  decodedToken: { [key: string]: string };
 
   constructor() { }
 
@@ -18,9 +18,8 @@ export class JwtTokenService {
     }
   }
 
-  decodeToken(token:any) {
-    let decodedToken:any = jwt_decode(token);
-    localStorage.setItem("UserName",decodedToken.Username);
-    console.log(decodedToken);
+  decodeToken(token: any) {
+    let decodedToken: any = jwt_decode(token);
+    localStorage.setItem("UserName", decodedToken.Username);
   }
 }

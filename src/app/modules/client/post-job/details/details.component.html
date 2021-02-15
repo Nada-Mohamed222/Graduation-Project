@@ -1,13 +1,13 @@
 <!-- <p>details works!</p> -->
 
-<section class="bg-light">
+<section class="mt-4 mb-3 ml-3">
   <!-- get-stated -->
   <div class="col-xs-12 px-0">
     <form [formGroup]="detailsForm">
       <!--Type of Project   -->
 
-      <div class="card mx-5">
-        <div class="card-body mx-5">
+      <div class="card">
+        <div class="card-body">
           <!-- title -->
           <header>
             <h1 class="main-title">Details</h1>
@@ -70,7 +70,7 @@
           <!-- screening Question -->
 
           <div class="mt-2">
-            <p class="mb-3 sub-title" mt-5>Screening Questions (optional)</p>
+            <p class="mb-3 sub-title">Screening Questions (optional)</p>
             <p class="plain-text">
               Add screening questions and/or require a cover letter
             </p>
@@ -148,8 +148,8 @@
 
       <!-- the # Freelancer needed -->
 
-      <div class="card mx-5">
-        <div class="card-body mx-5">
+      <div class="card">
+        <div class="card-body">
           <div class="form-group mb-1 mt-2">
             <label for="cardId" class="sub-title"
               >How many people do you need for this job?</label
@@ -158,7 +158,7 @@
               <app-card
                 cardIcon="fas fa-user"
                 cardTitle="One freelancer"
-                class="col-xs-4"
+                class="col-xs-1 col-md-6"
                 id="freelancerType"
                 [checked]="isOne"
                 formControlName="FreelancerNumber"
@@ -175,7 +175,7 @@
               <app-card
                 cardIcon="fas  fa-users"
                 cardTitle="More than one freelancer"
-                class="col-xs-4"
+                class="col-xs-1 col-md-6"
                 id="freelancerType"
                 [checked]="isMoreThanOne"
                 formControlName="FreelancerNumber"
@@ -206,8 +206,9 @@
             <label for="cardId" class="sub-title"
               >What level of experience should your freelancer have?</label
             >
+
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-lg-4">
                 <app-card
                   cardTitle="Entry Level"
                   cardText="Find a good one to accomplish task for one times"
@@ -220,25 +221,28 @@
                 ></app-card>
               </div>
 
-              <app-card
-                cardTitle="Intermediate"
-                cardText="Find a good one to accomplish task for one times"
-                class="col-xs-4"
-                id="X_level"
-                formControlName="ExperienceLevel"
-                value="Intermediate"
-                ngDefaultControl
-              ></app-card>
-
-              <app-card
-                cardTitle="Expert"
-                cardText="Find a good one to accomplish task for one times"
-                class="col-xs-4"
-                id="X_level"
-                formControlName="ExperienceLevel"
-                value="Expert"
-                ngDefaultControl
-              ></app-card>
+              <div class="col-lg-4">
+                <app-card
+                  cardTitle="Intermediate"
+                  cardText="Find a good one to accomplish task for one times"
+                  class="col-xs-4"
+                  id="X_level"
+                  formControlName="ExperienceLevel"
+                  value="Intermediate"
+                  ngDefaultControl
+                ></app-card>
+              </div>
+              <div class="col-lg-4">
+                <app-card
+                  cardTitle="Expert"
+                  cardText="Find a good one to accomplish task for one times"
+                  class="col-xs-4"
+                  id="X_level"
+                  formControlName="ExperienceLevel"
+                  value="Expert"
+                  ngDefaultControl
+                ></app-card>
+              </div>
             </div>
           </div>
 

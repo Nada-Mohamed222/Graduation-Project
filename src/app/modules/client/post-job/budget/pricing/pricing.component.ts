@@ -25,7 +25,7 @@ export class PricingComponent implements OnInit {
   ngOnInit(): void {
     this.pricingForm = this._formBuilder.group({
       //controls validations
-      RangeFrom: ['', [Validators.required]],
+      RangeFrom: ['', [Validators.required, Validators.min(1)]],
 
       ProjectDuration: ['', [Validators.required]],
     });

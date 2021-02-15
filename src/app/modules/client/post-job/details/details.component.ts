@@ -45,10 +45,10 @@ export class DetailsComponent implements OnInit {
     //   var details = JSON.parse(localStorage.getItem('details'));
     //   this.detailsForm.controls['ProjectType'].setValue(details.projectType),
     //   console.log(this.detailsForm.controls['ProjectType'].value);
-      // this.detailsForm.controls["Skills"].setValue(details.skillsNeed)
-      // this.detailsForm.controls['screeningQuestion'].setValue(details.screeningQuestion),
-      // this.detailsForm.controls['FreelancerNumber'].setValue(details.freelancerNumber),
-      //  this.detailsForm.controls['ExperienceLevel'].setValue(details.ExperienceLevel)
+    //   this.detailsForm.controls["Skills"].setValue(details.skillsNeed)
+    //   this.detailsForm.controls['screeningQuestion'].setValue(details.screeningQuestion),
+    //   this.detailsForm.controls['FreelancerNumber'].setValue(details.freelancerNumber),
+    //    this.detailsForm.controls['ExperienceLevel'].setValue(details.ExperienceLevel)}
     
   }
 
@@ -119,7 +119,7 @@ export class DetailsComponent implements OnInit {
       experienceLevel: this.detailsForm.controls['ExperienceLevel'].value,
     };
     // localStorage.setItem("details", JSON.stringify(details))
-    // this._sharingData.setDetailsData(details);
+    this._sharingData.setDetailsData(details);
     // console.log(details);
     // console.log(this.detailsForm);
   }

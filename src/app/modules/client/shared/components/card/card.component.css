@@ -7,14 +7,21 @@ i {
   margin-left: 9%;
 }
 
+/* .change-color:checked {
+  background-color: #cfcfcf7e;
+} */
+
+
 .card:hover {
   background-color: #f8f9fa;
 }
 input {
   display: block;
 }
-@media screen and(max-width:768px) {
-  .card p {
-    display: none;
-  }
+
+@media (min-width: 768px)and (max-width: 1130px)  {
+.card-responsive{
+  height: 200px;
 }
+}
+

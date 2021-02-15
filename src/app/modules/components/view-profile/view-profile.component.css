@@ -1,15 +1,17 @@
-.vr-line{
-    border-left: 1px solid gainsboro;
-    height: 200px;
-}
 .active {
-    border-left: #37A000 3px solid;
+  border-left: gainsboro 1px solid;
 }
 
-.small-hr {
-    border-top: gainsboro 1px solid;
+.font-weight {
+  font-weight: bold;
+  font-size: 17px;
 }
-.font-weight{
-    font-weight: bold;
-    font-size: 23px;
+
+.background-badge {
+  background-color: #336278;
+  border-radius: 30px;
+}
+
+.text-color {
+  color: #37a000;
 }

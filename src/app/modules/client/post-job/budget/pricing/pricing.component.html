@@ -1,7 +1,7 @@
 <!-- range of price  -->
 <!-- range from -->
 <form [formGroup]="pricingForm">
-  <div class="row mb-3">
+  <div class="row mb-3 ml-3">
     <!-- <div class="col-xs-12">
     <input
       type="checkbox"
@@ -17,16 +17,19 @@
     <!-- price range form -->
 
     <div class="col-xs-4">
-      <span class="glyphicon glyphicon-usd text-muted"></span>
-      <input
-        type="number"
-        name=""
-        id="pricingRange"
-        class="form-control form-control-lg text-right"
-        placeholder="0.00"
-        formControlName="RangeFrom"
-      />
-      <p class="hour hint text-muted">/h</p>
+      <span class="d-flex">
+        <input
+          type="number"
+          name=""
+          id="pricingRange"
+          class="form-control form-control-lg text-right"
+          placeholder="0"
+          min="0"
+          formControlName="RangeFrom"
+        />
+        <span class="glyphicon glyphicon-usd text-muted">Per hour</span>
+      </span>
+      <p class="hour hint text-muted"></p>
       <div
         *ngIf="
           (pricingForm.invalid && pricingForm.controls['RangeFrom'].touched) ||
@@ -83,14 +86,13 @@
 
   <!-- project duration -->
 
-  <div class="row">
-    <label for="" class="col-xs-12 sub-title mt-3"
-      >How long do you expect this project to last?</label
-    >
-
+  <label for="" class="col-xs-12 sub-title mt-3"
+    >How long do you expect this project to last?</label
+  >
+  <div class="row ml-3">
     <!-- duration > 6 months -->
 
-    <div class="col-xs-4">
+    <div class="col-md-6">
       <app-card
         cardIcon="glyphicon glyphicon-calendar"
         cardTitle="More than 6 months"
@@ -104,7 +106,7 @@
 
     <!-- period 3 : 6 months -->
 
-    <div class="col-xs-4">
+    <div class="col-md-6">
       <app-card
         cardIcon="glyphicon glyphicon-calendar"
         cardTitle="3 to 6 months"
@@ -118,7 +120,7 @@
 
     <!-- period 1 : 3 months -->
 
-    <div class="col-xs-4">
+    <div class="col-md-6">
       <app-card
         cardIcon="glyphicon glyphicon-calendar"
         cardTitle="1 to 3 months"
@@ -132,7 +134,7 @@
 
     <!-- period < 1  month -->
 
-    <div class="col-xs-4 mt-3">
+    <div class="col-md-6">
       <app-card
         cardIcon="glyphicon glyphicon-calendar"
         cardTitle="less than 1 month"

@@ -1,3 +1,4 @@
+import { ErrorComponent } from './modules/components/error/error.component';
 import { ProposeComponent } from './modules/components/propose/propose.component';
 import { UpworkLandingPageComponent } from './modules/components/upwork-landing-page/upwork-landing-page.component';
 import { ViewProfileComponent } from './modules/components/view-profile/view-profile.component';
@@ -78,7 +79,9 @@ const routes: Routes = [
     component: ViewProfileComponent,
     pathMatch: 'full',
   },
-  {path:'', component:UpworkLandingPageComponent}
+  {path:'', component:UpworkLandingPageComponent},
+  {path:'**', component:ErrorComponent},
+  {path:'error-404', component:ErrorComponent}
 ];
 
 @NgModule({

@@ -1,120 +1,124 @@
 <div class="container-fluid backGround-color pb-5 pt-5">
-    <div class="row no-gutters justify-content-center mx-auto">
-        <div class="col-lg-9 h-100">
-            <!-- View Profile -->
-            <div class="container-fluid backGround-color pb-5">
-                <div class="card justify-content-center mx-auto shadow-lg border" >
-                    <div class="card-header" style="background-color: transparent;">
-                        <div class="media p-3">
-                            <img src="http://localhost:5000/{{freelancer.ImageURL}}" alt="Profile Photo" class="mr-3 rounded-circle"
-                              style="
+  <div class="row no-gutters justify-content-center mx-auto">
+    <div class="col-lg-9 h-100">
+      <!-- View Profile -->
+      <div class="container-fluid backGround-color pb-5">
+        <div class="card justify-content-center mx-auto shadow-lg border">
+          <div class="card-header" style="background-color: transparent;">
+            <div class="media p-3">
+              <img src="http://localhost:5000/{{freelancer.ImageURL}}" alt="Profile Photo" class="mr-3 rounded-circle"
+                style="
                                 height: 100px !important;
                                 width: 100px !important;
                                 border-radius: 50%;
-                                object-fit: cover;"/>
-                            <div class="media-body">
-                              <h4>{{freelancer.FirstName}} {{freelancer.LastName}}</h4>
-                              <span class="fontsize-location ml-2">
-                                  <i class="fas fa-map-marker-alt fa-lg pr-3"></i>
-                                  {{freelancer.Country}}
-                                </span>
-                            </div>
-                    </div>
-                    <hr>
-                    <!-- <div class="vr-line"></div> -->
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="active"></div>
-                                <h4>View Profile</h4><br>
-                                <p class="mb-4">{{freelancer.MainService}}</p>
-                                <hr>
-                                
-                                <div class="active"></div>
-                                <div>
-                                    <h5 class="mb-3 mt-5">Availability</h5>
-                                    <p>{{freelancer.Availability}}</p><br><br>
-                                </div>
-
-                                <div>
-                                    <h5 class="mb-3">English Proficiency</h5>
-                                    <strong>{{freelancer.Languages}}</strong>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-9">
-                                <div>
-                                    <span class="font-weight">{{freelancer.Title}}</span>
-                                    <span class="float-right font-weight ml-3">${{freelancer.HourlyRate}}/hr</span><br>
-                                    <p class="mt-5">
-                                        {{freelancer.ProfessionalOverview}}
-                                    </p>
-                                </div>
-
-                                <hr>
-                                <div class="mt-5">
-                                    <h4>Skills</h4>
-                                    <div *ngFor="let skill of freelancer.Skills" class="mb-2 float-left">
-                                        <a
-                                          routerLink="/job/search/{{ skill }}"
-                                          class="badge background-badge ml-2 p-2 rounded-pill"
-                                          >{{ skill }}</a>
-                                    </div>
-                                </div>
-                                <br>
-                                <hr>
-
-                                <div class="mt-5">
-                                    <h4>Recent Job History</h4>
-                                        <div class="card-body mb-1 p-2">
-                                          <p class="card-title h5">
-                                            <a routerLink="/job/" class="header-link-jobs">
-                                             job name
-                                            </a>
-                                          </p>
-                                          <!-- </div> -->
-                                
-                                          <div class="mb-1">
-                                            <span>
-                                                <span class="fa fa-star text-color"></span>
-                                                <span class="fa fa-star text-color"></span>
-                                                <span class="fa fa-star text-color"></span>
-                                                <span class="fa fa-star text-color"></span>
-                                                <span class="fa fa-star text-color"></span>
-                                            </span>
-                                
-                                            <span
-                                              >Ariel is a joy to work with. I highly recommended her to anyone
-                                              gets the opportunity to work together. Thank you
-                                            </span>
-                                          </div>
-                                
-                                          <div>
-                                            <span>To freelancer: </span>
-                                
-                                            <span class="header-link-jobs">Mukesh T </span>
-                                
-                                            <span>
-                                              <span class="fa fa-star text-color"></span>
-                                              <span class="fa fa-star text-color"></span>
-                                              <span class="fa fa-star text-color"></span>
-                                              <span class="fa fa-star text-color"></span>
-                                              <span class="fa fa-star text-color"></span>
-                                            </span>
-                                
-                                            <span> Amazing Experience! Very fast and great knowledge.</span>
-                                          </div>
-                                        </div>
-                                      
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+                                object-fit: cover;" />
+              <div class="media-body">
+                <h4> {{freelancer.FirstName}} {{freelancer.LastName.slice(0, 1)}}.</h4>
+                <span class="fontsize-location ml-2">
+                  <i class="fas fa-map-marker-alt fa-lg pr-3"></i>
+                  {{freelancer.Country}}
+                </span>
+              </div>
             </div>
-        </div>
-        
-    </div>
-</div>
+            <hr>
+            <!-- <div class="vr-line"></div> -->
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="active"></div>
+                  <h5>Main Service</h5><br>
+                  <p>{{freelancer.MainService}}</p>
+                  <hr>
 
+                  <div>
+                    <h5 class="mb-3 mt-5">Availability</h5>
+                    <p>{{freelancer.Availability}}</p><br><br>
+                  </div>
+
+                  <div>
+                    <h5 class="mb-3">English Proficiency</h5>
+                    <strong>{{freelancer.Languages}}</strong>
+                  </div>
+                </div>
+
+                <div class="active"></div>
+                <div class="col-lg-8">
+                  <div>
+                    <div class="row">
+                      <div class="col-lg-5">
+                        <h5>{{freelancer.Title}}</h5>
+                      </div>
+
+                      <div class="col-lg-5">
+                        <span class="float-right font-weight ml-3">${{freelancer.HourlyRate}}/hr</span><br>
+                      </div>
+                    </div>
+                    <p class="mt-4">{{freelancer.ProfessionalOverview}}</p>
+                  </div>
+                  <hr>
+
+                  <div class="mt-5">
+                    <h5>Skills</h5>
+                    <div *ngFor="let skill of freelancer.Skills[0].split(',')" class="mb-2 float-left">
+                      <span routerLink="/job/search/{{ skill }}"
+                        class="badge background-badge ml-2 p-2 rounded-pill text-white">{{ skill }}</span>
+                    </div>
+                  </div>
+                  <br>
+                  <hr>
+
+                  <div class="mt-2">
+                    <h5>Recent Job History</h5>
+                    <div *ngIf="freelancerJobs.length < 1"> No Recent Jobs For This Freelancer</div>
+                    <div *ngFor="let job of freelancerJobs">
+                      <div class="card-body mb-1 p-2">
+                        <p class="card-title h5">
+                          <a routerLink="/job/{{job._id}}" class="text-color">
+                            {{job.Name}}
+                          </a>
+                        </p>
+                        <!-- </div> -->
+
+                        <div class="mb-1">
+                          <span>
+                            <span class="fa fa-star text-color"></span>
+                            <span class="fa fa-star text-color"></span>
+                            <span class="fa fa-star text-color"></span>
+                            <span class="fa fa-star text-color"></span>
+                            <span class="fa fa-star text-color"></span>
+                          </span>
+
+                          <span>{{job.TelentReview}}
+                          </span>
+                        </div>
+
+                        <div>
+                          <span>To freelancer: </span>
+
+                          <a routerLink="/freelancer/{{freelancer.UserName}}"><span class="header-link-jobs"
+                              class="text-color">{{freelancer.FirstName}}
+                              {{freelancer.LastName.slice(0, 1)}}.</span></a>
+
+                          <span>
+                            <span class="fa fa-star text-color"></span>
+                            <span class="fa fa-star text-color"></span>
+                            <span class="fa fa-star text-color"></span>
+                            <span class="fa fa-star text-color"></span>
+                            <span class="fa fa-star text-color"></span>
+                          </span>
+
+                          <span>{{job.EmployerReview}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

@@ -1,14 +1,14 @@
 <!-- <p>budget works!</p> -->
 
-<section class="bg-light">
+<section class="bg-light mt-4 mb-3 ml-3">
   <form [formGroup]="budgetForm">
     <!-- get-stated -->
     <div class="col-xs-12 px-0">
       <div>
         <!--Type of Project   -->
 
-        <div class="card mx-5">
-          <div class="card-body mx-5">
+        <div class="card">
+          <div class="card-body">
             <!-- title -->
             <header>
               <h1 class="main-title">Budget</h1>
@@ -25,39 +25,42 @@
                 <span class="fas fa-question-circle text-success"></span>
               </p>
               <div class="row">
-                <app-card
-                  cardIcon="fas fa-2x fa-stopwatch"
-                  cardTitle="Pay by hour"
-                  cardText="Find a good one to accomplish task for one times"
-                  class="col-sm-4"
-                  id="payment"
-                  #radioInput
-                  [checked]="isByHour"
-                  value="Hourly"
-                  formControlName="PaymentType"
-                  ngDefaultControl
-                  (change)="
-                    isChecked(radioInput.cardTitle); radioInput2.value = ''
-                  "
-                ></app-card>
-
-                <app-card
-                  cardIcon="fas fa-2x fa-tag"
-                  cardTitle="Pay a fixed price"
-                  cardText="Find a good one to accomplish task for one times"
-                  class="col-sm-4"
-                  id="payment"
-                  #radioInput2
-                  [checked]="isFixed"
-                  value="Fixed price"
-                  formControlName="PaymentType"
-                  ngDefaultControl
-                  (change)="
-                    radioInput2.value = 'Fixed price';
-                    isChecked(radioInput2.cardTitle);
-                    radioInput.value = ''
-                  "
-                ></app-card>
+                <div class="col-md-6">
+                  <app-card
+                    cardIcon="fas fa-2x fa-stopwatch"
+                    cardTitle="Pay by hour"
+                    cardText="Find a good one to accomplish task for one times"
+                    class="col-sm-4"
+                    id="payment"
+                    #radioInput
+                    [checked]="isByHour"
+                    value="Hourly"
+                    formControlName="PaymentType"
+                    ngDefaultControl
+                    (change)="
+                      isChecked(radioInput.cardTitle); radioInput2.value = ''
+                    "
+                  ></app-card>
+                </div>
+                <div class="col-md-6">
+                  <app-card
+                    cardIcon="fas fa-2x fa-tag"
+                    cardTitle="Pay a fixed price"
+                    cardText="Find a good one to accomplish task for one times"
+                    class="col-sm-4"
+                    id="payment"
+                    #radioInput2
+                    [checked]="isFixed"
+                    value="Fixed price"
+                    formControlName="PaymentType"
+                    ngDefaultControl
+                    (change)="
+                      radioInput2.value = 'Fixed price';
+                      isChecked(radioInput2.cardTitle);
+                      radioInput.value = ''
+                    "
+                  ></app-card>
+                </div>
               </div>
               <br />
 

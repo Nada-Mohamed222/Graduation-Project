@@ -24,7 +24,7 @@ export class FixedInputComponent implements OnInit {
   ngOnInit(): void {
     this.fixedInput = this._formBuilder.group({
       //controls validations
-      Price: ['', [Validators.required]],
+      Price: ['', [Validators.required, Validators.min(1)]],
     });
   }
 
