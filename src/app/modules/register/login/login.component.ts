@@ -47,18 +47,20 @@ export class LoginComponent implements OnInit {
     userLogin.Email = email;
     userLogin.Password = password;
 
-    this.isLoaded = true;
-    this._freelancerService.login(userLogin, this.userType).subscribe(
-      (response: any) => {
-        this.isLoaded = false;
-        this._jwtTokenService.decodeToken(response.token);
-        this._freelancerService.getLogin(this.userType).subscribe(
-          (response: any) => {
-            if (response.isVerified === true) {
-              // -----check user type if verfied
-              if (this.userType === 'talent') {
-                this.router.navigateByUrl('/freelancer/profile');
-              } else {
+      this.isLoaded = true;
+      this._freelancerService.login(userLogin, this.userType).subscribe(
+        (response: any) => {
+          this.isLoaded = false;
+          this._jwtTokenService.decodeToken(response.token);
+          console.log(response);
+          this._freelancerService.getLogin(this.userType).subscribe(
+            (response: any) => {
+              localStorage.setItem("image", response.ImageURL )
+              if (response.isVerified === true) {
+                // -----check user type if verfied
+                if (this.userType === 'talent') {
+                  this.router.navigateByUrl('/freelancer/profile');
+                } else {
                 this.router.navigateByUrl('/profile/jobs');
               }
               //---------------------------

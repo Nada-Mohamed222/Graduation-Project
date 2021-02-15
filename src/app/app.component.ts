@@ -1,5 +1,6 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core'; 
 import { HomeComponent } from './../../src/app/modules/register/home/home.component';
+import { SpinnerService } from './services/loader/spinner.service';
 
 
 @Component({
@@ -10,6 +11,9 @@ import { HomeComponent } from './../../src/app/modules/register/home/home.compon
 
 
 export class AppComponent {
+  constructor(public spinnerService: SpinnerService){
+    
+  }
   title = 'graduation-project';
   isSignedUp:Boolean = false;
 
