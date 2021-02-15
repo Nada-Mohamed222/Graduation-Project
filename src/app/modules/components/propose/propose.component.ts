@@ -1,4 +1,3 @@
-import { Client } from './../../../models/client';
 import { ClientService } from '../../../services/client-service/client.service';
 import { Job } from 'src/app/models/job';
 import { Component, OnInit } from '@angular/core';
@@ -14,26 +13,21 @@ import { Freelancer } from 'src/app/models/freelancer';
 export class ProposeComponent implements OnInit {
   id: string = '';
   job: Job = new Job();
-  clientJobs: Array<Job> = [];
-  client: Client;
   freelancer: Freelancer = new Freelancer();
 
   constructor(
     private _freelancerService: FreelancerService,
-    private _clientService: ClientService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this._freelancerService.get().subscribe(
+    this._freelancerService.getFreelancerAuth().subscribe(
       (response: Freelancer) => {
         this.freelancer = response;
-        console.log(response);
       },
       (error) => {
-        console.log(error);
-        alert('Wrong Error!');
+        console.log("Can't get freelancer details")
       }
     );
 
@@ -43,42 +37,21 @@ export class ProposeComponent implements OnInit {
       this._freelancerService.getAJob(this.id).subscribe(
         (response: any) => {
           this.job = response;
-
-          this._clientService.getPublicClient(this.job.EmployerUserName).subscribe(
-            (response: Client) => {
-              this.client = response;
-            },
-            (error) => {
-              console.log("Can't get the employeer data!!");
-            }
-          );
-
-          this._clientService
-            .getAllEmployerJob(response.EmployerUserName)
-            .subscribe(
-              (response: any) => {
-                this.clientJobs = response;
-              },
-              (error) => {
-                console.log("Can't get the employeer data!!");
-              }
-            );
         },
         (error) => {
-          alert('Error');
+          console.log("Can't get job details");
         }
       );
     });
   }
 
   submitProposal(CoverLetter: Object) {
-    this._freelancerService.submitForm(this.job._id, { CoverLetter }).subscribe(
+    this._freelancerService.submitProposal(this.job._id, { CoverLetter }).subscribe(
       (response: any) => {
-        console.log(response);
         this.router.navigateByUrl('/freelancer/my-proposals');
       },
       (error) => {
-        console.log(error);
+        console.log("Can't submit proposal");
       }
     );
   }

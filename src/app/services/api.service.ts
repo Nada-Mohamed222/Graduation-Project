@@ -8,10 +8,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(private _httpClient: HttpClient) {}
+  constructor(private _httpClient: HttpClient) { }
 
   get(url: string) {
     return this._httpClient.get(`${environment.apiURL}/${url}`, {
+      withCredentials: true,
+    });
+  }
+
+  getJobs(url: string, body: any) {
+    return this._httpClient.post(`${environment.apiURL}/${url}`, body, {
       withCredentials: true,
     });
   }

@@ -35,14 +35,12 @@ export class ReviewProfileComponent implements OnInit {
     if (!this._sharingData.isEligible.review) {
       this.router.navigateByUrl('/freelancer/phone');
     }
-    this._freelancerService.get().subscribe(
+    this._freelancerService.getFreelancerAuth().subscribe(
       (response: Freelancer) => {
         this.getNameOfTheFreeelancer = response;
-        console.log(response);
       },
       (error) => {
-        console.log(error);
-        alert('Wrong Error!');
+        console.log("Can't get freelancer details!");
       }
     );
 

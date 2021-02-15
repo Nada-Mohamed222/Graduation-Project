@@ -20,6 +20,8 @@ import { ProposeComponent } from './modules/components/propose/propose.component
 import { MyProposalsComponent } from './modules/freelancer/my-proposals/my-proposals.component';
 import { PostJobModule } from './modules/client/post-job/post-job.module';
 import { ErrorComponent } from './modules/components/error/error.component';
+import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +37,9 @@ import { ErrorComponent } from './modules/components/error/error.component';
     // SignupModule
   ],
   imports: [
+    NavbarModule,
+    WavesModule,
+    ButtonsModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
