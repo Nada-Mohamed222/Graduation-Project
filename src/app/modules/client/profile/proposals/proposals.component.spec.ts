@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ModalModule } from 'angular-bootstrap-md';
 
 import { ProposalsComponent } from './proposals.component';
 
@@ -8,9 +9,9 @@ describe('ProposalsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProposalsComponent ]
-    })
-    .compileComponents();
+      declarations: [ProposalsComponent],
+      imports: [ModalModule.forRoot()],
+    }).compileComponents();
   });
 
   beforeEach(() => {

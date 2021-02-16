@@ -13,6 +13,7 @@ import { JobsComponent } from './jobs/jobs.component';
 import { ProposalCardComponent } from './proposals/proposal-card/proposal-card.component';
 import { AcceptedProposalsComponent } from './accepted-proposals/accepted-proposals.component';
 import { ConfirmationComponent } from '../shared/components/confirmation/confirmation.component';
+
 const routes: Routes = [
   {
     path: '',

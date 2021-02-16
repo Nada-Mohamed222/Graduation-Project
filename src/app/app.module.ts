@@ -22,7 +22,12 @@ import { MyProposalsComponent } from './modules/freelancer/my-proposals/my-propo
 import { PostJobModule } from './modules/client/post-job/post-job.module';
 import { UpworkLandingPageComponent } from './modules/components/upwork-landing-page/upwork-landing-page.component';
 import { ErrorComponent } from './modules/components/error/error.component';
-import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
+import {
+  NavbarModule,
+  WavesModule,
+  ButtonsModule,
+  ModalModule,
+} from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -40,6 +45,7 @@ import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
     // SignupModule
   ],
   imports: [
+    ModalModule,
     NavbarModule,
     WavesModule,
     ButtonsModule,
