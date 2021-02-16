@@ -13,6 +13,7 @@ import { JobsComponent } from './jobs/jobs.component';
 import { ProposalCardComponent } from './proposals/proposal-card/proposal-card.component';
 import { AcceptedProposalsComponent } from './accepted-proposals/accepted-proposals.component';
 import { ConfirmationComponent } from '../shared/components/confirmation/confirmation.component';
+import { InputsModule, ModalModule, NavbarModule, WavesModule } from 'angular-bootstrap-md';
 const routes: Routes = [
   {
     path: '',
@@ -49,8 +50,13 @@ const routes: Routes = [
     AcceptedProposalsComponent,
     ConfirmationComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes)],
-
+  imports: [
+    ModalModule.forRoot(),
+    InputsModule,
+    NavbarModule,
+    WavesModule,   
+  CommonModule, RouterModule.forChild(routes)],
+    
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ProfileModule {}

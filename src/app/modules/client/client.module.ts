@@ -1,21 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConfirmationComponent } from './shared/components/confirmation/confirmation.component';
-// import { ProfileComponent } from './profile/profile.component';
-// // import { HomeComponent } from "./post-job/home/home.component";
+import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
+import { ModalModule,  InputsModule,  } from 'angular-bootstrap-md'
 
-// import { Routes, RouterModule } from '@angular/router';
-// import { PostComponent } from './profile/post/post.component';
-// import { SliderComponent } from './profile/slider/slider.component';
-// import { SomeTextPipe } from '../../modules/client/shared/pipes/some-text.pipe';
-// import { ReversePipe } from './shared/pipes/reverse.pipe';
-// import { ChipComponent } from './shared/components/chip/chip.component';
-// import { ProposalsComponent } from './profile/proposals/proposals.component';
-
-// const routes: Routes = [
-//   { path: 'profile', component: ProfileComponent },
-//   { path: 'proposals', component: ProposalsComponent },
-// ];
 
 @NgModule({
   declarations: [
@@ -31,6 +19,10 @@ import { ConfirmationComponent } from './shared/components/confirmation/confirma
   ],
   imports: [
     CommonModule,
+    ModalModule.forRoot(),
+    InputsModule,
+    NavbarModule,
+    WavesModule
     //  RouterModule.forChild(routes)
   ],
 

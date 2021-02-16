@@ -21,14 +21,14 @@
 <!-- start nav in the landing page of the upwork -->
 <div class="back">
   <mdb-navbar
-    SideClass="navbar navbar-expand-lg navbar-dark cyan"
+    SideClass="navbar navbar-expand-lg navbar-dark"
     [containerInside]="true"
   >
     <!-- <div class="container"> -->
     <!-- Navbar brand -->
     <mdb-navbar-brand
-      ><a class="navbar-brand text-white" href="#"
-        ><svg
+      ><a class="navbar-brand text-white" routerLink="/">
+        <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 102.4 30"
           width="106"
@@ -96,7 +96,6 @@
       <img
         class="imageFix rounded-circle"
         src="http://localhost:5000/{{ image }}"
-        alt="freelancer Image"
       />
       <!-- Links -->
     </links>
@@ -104,6 +103,27 @@
     <!-- </div> -->
   </mdb-navbar>
 </div>
+
+<!-- <div class="text-center">
+  <div
+    class="spinner-border"
+    *ngIf="spinnerService.isLoading | async"
+    role="status"
+  >
+    <span class="sr-only">Loading...</span>
+    <p>Heloooooo</p>
+  </div>
+</div> -->
+<div class="d-flex justify-content-center">
+  <div
+    *ngIf="spinnerService.isLoading | async"
+    class="spinner-border spinner-container"
+    role="status"
+  >
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
 <!-- <nav *ngIf="spinnerService.isLoading"class="navbar navbar-expand-lg header-color">
   <div class="container">
     <a class="navbar-brand" routerLink="/">
@@ -153,13 +173,4 @@
     </div>
   </div>
 </nav> -->
-<div class="d-flex justify-content-center">
-  <div
-    *ngIf="spinnerService.isLoading | async"
-    class="spinner-border spinner-container"
-    role="status"
-  >
-    <span class="sr-only">Loading...</span>
-  </div>
-</div>
 <!-- end nav in the landing page of the upwork -->

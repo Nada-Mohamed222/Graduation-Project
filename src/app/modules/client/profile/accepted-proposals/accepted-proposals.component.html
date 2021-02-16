@@ -2,13 +2,24 @@
   <div class="card p-4">
     <div class="mt-4" *ngFor="let a of acceptedProposals; let i = index">
       <!-- <div class="col-xs-12"> -->
-      <button
+      <!-- <button
         type="button"
         class="hire btn btn-success py-1 px-5"
         (click)="endContract(a._id, a.HiredTalent._id, i)"
       >
         End Contract
-      </button>
+      </button> -->
+      <div
+        (click)="endContract(a._id, a.HiredTalent._id, i)"
+        class="float-right"
+      >
+        <app-confirmation
+          mainButton="End Contract"
+          LeftButton="Yes"
+          rightButton="No"
+          name="Are you sure you want to end the contract?"
+        ></app-confirmation>
+      </div>
 
       <!-- </div> -->
       <div class="row">
