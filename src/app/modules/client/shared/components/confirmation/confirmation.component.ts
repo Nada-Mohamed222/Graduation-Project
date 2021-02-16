@@ -17,6 +17,7 @@ export class ConfirmationComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
   @Input() name: string;
+  @Input() mainButton: string;
   @Input() rightButton: string;
   @Input() LeftButton: string;
 
@@ -51,10 +52,33 @@ export class ConfirmationComponent implements OnInit {
       this.router.navigateByUrl(`accepted-proposals`);
     } else {
       this._sharingData.showConfirmationPopup.next(false);
+      this._clientService
+      .postAcceptedProposals(this.jobId, this.freelancerUserName)
+      .subscribe((response) => {
+        console.log('>> POSTED << ');
+        console.log(response);
+      });
     }
   }
+
+  endContract(jobId: string, freelancerId: string, index: number) {
+    this._clientService
+      .endContract(jobId, freelancerId)
+      .subscribe((response) => {
+        // this.acceptedProposals.splice(index, 1);
+        console.log('Patched');
+        console.log(response);
+      });
+  }
+
   //close button from icon x
   close() {
     this._sharingData.showConfirmationPopup.next(false);
   }
+  
+  // handleClick(){
+  //   this.endContract();
+  //   this.hire()
+  // }
+
 }

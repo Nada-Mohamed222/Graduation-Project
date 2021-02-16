@@ -46,6 +46,7 @@ import {
   ],
   imports: [
     ModalModule,
+    // ModalModule.forRoot(),
     NavbarModule,
     WavesModule,
     ButtonsModule,
@@ -61,10 +62,6 @@ import {
     PostJobModule,
     // SignupModule
   ],
-  // imports: [BrowserModule, AppRoutingModule, PostJobModule, HttpClientModule],
-  //   exports: [
-  //     SomeTextPipe,
-  //  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

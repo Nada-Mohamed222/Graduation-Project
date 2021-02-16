@@ -1,17 +1,17 @@
 <div class="container my-5">
   <div class="confirm col-md-12" *ngIf="showConfirmationPopup">
-    <app-confirmation
+    <!-- <app-confirmation
       LeftButton="Hire"
       rightButton="Hire and see all"
       name="{{ name }}"
-    ></app-confirmation>
+    ></app-confirmation> -->
   </div>
 
   <div [ngClass]="{ overlay: showConfirmationPopup }">
     <div class="card p-4">
       <div class="mt-4" *ngFor="let p of proposals; let i = index">
         <!-- <div class="col-xs-12"> -->
-        <button
+        <!-- <button
           *ngIf="jobStatus === 'Pending'"
           type="button"
           class="hire btn btn-success py-1 px-5"
@@ -20,19 +20,33 @@
           "
         >
           Hire
-        </button>
+        </button> -->
+        <div
+          (click)="
+            confirm(p.Talent.FirstName, p.Talent.LastName, p.Talent.UserName)
+          "
+          class="float-right"
+          *ngIf="jobStatus === 'Pending'"
+        >
+          <app-confirmation
+            mainButton="Hire"
+            LeftButton="Hire"
+            rightButton="Hire and see all"
+            name="{{ p.Talent.FirstName + ' ' + p.Talent.LastName }}"
+          ></app-confirmation>
+        </div>
         <!-- TODO: show if hired -->
         <img
           *ngIf="jobStatus === 'Ongoing' && hiredId === p.Talent._id"
           src="./../../../../../assets/images/hired.svg"
-          class="img-responsive hired mr-5"
+          class="hired mr-5"
           routerLink="/profile/accepted-proposals"
         />
         <!-- </div> -->
         <div class="row">
           <div class="col-md-2 col-xs-12 ml-2 mb-2">
             <img
-              src="{{ p.Talent.ImageURL }}"
+              src="../../../../../assets/images/pp.jpg"
               alt="{{ p.Talent.FirstName }} photo"
               class="img-responsive img"
             />
