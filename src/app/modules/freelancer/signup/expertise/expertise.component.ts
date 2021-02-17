@@ -39,7 +39,7 @@ export class ExpertiseComponent implements OnInit {
 
 
   addSkill(skill: string) {
-    if (this.skills.length < 4) {
+    if (this.skills.length < 10) {
       this.skills.push(skill);
       this.skill = '';
     }

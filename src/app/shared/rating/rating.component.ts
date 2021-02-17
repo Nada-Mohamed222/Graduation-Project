@@ -1,3 +1,4 @@
+import { Job } from 'src/app/models/job';
 import { Component, OnInit, EventEmitter,Input,Output } from '@angular/core';
 
 @Component({
@@ -11,6 +12,7 @@ export class RatingComponent implements OnInit {
   @Input() stars:number=0;
   @Output() change=new EventEmitter<number>();
 
+  myRating:Job = new Job();
   constructor() { }
 
   ngOnInit(): void {
@@ -21,6 +23,7 @@ export class RatingComponent implements OnInit {
     this.stars=newStars;
     this.change.emit(newStars);
     //Call API and Send new rating
+
   }
 
 }
