@@ -22,13 +22,13 @@ export class LanguagesComponent implements OnInit {
       this.router.navigateByUrl('/freelancer/expertiselevel');
     }
     this.formGroup = this._formBulider.group({
-      Language: [LanguageData.language, [Validators.required]]
+      EnglishProficiency: [LanguageData.EnglishProficiency, [Validators.required]]
     })
   }
   //setting Language from data
   storeData() {
     const languages = {
-      language: this.formGroup.controls['Language'].value,
+      EnglishProficiency: this.formGroup.controls['EnglishProficiency'].value,
     };
     this._sharingData.setLanguageData(languages);
   }

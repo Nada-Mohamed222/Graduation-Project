@@ -59,12 +59,14 @@ export class ReviewProfileComponent implements OnInit {
     const formData = new FormData();
     // Expertise
     formData.append('MainService', this.expertiseData.mainService);
-    formData.append('Skills', this.expertiseData.mainSkills);
+    for (var i = 0; i < this.expertiseData.mainSkills.length; i++) {
+      formData.append('Skills[]', this.expertiseData.mainSkills[i].toLowerCase());
+    }
 
     //Expertise Level
     formData.append('ExpertiseLevel', this.expertiseLevelData.expertiseLevel);
     //Languages
-    formData.append('EnglishProficiency', this.LanguageData.language);
+    formData.append('EnglishProficiency', this.LanguageData.EnglishProficiency);
     //Hourly Rate
     formData.append('HourlyRate', this.HourlyRateData.hourlyRate);
     //Title and Overview

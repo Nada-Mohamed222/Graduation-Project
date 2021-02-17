@@ -1,4 +1,4 @@
-export class Freelancer{
+export class Freelancer {
     Email: String;
     UserName: String;
     FirstName: String;
@@ -6,10 +6,10 @@ export class Freelancer{
     Password: String;
     isVerified: Boolean;
     MainService: String;
-    Proposals:{Job: String, createdAt: String, CoverLetter: String }[];
+    Proposals: { Job: String, createdAt: String, CoverLetter: String }[];
     Skills: Array<String>;
     ExpertiseLevel: String;
-    Languages: String;
+    EnglishProficiency: String;
     HourlyRate: Number;
     Title: String;
     ProfessionalOverview: String;

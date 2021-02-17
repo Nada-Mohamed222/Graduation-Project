@@ -6,26 +6,19 @@
       <div class="card justify-content-center mx-auto shadow-lg w-75">
         <div class="card-body">
           <div class="media p-3">
-            <img
-              [src]="profilePhotoData.url"
-              alt="Profile Photo"
-              class="mr-3 rounded-circle"
-              style="
+            <img [src]="profilePhotoData.url" alt="Profile Photo" class="mr-3 rounded-circle" style="
                 height: 100px !important;
                 width: 100px !important;
                 border-radius: 50%;
                 object-fit: cover;
-              "
-            />
+              " />
             <div class="media-body">
               <h4>
                 {{ getNameOfTheFreeelancer.FirstName }}
                 {{ getNameOfTheFreeelancer.LastName }}
               </h4>
-              <span class="fontsize-location ml-2"
-                ><i class="fas fa-map-marker-alt fa-lg pr-3"></i
-                >{{ locationData.country }}</span
-              >
+              <span class="fontsize-location ml-2"><i
+                  class="fas fa-map-marker-alt fa-lg pr-3"></i>{{ locationData.country }}</span>
             </div>
           </div>
           <div class="p-3">
@@ -39,7 +32,7 @@
                   <i class="fas fa-pen ml-2 circle-icon p-2"></i>
                 </a>
               </div>
-            </div>    
+            </div>
           </div>
 
           <div class="p-3">
@@ -86,20 +79,15 @@
         </div>
         <div class="float-right d-flex">
           <div *ngFor="let skill of expertiseData.mainSkills" class="mb-2 mt-3">
-            <span
-              class="badge background-badge ml-2 p-2 rounded-pill text-white"
-              >{{ skill }}</span
-            >
+            <span class="badge background-badge ml-2 p-2 rounded-pill text-white">{{ skill }}</span>
           </div>
         </div>
       </div>
 
-      <br/><br />
+      <br /><br />
       <!--Third Card Location -->
       <div class="card justify-content-center mx-auto shadow-lg w-75">
-        <div
-          class="card-header bg-transparent fontSize-skills p-3 fontsize-reviewProfile-title"
-        >
+        <div class="card-header bg-transparent fontSize-skills p-3 fontsize-reviewProfile-title">
           Location
           <a routerLink="/freelancer/location" style="color: #6c757d;">
             <i class="fas fa-pen ml-2 circle-icon p-2 float-right"></i>
@@ -113,18 +101,14 @@
       <br /><br />
       <!--Fourth Card Languages -->
       <div class="card justify-content-center mx-auto shadow-lg w-75">
-        <div
-          class="card-header bg-transparent fontSize-skills p-3 fontsize-reviewProfile-title"
-        >
-          Languages
+        <div class="card-header bg-transparent fontSize-skills p-3 fontsize-reviewProfile-title">
+          English Proficiency
           <a routerLink="/freelancer/languages" style="color: #6c757d;">
             <i class="fas fa-pen ml-2 circle-icon p-2 float-right"></i>
           </a>
         </div>
         <div class="card-body">
-          <span class="fontsize-reviewProfile-desc"
-            >English, {{ LanguageData.language }}</span
-          >
+          <span class="fontsize-reviewProfile-desc">{{ LanguageData.EnglishProficiency }}</span>
           <!-- <span> Arabic, Native or Bilingual</span> -->
         </div>
       </div>
@@ -132,11 +116,7 @@
     <div class="mt-3">
       <!-- <a routerLink="/freelancer/profile">
             </a> -->
-      <button
-        type="button"
-        class="btn btn-success fill-out-btn float-right"
-        (click)="submitData()"
-      >
+      <button type="button" class="btn btn-success fill-out-btn float-right" (click)="submitData()">
         Submit Profile
       </button>
     </div>

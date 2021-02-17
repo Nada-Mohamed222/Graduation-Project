@@ -103,7 +103,7 @@
       <div class="container-fluid backGround-color pb-5">
         <div class="card justify-content-center mx-auto shadow-lg">
           <div class="card-header get-started-title" style="background-color: transparent;">
-            <h4>Languages</h4>
+            <h4>EnglishProficiency</h4>
             <h6 class="text-muted">4 of 9</h6>
           </div>
           <div class="card-body mb-2">
@@ -111,7 +111,8 @@
             <form [formGroup]="formGroup">
               <div class="form-group">
                 <label for="exampleFormControlSelect1"></label>
-                <select formControlName="Language" class="form-control fs-categories" id="exampleFormControlSelect1">
+                <select formControlName="EnglishProficiency" class="form-control fs-categories"
+                  id="exampleFormControlSelect1">
                   <option disabled selected>English proficiency</option>
                   <option>Basic</option>
                   <option>Conversational</option>
@@ -119,9 +120,9 @@
                   <option>Native or Bilingual</option>
                 </select>
                 <div
-                  *ngIf="(formGroup.controls['Language'].invalid) && ((formGroup.controls['Language'].touched) ||  (formGroup.controls['Language'].dirty))">
+                  *ngIf="(formGroup.controls['EnglishProficiency'].invalid) && ((formGroup.controls['EnglishProficiency'].touched) ||  (formGroup.controls['EnglishProficiency'].dirty))">
                   <small class="form-text text-danger"
-                    *ngIf="formGroup.controls['Language'].hasError('required')">Required Language</small>
+                    *ngIf="formGroup.controls['EnglishProficiency'].hasError('required')">Required Language</small>
                 </div>
 
               </div>

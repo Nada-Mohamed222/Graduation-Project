@@ -29,7 +29,7 @@ export class SharingDataService {
 
   expertise: object = { mainService: "", mainSkills: [] };
   expertiseLevel: object = { expertiseLevel: "" };
-  language: object = { language: "" };
+  language: object = { EnglishProficiency: "" };
   hourlyRate: object = { hourlyRate: "", deductedAmount: "2.00", inputMoney: "8.00" };
   titleOverview: object = { title: "", overview: "" };
   profilePhoto: object = { photo: "", url: "../../../../../assets/images/avatar.png", };

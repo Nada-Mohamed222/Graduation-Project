@@ -1,4 +1,6 @@
 <div class="container-fluid backGround-color pb-5 pt-5">
+
+
   <div class="row no-gutters justify-content-center mx-auto">
     <div class="col-lg-9 h-100">
       <!-- View Profile -->
@@ -19,6 +21,10 @@
                   {{freelancer.Country}}
                 </span>
               </div>
+              <button *ngIf="isMyAccount" type="button" color="primary" class="my-btn p-2" (click)="basicModal.show()"
+                mdbWavesEffect>
+                Edit My Profile
+              </button>
             </div>
             <hr>
             <!-- <div class="vr-line"></div> -->
@@ -37,7 +43,7 @@
 
                   <div>
                     <h5 class="mb-3">English Proficiency</h5>
-                    <strong>{{freelancer.Languages}}</strong>
+                    <strong>{{freelancer.EnglishProficiency}}</strong>
                   </div>
                 </div>
 
@@ -59,9 +65,10 @@
 
                   <div class="mt-5">
                     <h5>Skills</h5>
-                    <div *ngFor="let skill of freelancer.Skills[0].split(',')" class="mb-2 float-left">
+                    <div *ngFor="let skill of freelancer.Skills" class="mb-2 float-left">
                       <span routerLink="/job/search/{{ skill }}"
-                        class="badge background-badge ml-2 p-2 rounded-pill text-white">{{ skill }}</span>
+                        class="badge background-badge ml-2 p-2 rounded-pill text-white">{{ skill }}
+                      </span>
                     </div>
                   </div>
                   <br>
@@ -122,3 +129,367 @@
 
     </div>
   </div>
+</div>
+
+<div style="overflow-y: auto" mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+  aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+          <br />
+        </button>
+        <strong class="modal-title w-100 ml-3 h3" id="myModalLabel">
+          Update your info
+        </strong>
+      </div>
+      <div class="modal-body">
+        <!-- Modal -->
+        <div class="row no-gutters justify-content-center mx-auto">
+          <div class="col-lg-12">
+            <!-- View Profile -->
+            <div class="container-fluid backGround-color" [formGroup]="formGroup">
+              <div class="card justify-content-center mx-auto shadow-lg border">
+                <div class="card-header" style="background-color: transparent;">
+                  <div class="row mt-4">
+                    <div class="col-lg-2">
+                      <div class="media col-lg-12">
+                        <img [src]="inputImage" alt="Profile Photo" class="mr-3 rounded-circle" style="
+                                        height: 100px !important;
+                                        width: 100px !important;
+                                        border-radius: 50%;
+                                        object-fit: cover;" />
+                      </div>
+                      <div class="col-lg-12 mt-2 ml-3">
+                        <label for="uploadImage" class="">
+                          <span class="my-btn float-left p-2">Change</span>
+                        </label>
+                        <input formControlName="profile" type="file" (change)="onSelectImage($event)" id="uploadImage"
+                          style="visibility: hidden" />
+                      </div>
+
+                    </div>
+
+                    <div class="col-lg-5">
+                      <div class="form-group col-md-12">
+                        <div class="form-row" hidden>
+                          <div class="form-group col-md-6" hidden>
+                            <label for="inputFirstName"></label>
+                            <input formControlName="FirstName" type="text" class="form-control input-fontSize-form"
+                              id="inputFirstName" placeholder="First name" #InputFirstName />
+                          </div>
+                        </div>
+                        <label for="inputFirstName">First Name:</label>
+                        <input formControlName="FirstName" type="text" class="form-control input-fontSize-form"
+                          id="inputFirstName" placeholder="First name" #InputFirstName
+                          (focus)="InputFirstName.select()" />
+                        <div *ngIf="
+                              formGroup.controls['FirstName'].invalid &&
+                              (formGroup.controls['FirstName'].touched ||
+                                formGroup.controls['FirstName'].dirty)
+                            ">
+                          <small class="form-text text-danger"
+                            *ngIf="formGroup.controls['FirstName'].hasError('required')">Required First Name</small>
+                          <small class="form-text text-danger"
+                            *ngIf="formGroup.controls['FirstName'].hasError('minlength')">Min Length is 2</small>
+                          <small class="form-text text-danger"
+                            *ngIf="formGroup.controls['FirstName'].hasError('maxlength')">Max Length is 16</small>
+                        </div>
+                      </div>
+
+                      <div class="form-group col-md-12">
+                        <label for="inputLastName">Last Name:</label>
+                        <input formControlName="LastName" type="text" class="form-control input-fontSize-form"
+                          id="inputLastName" placeholder="Last name" (focus)="InputLastName.select()" #InputLastName />
+                        <div *ngIf="
+                            formGroup.controls['LastName'].invalid &&
+                            (formGroup.controls['LastName'].touched ||
+                              formGroup.controls['LastName'].dirty)
+                          ">
+                          <small class="form-text text-danger"
+                            *ngIf="formGroup.controls['LastName'].hasError('required')">Required Last Name</small>
+                          <small class="form-text text-danger"
+                            *ngIf="formGroup.controls['LastName'].hasError('minlength')">Min Length is 2</small>
+                          <small class="form-text text-danger"
+                            *ngIf="formGroup.controls['LastName'].hasError('maxlength')">Max Length is 16</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                      <!-- Country -->
+                      <div class="form-group col-md-12 col-lg-12">
+                        <label for="inputState" class="pg-desc-location ml-2">Country</label>
+                        <select formControlName="Location" id="inputState" class="form-control" style="font-size: 15px;"
+                          value="{{freelancer.Country}}">
+                          <option>Egypt</option>
+                          <option>Albania</option>
+                          <option>Algeria</option>
+                          <option>American Samoa</option>
+                          <option>Andorra</option>
+                          <option>Angola</option>
+                          <option>Anguilla</option>
+                          <option>Argentina</option>
+                          <option>Armenia</option>
+                          <option>Aruba</option>
+                          <option>Australia</option>
+                          <option>Azerbaijan</option>
+                          <option>Bahamas</option>
+                          <option>Bahrain</option>
+                          <option>Bangladesh</option>
+                          <option>Barbados</option>
+                          <option>Belarus</option>
+                          <option>Belgium</option>
+                          <option>Belize</option>
+                          <option>Benin</option>
+                          <option>Bermuda</option>
+                          <option>Bhutan</option>
+                          <option>Bolivia</option>
+                          <option>Botswana</option>
+                          <option>Brazil</option>
+                          <option>British</option>
+                          <option>Bulgaria</option>
+                          <option>Burundi</option>
+                          <option>Cambodia</option>
+                          <option>Cameroon</option>
+                          <option>Canada</option>
+                          <option>Cape Verde</option>
+                          <option>Cayman Islands</option>
+                          <option>Central Africa</option>
+                          <option>Chad</option>
+                          <option>Chile</option>
+                          <option>Chine</option>
+                          <option>Christmas Island</option>
+                          <option>Cocos Islands</option>
+                          <option>Colombia</option>
+                          <option>Denmark</option>
+                          <option>Djibouti</option>
+                          <option>Dominica</option>
+                          <option>Estonia</option>
+                          <option>Eritrea</option>
+                          <option>Estonia</option>
+                          <option>France</option>
+                          <option>Fiji</option>
+                          <option>Gabon</option>
+                          <option>Gambia</option>
+                          <option>Georgia</option>
+                          <option>Germany</option>
+                          <option>Ghana</option>
+                          <option>Greece</option>
+                          <option>Guam</option>
+                          <option>Guinea</option>
+                          <option>Haiti</option>
+                          <option>Italy</option>
+                          <option>Ireland</option>
+                          <option>Israel</option>
+                          <option>Japan</option>
+                          <option>Jordan</option>
+                          <option>Jersey</option>
+                          <option>Kuwait</option>
+                          <option>Kenya</option>
+                          <option>Lebanon</option>
+                          <option>Lesotho</option>
+                          <option>Macao</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-lg-4 mr-4">
+                        <div class="active"></div>
+                        <div class="form-group">
+                          <label for="exampleFormControlSelect1">Main Service</label>
+                          <select formControlName="MainServices" required class="form-control fs-categories"
+                            id="exampleFormControlSelect1">
+                            <option>Web, Mobile & Software Dev</option>
+                            <option>Accounting & Consulting</option>
+                            <option>Admin Support</option>
+                            <option>Customer Service</option>
+                            <option>Data Science & Analytics</option>
+                            <option>Design & Creactive</option>
+                            <option>Engineering & Architecture</option>
+                            <option>IT & Networking</option>
+                            <option>Legal</option>
+                            <option>Sales & Marketing</option>
+                            <option>Translation</option>
+                            <option>Writing</option>
+                          </select>
+                          <div *ngIf="
+                              formGroup.controls['MainServices'].invalid &&
+                              (formGroup.controls['MainServices'].touched ||
+                                formGroup.controls['MainServices'].dirty)
+                            ">
+                            <small class="form-text text-danger" *ngIf="
+                                formGroup.controls['MainSkills'].hasError('required')
+                              ">Required MainServices</small>
+                          </div>
+                        </div>
+
+                        <div class="form-group py-4">
+                          <strong> I am currently available for </strong>
+                          <div class="mt-3">
+                            <div class="form-check mt-2">
+                              <input value="More Than 30 hrs/week" class="form-check-input" type="radio"
+                                formControlName="Availability" name="Availability" id="availability1" />
+                              <label class="form-check-label" for="availability1">
+                                More than 30 hrs/week
+                              </label>
+                            </div>
+
+                            <div class="form-check mt-2">
+                              <input value="Less Than 30 hrs/week" class="form-check-input" type="radio"
+                                formControlName="Availability" name="Availability" id="availability2" />
+                              <label class="form-check-label" for="availability2">
+                                Less than 30 hrs/week
+                              </label>
+                            </div>
+
+                            <div class="form-check mt-2">
+                              <input value="Available as needed" class="form-check-input" type="radio"
+                                formControlName="Availability" name="Availability" id="availability3" checked />
+                              <label class="form-check-label" for="availability3">
+                                As needed - open to offers
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="exampleFormControlSelect1">English Proficiency</label>
+                          <select formControlName="Language" class="form-control fs-categories"
+                            id="exampleFormControlSelect1" value="{{freelancer.EnglishProficiency}}">
+                            <option disabled selected>English proficiency</option>
+                            <option>Basic</option>
+                            <option>Conversational</option>
+                            <option>Fluent</option>
+                            <option>Native or Bilingual</option>
+                          </select>
+                          <div
+                            *ngIf="(formGroup.controls['Language'].invalid) && ((formGroup.controls['Language'].touched) ||  (formGroup.controls['Language'].dirty))">
+                            <small class="form-text text-danger"
+                              *ngIf="formGroup.controls['Language'].hasError('required')">Required Language</small>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="active"></div>
+                      <div class="col-lg-7 my-4">
+                        <div>
+                          <div class="row">
+                            <div class="col-lg-5">
+                              <div class="form-group">
+                                <label for="exampleFormControlTitle" class="pg-desc-titleOverview">Title</label>
+                                <span class="ml-4" style="color: #37A000;"><i
+                                    class="fas fa-question-circle fa-lg"></i></span>
+                                <input formControlName="Title" (focus)="InputTitle.select()" type="email"
+                                  class="form-control input-desc-titleOverview" id="exampleFormControlTitle" #InputTitle
+                                  placeholder="Example: Web, Mobile & Software Dev">
+                                <div
+                                  *ngIf="formGroup.controls['Title'].invalid && (formGroup.controls['Title'].touched ||  formGroup.controls['Title'].dirty)">
+                                  <small class="form-text text-danger"
+                                    *ngIf="formGroup.controls['Title'].hasError('required')">Required
+                                    Title</small>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-lg-5">
+                              <div class="form-group">
+                                <div class="col-xs-5">
+                                  <label for="inputHourlyRate" class="pg-desc-HourlyRate">Hourly Rate</label>
+                                  <div class="input-group w-100 h-100">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text bg-transparent"><i
+                                          class="fas fa-dollar-sign fa-lg border-right-0"></i></span>
+                                    </div>
+                                    <input formControlName="HourlyRate" id="inputHourlyRate" type="text"
+                                      class="form-control" aria-label="Amount (to the nearest dollar)"
+                                      placeholder="10.00" (focus)="inputHourlyRate.select()" #inputHourlyRate>
+                                  </div>
+                                  <div
+                                    *ngIf="formGroup.controls['HourlyRate'].invalid && (formGroup.controls['HourlyRate'].touched ||  formGroup.controls['HourlyRate'].dirty)">
+                                    <small class="form-text text-danger"
+                                      *ngIf="formGroup.controls['HourlyRate'].hasError('required')">Required Hourly
+                                      Rate</small>
+                                    <small class="form-text text-danger"
+                                      *ngIf="formGroup.controls['HourlyRate'].hasError('min')">Min Rate is 5</small>
+                                    <small class="form-text text-danger"
+                                      *ngIf="formGroup.controls['HourlyRate'].hasError('pattern')">Value is not
+                                      acceptable</small>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group mt-2 mb-5">
+                            <label for="exampleFormControlTextarea1" class="pg-desc-titleOverview">Professional
+                              Overview</label>
+                            <span class="ml-4" style="color: #37A000;"><i
+                                class="fas fa-question-circle fa-lg"></i></span>
+                            <textarea formControlName="ProfessionalOverview"
+                              class="form-control textarea-desc-titleOverview" #inputCharacter
+                              (keyup)="countCharacters(inputCharacter.value)" maxlength="5000"
+                              (focus)="inputCharacter.select()" id="exampleFormControlTextarea1" rows="3"
+                              placeholder="Highlight your top skills, experience, and interests. This is one of the first things clients will see on your profile."></textarea>
+                            <div
+                              *ngIf="formGroup.controls['ProfessionalOverview'].invalid && (formGroup.controls['ProfessionalOverview'].touched ||  formGroup.controls['ProfessionalOverview'].dirty)">
+                              <small class="form-text text-danger"
+                                *ngIf="formGroup.controls['Title'].hasError('required')">Required
+                                Professional Overview</small>
+                            </div>
+                            <span class="float-right textarea-titleOverview">{{remaningCharacters}} characters
+                              left</span>
+                          </div>
+                        </div>
+                        <hr>
+
+                        <div class="mt-2">
+                          <div class="form-group">
+                            <label for="comment" class="sub-title mb-3">Main Skills</label>
+                            <input type="text" class="form-control mb-3" #inputskill (keydown.enter)="
+                                addSkill(inputskill.value); inputskill.value = ''
+                              " formControlName="MainSkills" [(ngModel)]="skill" />
+                            <div *ngIf="
+                                (formGroup.invalid &&
+                                  formGroup.controls['MainSkills'].touched) ||
+                                formGroup.controls['MainSkills'].touched
+                              ">
+                              <p *ngIf="
+                                  formGroup.controls['MainSkills'].hasError('required')
+                                " class="text-danger hint">
+                                Required skills
+                              </p>
+                            </div>
+                          </div>
+                          <div *ngFor="let skill of skills; let currentIndex = index" class="mb-2 float-left">
+                            <span class="badge background-badge ml-2 p-2 rounded-pill text-white" #span
+                              (click)="removeSkill(currentIndex)">{{ skill }}</span>
+                          </div>
+                        </div>
+                        <br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="bg-danger btn-outline-danger text-white p-2" aria-label="Close"
+          (click)="basicModal.hide()" mdbWavesEffect>Cancel
+        </button>
+        <button type="button" (click)="updateData(); basicModal.hide()" [disabled]="formGroup.invalid"
+          class="submit-btn float-right p-2">Update
+          your data</button>
+      </div>
+    </div>
+  </div>
+</div>

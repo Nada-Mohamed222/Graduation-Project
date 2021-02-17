@@ -15,3 +15,20 @@
 .text-color {
   color: #37a000;
 }
+
+
+.my-btn,
+.submit-btn:hover {
+  color: #37A000;
+  border: #37A000 solid 1px;
+  background-color: transparent;
+  /* font-size: 15px; */
+}
+
+
+.my-btn:hover,
+.submit-btn {
+  color: white;
+  border: #37A000 solid 1px;
+  background-color: #37A000;
+}

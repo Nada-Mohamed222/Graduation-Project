@@ -47,16 +47,16 @@ export class HomeComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(10),
+          Validators.minLength(2),
+          Validators.maxLength(16),
         ],
       ],
       LastName: [
         '',
         [
           Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(10),
+          Validators.minLength(2),
+          Validators.maxLength(16),
         ],
       ],
       Password: [
