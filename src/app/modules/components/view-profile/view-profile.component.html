@@ -8,17 +8,13 @@
         <div class="card justify-content-center mx-auto shadow-lg border">
           <div class="card-header" style="background-color: transparent">
             <div class="media p-3">
-              <img
-                src="http://localhost:5000/{{ freelancer.ImageURL }}"
-                alt="Profile Photo"
-                class="mr-3 rounded-circle"
+              <img src="http://localhost:5000/{{ freelancer.ImageURL }}" alt="Profile Photo" class="mr-3 rounded-circle"
                 style="
                   height: 100px !important;
                   width: 100px !important;
                   border-radius: 50%;
                   object-fit: cover;
-                "
-              />
+                " />
               <div class="media-body">
                 <h4>
                   {{ freelancer.FirstName }}
@@ -66,9 +62,7 @@
                       </div>
 
                       <div class="col-lg-5">
-                        <span class="float-right font-weight ml-3"
-                          >${{ freelancer.HourlyRate }}/hr</span
-                        ><br />
+                        <span class="float-right font-weight ml-3">${{ freelancer.HourlyRate }}/hr</span><br />
                       </div>
                     </div>
                     <p class="mt-4">{{ freelancer.ProfessionalOverview }}</p>
@@ -115,12 +109,9 @@
                         <div>
                           <span>To freelancer: </span>
 
-                          <a routerLink="/freelancer/{{ freelancer.UserName }}"
-                            ><span class="header-link-jobs" class="text-color"
-                              >{{ freelancer.FirstName }}
-                              {{ LastNameFirstLetter }}.</span
-                            ></a
-                          >
+                          <a routerLink="/freelancer/{{ freelancer.UserName }}"><span class="header-link-jobs"
+                              class="text-color">{{ freelancer.FirstName }}
+                              {{ LastNameFirstLetter }}.</span></a>
 
                           <span>
                             <span class="fa fa-star text-color"></span>
@@ -169,7 +160,8 @@
                   <div class="row mt-4">
                     <div class="col-lg-2">
                       <div class="media col-lg-12">
-                        <img [src]="inputImage" alt="Profile Photo" class="mr-3 rounded-circle" style="
+                        <img src="http://localhost:5000/{{inputImage}}" alt="Profile Photo" class="mr-3 rounded-circle"
+                          style="
                                         height: 100px !important;
                                         width: 100px !important;
                                         border-radius: 50%;
@@ -185,13 +177,24 @@
 
                     </div>
 
+
                     <div class="col-lg-5">
+                      <div class="form-group col-md-12" hidden>
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="inputHidden"></label>
+                            <input formControlName="Hidden" type="text" class="form-control input-fontSize-form"
+                              id="inputHidden" placeholder="First name" #InputHidden />
+                          </div>
+                        </div>
+                      </div>
+
                       <div class="form-group col-md-12">
                         <div class="form-row" hidden>
-                          <div class="form-group col-md-6" hidden>
-                            <label for="inputFirstName"></label>
-                            <input formControlName="FirstName" type="text" class="form-control input-fontSize-form"
-                              id="inputFirstName" placeholder="First name" #InputFirstName />
+                          <div class="form-group col-md-6">
+                            <label for="inputHidden2"></label>
+                            <input formControlName="Hidden2" type="text" class="form-control input-fontSize-form"
+                              id="inputHidden2" placeholder="First name" #InputHidden2 />
                           </div>
                         </div>
                         <label for="inputFirstName">First Name:</label>
@@ -468,7 +471,7 @@
                             <label for="comment" class="sub-title mb-3">Main Skills</label>
                             <input type="text" class="form-control mb-3" #inputskill (keydown.enter)="
                                 addSkill(inputskill.value); inputskill.value = ''
-                              " formControlName="MainSkills" [(ngModel)]="skill" />
+                              " formControlName="MainSkills" />
                             <div *ngIf="
                                 (formGroup.invalid &&
                                   formGroup.controls['MainSkills'].touched) ||

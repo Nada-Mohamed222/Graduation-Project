@@ -18,7 +18,7 @@ export class ViewProfileComponent implements OnInit {
   freelancerJobs: Array<Job>;
   formGroup: FormGroup;
   uploadedImage: any;
-  inputImage: any = "https://www.pngarts.com/files/3/Avatar-PNG-Free-Download.png";
+  inputImage: any = "uploads/avatar.png";
   remaningCharacters: number = 5000;
   skill: string = "";
   skills: any = [];
@@ -52,6 +52,8 @@ export class ViewProfileComponent implements OnInit {
         (response: Freelancer) => {
           this.freelancer = response;
           this.formGroup = this._formBuilder.group({
+            Hidden2: [""],
+            Hidden: [""],
             FirstName: [this.freelancer.FirstName, [Validators.required, Validators.minLength(2), Validators.maxLength(16)]],
             LastName: [this.freelancer.LastName, [Validators.required, Validators.minLength(2), Validators.maxLength(16)]],
             profile: [""],
@@ -66,13 +68,13 @@ export class ViewProfileComponent implements OnInit {
           })
           this.isMyAccount ? this.titleService.setTitle(`${this.freelancer.FirstName} ${this.freelancer.LastName} - ${this.freelancer.Title.slice(0, 20)}`) : this.titleService.setTitle(`${this.freelancer.FirstName} ${this.freelancer.LastName.slice(0, 1)}. - ${this.freelancer.Title.slice(0, 20)}`);
           this.skills = this.freelancer.Skills;
-          this.inputImage = `http://localhost:5000/${this.freelancer.ImageURL}`;
-          this.LastNameFirstLetter = response.LastName.slice(0,1)
+          this.inputImage = `${this.freelancer.ImageURL}`;
+          this.LastNameFirstLetter = response.LastName.slice(0, 1)
           this.FreelancerSkills = response.Skills[0].split(',')
           this._freelancerService.getFreelancerJobsPublic(this.username).subscribe((response: Array<Job>) => {
             this.freelancerJobs = response;
             this.FreelancerJobsLength = response.length
-            
+
           }, err => {
             console.log("Can't get jobs")
           })
