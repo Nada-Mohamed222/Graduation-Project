@@ -17,22 +17,23 @@ import { LanguagesComponent } from './signup/languages/languages.component';
 import { HourlyrateComponent } from './signup/hourlyrate/hourlyrate.component';
 import { ProfilephotoComponent } from './signup/profilephoto/profilephoto.component';
 import { MyProposalsComponent } from './my-proposals/my-proposals.component';
+import { GuardedRoutesGuard } from 'src/app/services/guard/guarded-routes.guard';
 
 const routes: Routes = [
   // {path:'home',component:HomeComponent},
-  { path: 'getstarted', component: GetstartedComponent },
-  { path: 'expertise', component: ExpertiseComponent },
-  { path: 'expertiselevel', component: ExpertiselevelComponent },
-  { path: 'education', component: EducationComponent },
-  { path: 'employment', component: EmploymentComponent },
-  { path: 'languages', component: LanguagesComponent },
-  { path: 'hourlyrate', component: HourlyrateComponent },
-  { path: 'titleoverview', component: TitleoverviewComponent },
-  { path: 'profilephoto', component: ProfilephotoComponent },
-  { path: 'location', component: LocationComponent },
-  { path: 'phone', component: PhoneComponent },
-  { path: 'reviewprofile', component: ReviewProfileComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'getstarted', component: GetstartedComponent, canActivate:[GuardedRoutesGuard] },
+  { path: 'expertise', component: ExpertiseComponent, canActivate:[GuardedRoutesGuard] },
+  { path: 'expertiselevel', component: ExpertiselevelComponent, canActivate:[GuardedRoutesGuard] },
+  { path: 'education', component: EducationComponent, canActivate:[GuardedRoutesGuard] },
+  { path: 'employment', component: EmploymentComponent, canActivate:[GuardedRoutesGuard] },
+  { path: 'languages', component: LanguagesComponent, canActivate:[GuardedRoutesGuard] },
+  { path: 'hourlyrate', component: HourlyrateComponent, canActivate:[GuardedRoutesGuard] },
+  { path: 'titleoverview', component: TitleoverviewComponent , canActivate:[GuardedRoutesGuard]},
+  { path: 'profilephoto', component: ProfilephotoComponent, canActivate:[GuardedRoutesGuard] },
+  { path: 'location', component: LocationComponent, canActivate:[GuardedRoutesGuard] },
+  { path: 'phone', component: PhoneComponent, canActivate:[GuardedRoutesGuard] },
+  { path: 'reviewprofile', component: ReviewProfileComponent, canActivate:[GuardedRoutesGuard]  },
+  { path: 'profile', component: ProfileComponent, canActivate:[GuardedRoutesGuard] },
 ];
 @NgModule({
   declarations: [],

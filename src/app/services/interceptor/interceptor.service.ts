@@ -18,7 +18,7 @@ export class InterceptorService implements HttpInterceptor {
         ()=>{
 
           this._loaderService.isLoading.next(false)
-          console.log("Hello from inter");
+          console.log("Hello from interceptor");
 
         }
       )

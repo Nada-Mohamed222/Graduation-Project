@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
   isSignedUp: boolean = true;
   freelancerSignUpArr: Freelancer[] = [];
   formGroup: FormGroup;
+  isLoggedFlag: boolean = false;
 
   constructor(
     private _formBuilder: FormBuilder,

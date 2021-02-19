@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
 
       this.isLoaded = true;
       this._freelancerService.login(userLogin, this.userType).subscribe(
-        (response: any) => {
+          (response: any) => {
           this.isLoaded = false;
           this._jwtTokenService.decodeToken(response.token);
           console.log(response);
@@ -59,17 +59,24 @@ export class LoginComponent implements OnInit {
               if (response.isVerified === true) {
                 // -----check user type if verfied
                 if (this.userType === 'talent') {
-                  this.router.navigateByUrl('/freelancer/profile');
-                } else {
-                this.router.navigateByUrl('/profile/jobs');
+                  this.router.navigateByUrl('/freelancer/profile')
+                  // window.location.reload();
+                    }
+                else {
+                this.router.navigateByUrl('/profile/jobs').then(() => {
+                  window.location.reload();
+                });;
               }
               //---------------------------
             } else {
               if (this.userType === 'talent') {
-                this.router.navigateByUrl('/freelancer/getstarted');
-              } else {
+                this.router.navigateByUrl("/freelancer/profile")
+              } 
+              else {
                 console.log(`not verfied ${this.userType}`);
-                this.router.navigateByUrl('/post-job/title');
+                this.router.navigateByUrl('/post-job/title').then(() => {
+                  window.location.reload();
+                });;
               }
             }
           },

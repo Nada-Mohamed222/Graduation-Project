@@ -6,19 +6,27 @@
       <!-- View Profile -->
       <div class="container-fluid backGround-color pb-5">
         <div class="card justify-content-center mx-auto shadow-lg border">
-          <div class="card-header" style="background-color: transparent;">
+          <div class="card-header" style="background-color: transparent">
             <div class="media p-3">
-              <img src="http://localhost:5000/{{freelancer.ImageURL}}" alt="Profile Photo" class="mr-3 rounded-circle"
+              <img
+                src="http://localhost:5000/{{ freelancer.ImageURL }}"
+                alt="Profile Photo"
+                class="mr-3 rounded-circle"
                 style="
-                                height: 100px !important;
-                                width: 100px !important;
-                                border-radius: 50%;
-                                object-fit: cover;" />
+                  height: 100px !important;
+                  width: 100px !important;
+                  border-radius: 50%;
+                  object-fit: cover;
+                "
+              />
               <div class="media-body">
-                <h4> {{freelancer.FirstName}} {{freelancer.LastName.slice(0, 1)}}.</h4>
+                <h4>
+                  {{ freelancer.FirstName }}
+                  {{ LastNameFirstLetter }}.
+                </h4>
                 <span class="fontsize-location ml-2">
                   <i class="fas fa-map-marker-alt fa-lg pr-3"></i>
-                  {{freelancer.Country}}
+                  {{ freelancer.Country }}
                 </span>
               </div>
               <button *ngIf="isMyAccount" type="button" color="primary" class="my-btn p-2" (click)="basicModal.show()"
@@ -26,19 +34,21 @@
                 Edit My Profile
               </button>
             </div>
-            <hr>
+            <hr />
             <!-- <div class="vr-line"></div> -->
             <div class="card-body">
               <div class="row">
                 <div class="col-lg-3">
                   <div class="active"></div>
-                  <h5>Main Service</h5><br>
-                  <p>{{freelancer.MainService}}</p>
-                  <hr>
+                  <h5>Main Service</h5>
+                  <br />
+                  <p>{{ freelancer.MainService }}</p>
+                  <hr />
 
                   <div>
                     <h5 class="mb-3 mt-5">Availability</h5>
-                    <p>{{freelancer.Availability}}</p><br><br>
+                    <p>{{ freelancer.Availability }}</p>
+                    <br /><br />
                   </div>
 
                   <div>
@@ -52,16 +62,18 @@
                   <div>
                     <div class="row">
                       <div class="col-lg-5">
-                        <h5>{{freelancer.Title}}</h5>
+                        <h5>{{ freelancer.Title }}</h5>
                       </div>
 
                       <div class="col-lg-5">
-                        <span class="float-right font-weight ml-3">${{freelancer.HourlyRate}}/hr</span><br>
+                        <span class="float-right font-weight ml-3"
+                          >${{ freelancer.HourlyRate }}/hr</span
+                        ><br />
                       </div>
                     </div>
-                    <p class="mt-4">{{freelancer.ProfessionalOverview}}</p>
+                    <p class="mt-4">{{ freelancer.ProfessionalOverview }}</p>
                   </div>
-                  <hr>
+                  <hr />
 
                   <div class="mt-5">
                     <h5>Skills</h5>
@@ -71,17 +83,19 @@
                       </span>
                     </div>
                   </div>
-                  <br>
-                  <hr>
+                  <br />
+                  <hr />
 
                   <div class="mt-2">
                     <h5>Recent Job History</h5>
-                    <div *ngIf="freelancerJobs.length < 1"> No Recent Jobs For This Freelancer</div>
+                    <div *ngIf="FreelancerJobsLength < 1">
+                      No Recent Jobs For This Freelancer
+                    </div>
                     <div *ngFor="let job of freelancerJobs">
                       <div class="card-body mb-1 p-2">
                         <p class="card-title h5">
-                          <a routerLink="/job/{{job._id}}" class="text-color">
-                            {{job.Name}}
+                          <a routerLink="/job/{{ job._id }}" class="text-color">
+                            {{ job.Name }}
                           </a>
                         </p>
                         <!-- </div> -->
@@ -95,16 +109,18 @@
                             <span class="fa fa-star text-color"></span>
                           </span>
 
-                          <span>{{job.TelentReview}}
-                          </span>
+                          <span>{{ job.TelentReview }} </span>
                         </div>
 
                         <div>
                           <span>To freelancer: </span>
 
-                          <a routerLink="/freelancer/{{freelancer.UserName}}"><span class="header-link-jobs"
-                              class="text-color">{{freelancer.FirstName}}
-                              {{freelancer.LastName.slice(0, 1)}}.</span></a>
+                          <a routerLink="/freelancer/{{ freelancer.UserName }}"
+                            ><span class="header-link-jobs" class="text-color"
+                              >{{ freelancer.FirstName }}
+                              {{ LastNameFirstLetter }}.</span
+                            ></a
+                          >
 
                           <span>
                             <span class="fa fa-star text-color"></span>
@@ -114,19 +130,17 @@
                             <span class="fa fa-star text-color"></span>
                           </span>
 
-                          <span>{{job.EmployerReview}}</span>
+                          <span>{{ job.EmployerReview }}</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>

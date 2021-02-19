@@ -45,9 +45,8 @@ export class ExpertiseComponent implements OnInit {
     }
   }
 
-  removeSkill(skill: string) {
-    let index = this.skills.indexOf(skill);
-    this.skills.splice(index, 1);
+  removeSkill(currentIndex) {
+    this.skills.splice(currentIndex, 1);
   }
 
 }

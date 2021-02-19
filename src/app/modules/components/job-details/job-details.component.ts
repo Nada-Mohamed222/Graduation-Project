@@ -22,6 +22,8 @@ export class JobDetailsComponent implements OnInit {
   freelancer: Freelancer = new Freelancer();
   // proposal: Proposals['Proposals'] = new Proposals().Proposals;
   proposals: number = 0;
+  createdAt: String;
+
   constructor(
     private _freelancerService: FreelancerService,
     private _clientService: ClientService,
@@ -46,6 +48,8 @@ export class JobDetailsComponent implements OnInit {
       this._freelancerService.getAJob(this.id).subscribe(
         (response: any) => {
           this.job = response;
+          this.createdAt = response.createdAt.slice(0,10); 
+          console.log(this.createdAt);
           this.proposals = response.TotalProposals;
           console.log(this.proposals);
           this.checkSubmition();

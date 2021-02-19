@@ -24,6 +24,9 @@ export class ViewProfileComponent implements OnInit {
   isMyAccount: boolean = false;
 
 
+  LastNameFirstLetter: String;
+  FreelancerSkills: Array<string>
+  FreelancerJobsLength: number
 
   constructor(
     private _freelancerService: FreelancerService,
@@ -60,8 +63,12 @@ export class ViewProfileComponent implements OnInit {
           })
           this.skills = this.freelancer.Skills;
           this.inputImage = `http://localhost:5000/${this.freelancer.ImageURL}`;
+          this.LastNameFirstLetter = response.LastName.slice(0,1)
+          this.FreelancerSkills = response.Skills[0].split(',')
           this._freelancerService.getFreelancerJobsPublic(this.username).subscribe((response: Array<Job>) => {
             this.freelancerJobs = response;
+            this.FreelancerJobsLength = response.length
+            
           }, err => {
             console.log("Can't get jobs")
           })
