@@ -1,4 +1,10 @@
 <div class="container backGround-color pb-5 pt-5">
+  <div class="alert alert-success w-75 mb-5" role="alert" *ngIf="isSubmitted">
+    <span>You already submitted a proposal for this job</span>
+  </div>
+  <div class="alert alert-danger w-75 mb-5" role="alert" *ngIf="job.Status === 'Done'">
+    <span>This job is Expired, go ahead and look for new jobs <a routerLink="/freelancer/profile">here</a></span>
+  </div>
   <div class="row no-gutters mx-auto mb-2">
     <strong class="h3 font-weight-bold"> Job Details</strong>
   </div>
@@ -10,7 +16,7 @@
         </div>
         <hr />
         <div>
-          <a class="text-success">{{ job.Category }}</a>
+          <a class="text-color">{{ job.Category }}</a>
         </div>
         <small>Posted At {{ createdAt }}</small>
         <div class="pt-2">
@@ -30,12 +36,26 @@
         <div>
           <div class="row">
             <div class="col-sm-6 col-lg-5">
-              <strong>${{ job.Price }}</strong><br />
-              <small class="text-secondary">Fixed Price</small>
+              <div class="row">
+                <div class="col-lg-1">
+                  <i class="fas fa-coins mr-2"></i>
+                </div>
+                <div class="col-lg-10">
+                  <strong>${{ job.Price }}.00</strong><br />
+                  <small class="text-secondary">Fixed Price</small>
+                </div>
+              </div>
             </div>
             <div class="col-sm-6 col-lg-5">
-              <strong>{{ job.ExpertiseLevel }}</strong><br />
-              <small class="text-secondary">Experience level</small>
+              <div class="row">
+                <div class="col-lg-1">
+                  <i class="fas fa-brain mr-2"></i>
+                </div>
+                <div class="col-lg-10">
+                  <strong>{{ job.ExpertiseLevel }}</strong><br />
+                  <small class="text-secondary">Experience level</small>
+                </div>
+              </div>
             </div>
           </div>
           <hr />
@@ -65,13 +85,20 @@
     <div class="card shadow-md col-sm-12 col-lg-3">
       <div *ngIf="!isSubmitted">
         <div class="my-3 mx-auto">
-          <a routerLink="apply">
-            <button type="button" [disabled]="freelancer.Connects < job.ConnectsNeeded"
-              class="btn btn-success submit-btn-color">
-              Submit a proposal
+          <a routerLink="apply" *ngIf="job.Status != 'Done'">
+            <button type=" button" [disabled]="freelancer.Connects < job.ConnectsNeeded"
+              class="btn submit-btn-color w-100 my-2 text-white font-weight-bold">
+              Submit a Proposal
             </button>
           </a>
-          <p>Available Connects: {{ freelancer.Connects }}</p>
+          <button type="button" class="btn btn-white text-color btn-outline-color w-100 my-2 font-weight-bold"
+            (click)="isSaved ? removeFromSaved() : addToSaved()">
+            <i class="far fa-heart mr-2 " [ngClass]="{fas: isSaved}"></i>{{isSaved ? "Saved" : "Save Job"}}
+          </button>
+          <p class="py-2 text-muted">
+            <span>Required Connects to submit a proposal: {{ job.ConnectsNeeded }}</span>
+          </p>
+          <h6 class="text-muted">Available Connects: {{ freelancer.Connects }}</h6>
           <hr />
         </div>
       </div>
@@ -81,10 +108,10 @@
           <span class="pb-2">Rating:</span>
 
           <span class="ml-2">
-            <span class="fa fa-star text-success"></span>
-            <span class="fa fa-star text-success"></span>
-            <span class="fa fa-star text-success"></span>
-            <span class="fa fa-star text-success"></span>
+            <span class="fa fa-star text-color"></span>
+            <span class="fa fa-star text-color"></span>
+            <span class="fa fa-star text-color"></span>
+            <span class="fa fa-star text-color"></span>
             <span class="fa fa-star text-color"></span>
           </span>
         </div>
@@ -112,7 +139,7 @@
       <div *ngFor="let job of clientJobs; let currentIndex = index">
         <div *ngIf="currentIndex >= clientJobs.length - 5" class="card-body mb-1 p-4">
           <p class="card-title h5">
-            <a class="header-link-jobs">
+            <a routerLink="/job/{{job._id}}" class="header-link-jobs">
               {{ job.Name }}
             </a>
           </p>
@@ -135,7 +162,7 @@
           <div>
             <span>To freelancer: </span>
 
-            <a routerLink="/freelancer/{{ job.TalentUserName }}" class="header-link-jobs">
+            <a routerLink="/freelancer/{{ job.HiredTalent }}" class="header-link-jobs">
               Mukash {{ job.TalentUserName }}
             </a>
 

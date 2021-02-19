@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { SharingDataService } from './../../shared/services/sharing-data.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -22,8 +23,11 @@ export class BudgetComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private _sharingData: SharingDataService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle("Post New Job - Project Budget");
+  }
 
   ngOnInit(): void {
     this.budgetForm = this._formBuilder.group({

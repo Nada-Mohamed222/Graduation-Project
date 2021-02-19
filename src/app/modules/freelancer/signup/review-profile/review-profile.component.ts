@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { FreelancerService } from '../../../../services/freelancer-service/freelancer.service';
@@ -28,8 +29,11 @@ export class ReviewProfileComponent implements OnInit {
   constructor(
     private _sharingData: SharingDataService,
     private _freelancerService: FreelancerService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle("Sign Up - Review My Data");
+  }
 
   ngOnInit(): void {
     if (!this._sharingData.isEligible.review) {

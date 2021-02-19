@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
@@ -16,7 +17,9 @@ export class ExpertiseComponent implements OnInit {
   skill: string = "";
   skills: Array<string> = [];
   formGroup: FormGroup;
-  constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService) { }
+  constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private titleService: Title) {
+    this.titleService.setTitle("Sign Up - Expertise");
+  }
 
   ngOnInit(): void {
     const expertiseData: any = this._sharingData.getExpertiseData();

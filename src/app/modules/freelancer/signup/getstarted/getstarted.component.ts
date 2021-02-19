@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { SharingDataService } from './../sharing-data-service/sharing-data.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class GetstartedComponent implements OnInit {
   completedData: any;
 
-  constructor(private _sharingData: SharingDataService) { }
+  constructor(private _sharingData: SharingDataService, private titleService: Title) {
+    this.titleService.setTitle("Sign Up - Get Started");
+  }
 
   ngOnInit(): void {
     this.completedData = this._sharingData.isEligible;

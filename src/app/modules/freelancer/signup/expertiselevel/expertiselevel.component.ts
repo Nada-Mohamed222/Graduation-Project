@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -11,7 +12,9 @@ import { SharingDataService } from '../sharing-data-service/sharing-data.service
 export class ExpertiselevelComponent implements OnInit {
   formGroup: FormGroup;
   completedData: any;
-  constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
+  constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router, private titleService: Title) {
+    this.titleService.setTitle("Sign Up - Expertise Level");
+  }
 
   ngOnInit(): void {
     const expertiseLevelData: any = this._sharingData.getExpertiseLevelData();

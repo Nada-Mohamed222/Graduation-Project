@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { AuthService } from './../../../services/auth-service/auth.service';
 // import { User } from './../../../models/user';
 import { ClientService } from '../../../services/client-service/client.service';
@@ -39,8 +40,11 @@ export class HomeComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private _freelancerService: FreelancerService,
     private router: Router,
-    private _jwtTokenService: JwtTokenService
-  ) { }
+    private _jwtTokenService: JwtTokenService,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle("Upwork - Sign Up");
+  }
 
   ngOnInit(): void {
     this.formGroup = this._formBuilder.group({

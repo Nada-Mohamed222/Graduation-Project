@@ -41,7 +41,9 @@ export class ApiService {
   }
 
   delete(url: string) {
-    return this._httpClient.delete(`${environment.apiURL}/${url}`);
+    return this._httpClient.delete(`${environment.apiURL}/${url}`, {
+      withCredentials: true,
+    });
   }
 
   logout(url: string){

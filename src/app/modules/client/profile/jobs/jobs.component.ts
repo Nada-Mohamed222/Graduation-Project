@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ClientService } from './../../../../services/client-service/client.service';
 import { Component, OnInit } from '@angular/core';
@@ -19,8 +20,11 @@ export class JobsComponent implements OnInit {
     private _getJob: JobPost,
     private _clientService: ClientService,
     private router: Router,
-    private _sharingData: SharingDataService
-  ) {}
+    private _sharingData: SharingDataService,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle("My Jobs");
+  }
 
   ngOnInit(): void {
     this._getJob

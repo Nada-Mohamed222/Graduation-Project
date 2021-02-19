@@ -1,138 +1,136 @@
-		.fontsize-card-header {
-		  /* font-size: 12px; */
-		}
+.icon-color {
+  color: #37A000;
+}
 
-		.icon-color {
-		  color: #37A000;
-		}
+.hover-color:hover {
+  background-color: rgb(230, 230, 230);
+}
 
-		.hover-color:hover {
-		  background-color: rgb(230, 230, 230);
-		}
+.backGround-color {
+  background-color: #f9f9f9;
+}
 
-		.backGround-color {
-		  background-color: #f9f9f9;
-		}
+.w-70 {
+  width: 70%;
+}
 
-		.w-70 {
-		  width: 70%;
-		}
+.active {
+  border-left: #37A000 3px solid;
+}
 
-		.fontsize-sidebar {
-		  /* font-size: 14px; */
-		}
+.text-color {
+  color: #37A000;
+}
 
-		.active {
-		  border-left: #37A000 3px solid;
-		}
+.bg-color {
+  background-color: #37A000;
+}
 
-		.text-color {
-		  color: #37A000;
-		}
+.border-color {
+  border: #37A000 solid 1px;
+}
 
-		.bg-color {
-		  background-color: #37A000;
-		}
-
-		.border-color {
-		  border: #37A000 solid 1px;
-		}
-
-		.header-link-jobs:visited,
-		.header-link-jobs:link,
-		.header-link-jobs:active {
-		  text-decoration: none;
-		  color: black;
-		}
+.header-link-jobs:visited,
+.header-link-jobs:link,
+.header-link-jobs:active {
+  text-decoration: none;
+  color: black;
+}
 
 
-		.header-link-jobs:hover {
-		  color: #37A000;
-		  text-decoration: underline;
-		}
+.header-link-jobs:hover {
+  color: #37A000;
+  text-decoration: underline;
+}
 
-		.paragraph-fontSize {
-		  /* font-size: 36px; */
-		}
+.paragraph-content-fontSize {
+  /* font-size: 12px; */
+  line-height: 1.9;
+}
 
-		.paragraph-content-fontSize {
-		  /* font-size: 12px; */
-		  line-height: 1.9;
-		}
+.background-badge {
+  background-color: #ebebeb;
+  /* font-size: 12px; */
+  font-weight: normal;
+}
 
-		.background-badge {
-		  background-color: #ebebeb;
-		  /* font-size: 12px; */
-		  font-weight: normal;
-		}
+.background-badge:hover {
+  background-color: gainsboro;
+}
 
-		.background-badge:hover {
-		  background-color: gainsboro;
-		}
+.square:before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: -10px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #ffffff transparent;
+  z-index: 9999;
+}
 
-		.square:before {
-		  content: "";
-		  position: absolute;
-		  left: 11px;
-		  top: -10px;
-		  width: 0;
-		  height: 0;
-		  border-style: solid;
-		  border-width: 0 10px 10px 10px;
-		  border-color: transparent transparent #ffffff transparent;
-		  z-index: 9999;
-		}
+.square:after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: -22px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 17px 17px 17px;
+  border-color: transparent transparent #ffffff transparent;
+  z-index: 9998;
+}
 
-		.square:after {
-		  content: "";
-		  position: absolute;
-		  left: 4px;
-		  top: -22px;
-		  width: 0;
-		  height: 0;
-		  border-style: solid;
-		  border-width: 0 17px 17px 17px;
-		  border-color: transparent transparent #ffffff transparent;
-		  z-index: 9998;
-		}
+.square {
+  background: #ffffff;
+  border: 8px solid #fffefe;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  float: left;
+  position: absolute;
+  margin: 0;
+  top: 2.8em;
+  width: 200px;
+  z-index: 99999;
+}
 
-		.square {
-		  background: #ffffff;
-		  border: 8px solid #fffefe;
-		  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-		  float: left;
-		  position: absolute;
-		  margin: 0;
-		  top: 2.8em;
-		  width: 200px;
-		  z-index: 99999;
-		}
+.cursor-pointer {
+  cursor: pointer;
+}
 
-		.cursor-pointer {
-		  cursor: pointer;
-		}
+.image-sidebar {
+  width: 2rem;
+}
 
-		.image-sidebar {
-		  width: 2rem;
-		}
-
-		.profile-link-jobs:visited,
-		.profile-link-jobs:link,
-		.profile-link-jobs:active {
-		  text-decoration: none;
-		  color: #37A000;
-		}
+.profile-link-jobs:visited,
+.profile-link-jobs:link,
+.profile-link-jobs:active {
+  text-decoration: none;
+  color: #37A000;
+}
 
 
-		.profile-link-jobs:hover {
-		  color: #37A000;
-		  text-decoration: underline;
-		}
+.profile-link-jobs:hover {
+  color: #37A000;
+  text-decoration: underline;
+}
 
-		.header-color {
-		  background-color: #1D4354 !important;
-		}
+.header-color {
+  background-color: #1D4354 !important;
+}
 
-		.navbar {
-		  margin-bottom: 0 !important;
-		}
+.navbar {
+  margin-bottom: 0 !important;
+}
+
+.back-btn:hover {
+  background-color: #37A000;
+  color: white;
+}
+
+.btn-outline-color {
+  border: solid 1px #bebebe;
+  padding: 10px 15px;
+}

@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +15,9 @@ export class HourlyrateComponent implements OnInit {
   deductedAmount: string = "";
   formGroup: FormGroup;
   completedData: any;
-  constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
+  constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router, private titleService: Title) {
+    this.titleService.setTitle("Sign Up - Hourly Rate");
+  }
 
   ngOnInit(): void {
     const HourlyRateData: any = this._sharingData.getHourlyRateData();

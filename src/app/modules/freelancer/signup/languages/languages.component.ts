@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,9 @@ export class LanguagesComponent implements OnInit {
   HaveAntherLanguage: boolean = false;
   formGroup: FormGroup;
   completedData: any;
-  constructor(private _formBulider: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
+  constructor(private _formBulider: FormBuilder, private _sharingData: SharingDataService, private router: Router, private titleService: Title) {
+    this.titleService.setTitle("Sign Up - English Proficiency");
+  }
 
   ngOnInit(): void {
     const LanguageData: any = this._sharingData.getLanguageData();
