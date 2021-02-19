@@ -36,21 +36,20 @@ export class JobDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this._freelancerService.getFreelancerAuth().subscribe(
-      (response: Freelancer) => {
-        this.freelancer = response;
+      async (response: Freelancer) => {
+        this.freelancer = await response;
       },
       (error) => {
         console.log("Can't get freelancer details!");
       }
     );
 
-    this.route.params.subscribe((params) => {
-      this.id = params['id'];
-      window.scrollTo(0, 0);
+    this.route.params.subscribe(async (params) => {
+      this.id = await params['id'];
       this._freelancerService.getAJob(this.id).subscribe(
-        (response: any) => {
-          this.job = response;
-          this.proposals = response.TotalProposals;
+        async (response: any) => {
+          this.job = await response;
+          this.proposals = await response.TotalProposals;
           this.titleService.setTitle(`${this.job.Name.slice(0, 30)} - ${this.job.Category.slice(0, 25)}`);
           this.checkSubmition();
           this.checkSaved();

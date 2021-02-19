@@ -22,7 +22,6 @@ export class ProfileComponent implements OnInit {
   freelancer: Freelancer = new Freelancer();
   skill: string = '';
   jobs: Array<object> = [];
-  searchedValue: string;
   PageNumber: any = { PageNumber: 1 }
   NoMoreJobs: boolean = false;
 
@@ -38,8 +37,11 @@ export class ProfileComponent implements OnInit {
     this.loadJobs()
   }
 
-  submitSearch(searchedValue) {
-    this.router.navigate([`/job/search/${searchedValue}`]);
+  submitSearch(searchedValue: string) {
+    if (searchedValue) {
+      this.PageNumber = { PageNumber: 1 };
+      this.router.navigate([`/job/search/${searchedValue}`]);
+    }
   }
 
   loadJobs() {
@@ -70,8 +72,12 @@ export class ProfileComponent implements OnInit {
   }
 
   updateJobs(response: any) {
-    this.jobs = [...this.jobs, ...response.jobs];
+    console.log(response)
+    if (this.PageNumber.PageNumber == 1) this.jobs = response.jobs
+    else this.jobs = [...this.jobs, ...response.jobs]
+
     this.PageNumber.PageNumber++;
+
     if (response.jobs.length < 1) {
       this.NoMoreJobs = true
     }
