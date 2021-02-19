@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Freelancer } from './../../../../models/freelancer';
 import { Router } from '@angular/router';
 import { FreelancerService } from '../../../../services/freelancer-service/freelancer.service';
@@ -25,8 +26,11 @@ export class ProfilephotoComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private _sharingData: SharingDataService,
     private _freelancerService: FreelancerService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle("Sign Up - Profile Photo");
+  }
 
   ngOnInit(): void {
     const profilePhotoData: any = this._sharingData.getProfilePhotoData();

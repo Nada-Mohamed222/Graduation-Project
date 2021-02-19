@@ -1,42 +1,141 @@
-.bg-navbar{
-    background-color:  #1D4354;
-}
-.navbar-collapse{
-    flex-grow: 0;
-}
-.signipBtn{
-    color:white;
-    background-color:#37a000;
-    font-weight:bold;
-}
-.signipBtn:hover{
-    background-color:white;
-    font-weight:bold;
-    color:#37a000;
-}
-.loginBtn{
-    color:white;
-}
-.loginBtn:hover{
-    color:#37a000;
-    font-weight:bold;
-}
-.width-logo{
-    width: 15%;;
-}
-.content-header{
-    color:#1D4354 ;
-}
-.content-paragraph{
-    line-height: 1.7;
-}
-.bg-color{
-    background-color: #f9f9f9;
-}
-.img-width{
-    width:15%;
+.bg-navbar {
+  background-color: #1D4354;
 }
 
-.fixResp{
-    margin-bottom: 90px !important;
+.navbar-collapse {
+  flex-grow: 0;
+}
+
+.signipBtn {
+  color: white;
+  background-color: #37a000;
+  font-weight: bold;
+}
+
+.signipBtn:hover {
+  background-color: white;
+  font-weight: bold;
+  color: #37a000;
+}
+
+.loginBtn {
+  color: white;
+}
+
+.loginBtn:hover {
+  color: #37a000;
+  font-weight: bold;
+}
+
+.width-logo {
+  width: 15%;
+  ;
+}
+
+.content-header {
+  color: #1D4354;
+}
+
+.content-paragraph {
+  line-height: 1.7;
+}
+
+.bg-color {
+  background-color: #f9f9f9;
+}
+
+.img-width {
+  width: 15%;
+}
+
+.fixResp {
+  margin-bottom: 90px !important;
+}
+
+@keyframes imgMove {
+  0% {
+    transform: translateX(0%);
+  }
+
+  25% {
+    transform: translateX(3%);
+  }
+
+  50% {
+    transform: translateX(5%);
+  }
+
+  75% {
+    transform: translateX(3%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes imgMove-2 {
+  0% {
+    transform: translateX(0%);
+  }
+
+  25% {
+    transform: translateX(-3%);
+  }
+
+  50% {
+    transform: translateX(-5%);
+  }
+
+  75% {
+    transform: translateX(-3%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(0%);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translateY(3%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0%)
+  }
+
+  50% {
+    transform: scale(2%);
+  }
+
+  100% {
+    transform: scale(4%);
+  }
+}
+
+.img-animation-1 {
+  animation: imgMove 1s linear alternate;
+}
+
+.img-animation-2 {
+  animation: imgMove-2 1s linear backwards;
+}
+
+.content-animation {
+  animation: moveInBottom 1s linear backwards;
+
 }

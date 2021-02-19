@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ClientService } from '../../../services/client-service/client.service';
 import { FreelancerService } from '../../../services/freelancer-service/freelancer.service';
 import { Component, OnInit } from '@angular/core';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-view-profile',
@@ -29,8 +30,11 @@ export class ViewProfileComponent implements OnInit {
     private _freelancerService: FreelancerService,
     private route: ActivatedRoute,
     private router: Router,
-    private _formBuilder: FormBuilder
-  ) { }
+    private _formBuilder: FormBuilder,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle(`Upwork`);
+  }
 
   ngOnInit(): void {
     this.loadData()
@@ -40,7 +44,6 @@ export class ViewProfileComponent implements OnInit {
   loadData() {
     this.route.params.subscribe((params) => {
       this.username = params['username'];
-      console.log(localStorage.getItem('UserName'))
       this.username == localStorage.getItem('UserName') ? this.isMyAccount = true : this.isMyAccount = false;
       this._freelancerService.getFreelancerPublic(this.username).subscribe(
         (response: Freelancer) => {
@@ -58,6 +61,7 @@ export class ViewProfileComponent implements OnInit {
             MainSkills: [""],
             Location: [this.freelancer.Country, [Validators.required]]
           })
+          this.isMyAccount ? this.titleService.setTitle(`${this.freelancer.FirstName} ${this.freelancer.LastName} - ${this.freelancer.Title.slice(0, 20)}`) : this.titleService.setTitle(`${this.freelancer.FirstName} ${this.freelancer.LastName.slice(0, 1)}. - ${this.freelancer.Title.slice(0, 20)}`);
           this.skills = this.freelancer.Skills;
           this.inputImage = `http://localhost:5000/${this.freelancer.ImageURL}`;
           this._freelancerService.getFreelancerJobsPublic(this.username).subscribe((response: Array<Job>) => {
@@ -131,12 +135,10 @@ export class ViewProfileComponent implements OnInit {
     console.log(formData)
     this._freelancerService.update(formData).subscribe(
       (response) => {
-        console.log('Response ', response);
         this.loadData()
       },
       (error) => {
-        console.log(error);
-        alert('Sorry error occurred');
+        console.log('Sorry error occurred');
       }
     );
   }

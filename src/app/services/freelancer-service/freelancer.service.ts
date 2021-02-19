@@ -43,7 +43,7 @@ export class FreelancerService {
 
 
   getLogin(type: string) {
-    return this._apiServices.get(`${type}/${localStorage.getItem('UserName')}`);
+    return this._apiServices.get(`${type}/auth/${localStorage.getItem('UserName')}`);
   }
 
   getByUserName(username: string) {
@@ -80,5 +80,13 @@ export class FreelancerService {
 
   getFreelancerProfile(userName: string) {
     return this._apiServices.get(`talent/${userName}`);
+  }
+
+  saveNewJob(JobID: String) {
+    return this._apiServices.post(`talent/${localStorage.getItem('UserName')}/${JobID}/save`, "");
+  }
+
+  removeSavedJob(JobID: String) {
+    return this._apiServices.delete(`talent/${localStorage.getItem('UserName')}/${JobID}/save`);
   }
 }

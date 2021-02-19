@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,9 @@ export class PhoneComponent implements OnInit {
 
   formGroup: FormGroup;
   completedData: any;
-  constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
+  constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router, private titleService: Title) {
+    this.titleService.setTitle("Sign Up - Contact Info");
+  }
 
   ngOnInit(): void {
     const phoneData: any = this._sharingData.getPhoneData();

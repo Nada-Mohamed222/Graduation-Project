@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,9 @@ export class TitleoverviewComponent implements OnInit {
   remaningCharacters: number = 5000;
   formGroup: FormGroup;
   completedData: any;
-  constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router) { }
+  constructor(private _formBuilder: FormBuilder, private _sharingData: SharingDataService, private router: Router, private titleService: Title) {
+    this.titleService.setTitle("Sign Up - Title & Professional Overview");
+  }
 
   ngOnInit(): void {
     const TitleOverviewData: any = this._sharingData.getTitleOverviewData();

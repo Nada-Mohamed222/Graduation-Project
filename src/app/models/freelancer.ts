@@ -18,4 +18,5 @@ export class Freelancer {
     PhoneNumber: Number;
     Availability: String;
     Connects: number;
+    SavedJobs: Array<String>;
 }

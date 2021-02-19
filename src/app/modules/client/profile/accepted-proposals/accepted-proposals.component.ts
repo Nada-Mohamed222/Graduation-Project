@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { AcceptedProposals } from './../../../../models/acceptedProposals';
 import { map } from 'rxjs/operators';
 import { ClientService } from './../../../../services/client-service/client.service';
@@ -10,7 +11,9 @@ import { SharingDataService } from '../../shared/services/sharing-data.service';
   styleUrls: ['./accepted-proposals.component.css'],
 })
 export class AcceptedProposalsComponent implements OnInit {
-  constructor(private _clientService: ClientService) {}
+  constructor(private _clientService: ClientService, private titleService: Title) {
+    this.titleService.setTitle("My Active Offers");
+  }
 
   acceptedProposals: any = [];
   jobId: string;

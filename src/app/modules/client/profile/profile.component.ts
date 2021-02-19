@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 import { JobPost } from 'src/app/services/job-service/job-post.service';
 import { map } from 'rxjs/operators';
@@ -10,7 +11,9 @@ import { Job } from 'src/app/models/job';
 export class ProfileComponent implements OnInit {
   jobs: {};
   skills = ['html', 'css'];
-  constructor(private _getJob: JobPost) {}
+  constructor(private _getJob: JobPost, private titleService: Title) {
+    this.titleService.setTitle("My Profile");
+  }
 
   ngOnInit(): void {
     //   this._getJob

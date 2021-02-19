@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { ClientService } from '../../../services/client-service/client.service';
 import { Job } from 'src/app/models/job';
 import { Component, OnInit } from '@angular/core';
@@ -18,8 +19,11 @@ export class ProposeComponent implements OnInit {
   constructor(
     private _freelancerService: FreelancerService,
     private route: ActivatedRoute,
-    private router: Router
-  ) { }
+    private router: Router,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle("Upwork");
+  }
 
   ngOnInit(): void {
     this._freelancerService.getFreelancerAuth().subscribe(
@@ -37,6 +41,7 @@ export class ProposeComponent implements OnInit {
       this._freelancerService.getAJob(this.id).subscribe(
         (response: any) => {
           this.job = response;
+          this.titleService.setTitle(`Apply for ${this.job.Name.slice(0, 50)}`);
         },
         (error) => {
           console.log("Can't get job details");

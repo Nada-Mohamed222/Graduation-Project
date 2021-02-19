@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { SharingDataService } from './../../shared/services/sharing-data.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -27,8 +28,11 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private _sharingData: SharingDataService
-  ) {}
+    private _sharingData: SharingDataService,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle("Post New Job - More Details");
+  }
 
   ngOnInit(): void {
     //building form

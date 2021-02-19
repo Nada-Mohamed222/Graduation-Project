@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Proposals } from './../../../models/proposals';
 import { Client } from './../../../models/client';
 import { ClientService } from '../../../services/client-service/client.service';
@@ -22,21 +23,24 @@ export class JobDetailsComponent implements OnInit {
   freelancer: Freelancer = new Freelancer();
   // proposal: Proposals['Proposals'] = new Proposals().Proposals;
   proposals: number = 0;
+  isSaved: Boolean = false
+
   constructor(
     private _freelancerService: FreelancerService,
     private _clientService: ClientService,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle("Upwork");
+  }
 
   ngOnInit(): void {
     this._freelancerService.getFreelancerAuth().subscribe(
       (response: Freelancer) => {
         this.freelancer = response;
-        console.log(response);
       },
       (error) => {
-        console.log(error);
-        alert('Wrong Error!');
+        console.log("Can't get freelancer details!");
       }
     );
 
@@ -47,8 +51,9 @@ export class JobDetailsComponent implements OnInit {
         (response: any) => {
           this.job = response;
           this.proposals = response.TotalProposals;
-          console.log(this.proposals);
+          this.titleService.setTitle(`${this.job.Name.slice(0, 30)} - ${this.job.Category.slice(0, 25)}`);
           this.checkSubmition();
+          this.checkSaved();
           // FIXME: remove params
           this._clientService.getPublicClient(this.job.EmployerUserName).subscribe(
             (response: Client) => {
@@ -75,17 +80,36 @@ export class JobDetailsComponent implements OnInit {
         }
       );
     });
+
+  }
+
+  checkSaved() {
+    this.freelancer.SavedJobs.includes(this.id) ? this.isSaved = true : this.isSaved = false;
   }
 
   checkSubmition() {
     const check = this.freelancer.Proposals.find((item) => {
-      console.log(item.Job);
       return item.Job == this.job._id;
     });
-    console.log(check);
 
     if (check) {
       this.isSubmitted = true;
     }
+  }
+
+  addToSaved() {
+    this._freelancerService.saveNewJob(this.id).subscribe(response => {
+      this.isSaved = true;
+    }, error => {
+      console.log("Can't add this job to your saved collection")
+    })
+  }
+
+  removeFromSaved() {
+    this._freelancerService.removeSavedJob(this.id).subscribe(response => {
+      this.isSaved = false;
+    }, error => {
+      console.log("Can't remove this job from your saved collection")
+    })
   }
 }

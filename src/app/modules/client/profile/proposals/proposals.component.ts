@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Proposals } from './../../../../models/proposals';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FreelancerService } from 'src/app/services/freelancer-service/freelancer.service';
@@ -18,8 +19,11 @@ export class ProposalsComponent implements OnInit {
     private _freelacerService: FreelancerService,
     private router: Router,
     private route: ActivatedRoute,
-    private _sharingData: SharingDataService
-  ) {}
+    private _sharingData: SharingDataService,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle("Job Proposals");
+  }
 
   proposals: any = [];
   userName: string;
