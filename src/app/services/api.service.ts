@@ -43,34 +43,10 @@ export class ApiService {
   delete(url: string) {
     return this._httpClient.delete(`${environment.apiURL}/${url}`);
   }
+
+  logout(url: string){
+    return this._httpClient.post(`${environment.apiURL}/${url}`,{
+      withCredentials: true,
+    })
+  }
 }
-
-//   get(url: string) {
-//     return this._httpClient.get(`${environment.apiURL}/${url}`);
-//   }
-
-//   Loginpost(url: string, body: any) {
-//     return this._httpClient.post(`${environment.apiURL}/${url}`, body, {
-//       withCredentials: true,
-//     });
-//   }
-
-//   post(url: string, body: any) {
-//     return this._httpClient.post(
-//       `${environment.apiURL}/${url}`,
-//       body,
-
-//       { withCredentials: true }
-//     );
-//   }
-
-//   Patch(url: string, body: any) {
-//     return this._httpClient.patch(`${environment.apiURL}/${url}`, body, {
-//       withCredentials: true,
-//     });
-//   }
-
-//   delete(url: string) {
-//     return this._httpClient.delete(`${environment.apiURL}/${url}`);
-//   }
-// }

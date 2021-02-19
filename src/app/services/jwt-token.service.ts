@@ -20,6 +20,8 @@ export class JwtTokenService {
 
   decodeToken(token: any) {
     let decodedToken: any = jwt_decode(token);
+    console.log(decodedToken.Type);
+    localStorage.setItem("Type", decodedToken.Type)
     localStorage.setItem("UserName", decodedToken.Username);
   }
 }

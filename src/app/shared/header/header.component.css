@@ -2,5 +2,29 @@
     background-color:#1D4354 !important;
 }
 .imageFix{
-    width: 4% !important;
+   object-fit: cover; 
+   height: 40px !important; 
+   width: 40px !important;
 }
+
+.nav-link:hover{
+    color:#37a000 !important;
+}
+
+.colorfix{
+    color:#37a000 !important;
+}
+
+.spinner{
+    position: absolute;
+    z-index: 99;
+    top: 50%;
+    left: 50%;
+    background-color:white;
+}
+
+.logout{
+    position: absolute;
+    left: 92%;
+}
+

@@ -1,3 +1,4 @@
+// import { GuardedRoutesGuard } from './services/guard/guarded-routes.guard';
 import { InterceptorService } from './services/interceptor/interceptor.service';
 // import { AuthInterceptorsService } from './services/auth-service/auth-interceptors.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -62,6 +63,8 @@ import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
       useClass: InterceptorService,
       multi: true,
     },
+      // GuardedRoutesGuard
+    
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

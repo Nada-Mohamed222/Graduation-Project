@@ -12,7 +12,7 @@
         <div>
           <a class="text-success">{{ job.Category }}</a>
         </div>
-        <small>Posted At {{ job.createdAt.slice(0, 10) }}</small>
+        <small>Posted At {{ createdAt }}</small>
         <div class="pt-2">
           <small class="fas fa-map-marker-alt" aria-hidden="true">
             {{ job.Country ? job.Country : "Worldwide" }}</small>

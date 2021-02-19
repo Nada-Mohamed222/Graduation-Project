@@ -1,3 +1,4 @@
+import { GuardedRoutesGuard } from 'src/app/services/guard/guarded-routes.guard';
 import { ErrorComponent } from './modules/components/error/error.component';
 import { ProposeComponent } from './modules/components/propose/propose.component';
 import { UpworkLandingPageComponent } from './modules/components/upwork-landing-page/upwork-landing-page.component';
@@ -22,7 +23,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('../app/modules/client/profile/profile.module').then(
         (m) => m.ProfileModule
-      ),
+      ),canActivate:[GuardedRoutesGuard]
   },
   {
     path: 'freelancer',
@@ -72,12 +73,12 @@ const routes: Routes = [
   {
     path: 'freelancer/my-proposals',
     component: MyProposalsComponent,
-    pathMatch: 'full',
+    pathMatch: 'full', canActivate:[GuardedRoutesGuard]
   },
   {
     path: 'freelancer/:username',
     component: ViewProfileComponent,
-    pathMatch: 'full',
+    pathMatch: 'full', canActivate:[GuardedRoutesGuard]
   },
   {path:'', component:UpworkLandingPageComponent},
   {path:'**', component:ErrorComponent},

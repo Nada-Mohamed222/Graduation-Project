@@ -14,7 +14,7 @@ export class ProposeComponent implements OnInit {
   id: string = '';
   job: Job = new Job();
   freelancer: Freelancer = new Freelancer();
-
+  DateCreated: string;
   constructor(
     private _freelancerService: FreelancerService,
     private route: ActivatedRoute,
@@ -37,6 +37,7 @@ export class ProposeComponent implements OnInit {
       this._freelancerService.getAJob(this.id).subscribe(
         (response: any) => {
           this.job = response;
+          this.DateCreated = this.job.createdAt.slice(0,10);
         },
         (error) => {
           console.log("Can't get job details");
