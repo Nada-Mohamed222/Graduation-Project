@@ -72,7 +72,6 @@ export class ProfileComponent implements OnInit {
   }
 
   updateJobs(response: any) {
-    console.log(response)
     if (this.PageNumber.PageNumber == 1) this.jobs = response.jobs
     else this.jobs = [...this.jobs, ...response.jobs]
 
