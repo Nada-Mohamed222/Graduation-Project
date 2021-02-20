@@ -6,7 +6,7 @@ export class Job {
   JobType: String;
 
   // may cause error
-  Skills: string;
+  Skills: any[];
 
   ExpertiseLevel: String;
   TalentsRequired: Number;
@@ -35,7 +35,7 @@ export class Job {
     Description?: string,
 
     JobType?: string,
-    Skills?: string,
+    Skills?: any[],
     ExpertiseLevel?: string,
 
     PaymentType?: string,

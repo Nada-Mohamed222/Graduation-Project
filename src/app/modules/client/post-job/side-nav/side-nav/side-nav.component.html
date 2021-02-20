@@ -2,17 +2,59 @@
 
 <section class="side-nav mt-4">
   <!-- start -->
-  <app-nave-item routerLink="/post-job/title" itemTitle="Start" icon="fas fa-pencil-alt ml-0"
-    activateCondition="{{ true }}"></app-nave-item>
+
+  <app-nave-item
+    routerLink="/post-job/title"
+    itemTitle="Start"
+    icon="fas fa-pencil-alt ml-0"
+    activateCondition="{{ true }}"
+  ></app-nave-item>
+
   <!-- Details -->
-  <app-nave-item routerLink="/post-job/details" itemTitle="Details" icon="far fa-clipboard"
-    activateCondition="{{ isStartDone }}"></app-nave-item>
+  <app-nave-item
+    *ngIf="isStartDone"
+    routerLink="/post-job/details"
+    itemTitle="Details"
+    icon="far fa-clipboard"
+    activateCondition="{{ isStartDone }}"
+  ></app-nave-item>
+  <!-- ----disabled details  -->
+  <app-nave-item
+    *ngIf="!isStartDone"
+    itemTitle="Details"
+    icon="far fa-clipboard"
+    activateCondition="{{ isStartDone }}"
+  ></app-nave-item>
   <!-- Budget -->
-  <app-nave-item routerLink="/post-job/budget" itemTitle="Budget" icon="fas fa-dollar-sign mr-3"
-    activateCondition="{{ isDetailsDone }}"></app-nave-item>
+  <app-nave-item
+    *ngIf="isDetailsDone"
+    routerLink="/post-job/budget"
+    itemTitle="Budget"
+    icon="fas fa-dollar-sign mr-2"
+    activateCondition="{{ isDetailsDone }}"
+  ></app-nave-item>
+  <!-- disable budget -->
+  <app-nave-item
+    *ngIf="!isDetailsDone"
+    itemTitle="Budget"
+    icon="fas fa-dollar-sign mr-2"
+    activateCondition="{{ isDetailsDone }}"
+  ></app-nave-item>
   <!-- Budget -->
-  <app-nave-item routerLink="/post-job/review" itemTitle="Review" icon="fas fa-check"
-    activateCondition="{{ isBudgetDone }}"></app-nave-item>
+  <app-nave-item
+    *ngIf="isBudgetDone"
+    routerLink="/post-job/review"
+    itemTitle="Review"
+    icon="fas fa-check"
+    activateCondition="{{ isBudgetDone }}"
+  ></app-nave-item>
+  <!-- ---disabled review  -->
+  <app-nave-item
+    *ngIf="!isStartDone || !isDetailsDone || !isBudgetDone"
+    itemTitle="Review"
+    icon="fas fa-check"
+    activateCondition="{{ isBudgetDone }}"
+  ></app-nave-item>
 </section>
 
 <!-- <div class=" sidenav">

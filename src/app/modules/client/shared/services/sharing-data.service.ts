@@ -32,12 +32,12 @@ export class SharingDataService {
   freelancerId = new Subject<string>();
 
   // instanse of components
-  start: TitleComponent;
+  // start: TitleComponent;
+
+  start = { jobName: '', category: 'Front-End Development', description: '' };
   details = {
     projectType: 'One Time',
-
     skillsNeed: [],
-
     screeningQuestion: '',
     freelancerNumber: '',
     experienceLevel: '',
