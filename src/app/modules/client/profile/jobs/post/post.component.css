@@ -16,3 +16,10 @@
   color: #47a815;
   cursor: pointer;
 }
+
+.skills {
+  display: inline-block;
+}
+a {
+  cursor: pointer;
+}

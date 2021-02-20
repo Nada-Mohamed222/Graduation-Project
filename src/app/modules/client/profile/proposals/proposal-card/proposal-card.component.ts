@@ -16,6 +16,7 @@ export class ProposalCardComponent implements OnInit {
   @Input() coverLetter: string =
     '    Good morning sir , i will be very happy to serve you and i can do it for you with shortest time possible but we need to discuss the details ofthe project first thank you';
   @Input() userName: string;
+  @Input() Email: string;
   constructor(
     private _freelacerService: FreelancerService,
     private router: Router

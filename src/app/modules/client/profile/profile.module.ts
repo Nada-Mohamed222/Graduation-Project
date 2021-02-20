@@ -13,27 +13,37 @@ import { JobsComponent } from './jobs/jobs.component';
 import { ProposalCardComponent } from './proposals/proposal-card/proposal-card.component';
 import { AcceptedProposalsComponent } from './accepted-proposals/accepted-proposals.component';
 import { ConfirmationComponent } from '../shared/components/confirmation/confirmation.component';
-import { InputsModule, ModalModule, NavbarModule, WavesModule } from 'angular-bootstrap-md';
+import {
+  InputsModule,
+  ModalModule,
+  NavbarModule,
+  WavesModule,
+} from 'angular-bootstrap-md';
 import { GuardedRoutesGuard } from 'src/app/services/guard/guarded-routes.guard';
 const routes: Routes = [
   {
     path: '',
     component: ProfileComponent,
     children: [
-      { path: 'jobs', component: JobsComponent, canActivate:[GuardedRoutesGuard], data: { noPanel: true, role: "Employer" } },
+      {
+        path: 'jobs',
+        component: JobsComponent,
+        canActivate: [GuardedRoutesGuard],
+        data: { noPanel: true, role: 'Employer' },
+      },
       {
         path: ':jobId/proposals',
         component: ProposalsComponent,
-        canActivate:[GuardedRoutesGuard],
-        data: { noPanel: true, role: "Employer" },
+        canActivate: [GuardedRoutesGuard],
+        data: { noPanel: true, role: 'Employer' },
       },
       {
         // `employer/${localStorage.getItem('UserName')}/active-jobs`
         path: 'accepted-proposals',
 
         component: AcceptedProposalsComponent,
-        canActivate:[GuardedRoutesGuard],
-        data: { noPanel: true, role: "Employer" },
+        canActivate: [GuardedRoutesGuard],
+        data: { noPanel: true, role: 'Employer' },
       },
     ],
   },
@@ -57,9 +67,11 @@ const routes: Routes = [
     ModalModule.forRoot(),
     InputsModule,
     NavbarModule,
-    WavesModule,   
-  CommonModule, RouterModule.forChild(routes)],
-    
+    WavesModule,
+    CommonModule,
+    RouterModule.forChild(routes),
+  ],
+
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ProfileModule {}

@@ -56,7 +56,7 @@ export class ReviewComponent implements OnInit {
   paymentType = this.checkType();
   price = this.checkPrice();
 
-  //post job data
+  //handle post job data
 
   postJob() {
     const _postJobService = this.injector.get(JobPost);
@@ -68,7 +68,8 @@ export class ReviewComponent implements OnInit {
       start.category,
       start.description,
       details.projectType,
-      details.skillsNeed,
+      // details.skillsNeed,
+      '',
       details.experienceLevel,
       this.paymentType,
       this.price,

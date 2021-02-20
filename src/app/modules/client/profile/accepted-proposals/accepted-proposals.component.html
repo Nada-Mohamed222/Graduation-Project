@@ -9,33 +9,77 @@
       >
         End Contract
       </button> -->
+      <!-- <div class="row"> 
       <div
-        (click)="endContract(a._id, a.HiredTalent._id, i)"
         class="float-right"
+        (click)="endContract(a._id, a.HiredTalent._id, i)"
       >
         <app-confirmation
           mainButton="End Contract"
           LeftButton="Yes"
           rightButton="No"
-          name="Are you sure you want to end the contract?"
+          question="Are you sure you want to end the contract with : "
+          name="{{ a.HiredTalent.FirstName + ' ' + a.HiredTalent.LastName }}"
+          functionName="endContract"
         ></app-confirmation>
       </div>
+    
 
-      <!-- </div> -->
-      <div class="row">
-        <div class="col-md-4 col-xs-12 ml-2">
+       </div> -->
+
+      <div class="row text-center">
+        <div class="col-md-3 col-xs-12 ml-2">
           <h6 class="name">
             <b>{{ a.Name }}</b>
           </h6>
         </div>
-        <div class="col-md-4 col-xs-12 ml-2">
-          <p class="hint text-muted" (click)="getFreelancerProfile(a.UserName)">
-            <b> {{ a.HiredTalent.FirstName + " " + a.HiredTalent.LastName }}</b>
+        <div class="col-md-2 col-xs-12 ml-2">
+          <p class="hint freelancere_name">
+            <b (click)="getFreelancerProfile(a.HiredTalent.UserName)">
+              {{ a.HiredTalent.FirstName + " " + a.HiredTalent.LastName }}</b
+            >
+            <br />
+            <i class="fas fa-envelope text-success"></i><b> : </b>
+            <a
+              class="text-green"
+              href="mailto:{{ a.HiredTalent.Email }}?subject=upwork job : {{
+                a.Name
+              }}&body=Dear {{
+                a.HiredTalent.FirstName + '  ' + a.HiredTalent.LastName
+              }}, you are hired for this job .........."
+              ><b>{{ a.HiredTalent.Email }}</b></a
+            >
           </p>
         </div>
-      </div>
-    </div>
+        <div class="col-md-3 col-xs-12 mb-2">
+          <small class="text-muted"
+            ><b class="text-muted hint"
+              >Hired at <i class="far fa-calendar-check"></i> :
+            </b>
 
-    <hr />
+            <b class="text-green"> {{ a.StartDate.split("T")[0] }}</b></small
+          >
+        </div>
+        <div class="col-md-3 col-xs-12">
+          <div (click)="endContract(a._id, a.HiredTalent._id, i)">
+            <app-confirmation
+              mainButton="End Contract"
+              LeftButton="Yes"
+              rightButton="No"
+              question="Are you sure you want to end the contract with : "
+              name="{{
+                a.HiredTalent.FirstName + ' ' + a.HiredTalent.LastName
+              }}"
+              functionName="endContract"
+            ></app-confirmation>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+    </div>
+    <small class="hint text-center text-muted">
+      Please add you review for more amazing experince
+    </small>
   </div>
 </div>

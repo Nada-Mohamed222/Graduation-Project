@@ -1,7 +1,7 @@
 <button
   type="button"
   color="primary"
-  class="relative waves-light btn btn-success"
+  class="relative waves-light btn btn-success px-5 py-1"
   (click)="basicModal.show()"
   mdbWavesEffect
 >
@@ -17,23 +17,62 @@
   aria-labelledby="myBasicModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog mb-0" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <button
-          type="button"
-          class="close pull-right"
-          aria-label="Close"
-          (click)="basicModal.hide()"
-        >
-          <span aria-hidden="true">×</span>
-          <br />
-        </button>
-        <p class="modal-title w-100 my-3 text-center" id="myModalLabel">
-          Are you sure you want to hire {{ name }}
-        </p>
+      <!-- modal-header  -->
+      <div class="mb-3">
+        <!-- x -->
+        <div class="row">
+          <button
+            type="button"
+            class="close pull-right"
+            aria-label="Close"
+            (click)="basicModal.hide()"
+          >
+            <span aria-hidden="true" class="">×</span>
+            <br />
+          </button>
+        </div>
+        <!-- icon -->
+        <div class="row icon text-center mt-5">
+          <i class="fas fa-4x fa-check text-green rotate"></i>
+        </div>
+
+        <!-- name & question  -->
+        <div class="row mt-3">
+          <p
+            class="modal-title w-100 text-center col-md-12 mt-4"
+            id="myModalLabel"
+          >
+            <b class="text-darkBlue">{{ question }}</b>
+            <b class="text-green"> {{ name }} </b>
+            <b> ?</b>
+          </p>
+        </div>
       </div>
-      <!-- <div class="modal-body"></div> -->
+
+      <!-- text area for review -->
+      <div class="mt-0 pb-3 px-3" *ngIf="functionName === 'endContract'">
+        <div class="md-form col-md-12">
+          <label for="form7" class="text-center"></label>
+          <textarea
+            type="text"
+            id="form7"
+            class="md-textarea md-textarea-auto form-control mt-0 pb-5"
+            placeholder="you can share your experince for this job ex : {{
+              textArea
+            }}"
+            formControlName="Review"
+            #reviewInput
+            (blur)="textValue(reviewInput.value)"
+          ></textarea>
+        </div>
+      </div>
+      <!-- 
+      <div class="modal-body">
+      
+      </div> -->
+
       <div class="modal-footer">
         <button
           type="button"
@@ -41,7 +80,7 @@
           color="secondary"
           class="waves-light btn-success btn"
           aria-label="Close"
-          (click)="basicModal.hide(); hire(false)"
+          (click)="basicModal.hide(); handleClick(functionName, false)"
           mdbWavesEffect
         >
           {{ LeftButton }}
@@ -51,7 +90,7 @@
           mdbBtn
           color="primary"
           class="relative waves-light btn btn-outline-success"
-          (click)="basicModal.hide(); hire(true)"
+          (click)="basicModal.hide(); handleClick(functionName, true)"
           mdbWavesEffect
         >
           {{ rightButton }}
