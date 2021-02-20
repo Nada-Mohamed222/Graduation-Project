@@ -1,3 +1,6 @@
+import { GuardedRoutesGuard } from 'src/app/services/guard/guarded-routes.guard';
+import { AuthService } from './../../../services/auth-service/auth.service';
+import { Subject } from 'rxjs';
 import { Title } from '@angular/platform-browser';
 import { ClientService } from '../../../services/client-service/client.service';
 import { JwtTokenService } from './../../../services/jwt-token.service';
@@ -13,6 +16,9 @@ import { Client } from 'src/app/models/client';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
+
+
+
 export class LoginComponent implements OnInit {
   formGroup: FormGroup;
   userType: string;
@@ -20,13 +26,18 @@ export class LoginComponent implements OnInit {
   isFreeLancerSelcted = false;
   isLoaded: boolean = false;
   wrongType: string = "";
+  imgURL: any;
+  imgSubject = new Subject<any>()
+  checkType : any
   constructor(
     private _formBuilder: FormBuilder,
     private _freelancerService: FreelancerService,
     private _clientService: ClientService,
     private _jwtTokenService: JwtTokenService,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    private _authService: AuthService,
+    private _guardedRoutes: GuardedRoutesGuard
   ) {
     this.titleService.setTitle("Upwork - Login");
   }
@@ -59,6 +70,13 @@ export class LoginComponent implements OnInit {
         this._freelancerService.getLogin(this.userType).subscribe(
           (response: any) => {
             localStorage.setItem("image", response.ImageURL)
+            this.imgURL = localStorage.getItem("image")
+            this.imgSubject = this.imgURL;
+            console.log(this.imgSubject);
+            this._authService.isLogged.next(true);
+            localStorage.setItem("Type", response.Type)
+            this.checkType = localStorage.getItem("Type")
+            this._authService.user.next({imgURL: this.imgURL, Type: this.checkType})
             if (response.isVerified == true) {
               // -----check user type if verfied
               if (this.userType === 'talent') {

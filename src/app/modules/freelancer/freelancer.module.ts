@@ -21,19 +21,45 @@ import { GuardedRoutesGuard } from 'src/app/services/guard/guarded-routes.guard'
 
 const routes: Routes = [
   // {path:'home',component:HomeComponent},
-  { path: 'getstarted', component: GetstartedComponent, canActivate:[GuardedRoutesGuard] },
-  { path: 'expertise', component: ExpertiseComponent, canActivate:[GuardedRoutesGuard] },
-  { path: 'expertiselevel', component: ExpertiselevelComponent, canActivate:[GuardedRoutesGuard] },
-  { path: 'education', component: EducationComponent, canActivate:[GuardedRoutesGuard] },
-  { path: 'employment', component: EmploymentComponent, canActivate:[GuardedRoutesGuard] },
-  { path: 'languages', component: LanguagesComponent, canActivate:[GuardedRoutesGuard] },
-  { path: 'hourlyrate', component: HourlyrateComponent, canActivate:[GuardedRoutesGuard] },
-  { path: 'titleoverview', component: TitleoverviewComponent , canActivate:[GuardedRoutesGuard]},
-  { path: 'profilephoto', component: ProfilephotoComponent, canActivate:[GuardedRoutesGuard] },
-  { path: 'location', component: LocationComponent, canActivate:[GuardedRoutesGuard] },
-  { path: 'phone', component: PhoneComponent, canActivate:[GuardedRoutesGuard] },
-  { path: 'reviewprofile', component: ReviewProfileComponent, canActivate:[GuardedRoutesGuard]  },
-  { path: 'profile', component: ProfileComponent, canActivate:[GuardedRoutesGuard] },
+  { path: 'getstarted', component: GetstartedComponent, canActivate:[GuardedRoutesGuard], data: {
+  role: 'Talent'
+} },
+  { path: 'expertise', component: ExpertiseComponent, canActivate:[GuardedRoutesGuard], data: {
+  role: 'Talent'
+} },
+  { path: 'expertiselevel', component: ExpertiselevelComponent, canActivate:[GuardedRoutesGuard], data: {
+  role: 'Talent'
+} },
+  { path: 'education', component: EducationComponent, canActivate:[GuardedRoutesGuard], data: {
+  role: 'Talent'
+} },
+  { path: 'employment', component: EmploymentComponent, canActivate:[GuardedRoutesGuard], data: {
+  role: 'Talent'
+} },
+  { path: 'languages', component: LanguagesComponent, canActivate:[GuardedRoutesGuard], data: {
+  role: 'Talent'
+} },
+  { path: 'hourlyrate', component: HourlyrateComponent, canActivate:[GuardedRoutesGuard], data: {
+  role: 'Talent'
+} },
+  { path: 'titleoverview', component: TitleoverviewComponent , canActivate:[GuardedRoutesGuard], data: {
+  role: 'Talent'
+}},
+  { path: 'profilephoto', component: ProfilephotoComponent, canActivate:[GuardedRoutesGuard], data: {
+  role: 'Talent'
+} },
+  { path: 'location', component: LocationComponent, canActivate:[GuardedRoutesGuard], data: {
+  role: 'Talent'
+} },
+  { path: 'phone', component: PhoneComponent, canActivate:[GuardedRoutesGuard], data: {
+  role: 'Talent'
+} },
+  { path: 'reviewprofile', component: ReviewProfileComponent, canActivate:[GuardedRoutesGuard], data: {
+  role: 'Talent'
+}  },
+  { path: 'profile', component: ProfileComponent, canActivate:[GuardedRoutesGuard], data: {
+  role: 'Talent'
+} },
 ];
 @NgModule({
   declarations: [],

@@ -69,18 +69,24 @@ const routes: Routes = [
     data: { search: true },
   },
   { path: 'job/:id', component: JobDetailsComponent, pathMatch: 'full' },
-  { path: 'job/:id/apply', component: ProposeComponent, pathMatch: 'full' },
+  { path: 'job/:id/apply', component: ProposeComponent, pathMatch: 'full', canActivate:[GuardedRoutesGuard], data: {
+    role: 'Talent'
+} },
   {
     path: 'freelancer/my-proposals',
     component: MyProposalsComponent,
-    pathMatch: 'full', canActivate:[GuardedRoutesGuard]
+    pathMatch: 'full', canActivate:[GuardedRoutesGuard], data: {
+      role: 'Talent'
+ }
   },
   {
     path: 'freelancer/:username',
     component: ViewProfileComponent,
     pathMatch: 'full', canActivate:[GuardedRoutesGuard]
   },
-  {path:'', component:UpworkLandingPageComponent},
+  {path:'', component:UpworkLandingPageComponent, canActivate:[GuardedRoutesGuard], data: {
+    role: ['Talent', 'Employer', "Guest"]
+}},
   {path:'**', component:ErrorComponent},
   {path:'error-404', component:ErrorComponent}
 ];

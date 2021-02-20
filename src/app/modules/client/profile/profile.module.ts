@@ -14,23 +14,26 @@ import { ProposalCardComponent } from './proposals/proposal-card/proposal-card.c
 import { AcceptedProposalsComponent } from './accepted-proposals/accepted-proposals.component';
 import { ConfirmationComponent } from '../shared/components/confirmation/confirmation.component';
 import { InputsModule, ModalModule, NavbarModule, WavesModule } from 'angular-bootstrap-md';
+import { GuardedRoutesGuard } from 'src/app/services/guard/guarded-routes.guard';
 const routes: Routes = [
   {
     path: '',
     component: ProfileComponent,
     children: [
-      { path: 'jobs', component: JobsComponent, data: { noPanel: true } },
+      { path: 'jobs', component: JobsComponent, canActivate:[GuardedRoutesGuard], data: { noPanel: true, role: "Employer" } },
       {
         path: ':jobId/proposals',
         component: ProposalsComponent,
-        data: { noPanel: true },
+        canActivate:[GuardedRoutesGuard],
+        data: { noPanel: true, role: "Employer" },
       },
       {
         // `employer/${localStorage.getItem('UserName')}/active-jobs`
         path: 'accepted-proposals',
 
         component: AcceptedProposalsComponent,
-        data: { noPanel: true },
+        canActivate:[GuardedRoutesGuard],
+        data: { noPanel: true, role: "Employer" },
       },
     ],
   },
