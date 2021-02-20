@@ -7,14 +7,12 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class GuardedRoutesGuard implements CanActivate {
-  constructor(private Router: Router, private _authService: AuthService){}
+  constructor(private Router: Router, private _authService: AuthService) { }
 
 
   checkType(route: ActivatedRouteSnapshot, url: any): boolean {
-    if (this._authService.isLogged) 
-    {
+    if (this._authService.isLogged) {
       const userRole = localStorage.getItem("Type")
-      console.log(userRole)
       if (route.data.role && route.data.role.indexOf(userRole) === -1) {
         this.Router.navigate(['/']);
         return false;
@@ -26,13 +24,12 @@ export class GuardedRoutesGuard implements CanActivate {
     return false;
   }
 
-  
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
+
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     this._authService.get().subscribe((response: any) => {
-        console.log(response.message);
-        this._authService.isLogged.next(true)
-    }, (error)=>{
+      this._authService.isLogged.next(true)
+    }, (error) => {
       this._authService.isLogged.next(false)
     }
     )
@@ -41,4 +38,3 @@ export class GuardedRoutesGuard implements CanActivate {
   }
 }
 
-  
