@@ -27,6 +27,7 @@ export class JobsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // get all job
     this._getJob
       .getJobs()
       .pipe(
@@ -52,18 +53,15 @@ export class JobsComponent implements OnInit {
         }
       );
   }
+  // navigate
   getjobProposals(jobId: string) {
     console.log(`berfore emmitiing  ${jobId}`);
-
     console.log('انا هنااا اهههههه');
     this._clientService.getJobProposal(jobId).subscribe(
       (response) => {
         // emit job id
         this._sharingData.jobID.next(jobId);
-        //
-
         console.log(response);
-
         console.log(jobId);
         this.router.navigateByUrl(`/profile/${jobId}/proposals`);
       },

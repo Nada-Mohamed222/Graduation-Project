@@ -33,6 +33,7 @@ export class ProposalsComponent implements OnInit {
   jobStatus: any;
   freelancerUserName: string;
   hiredId: any;
+  seeMoreFlag = false;
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -40,13 +41,13 @@ export class ProposalsComponent implements OnInit {
       this.getAll(this.jobId);
     });
 
-    this._sharingData.freelancerUsername.subscribe((data) => {
-      this.freelancerUserName = data;
-    });
-
     //   this._sharingData.jobID.subscribe((data) => {
     //     this.getAll(data);
     //   });
+
+    this._sharingData.freelancerUsername.subscribe((data) => {
+      this.freelancerUserName = data;
+    });
 
     this._sharingData.showConfirmationPopup.subscribe((data) => {
       this.showConfirmationPopup = data;
@@ -109,5 +110,10 @@ export class ProposalsComponent implements OnInit {
 
         console.log(response);
       });
+  }
+
+  seeMore(index: number) {
+    // this.seeMoreFlag = !this.seeMoreFlag;
+    this.proposals[index].seeMoreFlag = !this.proposals[index].seeMoreFlag;
   }
 }

@@ -9,3 +9,12 @@
   position: absolute;
   right: 0px;
 }
+
+.text-green {
+  color: #47a815;
+}
+.fa-circle {
+  font-size: 10px;
+  text-shadow: 0 0 11px #1d4354;
+  /* color: #1d4354; */
+}

@@ -68,19 +68,19 @@ export class ClientService {
   }
 
   //-------------------- get accepted propopsls
-  getAllAcceptedProposals() {
+  getAllAcceptedProposals(status?: string) {
     return this._apiServices.get(
-      `employer/${localStorage.getItem('UserName')}/active-jobs`
+      `employer/${localStorage.getItem('UserName')}/${status}`
     );
   }
   // --------------------------------------------
   //   "/:UserName/:id/:HiredTalentID/end-job",
 
   //--------------end contract
-  endContract(id: string, HiredTalentID: string) {
+  endContract(id: string, HiredTalentID: string, review: string) {
     return this._apiServices.Patch(
       `job/${localStorage.getItem('UserName')}/${id}/${HiredTalentID}/end-job`,
-      ''
+      { EmployerReview: review }
     );
   }
 }

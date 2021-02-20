@@ -52,7 +52,9 @@ body {
 .text-primary {
   color: #47a815;
 }
-
-.backGround-color {
-  background-color: #ebebeb;
+.text-green {
+  color: #47a815;
+}
+.text-darkBlue {
+  color: #1d4354;
 }

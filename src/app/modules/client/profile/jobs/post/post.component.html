@@ -6,20 +6,36 @@
     <p class="text-muted hint col-md-12 mt-0">
       <b>{{ paymentType }}</b> - {{ experienceLevel }} : {{ price }} $
     </p>
-    <p class="col-md-12 plain-text ml-1">{{ description | someText }}</p>
   </div>
-  <div class="skills mx-2 mt-0 text-center hint" *ngFor="let skill of skills">
+  <div class="row">
+    <div class="col-md-12">
+      <p class="plain-text d-inline" *ngIf="seeMoreFlag">
+        {{ description | someText }}
+      </p>
+      <p class="plain-text d-inline" *ngIf="!seeMoreFlag">
+        {{ description }}
+      </p>
+      <a
+        class="text-success d-inline"
+        *ngIf="description.length > 200"
+        (click)="seeMore()"
+        ><b>{{ seeMoreFlag ? "see more" : " see less" }}</b></a
+      >
+    </div>
+  </div>
+
+  <!-- <div class="skills mx-2 mt-0 text-center hint" *ngFor="let skill of skills">
     <app-chip skill="{{ skill }}"></app-chip>
-  </div>
-  <div class="row">
-    <!-- <p class="col-md-4 sub-title text-success">{{ viewsNumber }}</p> -->
-    <!-- <p class="col-md-4 sub-title">{{ messagesNumber }}</p> -->
-    <!-- <p class="col-md-4 sub-title">{{ hiredNumber }}</p> -->
-  </div>
+  </div> -->
+  <!-- <div class="row"> -->
+  <!-- <p class="col-md-4 sub-title text-success">{{ viewsNumber }}</p> -->
+  <!-- <p class="col-md-4 sub-title">{{ messagesNumber }}</p> -->
+  <!-- <p class="col-md-4 sub-title">{{ hiredNumber }}</p> -->
+  <!-- </div> -->
 
-  <div class="row">
-    <!--   routerLink="/profile/{{ jobId }}/proposals" -->
+  <!-- <div class="row"> -->
+  <!--   routerLink="/profile/{{ jobId }}/proposals" -->
 
-    <!-- <p class="col-xs-4 plain-text text-muted">Hired</p> -->
-  </div>
+  <!-- <p class="col-xs-4 plain-text text-muted">Hired</p> -->
+  <!-- </div> -->
 </div>

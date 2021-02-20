@@ -24,13 +24,25 @@ export class SharingDataService {
   jobID = new BehaviorSubject<string>(null);
   //freelancer observale
   freelancerUsername = new BehaviorSubject<string>(null);
-
   //show popup
   showConfirmationPopup = new Subject<boolean>();
+  //job Id only for end contract
+  jobId = new Subject<string>();
+  //freelancer id for end contract
+  freelancerId = new Subject<string>();
 
   // instanse of components
   start: TitleComponent;
-  details: DetailsComponent;
+  details = {
+    projectType: 'One Time',
+
+    skillsNeed: [],
+
+    screeningQuestion: '',
+    freelancerNumber: '',
+    experienceLevel: '',
+  };
+  // details: DetailsComponent;
   budget: BudgetComponent;
   pricing: PricingComponent;
   fixedPrice: FixedInputComponent;
@@ -38,6 +50,7 @@ export class SharingDataService {
   //seting start data
   setStartData(object: any) {
     this.start = object;
+    // this.startObservale.next(object);
   }
   //setting details data
   setDetailsData(object: any) {
