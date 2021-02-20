@@ -1,18 +1,29 @@
-<div class="container-fluid backGround-color pb-5 pt-5">
+<div class="container-fluid pb-5 pt-5">
   <div class="row no-gutters justify-content-center mx-auto w-75 mb-5">
     <div class="col-md-2 fontsize-sidebar pr-3">
       <strong class="h3 font-weight-bold"> Find Work </strong>
     </div>
 
-
     <div class="col-md-8 rounded-md">
       <div class="input-group mb-3">
-        <input type="text" #submitSkill class="form-control pl-4" placeholder="Search for jobs by specific skill"
-          aria-label="Search for jobs" aria-describedby="basic-addon2"
-          (keyup.enter)="submitSearch(submitSkill.value)" />
-        <div (click)="submitSearch(submitSkill.value)" class="input-group-append">
-          <span class="input-group-text bg-color cursor-pointer" id="basic-addon2"><i
-              class="fas fa-search text-white"></i></span>
+        <input
+          type="text"
+          #submitSkill
+          class="form-control pl-4"
+          placeholder="Search for jobs by specific skill"
+          aria-label="Search for jobs"
+          aria-describedby="basic-addon2"
+          (keyup.enter)="submitSearch(submitSkill.value)"
+        />
+        <div
+          (click)="submitSearch(submitSkill.value)"
+          class="input-group-append"
+        >
+          <span
+            class="input-group-text bg-color cursor-pointer"
+            id="basic-addon2"
+            ><i class="fas fa-search text-white"></i
+          ></span>
         </div>
       </div>
     </div>
@@ -26,7 +37,10 @@
 
     <div class="col-md-8 col-sm-12 rounded-md">
       <div class="card justify-content-center mx-auto shadow-md">
-        <div class="card-header get-started-title" style="background-color: transparent">
+        <div
+          class="card-header get-started-title"
+          style="background-color: transparent"
+        >
           <div class="row p-2">
             <div class="col-md-10">
               <p class="h2 inline">
@@ -35,11 +49,20 @@
             </div>
             <div class="col-md-2">
               <div class="dropdown">
-                <button class="float-right btn rounded-circle" type="button" id="dropdownMenuButton"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button
+                  class="float-right btn rounded-circle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
                   <span><i class="fas fa-ellipsis-h"></i></span>
                 </button>
-                <div class="dropdown-menu square mt-3 shadow-md" aria-labelledby="dropdownMenuButton">
+                <div
+                  class="dropdown-menu square mt-3 shadow-md"
+                  aria-labelledby="dropdownMenuButton"
+                >
                   <a class="dropdown-item" href="#">Action</a>
                   <a class="dropdown-item" href="#">Another action</a>
                   <a class="dropdown-item" href="#">Something else here</a>
@@ -49,42 +72,66 @@
           </div>
         </div>
 
-        <div *ngFor="let job of jobs; let currentIndex = index" class="card-body mb-2 p-4 border-bottom hover-color">
+        <div
+          *ngFor="let job of jobs; let currentIndex = index"
+          class="card-body mb-2 p-4 border-bottom hover-color"
+        >
           <div class="row mb-4">
             <div class="col-md-10">
               <p class="card-title h4">
-                <a routerLink="/job/{{ job.data._id }}" class="header-link-jobs">
+                <a
+                  routerLink="/job/{{ job.data._id }}"
+                  class="header-link-jobs"
+                >
                   {{ job.data.Name }}
                 </a>
               </p>
             </div>
-            <div class="col-md-2 text-color"
-              (click)="freelancer.SavedJobs.includes(job.data._id) ? removeFromSaved(job.data._id) : addToSaved(job.data._id)">
-              <div class="float-right rounded-circle btn-outline-color shadow-lg cursor-pointer">
-                <i class="far fa-heart" [ngClass]="{fas: freelancer.SavedJobs.includes(job.data._id)}"></i>
+            <div
+              class="col-md-2 text-color"
+              (click)="
+                freelancer.SavedJobs.includes(job.data._id)
+                  ? removeFromSaved(job.data._id)
+                  : addToSaved(job.data._id)
+              "
+            >
+              <div
+                class="float-right rounded-circle btn-outline-color shadow-lg cursor-pointer"
+              >
+                <i
+                  class="far fa-heart"
+                  [ngClass]="{
+                    fas: freelancer.SavedJobs.includes(job.data._id)
+                  }"
+                ></i>
               </div>
             </div>
           </div>
 
           <div class="card-text text-muted paragraph-fontSize">
-            <span style="font-weight: bold">{{ job.data.PaymentType }} -
-            </span>
+            <span style="font-weight: bold">{{ job.data.PaymentType }} - </span>
             <span> {{ job.data.ExpertiseLevel }} - </span>
             <span> Est. Time: {{ job.data.Duration }}, </span>
             <span> Est. Budget: ${{ job.data.Price }}, </span>
             <span>{{ job.data.WeeklyHoursRequired }} hrs/week</span>
             <p>Posted At: {{ job.data.createdAt.slice(0, 10) }}</p>
           </div>
-          <p class="paragraph-content-fontSize" style="background-color: transparent; border: 0">
+          <p
+            class="paragraph-content-fontSize"
+            style="background-color: transparent; border: 0"
+          >
             {{
-                job.data.Description.length > 400
-                  ? (job.data.Description | slice: 0:400) + "..."
-                  : job.data.Description
-              }}
+              job.data.Description.length > 400
+                ? (job.data.Description | slice: 0:400) + "..."
+                : job.data.Description
+            }}
           </p>
           <div *ngFor="let skill of job.data.Skills" class="mb-2 float-left">
-            <a (click)="submitSearch(skill)"
-              class="badge background-badge ml-2 p-2 rounded-pill cursor-pointer">{{ skill }}</a>
+            <a
+              (click)="submitSearch(skill)"
+              class="badge background-badge ml-2 p-2 rounded-pill cursor-pointer"
+              >{{ skill }}</a
+            >
           </div>
           <br />
 
@@ -95,32 +142,49 @@
             </p>
           </div>
           <div class="mt-3">
-            <span class="ml-2 text-muted"><i class="fas fa-map-marker-alt"></i><span
-                class="ml-2">{{ job.data.Country }}</span></span>
+            <span class="ml-2 text-muted"
+              ><i class="fas fa-map-marker-alt"></i
+              ><span class="ml-2">{{ job.data.Country }}</span></span
+            >
           </div>
         </div>
-        <button (click)="loadJobs()" *ngIf="!NoMoreJobs"
-          class="btn btn-white text-color back-btn float-left mt-3 mb-3 border border-secondary w-25 ml-3">Load
-          More Jobs</button>
+        <button
+          (click)="loadJobs()"
+          *ngIf="!NoMoreJobs"
+          class="btn btn-white text-color back-btn float-left mt-3 mb-3 border border-secondary w-25 ml-3"
+        >
+          Load More Jobs
+        </button>
       </div>
-      <div *ngIf="NoMoreJobs" class="text-muted mt-3 mb-3 w-100 ml-3 text-center">There's No
-        More Jobs to Show</div>
+      <div
+        *ngIf="NoMoreJobs"
+        class="text-muted mt-3 mb-3 w-100 ml-3 text-center"
+      >
+        There's No More Jobs to Show
+      </div>
     </div>
 
-    <div class="col-md-2  fontsize-sidebar pl-3">
+    <div class="col-md-2 fontsize-sidebar pl-3">
       <div class="h6">
-        <img style="
-              object-fit: cover;
-              height: 40px !important;
-              width: 40px !important;
-            " src="http://localhost:5000/{{ freelancer.ImageURL }}" class="image-sidebar rounded-circle" />
+        <img
+          style="
+            object-fit: cover;
+            height: 40px !important;
+            width: 40px !important;
+          "
+          src="http://localhost:5000/{{ freelancer.ImageURL }}"
+          class="image-sidebar rounded-circle"
+        />
         <strong class="ml-2">{{ freelancer.FirstName }}</strong>
       </div>
 
       <div class="mt-3 text-color">
         <i class="fas fa-eye"></i>
-        <a routerLink="/freelancer/{{ freelancer.UserName }}" class="profile-link-jobs"><strong class="ml-2">View
-            Profile</strong></a>
+        <a
+          routerLink="/freelancer/{{ freelancer.UserName }}"
+          class="profile-link-jobs"
+          ><strong class="ml-2">View Profile</strong></a
+        >
       </div>
       <div class="mt-3">
         <strong>Availability</strong>
@@ -135,18 +199,42 @@
         </div>
         <div class="col-lg-1 p-0">
           <!-- Button trigger modal -->
-          <button type="button" class="btn p-0" data-toggle="modal" data-target="#staticBackdrop">
-            <i class="fas fa-pen cursor-pointer rounded-circle bg-white p-2 border border-secondary"></i>
+          <button
+            type="button"
+            class="btn p-0"
+            data-toggle="modal"
+            data-target="#staticBackdrop"
+          >
+            <i
+              class="fas fa-pen cursor-pointer rounded-circle bg-white p-2 border border-secondary"
+            ></i>
           </button>
 
           <!-- Modal -->
-          <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div
+            class="modal fade"
+            id="staticBackdrop"
+            data-backdrop="static"
+            data-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <strong class="h4" class="modal-title" id="staticBackdropLabel">Change availability</strong>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <strong
+                    class="h4"
+                    class="modal-title"
+                    id="staticBackdropLabel"
+                    >Change availability</strong
+                  >
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -154,9 +242,8 @@
                   <div class="row mb-3">
                     <div class="col-md-6 border-right">
                       <p>
-                        Are you available to take on new work? Knowing when
-                        you are available helps Upwork find the right jobs for
-                        you.
+                        Are you available to take on new work? Knowing when you
+                        are available helps Upwork find the right jobs for you.
                       </p>
                     </div>
 
@@ -164,21 +251,37 @@
                       <strong> I am currently available for </strong>
                       <div class="mt-4">
                         <div class="form-check mt-2">
-                          <input class="form-check-input" type="radio" name="availability" id="availability1" />
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="availability"
+                            id="availability1"
+                          />
                           <label class="form-check-label" for="availability1">
                             More than 30 hrs/week
                           </label>
                         </div>
 
                         <div class="form-check mt-2">
-                          <input class="form-check-input" type="radio" name="availability" id="availability2" />
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="availability"
+                            id="availability2"
+                          />
                           <label class="form-check-label" for="availability2">
                             Less than 30 hrs/week
                           </label>
                         </div>
 
                         <div class="form-check mt-2">
-                          <input class="form-check-input" type="radio" name="availability" id="availability3" checked />
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="availability"
+                            id="availability3"
+                            checked
+                          />
                           <label class="form-check-label" for="availability3">
                             As needed - open to offers
                           </label>
@@ -188,7 +291,11 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn text-color" data-dismiss="modal">
+                  <button
+                    type="button"
+                    class="btn text-color"
+                    data-dismiss="modal"
+                  >
                     Close
                   </button>
                   <button type="button" class="btn bg-color text-white">
