@@ -15,22 +15,16 @@ import { NaveItemComponent } from './side-nav/nave-item/nave-item.component';
 import { ReviewComponent } from './review/review.component';
 import { BasicCardComponent } from '../shared/components/basic-card/basic-card.component';
 import { FixedInputComponent } from './budget/fixed-input/fixed-input.component';
+import { GuardedRoutesGuard } from 'src/app/services/guard/guarded-routes.guard';
 const routes: Routes = [
-  // {path:'',component:PostJobComponent},
-  // {path: 'home', component: HomeComponent},
-  // {path: 'title',component:TitleComponent},
-  // // {path:'nav',component:SideNavComponent},
-  // {path:'details',component:DetailsComponent},
-  // {path:'budget',component:BudgetComponent}
-
   {
     path: '',
     component: PostJobComponent,
     children: [
-      { path: 'title', component: TitleComponent, data: { noPanel: true } },
-      { path: 'details', component: DetailsComponent, data: { noPanel: true } },
-      { path: 'budget', component: BudgetComponent, data: { noPanel: true } },
-      { path: 'review', component: ReviewComponent, data: { noPanel: true } },
+      { path: 'title', component: TitleComponent, canActivate:[GuardedRoutesGuard], data: { noPanel: true, role: "Employer"  } },
+      { path: 'details', component: DetailsComponent, canActivate:[GuardedRoutesGuard], data: { noPanel: true, role: "Employer" } },
+      { path: 'budget', component: BudgetComponent, canActivate:[GuardedRoutesGuard], data: { noPanel: true, role: "Employer" } },
+      { path: 'review', component: ReviewComponent, canActivate:[GuardedRoutesGuard], data: { noPanel: true, role: "Employer" } },
     ],
 
     // { path: 'purchase-orders', component: PurchaseOrdersComponent },

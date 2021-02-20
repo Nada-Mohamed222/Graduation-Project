@@ -13,40 +13,64 @@ import { LocationStrategy } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
 
-  isVisited:boolean = true;
+
+  isVisited:boolean;
   username:string
-  image:string
+  image:any = ""
   isLogged: Boolean =false
   isEmployer: Boolean = false
   isTalent: Boolean = false
+  checkType: String = ""
+
+  
   constructor(private router:Router, public spinnerService: SpinnerService, public _authService : AuthService, private _guardedRoutes: GuardedRoutesGuard ) {
   }
+
 
   logout(){
     this._authService.logout().subscribe((response)=>{
       console.log(response)
       localStorage.clear()
-      this.router.navigateByUrl('/').then(() => {
-        window.location.reload();
-      });;
+      localStorage.setItem("Type", "Guest")
+      this.router.navigateByUrl('/')
+      this.isLogged = false
     })
   }
 
-  ngOnInit(): void {
-    this._guardedRoutes.isLogged.subscribe((response) =>{
-      this.isLogged = response
-      if(localStorage.getItem("Type")=== "Employer" && response){
+  checkUserType(){
+       console.log(this.checkType);
+      if(this.checkType === "Employer")
+      {
         this.isEmployer = true;
-      }      
-      if(localStorage.getItem("Type")=== "Talent" && response){
+        this.isTalent = false;
+      }
+      else if(this.checkType === "Talent")
+       {
         this.isTalent = true;
-      }      
+        this.isEmployer = false;
+      }
+
+      else {
+        this.isTalent = false;
+        this.isEmployer = false;
+        localStorage.setItem("Type", "Guest")
+      }
+  }
+
+
+
+  ngOnInit(): void {
+    this._authService.isLogged.subscribe((response) =>{ 
+      this.isLogged = response   
     }, (error)=>{
       console.log(error);
     })
-    console.log(this._guardedRoutes.canActivate());
     this.username =  localStorage.getItem('UserName')
-    this.image =  localStorage.getItem('image')
+    this._authService.user.subscribe((response)=> {
+      this.image = response.imgURL
+      this.checkType = response.Type
+      console.log(response);
+      this.checkUserType();
+    })
   }
-
 }

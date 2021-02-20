@@ -1,6 +1,6 @@
 import { AuthService } from './../auth-service/auth.service';
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -8,21 +8,37 @@ import { Subject } from 'rxjs';
 })
 export class GuardedRoutesGuard implements CanActivate {
   constructor(private Router: Router, private _authService: AuthService){}
-  isAllowed: boolean= false;
-  isLogged = new Subject<Boolean>()
 
-  canActivate(): boolean{
+
+  checkType(route: ActivatedRouteSnapshot, url: any): boolean {
+    if (this._authService.isLogged) 
+    {
+      const userRole = localStorage.getItem("Type")
+      console.log(userRole)
+      if (route.data.role && route.data.role.indexOf(userRole) === -1) {
+        this.Router.navigate(['/']);
+        return false;
+      }
+      return true;
+    }
+
+    this.Router.navigate(['/']);
+    return false;
+  }
+
+  
+
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
     this._authService.get().subscribe((response: any) => {
         console.log(response.message);
-        this.isAllowed = true;
-        this.isLogged.next(true)
-        return true
+        this._authService.isLogged.next(true)
     }, (error)=>{
-      this.Router.navigateByUrl('/login');
-      this.isAllowed = false;
-      this.isLogged.next(false)
+      this._authService.isLogged.next(false)
     }
     )
-    return this.isAllowed
+    let url: string = state.url;
+    return this.checkType(next, url);
   }
 }
+
+  

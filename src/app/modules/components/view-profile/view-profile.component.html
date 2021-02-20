@@ -1,6 +1,4 @@
 <div class="container-fluid backGround-color pb-5 pt-5">
-
-
   <div class="row no-gutters justify-content-center mx-auto">
     <div class="col-lg-9 h-100">
       <!-- View Profile -->
@@ -49,7 +47,7 @@
 
                   <div>
                     <h5 class="mb-3">English Proficiency</h5>
-                    <strong>{{freelancer.EnglishProficiency}}</strong>
+                    <strong>{{ freelancer.EnglishProficiency }}</strong>
                   </div>
                 </div>
 
@@ -154,14 +152,14 @@
         <div class="row no-gutters justify-content-center mx-auto">
           <div class="col-lg-12">
             <!-- View Profile -->
+
             <div class="container-fluid backGround-color" [formGroup]="formGroup">
               <div class="card justify-content-center mx-auto shadow-lg border">
-                <div class="card-header" style="background-color: transparent;">
+                <div class="card-header" style="background-color: transparent">
                   <div class="row mt-4">
                     <div class="col-lg-2">
                       <div class="media col-lg-12">
-                        <img src="http://localhost:5000/{{inputImage}}" alt="Profile Photo" class="mr-3 rounded-circle"
-                          style="
+                        <img src="{{inputImage}}" alt="Profile Photo" class="mr-3 rounded-circle" style="
                                         height: 100px !important;
                                         width: 100px !important;
                                         border-radius: 50%;
@@ -174,7 +172,6 @@
                         <input formControlName="profile" type="file" (change)="onSelectImage($event)" id="uploadImage"
                           style="visibility: hidden" />
                       </div>
-
                     </div>
 
 
@@ -202,16 +199,25 @@
                           id="inputFirstName" placeholder="First name" #InputFirstName
                           (focus)="InputFirstName.select()" />
                         <div *ngIf="
-                              formGroup.controls['FirstName'].invalid &&
-                              (formGroup.controls['FirstName'].touched ||
-                                formGroup.controls['FirstName'].dirty)
-                            ">
-                          <small class="form-text text-danger"
-                            *ngIf="formGroup.controls['FirstName'].hasError('required')">Required First Name</small>
-                          <small class="form-text text-danger"
-                            *ngIf="formGroup.controls['FirstName'].hasError('minlength')">Min Length is 2</small>
-                          <small class="form-text text-danger"
-                            *ngIf="formGroup.controls['FirstName'].hasError('maxlength')">Max Length is 16</small>
+                            formGroup.controls['FirstName'].invalid &&
+                            (formGroup.controls['FirstName'].touched ||
+                              formGroup.controls['FirstName'].dirty)
+                          ">
+                          <small class="form-text text-danger" *ngIf="
+                              formGroup.controls['FirstName'].hasError(
+                                'required'
+                              )
+                            ">Required First Name</small>
+                          <small class="form-text text-danger" *ngIf="
+                              formGroup.controls['FirstName'].hasError(
+                                'minlength'
+                              )
+                            ">Min Length is 2</small>
+                          <small class="form-text text-danger" *ngIf="
+                              formGroup.controls['FirstName'].hasError(
+                                'maxlength'
+                              )
+                            ">Max Length is 16</small>
                         </div>
                       </div>
 
@@ -224,12 +230,21 @@
                             (formGroup.controls['LastName'].touched ||
                               formGroup.controls['LastName'].dirty)
                           ">
-                          <small class="form-text text-danger"
-                            *ngIf="formGroup.controls['LastName'].hasError('required')">Required Last Name</small>
-                          <small class="form-text text-danger"
-                            *ngIf="formGroup.controls['LastName'].hasError('minlength')">Min Length is 2</small>
-                          <small class="form-text text-danger"
-                            *ngIf="formGroup.controls['LastName'].hasError('maxlength')">Max Length is 16</small>
+                          <small class="form-text text-danger" *ngIf="
+                              formGroup.controls['LastName'].hasError(
+                                'required'
+                              )
+                            ">Required Last Name</small>
+                          <small class="form-text text-danger" *ngIf="
+                              formGroup.controls['LastName'].hasError(
+                                'minlength'
+                              )
+                            ">Min Length is 2</small>
+                          <small class="form-text text-danger" *ngIf="
+                              formGroup.controls['LastName'].hasError(
+                                'maxlength'
+                              )
+                            ">Max Length is 16</small>
                         </div>
                       </div>
                     </div>
@@ -238,8 +253,8 @@
                       <!-- Country -->
                       <div class="form-group col-md-12 col-lg-12">
                         <label for="inputState" class="pg-desc-location ml-2">Country</label>
-                        <select formControlName="Location" id="inputState" class="form-control" style="font-size: 15px;"
-                          value="{{freelancer.Country}}">
+                        <select formControlName="Location" id="inputState" class="form-control" style="font-size: 15px"
+                          value="{{ freelancer.Country }}">
                           <option>Egypt</option>
                           <option>Albania</option>
                           <option>Algeria</option>
@@ -313,7 +328,7 @@
                     </div>
                   </div>
 
-                  <hr>
+                  <hr />
                   <div class="card-body">
                     <div class="row">
                       <div class="col-lg-4 mr-4">
@@ -341,7 +356,9 @@
                                 formGroup.controls['MainServices'].dirty)
                             ">
                             <small class="form-text text-danger" *ngIf="
-                                formGroup.controls['MainSkills'].hasError('required')
+                                formGroup.controls['MainSkills'].hasError(
+                                  'required'
+                                )
                               ">Required MainServices</small>
                           </div>
                         </div>
@@ -378,19 +395,26 @@
                         <div class="form-group">
                           <label for="exampleFormControlSelect1">English Proficiency</label>
                           <select formControlName="Language" class="form-control fs-categories"
-                            id="exampleFormControlSelect1" value="{{freelancer.EnglishProficiency}}">
-                            <option disabled selected>English proficiency</option>
+                            id="exampleFormControlSelect1" value="{{ freelancer.EnglishProficiency }}">
+                            <option disabled selected>
+                              English proficiency
+                            </option>
                             <option>Basic</option>
                             <option>Conversational</option>
                             <option>Fluent</option>
                             <option>Native or Bilingual</option>
                           </select>
-                          <div
-                            *ngIf="(formGroup.controls['Language'].invalid) && ((formGroup.controls['Language'].touched) ||  (formGroup.controls['Language'].dirty))">
-                            <small class="form-text text-danger"
-                              *ngIf="formGroup.controls['Language'].hasError('required')">Required Language</small>
+                          <div *ngIf="
+                              formGroup.controls['Language'].invalid &&
+                              (formGroup.controls['Language'].touched ||
+                                formGroup.controls['Language'].dirty)
+                            ">
+                            <small class="form-text text-danger" *ngIf="
+                                formGroup.controls['Language'].hasError(
+                                  'required'
+                                )
+                              ">Required Language</small>
                           </div>
-
                         </div>
                       </div>
 
@@ -401,16 +425,21 @@
                             <div class="col-lg-5">
                               <div class="form-group">
                                 <label for="exampleFormControlTitle" class="pg-desc-titleOverview">Title</label>
-                                <span class="ml-4" style="color: #37A000;"><i
+                                <span class="ml-4" style="color: #37a000"><i
                                     class="fas fa-question-circle fa-lg"></i></span>
                                 <input formControlName="Title" (focus)="InputTitle.select()" type="email"
                                   class="form-control input-desc-titleOverview" id="exampleFormControlTitle" #InputTitle
-                                  placeholder="Example: Web, Mobile & Software Dev">
-                                <div
-                                  *ngIf="formGroup.controls['Title'].invalid && (formGroup.controls['Title'].touched ||  formGroup.controls['Title'].dirty)">
-                                  <small class="form-text text-danger"
-                                    *ngIf="formGroup.controls['Title'].hasError('required')">Required
-                                    Title</small>
+                                  placeholder="Example: Web, Mobile & Software Dev" />
+                                <div *ngIf="
+                                    formGroup.controls['Title'].invalid &&
+                                    (formGroup.controls['Title'].touched ||
+                                      formGroup.controls['Title'].dirty)
+                                  ">
+                                  <small class="form-text text-danger" *ngIf="
+                                      formGroup.controls['Title'].hasError(
+                                        'required'
+                                      )
+                                    ">Required Title</small>
                                 </div>
                               </div>
                             </div>
@@ -426,18 +455,30 @@
                                     </div>
                                     <input formControlName="HourlyRate" id="inputHourlyRate" type="text"
                                       class="form-control" aria-label="Amount (to the nearest dollar)"
-                                      placeholder="10.00" (focus)="inputHourlyRate.select()" #inputHourlyRate>
+                                      placeholder="10.00" (focus)="inputHourlyRate.select()" #inputHourlyRate />
                                   </div>
-                                  <div
-                                    *ngIf="formGroup.controls['HourlyRate'].invalid && (formGroup.controls['HourlyRate'].touched ||  formGroup.controls['HourlyRate'].dirty)">
-                                    <small class="form-text text-danger"
-                                      *ngIf="formGroup.controls['HourlyRate'].hasError('required')">Required Hourly
-                                      Rate</small>
-                                    <small class="form-text text-danger"
-                                      *ngIf="formGroup.controls['HourlyRate'].hasError('min')">Min Rate is 5</small>
-                                    <small class="form-text text-danger"
-                                      *ngIf="formGroup.controls['HourlyRate'].hasError('pattern')">Value is not
-                                      acceptable</small>
+                                  <div *ngIf="
+                                      formGroup.controls['HourlyRate']
+                                        .invalid &&
+                                      (formGroup.controls['HourlyRate']
+                                        .touched ||
+                                        formGroup.controls['HourlyRate'].dirty)
+                                    ">
+                                    <small class="form-text text-danger" *ngIf="
+                                        formGroup.controls[
+                                          'HourlyRate'
+                                        ].hasError('required')
+                                      ">Required Hourly Rate</small>
+                                    <small class="form-text text-danger" *ngIf="
+                                        formGroup.controls[
+                                          'HourlyRate'
+                                        ].hasError('min')
+                                      ">Min Rate is 5</small>
+                                    <small class="form-text text-danger" *ngIf="
+                                        formGroup.controls[
+                                          'HourlyRate'
+                                        ].hasError('pattern')
+                                      ">Value is not acceptable</small>
                                   </div>
                                 </div>
                               </div>
@@ -447,24 +488,32 @@
                           <div class="form-group mt-2 mb-5">
                             <label for="exampleFormControlTextarea1" class="pg-desc-titleOverview">Professional
                               Overview</label>
-                            <span class="ml-4" style="color: #37A000;"><i
+                            <span class="ml-4" style="color: #37a000"><i
                                 class="fas fa-question-circle fa-lg"></i></span>
                             <textarea formControlName="ProfessionalOverview"
                               class="form-control textarea-desc-titleOverview" #inputCharacter
                               (keyup)="countCharacters(inputCharacter.value)" maxlength="5000"
                               (focus)="inputCharacter.select()" id="exampleFormControlTextarea1" rows="3"
                               placeholder="Highlight your top skills, experience, and interests. This is one of the first things clients will see on your profile."></textarea>
-                            <div
-                              *ngIf="formGroup.controls['ProfessionalOverview'].invalid && (formGroup.controls['ProfessionalOverview'].touched ||  formGroup.controls['ProfessionalOverview'].dirty)">
-                              <small class="form-text text-danger"
-                                *ngIf="formGroup.controls['Title'].hasError('required')">Required
-                                Professional Overview</small>
+                            <div *ngIf="
+                                formGroup.controls['ProfessionalOverview']
+                                  .invalid &&
+                                (formGroup.controls['ProfessionalOverview']
+                                  .touched ||
+                                  formGroup.controls['ProfessionalOverview']
+                                    .dirty)
+                              ">
+                              <small class="form-text text-danger" *ngIf="
+                                  formGroup.controls['Title'].hasError(
+                                    'required'
+                                  )
+                                ">Required Professional Overview</small>
                             </div>
-                            <span class="float-right textarea-titleOverview">{{remaningCharacters}} characters
+                            <span class="float-right textarea-titleOverview">{{ remaningCharacters }} characters
                               left</span>
                           </div>
                         </div>
-                        <hr>
+                        <hr />
 
                         <div class="mt-2">
                           <div class="form-group">
@@ -478,18 +527,23 @@
                                 formGroup.controls['MainSkills'].touched
                               ">
                               <p *ngIf="
-                                  formGroup.controls['MainSkills'].hasError('required')
+                                  formGroup.controls['MainSkills'].hasError(
+                                    'required'
+                                  )
                                 " class="text-danger hint">
                                 Required skills
                               </p>
                             </div>
                           </div>
-                          <div *ngFor="let skill of skills; let currentIndex = index" class="mb-2 float-left">
+                          <div *ngFor="
+                              let skill of skills;
+                              let currentIndex = index
+                            " class="mb-2 float-left">
                             <span class="badge background-badge ml-2 p-2 rounded-pill text-white" #span
                               (click)="removeSkill(currentIndex)">{{ skill }}</span>
                           </div>
                         </div>
-                        <br>
+                        <br />
                       </div>
                     </div>
                   </div>
@@ -501,11 +555,13 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="bg-danger btn-outline-danger text-white p-2" aria-label="Close"
-          (click)="basicModal.hide()" mdbWavesEffect>Cancel
+          (click)="basicModal.hide()" mdbWavesEffect>
+          Cancel
         </button>
         <button type="button" (click)="updateData(); basicModal.hide()" [disabled]="formGroup.invalid"
-          class="submit-btn float-right p-2">Update
-          your data</button>
+          class="submit-btn float-right p-2">
+          Update your data
+        </button>
       </div>
     </div>
   </div>
