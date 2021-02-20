@@ -6,10 +6,14 @@ import { ClientService } from '../../../services/client-service/client.service';
 import { JwtTokenService } from './../../../services/jwt-token.service';
 import { FreelancerService } from '../../../services/freelancer-service/freelancer.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Freelancer } from 'src/app/models/freelancer';
 import { Client } from 'src/app/models/client';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-login',
@@ -28,7 +32,7 @@ export class LoginComponent implements OnInit {
   wrongType: string = "";
   imgURL: any;
   imgSubject = new Subject<any>()
-  checkType : any
+  checkType: any
   constructor(
     private _formBuilder: FormBuilder,
     private _freelancerService: FreelancerService,
@@ -57,17 +61,12 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  Login(email, password) {
-    let userLogin: any = {};
-    userLogin.Email = email;
-    userLogin.Password = password;
-
-    this.isLoaded = true;
-    this._freelancerService.login(userLogin, this.userType).subscribe(
+  LoginService(userLogin, type) {
+    this._freelancerService.login(userLogin, type).subscribe(
       (response: any) => {
         this.isLoaded = false;
         this._jwtTokenService.decodeToken(response.token);
-        this._freelancerService.getLogin(this.userType).subscribe(
+        this._freelancerService.getLogin(type).subscribe(
           (response: any) => {
             localStorage.setItem("image", response.ImageURL)
             this.imgURL = localStorage.getItem("image")
@@ -76,17 +75,17 @@ export class LoginComponent implements OnInit {
             this._authService.isLogged.next(true);
             localStorage.setItem("Type", response.Type)
             this.checkType = localStorage.getItem("Type")
-            this._authService.user.next({imgURL: this.imgURL, Type: this.checkType})
+            this._authService.user.next({ imgURL: this.imgURL, Type: this.checkType })
             if (response.isVerified == true) {
               // -----check user type if verfied
-              if (this.userType === 'talent') {
+              if (type === 'talent') {
                 this.router.navigateByUrl('/freelancer/profile');
               } else {
                 this.router.navigateByUrl('/profile/jobs');
               }
               //---------------------------
             } else {
-              if (this.userType === 'talent') {
+              if (type === 'talent') {
                 this.router.navigateByUrl('/freelancer/getstarted');
               } else {
                 this.router.navigateByUrl('/post-job/title');
@@ -110,10 +109,20 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  Login(email, password) {
+    let userLogin: any = {};
+    userLogin.Email = email;
+    userLogin.Password = password;
+
+    this.isLoaded = true;
+
+    this.LoginService(userLogin, this.userType)
+
+  }
+
   //--------------------handle type---------------//
 
   handleUserType(type: string) {
     this.userType = type;
-    console.log(type);
   }
 }

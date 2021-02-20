@@ -117,14 +117,11 @@ export class HomeComponent implements OnInit {
     freelancerSignUp.UserName = username;
     this._freelancerService.signUp(freelancerSignUp, this.signUpType).subscribe(
       (response) => {
-        this.loginBtn(email, password);
-        if (this.signUpType === 'employer') {
-          this.router.navigateByUrl('/post-job/title');
-        }
-        if (this.signUpType === 'talent') {
-          this.router.navigateByUrl('/freelancer/getstarted');
-        }
-        console.log('Response ', response);
+        let userLogin: any = {};
+        userLogin.Email = email;
+        userLogin.Password = password;
+        console.log(this.signUpType)
+        this._loginComponent.LoginService(userLogin, this.signUpType);
       },
       (error) => {
         alert('Sorry error occurred');

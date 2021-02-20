@@ -1,4 +1,4 @@
-<div class="container-fluid backGround-color pb-5 pt-5">
+<div class="container-fluid pb-5 pt-5">
   <div class="row no-gutters justify-content-center mx-auto w-75 mb-5">
     <div class="col-md-2 fontsize-sidebar pr-3">
       <strong class="h3 font-weight-bold"> Find Work </strong>
@@ -33,19 +33,6 @@
                 {{ skill ? "Search Feed for" : "My feed" }} {{ skill }}
               </p>
             </div>
-            <div class="col-md-2">
-              <div class="dropdown">
-                <button class="float-right btn rounded-circle" type="button" id="dropdownMenuButton"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span><i class="fas fa-ellipsis-h"></i></span>
-                </button>
-                <div class="dropdown-menu square mt-3 shadow-md" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -60,7 +47,7 @@
             </div>
             <div class="col-md-2 text-color"
               (click)="freelancer.SavedJobs.includes(job.data._id) ? removeFromSaved(job.data._id) : addToSaved(job.data._id)">
-              <div class="float-right rounded-circle btn-outline-color shadow-lg cursor-pointer">
+              <div class="float-right rounded-circle btn-outline-color shadow-md cursor-pointer">
                 <i class="far fa-heart" [ngClass]="{fas: freelancer.SavedJobs.includes(job.data._id)}"></i>
               </div>
             </div>
@@ -100,7 +87,7 @@
           </div>
         </div>
         <button (click)="loadJobs()" *ngIf="!NoMoreJobs"
-          class="btn btn-white text-color back-btn float-left mt-3 mb-3 border border-secondary w-25 ml-3">Load
+          class="btn btn-white text-color back-btn float-left mt-3 mb-3 border w-25 ml-3">Load
           More Jobs</button>
       </div>
       <div *ngIf="NoMoreJobs" class="text-muted mt-3 mb-3 w-100 ml-3 text-center">There's No
@@ -132,72 +119,6 @@
         </div>
         <div class="col-lg-10 p-0 pl-3 pr-1">
           {{ freelancer.Availability }}
-        </div>
-        <div class="col-lg-1 p-0">
-          <!-- Button trigger modal -->
-          <button type="button" class="btn p-0" data-toggle="modal" data-target="#staticBackdrop">
-            <i class="fas fa-pen cursor-pointer rounded-circle bg-white p-2 border border-secondary"></i>
-          </button>
-
-          <!-- Modal -->
-          <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <strong class="h4" class="modal-title" id="staticBackdropLabel">Change availability</strong>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div class="row mb-3">
-                    <div class="col-md-6 border-right">
-                      <p>
-                        Are you available to take on new work? Knowing when
-                        you are available helps Upwork find the right jobs for
-                        you.
-                      </p>
-                    </div>
-
-                    <div class="col-md-6">
-                      <strong> I am currently available for </strong>
-                      <div class="mt-4">
-                        <div class="form-check mt-2">
-                          <input class="form-check-input" type="radio" name="availability" id="availability1" />
-                          <label class="form-check-label" for="availability1">
-                            More than 30 hrs/week
-                          </label>
-                        </div>
-
-                        <div class="form-check mt-2">
-                          <input class="form-check-input" type="radio" name="availability" id="availability2" />
-                          <label class="form-check-label" for="availability2">
-                            Less than 30 hrs/week
-                          </label>
-                        </div>
-
-                        <div class="form-check mt-2">
-                          <input class="form-check-input" type="radio" name="availability" id="availability3" checked />
-                          <label class="form-check-label" for="availability3">
-                            As needed - open to offers
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn text-color" data-dismiss="modal">
-                    Close
-                  </button>
-                  <button type="button" class="btn bg-color text-white">
-                    Understood
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
