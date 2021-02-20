@@ -26,6 +26,8 @@ export class PostComponent implements OnInit {
   @Input() skills: string;
   @Input() jobId: string;
 
+  seeMoreFlag = false;
+
   // id = new Subject<string>();
 
   constructor(
@@ -40,10 +42,6 @@ export class PostComponent implements OnInit {
     console.log('انا هناااا');
     this._clientService.getJobProposal(jobId).subscribe(
       (response) => {
-        // emit job id
-        // this._sharingData.jobID.next(this.jobId);
-        //
-
         console.log(response);
 
         console.log(jobId);
@@ -54,5 +52,8 @@ export class PostComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+  seeMore() {
+    this.seeMoreFlag = !this.seeMoreFlag;
   }
 }

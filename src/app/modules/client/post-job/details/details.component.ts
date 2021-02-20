@@ -8,8 +8,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit {
-  skill: string = '';
+  skill = '';
+
   skills: string[] = [];
+  // skills: any[] = [];
 
   isOneTime = true;
   isEntery = true;
@@ -17,13 +19,24 @@ export class DetailsComponent implements OnInit {
   isMoreThanOne: boolean = false;
 
   detailsForm: FormGroup;
-  projectType: string;
-  skillsNeed: string;
-  screeningQuestion: string;
-  freelancerNumber: string;
-  experienceLevel: string;
+  projectType = 'One Time';
+  skillsNeed: any = '';
+  screeningQuestion: string = '';
+  freelancerNumber = 'One freelancer';
+  experienceLevel = 'Entry';
 
   isFreelancerNumberValid: boolean;
+
+  // initail value of the end user data
+  endUserData = {
+    projectType: 'One Time',
+
+    skillsNeed: [],
+
+    screeningQuestion: '',
+    freelancerNumber: '',
+    experienceLevel: '',
+  };
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -34,21 +47,25 @@ export class DetailsComponent implements OnInit {
     //building form
 
     this.detailsForm = this._formBuilder.group({
-      ProjectType: ['One Time'],
+      ProjectType: [this.projectType],
       Skills: [''],
       ScreeningQuestion: [''],
       FreelancerNumber: ['One freelancer'],
       ExperienceLevel: ['Entry'],
     });
 
-    // if (localStorage.getItem("details") !== null){
-    //   var details = JSON.parse(localStorage.getItem('details'));
-    //   this.detailsForm.controls['ProjectType'].setValue(details.projectType),
-    //   console.log(this.detailsForm.controls['ProjectType'].value);
-    // this.detailsForm.controls["Skills"].setValue(details.skillsNeed)
-    // this.detailsForm.controls['screeningQuestion'].setValue(details.screeningQuestion),
-    // this.detailsForm.controls['FreelancerNumber'].setValue(details.freelancerNumber),
-    //  this.detailsForm.controls['ExperienceLevel'].setValue(details.ExperienceLevel)
+    // set value of the end user data
+
+    this.endUserData = this._sharingData.getDetailsData();
+    this.projectType = this.endUserData.projectType;
+    this.freelancerNumber = this.endUserData.freelancerNumber;
+    this.experienceLevel = this.endUserData.experienceLevel;
+    this.skills = this.endUserData.skillsNeed.slice();
+
+    console.log('hhhhhhhhhhhhhh');
+    console.log(this.skills);
+
+    console.log(this.endUserData.skillsNeed);
   }
 
   //adding skills
@@ -61,6 +78,7 @@ export class DetailsComponent implements OnInit {
   //removeing skill
   removeSkill(skill: string) {
     let index = this.skills.indexOf(skill);
+
     this.skills.splice(index, 1);
   }
 

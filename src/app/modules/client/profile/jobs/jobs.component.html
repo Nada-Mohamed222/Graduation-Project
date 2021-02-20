@@ -34,16 +34,21 @@
             priceType="{{ job.PaymentType }}"
             jobId="{{ job._id }}"
           ></app-post>
-          <div
-            class="skills mx-2 mt-0 text-center hint"
-            *ngFor="let skill of job.Skills"
-          >
-            <app-chip skill="{{ skill }}"></app-chip>
+          <div class="col-md-12">
+            <div
+              class="skills mx-2 mt-0 mb-2 text-center hint d-inline-block"
+              *ngFor="let skill of job.Skills"
+            >
+              <app-chip skill="{{ skill }}"></app-chip>
+            </div>
           </div>
 
-          <p class="mt-2 mx-4" (click)="getjobProposals(job._id)">
-            <b class="proposals">Proposal : </b>
-            <b>{{ job.Proposals.length }}</b>
+          <p class="mt-2 prop" (click)="getjobProposals(job._id)">
+            <i class="fas fa-circle text-green m-3"></i>
+            <b class="proposals">Proposal </b>
+
+            <b class="text-green">:</b>
+            <b class="number"> {{ " " + job.Proposals.length }}</b>
           </p>
           <hr />
         </div>

@@ -1,6 +1,7 @@
 .end-contract {
   position: absolute;
   right: 5%;
+  bottom: 1%;
 }
 .hire,
 .hired {
@@ -12,4 +13,14 @@
 .name,
 .hint {
   display: inline;
+}
+.text-green {
+  color: #47a815;
+}
+.freelancere_name {
+  color: #6c757d;
+}
+.freelancere_name:hover {
+  cursor: pointer;
+  color: #47a815;
 }

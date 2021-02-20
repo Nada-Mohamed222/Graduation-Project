@@ -7,17 +7,32 @@
   /* color: #fff; */
 }
 
-i {
-  cursor: pointer;
-  position: absolute;
-  right: 0px;
-}
-i:hover {
-  color: firebrick;
+.md-form {
+  display: block;
 }
 @media only screen and (max-width: 600px) {
   .card {
     width: 70%;
     left: 15%;
   }
+}
+.rotate {
+  animation: rotation 1s linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotateY(359deg);
+  }
+}
+
+.icon {
+  position: relative;
+  left: 49%;
+}
+.i {
+  border: 2px solid #47a815;
 }

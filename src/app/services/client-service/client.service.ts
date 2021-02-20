@@ -77,10 +77,10 @@ export class ClientService {
   //   "/:UserName/:id/:HiredTalentID/end-job",
 
   //--------------end contract
-  endContract(id: string, HiredTalentID: string) {
+  endContract(id: string, HiredTalentID: string, review: string) {
     return this._apiServices.Patch(
       `job/${localStorage.getItem('UserName')}/${id}/${HiredTalentID}/end-job`,
-      ''
+      { EmployerReview: review }
     );
   }
 }

@@ -9,7 +9,7 @@
       <div class="card">
         <div class="card-body mb-5">
           <header>
-            <h1 class="main-title">Get started</h1>
+            <p class="main-title">Get started</p>
             <p class="hint text-muted ml-2">Step 1 to 7</p>
 
             <hr />
@@ -24,6 +24,7 @@
               class="form-control w-50"
               name="job_name"
               formControlName="JobName"
+              [(ngModel)]="jobName"
             />
             <p class="m-1 hint">ex : Bla Bla</p>
             <div
@@ -54,6 +55,7 @@
               id="option1"
               formControlName="option"
               value="Front-End Development"
+              [(ngModel)]="category"
             />
             <label for="option1" class="h5 plain-text ml-2"
               ><span> Front-End Development</span></label
@@ -66,6 +68,7 @@
               id="option2"
               formControlName="option"
               value="Full Stack Development"
+              [(ngModel)]="category"
             />
             <label for="option2" class="h5 plain-text ml-2"
               >Full Stack Development</label
@@ -87,6 +90,7 @@
               #descriptionInput
               (input)="wordCounter(descriptionInput.value)"
               formControlName="Description"
+              [(ngModel)]="description"
             ></textarea>
 
             <p class="hint text-muted text-right">

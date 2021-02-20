@@ -18,6 +18,10 @@ export class BudgetComponent implements OnInit {
   // price: number;
   isFixedFormVaild: boolean;
   isHourlyFormVaild: boolean;
+  // initail value of the end user data
+  endUserData = {
+    payment: '',
+  };
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -28,15 +32,15 @@ export class BudgetComponent implements OnInit {
   ngOnInit(): void {
     this.budgetForm = this._formBuilder.group({
       PaymentType: ['Fixed price', [Validators.required]],
-      // Price: ['', [Validators.required]],
     });
+    // set value of the end user data
   }
 
   print(v: string) {
     console.log(v);
   }
 
-  isChecked(type: string) {
+  isChecked(type: any) {
     if (type == 'Pay a fixed price') {
       this.isFixed = true;
       this.isByHour = false;

@@ -7,8 +7,9 @@ export class AcceptedProposals {
 
   HiredTalent: {
     FirstName: string;
-    LastName: string;
-    UserName: string;
-    _id: string;
-  };
+    LastName: string,
+    UserName: string,
+    _id: string,
+    Email: string
+  }
 }

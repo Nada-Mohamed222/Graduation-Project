@@ -19,6 +19,8 @@ import {
   NavbarModule,
   WavesModule,
 } from 'angular-bootstrap-md';
+// import {myapp } from 'uz.mailto';
+
 const routes: Routes = [
   {
     path: '',

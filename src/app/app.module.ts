@@ -72,4 +72,5 @@ import {
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
+// var myapp= angular.module('myapp', ['uz.mailto']);
 export class AppModule {}
