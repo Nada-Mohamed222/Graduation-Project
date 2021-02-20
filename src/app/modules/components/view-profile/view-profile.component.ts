@@ -144,7 +144,8 @@ export class ViewProfileComponent implements OnInit {
     console.log(formData)
     this._freelancerService.update(formData).subscribe(
       (response) => {
-        this.loadData()
+        this.loadData();
+        localStorage.setItem("image", this.freelancer.ImageURL)
       },
       (error) => {
         console.log('Sorry error occurred');
