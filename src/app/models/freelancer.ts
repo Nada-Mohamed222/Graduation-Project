@@ -13,7 +13,7 @@ export class Freelancer {
     HourlyRate: Number;
     Title: String;
     ProfessionalOverview: String;
-    ImageURL: String = "uploads/avatar.png";
+    ImageURL: string = "uploads/avatar.png";
     Country: String;
     PhoneNumber: Number;
     Availability: String;
