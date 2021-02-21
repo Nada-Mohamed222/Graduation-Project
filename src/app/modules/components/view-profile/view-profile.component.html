@@ -47,7 +47,7 @@
 
                   <div>
                     <h5 class="mb-3">English Proficiency</h5>
-                    <strong>{{ freelancer.EnglishProficiency }}</strong>
+                    <p>{{ freelancer.EnglishProficiency }}</p>
                   </div>
                 </div>
 
@@ -55,12 +55,12 @@
                 <div class="col-lg-8">
                   <div>
                     <div class="row">
-                      <div class="col-lg-5">
+                      <div class="col-lg-6">
                         <h5>{{ freelancer.Title }}</h5>
                       </div>
 
                       <div class="col-lg-5">
-                        <span class="float-right font-weight ml-3">${{ freelancer.HourlyRate }}/hr</span><br />
+                        <span class="float-right font-weight">${{ freelancer.HourlyRate }}/hr</span><br />
                       </div>
                     </div>
                     <p class="mt-4">{{ freelancer.ProfessionalOverview }}</p>
@@ -71,7 +71,7 @@
                     <h5>Skills</h5>
                     <div *ngFor="let skill of freelancer.Skills" class="mb-2 float-left">
                       <span routerLink="/job/search/{{ skill }}"
-                        class="badge background-badge ml-2 p-2 rounded-pill text-white">{{ skill }}
+                        class="badge background-badge ml-2 p-2 rounded-pill">{{ skill }}
                       </span>
                     </div>
                   </div>
@@ -79,48 +79,40 @@
                   <hr />
 
                   <div class="mt-2">
-                    <h5>Recent Job History</h5>
-                    <div *ngIf="FreelancerJobsLength < 1">
-                      No Recent Jobs For This Freelancer
-                    </div>
-                    <div *ngFor="let job of freelancerJobs">
-                      <div class="card-body mb-1 p-2">
-                        <p class="card-title h5">
-                          <a routerLink="/job/{{ job._id }}" class="text-color">
-                            {{ job.Name }}
-                          </a>
-                        </p>
-                        <!-- </div> -->
-
-                        <div class="mb-1">
-                          <span>
-                            <span class="fa fa-star text-color"></span>
-                            <span class="fa fa-star text-color"></span>
-                            <span class="fa fa-star text-color"></span>
-                            <span class="fa fa-star text-color"></span>
-                            <span class="fa fa-star text-color"></span>
-                          </span>
-
-                          <span>{{ job.TelentReview }} </span>
+                    <div class="row">
+                      <div class="col-lg-9">
+                        <h5>Recent Job History</h5>
+                        <div *ngIf="FreelancerJobsLength < 1">
+                          No Recent Jobs For This Freelancer
                         </div>
+                        <div *ngFor="let job of freelancerJobs; let currentIndex = index">
+                          <div class="card-body mb-1 p-2" *ngIf="currentIndex >= freelancerJobs.length - 5">
+                            <p class="card-title h5">
+                              <a routerLink="/job/{{ job._id }}" class="text-color">
+                                {{ job.Name }}
+                              </a>
+                            </p>
+                            <!-- </div> -->
 
-                        <div>
-                          <span>To freelancer: </span>
+                            <div class="mb-1">
+                              <span>
+                                <span class="fa fa-star text-color"></span>
+                                <span class="fa fa-star text-color"></span>
+                                <span class="fa fa-star text-color"></span>
+                                <span class="fa fa-star text-color"></span>
+                                <span class="fa fa-star text-color"></span>
+                              </span>
+                            </div>
 
-                          <a routerLink="/freelancer/{{ freelancer.UserName }}"><span class="header-link-jobs"
-                              class="text-color">{{ freelancer.FirstName }}
-                              {{ LastNameFirstLetter }}.</span></a>
-
-                          <span>
-                            <span class="fa fa-star text-color"></span>
-                            <span class="fa fa-star text-color"></span>
-                            <span class="fa fa-star text-color"></span>
-                            <span class="fa fa-star text-color"></span>
-                            <span class="fa fa-star text-color"></span>
-                          </span>
-
-                          <span>{{ job.EmployerReview }}</span>
+                            <div>
+                              <span><b>Client's Review: </b>{{ job.EmployerReview }}</span>
+                            </div>
+                          </div>
                         </div>
+                      </div>
+
+                      <div class="col-lg-3">
+                        <p>Total Earning: <b>${{ freelancer.Earnings.toFixed(2) }}</b></p>
                       </div>
                     </div>
                   </div>
@@ -153,10 +145,7 @@
           <div class="col-lg-12">
             <!-- View Profile -->
 
-            <div
-              class="container-fluid"
-              [formGroup]="formGroup"
-            >
+            <div class="container-fluid" [formGroup]="formGroup">
               <div class="card justify-content-center mx-auto shadow-lg border">
                 <div class="card-header" style="background-color: transparent">
                   <div class="row mt-4">

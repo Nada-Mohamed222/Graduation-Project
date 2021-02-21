@@ -19,4 +19,5 @@ export class Freelancer {
     Availability: String;
     Connects: number;
     SavedJobs: Array<String>;
+    Earnings: Number = 0;
 }
