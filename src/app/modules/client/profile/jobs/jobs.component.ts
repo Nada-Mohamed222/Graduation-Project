@@ -56,7 +56,7 @@ export class JobsComponent implements OnInit {
   // navigate
   getjobProposals(jobId: string) {
     console.log(`berfore emmitiing  ${jobId}`);
-    console.log('انا هنااا اهههههه');
+    // console.log('انا هنااا اهههههه');
     this._clientService.getJobProposal(jobId).subscribe(
       (response) => {
         // emit job id

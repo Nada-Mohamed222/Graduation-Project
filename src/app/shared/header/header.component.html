@@ -1,4 +1,4 @@
-<div class="back" >
+<div class="back">
   <mdb-navbar
     SideClass="navbar navbar-expand-lg navbar-dark"
     [containerInside]="true"
@@ -30,7 +30,7 @@
     <links style="max-height: 45px">
       <!-- Links -->
       <ul class="navbar-nav ml-auto">
-        <li *ngIf="isLogged && isTalent" class="nav-item">
+        <li *ngIf="isLogged && isVerified && isTalent" class="nav-item">
           <a
             [routerLinkActive]="['colorfix']"
             routerLink="/freelancer/profile"
@@ -40,7 +40,7 @@
           >
         </li>
 
-        <li *ngIf="isLogged && isTalent" class="nav-item">
+        <li *ngIf="isLogged && isVerified && isTalent" class="nav-item">
           <a
             [routerLinkActive]="['colorfix']"
             routerLink="/freelancer/my-proposals"
@@ -76,16 +76,18 @@
             ><mdb-icon fas icon="cog"></mdb-icon> Active Contracts
           </a>
         </li>
-        <li *ngIf="isLogged && isTalent" class="nav-item">
+      
+
+        <li *ngIf="isLogged && isVerified && isTalent" class="nav-item ">
           <a
             [routerLinkActive]="['colorfix']"
             routerLink="/freelancer/{{ username }}"
             class="nav-link waves-light"
             mdbWavesEffect
-            ><mdb-icon fas icon="cog"></mdb-icon> Profile</a
+            ><mdb-icon fas icon="cog"></mdb-icon> Profilecsadsadsa</a
           >
         </li>
-
+        
         <li *ngIf="isLogged && isTalent" class="nav-item">
           <a
             [routerLinkActive]="['colorfix']"
@@ -111,7 +113,7 @@
         <!-- Dropdown -->
       </ul>
       <img
-        *ngIf="isLogged && isTalent"
+        *ngIf="isLogged && isVerified && isTalent"
         class="imageFix rounded-circle ml-3"
         src="http://localhost:5000/{{ image }}"
       />

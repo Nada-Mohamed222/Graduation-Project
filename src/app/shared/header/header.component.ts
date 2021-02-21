@@ -1,9 +1,7 @@
-import { GuardedRoutesGuard } from 'src/app/services/guard/guarded-routes.guard';
 import { AuthService } from './../../services/auth-service/auth.service';
 import { SpinnerService } from './../../services/loader/spinner.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { LocationStrategy } from '@angular/common';
 
 
 @Component({
@@ -21,15 +19,14 @@ export class HeaderComponent implements OnInit {
   isEmployer: Boolean = false
   isTalent: Boolean = false
   checkType: String = ""
-
+  isVerified: any = false;
   
-  constructor(private router:Router, public spinnerService: SpinnerService, public _authService : AuthService, private _guardedRoutes: GuardedRoutesGuard ) {
+  constructor(private router:Router, public spinnerService: SpinnerService, public _authService : AuthService) {
   }
 
 
   logout(){
     this._authService.logout().subscribe((response)=>{
-      console.log(response)
       localStorage.clear()
       localStorage.setItem("Type", "Guest")
       this.router.navigateByUrl('/')
@@ -38,7 +35,6 @@ export class HeaderComponent implements OnInit {
   }
 
   checkUserType(){
-       console.log(this.checkType);
       if(this.checkType === "Employer")
       {
         this.isEmployer = true;
@@ -60,16 +56,25 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this._authService.isLogged.subscribe((response) =>{ 
-      this.isLogged = response   
+
+     this._authService.isVerified.subscribe((response)=>{
+       
+      this.isVerified= response
     }, (error)=>{
       console.log(error);
     })
-    this.username =  localStorage.getItem('UserName')
+    
+    this._authService.isLogged.subscribe((response) =>{ 
+    localStorage.getItem("isVerified")== 'true' ? this.isVerified = true : this.isVerified= false
+      this.isLogged = response   
+      
+    }, (error)=>{
+      console.log(error);
+    })
     this._authService.user.subscribe((response)=> {
+      this.username = response.Username
       this.image = response.imgURL
       this.checkType = response.Type
-      console.log(response);
       this.checkUserType();
     })
   }

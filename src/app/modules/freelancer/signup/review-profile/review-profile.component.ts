@@ -1,3 +1,4 @@
+import { AuthService } from './../../../../services/auth-service/auth.service';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -30,7 +31,8 @@ export class ReviewProfileComponent implements OnInit {
     private _sharingData: SharingDataService,
     private _freelancerService: FreelancerService,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    private _authService: AuthService
   ) {
     this.titleService.setTitle("Sign Up - Review My Data");
   }
@@ -56,6 +58,17 @@ export class ReviewProfileComponent implements OnInit {
     this.profilePhotoData = this._sharingData.getProfilePhotoData();
     this.locationData = this._sharingData.getLocationData();
     this.phoneData = this._sharingData.getPhoneData();
+  }
+
+
+  getUserData(){
+    this._freelancerService.getFreelancerPublic(localStorage.getItem("UserName")).subscribe((response:any)=>{
+      console.log(response)
+      this._authService.user.next({imgURL: response.ImageURL, Type: "Talent", Username: response.UserName})
+      localStorage.setItem("image", response.ImageURL)
+      localStorage.setItem("isVerified", "true")
+      this._authService.isVerified.next(true)
+    })
   }
 
   submitData() {
@@ -85,9 +98,10 @@ export class ReviewProfileComponent implements OnInit {
 
     formData.append('isVerified', 'true');
 
+
     this._freelancerService.update(formData).subscribe(
       (response) => {
-        console.log('Response ', response);
+        this.getUserData();
         this.router.navigate(['/freelancer/profile']);
       },
       (error) => {

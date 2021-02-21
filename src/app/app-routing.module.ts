@@ -39,14 +39,17 @@ const routes: Routes = [
         (m) => m.SignupModule
       ),
   },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, data: { role: ['Guest'] }, canActivate:[GuardedRoutesGuard]
+},
   {
     path: 'job/search/:skill',
     component: ProfileComponent,
     pathMatch: 'full',
-    data: { search: true },
+    data: { search: true, role: ['Talent'] }, canActivate:[GuardedRoutesGuard]
   },
-  { path: 'job/:id', component: JobDetailsComponent, pathMatch: 'full' },
+
+  { path: 'job/:id', component: JobDetailsComponent, pathMatch: 'full', canActivate:[GuardedRoutesGuard], data: {
+    role: ['Talent', 'Employer', "Guest"] }},
   {
     path: 'freelancer',
     loadChildren: () =>
@@ -61,14 +64,19 @@ const routes: Routes = [
         (m) => m.SignupModule
       ),
   },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate:[GuardedRoutesGuard], data: {
+    role: "Guest"  }
+  },
   {
     path: 'job/search/:skill',
     component: ProfileComponent,
     pathMatch: 'full',
-    data: { search: true },
+    data: { search: true, role: ['Talent', 'Employer', "Guest"] }, canActivate:[GuardedRoutesGuard]
   },
-  { path: 'job/:id', component: JobDetailsComponent, pathMatch: 'full' },
+
+  { path: 'job/:id', component: JobDetailsComponent, pathMatch: 'full', canActivate:[GuardedRoutesGuard], data: {
+    role: ['Talent', 'Employer', "Guest"] }},
+
   { path: 'job/:id/apply', component: ProposeComponent, pathMatch: 'full', canActivate:[GuardedRoutesGuard], data: {
     role: 'Talent'
 } },

@@ -10,10 +10,12 @@ import { Subject } from 'rxjs';
 
 export class AuthService {
   isLogged= new Subject<boolean>()
-  user: BehaviorSubject<{imgURL, Type}> = new BehaviorSubject<any>("")
+  user: BehaviorSubject<{imgURL, Type, Username}> = new BehaviorSubject<any>("")
+  isVerified: BehaviorSubject<any> = new BehaviorSubject<any>(false)
 
   constructor(private _apiService: ApiService) {
-    this.user.next({imgURL: localStorage.getItem("image"), Type: localStorage.getItem("Type")})
+    this.user.next({imgURL: localStorage.getItem("image"), Type: localStorage.getItem("Type"), Username: localStorage.getItem("UserName")})
+
   }
   
   

@@ -16,10 +16,11 @@ import { PhoneComponent } from './phone/phone.component';
 import { SidebarComponent } from 'src/app/shared/sidebar/sidebar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReviewProfileComponent } from './review-profile/review-profile.component';
-// import { EducationComponent } from './education/education.component';
-// import { EmploymentComponent } from './employment/employment.component';
+import { GuardedRoutesGuard } from 'src/app/services/guard/guarded-routes.guard';
 
-const routes: Routes = [{ path: 'home', component: HomeComponent }];
+
+const routes: Routes = [{ path: 'home', component: HomeComponent, canActivate:[GuardedRoutesGuard], data: {
+  role: ["Guest"]  }}];
 @NgModule({
   declarations: [
     HomeComponent,

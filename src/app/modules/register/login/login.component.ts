@@ -1,6 +1,6 @@
 import { GuardedRoutesGuard } from 'src/app/services/guard/guarded-routes.guard';
 import { AuthService } from './../../../services/auth-service/auth.service';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Title } from '@angular/platform-browser';
 import { ClientService } from '../../../services/client-service/client.service';
 import { JwtTokenService } from './../../../services/jwt-token.service';
@@ -8,8 +8,6 @@ import { FreelancerService } from '../../../services/freelancer-service/freelanc
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Freelancer } from 'src/app/models/freelancer';
-import { Client } from 'src/app/models/client';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +31,9 @@ export class LoginComponent implements OnInit {
   imgURL: any;
   imgSubject = new Subject<any>()
   checkType: any
+  userName: any
+
+
   constructor(
     private _formBuilder: FormBuilder,
     private _freelancerService: FreelancerService,
@@ -74,8 +75,13 @@ export class LoginComponent implements OnInit {
             console.log(this.imgSubject);
             this._authService.isLogged.next(true);
             localStorage.setItem("Type", response.Type)
+            this._authService.isVerified.next(response.isVerified)
+            localStorage.setItem("isVerified", response.isVerified)
+            console.log(response.isVerified)
             this.checkType = localStorage.getItem("Type")
-            this._authService.user.next({ imgURL: this.imgURL, Type: this.checkType })
+            this.userName = response.UserName
+            console.log(this.userName)
+            this._authService.user.next({ imgURL: this.imgURL, Type: this.checkType, Username: this.userName })
             if (response.isVerified == true) {
               // -----check user type if verfied
               if (type === 'talent') {
