@@ -9,17 +9,17 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <p class="plain-text d-inline" *ngIf="seeMoreFlag">
+      <p class="plain-text d-inline" *ngIf="!seeMoreFlag">
         {{ description | someText }}
       </p>
-      <p class="plain-text d-inline" *ngIf="!seeMoreFlag">
+      <p class="plain-text d-inline" *ngIf="seeMoreFlag">
         {{ description }}
       </p>
       <a
         class="text-success d-inline"
         *ngIf="description.length > 200"
         (click)="seeMore()"
-        ><b>{{ seeMoreFlag ? "see more" : " see less" }}</b></a
+        ><b>{{ seeMoreFlag ? " see less" : "see more" }}</b></a
       >
     </div>
   </div>

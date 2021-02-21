@@ -73,7 +73,7 @@ export class ReviewComponent implements OnInit {
       details.experienceLevel,
       this.paymentType,
       this.price,
-      1
+      this.projectDuration
     );
 
     _postJobService.postJob(job).subscribe(

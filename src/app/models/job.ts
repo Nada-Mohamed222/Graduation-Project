@@ -16,7 +16,7 @@ export class Job {
   Earning: Number;
   PaymentType: String;
   Price: Number;
-  Duration: Number;
+  Duration: string;
   WeeklyHoursRequired: Number;
   EmployerRating: Number;
   EmployerReview: String;
@@ -41,7 +41,7 @@ export class Job {
     PaymentType?: string,
     Price?: number,
 
-    Duration?: number
+    Duration?: string
   ) {
     this.Name = Name;
     this.Category = Category;
