@@ -28,7 +28,7 @@ export class TitleComponent implements OnInit {
     private _sharingData: SharingDataService,
     private titleService: Title
   ) {
-    this.titleService.setTitle("Post New Job - Get Started");
+    this.titleService.setTitle('Post New Job - Get Started');
   }
 
   ngOnInit(): void {
@@ -40,7 +40,7 @@ export class TitleComponent implements OnInit {
         [
           Validators.required,
           Validators.maxLength(5000),
-          Validators.minLength(72),
+          Validators.minLength(50),
         ],
       ],
       AdditionalFiles: [''],
@@ -65,6 +65,7 @@ export class TitleComponent implements OnInit {
       additionalFiles: this.startForm.controls['AdditionalFiles'].value,
     };
     this._sharingData.setStartData(start);
+
     this._sharingData.isStartDone.next(true);
 
     console.log(start);

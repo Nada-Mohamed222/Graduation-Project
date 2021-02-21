@@ -76,7 +76,7 @@
 
           <!-- screening Question -->
 
-          <div class="mt-2">
+          <!-- <div class="mt-2">
             <p class="mb-3 sub-title">Screening Questions (optional)</p>
             <p class="plain-text">
               Add screening questions and/or require a cover letter
@@ -100,7 +100,7 @@
             </p>
           </div>
           <hr />
-          <br />
+          <br /> -->
 
           <!-- Skills needed -->
 
@@ -144,10 +144,10 @@
       <div class="card">
         <div class="card-body">
           <div class="form-group mb-1 mt-2">
-            <label for="cardId" class="sub-title"
+            <!-- <label for="cardId" class="sub-title"
               >How many people do you need for this job?</label
-            >
-            <div class="row">
+            > -->
+            <!-- <div class="row">
               <app-card
                 cardIcon="fas fa-user"
                 cardTitle="One freelancer"
@@ -182,17 +182,17 @@
                   FreelanceNumberInput1.value = ''
                 "
               ></app-card>
-            </div>
-          </div>
+            </div> -->
+            <!-- </div> -->
 
-          <!-- (isFixedVaild)="FixedValidation($event)" -->
+            <!-- (isFixedVaild)="FixedValidation($event)" -->
 
-          <br />
+            <!-- <br />
           <div *ngIf="FreelanceNumberInput2.checked">
             <app-fixed-input
               title="Number of freelancers"
               (isFixedVaild)="FixedValidation($event)"
-            ></app-fixed-input>
+            ></app-fixed-input> -->
           </div>
 
           <!-- Level of Experience  -->
@@ -247,14 +247,14 @@
           <br />
           <button
             type="button"
-            class="btn btn-outline-gray text-success btn-lg py-2 px-5 mr-3"
+            class="btn btn-outline-green btn-lg py-2 px-5 mr-3"
             routerLink="/post-job/title"
           >
             <b>Back</b>
           </button>
           <button
             type="button"
-            class="btn btn-success btn-lg py-2 px-5"
+            class="btn btn-green btn-lg py-2 px-5"
             (click)="StoreDataAndNavigate()"
             routerLink="/post-job/budget"
             [disabled]="!isDetailsValid()"
