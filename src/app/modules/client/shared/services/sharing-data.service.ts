@@ -40,7 +40,7 @@ export class SharingDataService {
     skillsNeed: [],
     screeningQuestion: '',
     freelancerNumber: '',
-    experienceLevel: '',
+    experienceLevel: 'Entry',
   };
   // details: DetailsComponent;
   budget: BudgetComponent;

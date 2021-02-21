@@ -40,7 +40,7 @@ export class TitleComponent implements OnInit {
         [
           Validators.required,
           Validators.maxLength(5000),
-          Validators.minLength(72),
+          Validators.minLength(50),
         ],
       ],
       AdditionalFiles: [''],
