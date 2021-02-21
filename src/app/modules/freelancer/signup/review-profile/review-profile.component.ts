@@ -64,7 +64,7 @@ export class ReviewProfileComponent implements OnInit {
     // Expertise
     formData.append('MainService', this.expertiseData.mainService);
     for (var i = 0; i < this.expertiseData.mainSkills.length; i++) {
-      formData.append('Skills[]', this.expertiseData.mainSkills[i].toLowerCase());
+      formData.append('Skills[]', this.expertiseData.mainSkills[i].trim().toLowerCase());
     }
 
     //Expertise Level

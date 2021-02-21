@@ -60,9 +60,9 @@
           <div class="card-text text-muted paragraph-fontSize">
             <span style="font-weight: bold">{{ job.data.PaymentType }}</span>
             <span> - {{ job.data.ExpertiseLevel }} - </span>
-            <span> Est. Time: 1 to 3 Months - </span>
+            <span> Est. Time: {{ job.data.Duration }} - </span>
             <span> Est. Budget: ${{ job.data.Price }} - </span>
-            <span>Less Than 30 hrs/week hrs/week</span>
+            <span>{{ job.data.WeeklyHoursRequired }}</span>
             <p class=" text-color">Posted At: {{ job.data.createdAt.slice(0, 10) }}</p>
           </div>
           <p class="paragraph-content-fontSize" style="background-color: transparent; border: 0">
