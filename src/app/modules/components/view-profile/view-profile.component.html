@@ -34,19 +34,18 @@
               <div class="row">
                 <div class="col-lg-3">
                   <div class="active"></div>
-                  <h5>Main Service</h5>
-                  <br />
+                  <h5><b>Main Service</b></h5>
                   <p>{{ freelancer.MainService }}</p>
                   <hr />
 
                   <div>
-                    <h5 class="mb-3 mt-5">Availability</h5>
+                    <h5 class="mb-3 mt-5"><b>Availability</b></h5>
                     <p>{{ freelancer.Availability }}</p>
                     <br /><br />
                   </div>
 
                   <div>
-                    <h5 class="mb-3">English Proficiency</h5>
+                    <h5 class="mb-3"><b>English Proficiency</b></h5>
                     <p>{{ freelancer.EnglishProficiency }}</p>
                   </div>
                 </div>
@@ -56,7 +55,7 @@
                   <div>
                     <div class="row">
                       <div class="col-lg-6">
-                        <h5>{{ freelancer.Title }}</h5>
+                        <h5><b>{{ freelancer.Title }}</b></h5>
                       </div>
 
                       <div class="col-lg-5">
@@ -68,10 +67,10 @@
                   <hr />
 
                   <div class="mt-5">
-                    <h5>Skills</h5>
+                    <h5 class="mb-3"><b>Skills</b></h5>
                     <div *ngFor="let skill of freelancer.Skills" class="mb-2 float-left">
                       <span routerLink="/job/search/{{ skill }}"
-                        class="badge background-badge ml-2 p-2 rounded-pill">{{ skill }}
+                        class="btn badge background-badge ml-2 p-2 rounded-pill">{{ skill }}
                       </span>
                     </div>
                   </div>
@@ -81,7 +80,7 @@
                   <div class="mt-2">
                     <div class="row">
                       <div class="col-lg-9">
-                        <h5>Recent Job History</h5>
+                        <h5 class="mb-3"><b>Recent Job History</b></h5>
                         <div *ngIf="FreelancerJobsLength < 1">
                           No Recent Jobs For This Freelancer
                         </div>

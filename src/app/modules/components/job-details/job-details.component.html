@@ -1,5 +1,5 @@
 <div class="container backGround-color pb-5 pt-5">
-  <div class="alert alert-success w-75 mb-5" role="alert" *ngIf="isSubmitted">
+  <div class="alert alert-success w-75 mb-5 border border-success" role="alert" *ngIf="isSubmitted">
     <span>You already submitted a proposal for this job</span>
   </div>
   <div class="alert alert-danger w-75 mb-5" role="alert" *ngIf="job.Status === 'Done'">
@@ -21,8 +21,8 @@
         </div>
         <small>Posted At {{ createdAt }}</small>
         <div class="pt-2">
-          <small class="fas fa-map-marker-alt" aria-hidden="true">
-            {{ job.Country ? job.Country : "Worldwide" }}</small>
+          <i class="fas fa-map-marker-alt text-dark"></i><span aria-hidden="true">
+            {{ job.Country ? job.Country : "Worldwide" }}</span>
         </div>
         <small class="text-secondary">
           Required Connects: {{ job.ConnectsNeeded }}
@@ -36,23 +36,45 @@
         <hr />
         <div>
           <div class="row">
-            <div class="col-sm-6 col-lg-5">
+            <div class="col-xs-12 col-sm-6 col-lg-3">
               <div class="row">
                 <div class="col-lg-1">
                   <i class="fas fa-coins mr-2"></i>
                 </div>
-                <div class="col-lg-10">
+                <div class="col-lg-9">
                   <strong>${{ job.Price }}.00</strong><br />
                   <small class="text-secondary">Fixed Price</small>
                 </div>
               </div>
             </div>
-            <div class="col-sm-6 col-lg-5">
+            <div class="col-xs-12 col-sm-6 col-lg-3">
+              <div class="row">
+                <div class="col-lg-1">
+                  <i class="fas fa-toolbox mr-2"></i>
+                </div>
+                <div class="col-lg-9">
+                  <strong>{{ job.JobType }}</strong><br />
+                  <small class="text-secondary">Project Type</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-3">
+              <div class="row">
+                <div class="col-lg-1">
+                  <i class="far fa-clock mr-2"></i>
+                </div>
+                <div class="col-lg-9">
+                  <strong>{{ job.Duration }}</strong><br />
+                  <small class="text-secondary">Project Duration</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-3">
               <div class="row">
                 <div class="col-lg-1">
                   <i class="fas fa-brain mr-2"></i>
                 </div>
-                <div class="col-lg-10">
+                <div class="col-lg-9">
                   <strong>{{ job.ExpertiseLevel }}</strong><br />
                   <small class="text-secondary">Experience level</small>
                 </div>
@@ -61,7 +83,7 @@
           </div>
           <hr />
           <div>
-            <p><strong>Project Type: </strong>{{ job.JobType }}</p>
+            <p><strong>Weekly Hours Required: </strong>{{ job.WeeklyHoursRequired }}</p>
           </div>
           <hr />
           <div>
@@ -131,7 +153,7 @@
           <div class="pb-2">
             <strong>Total Spents</strong>
             <p class="text-secondary pb-2">
-              ${{ client.Spent ? client.Spent : 0 }}​​​​​​</p>
+              ${{ client.Spent ? client.Spent.toFixed(2) : 0 }}​​​​​​</p>
           </div>
           <div class="pb-2">
             <strong>From</strong>
