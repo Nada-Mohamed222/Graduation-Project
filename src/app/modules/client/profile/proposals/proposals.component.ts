@@ -22,14 +22,14 @@ export class ProposalsComponent implements OnInit {
     private _sharingData: SharingDataService,
     private titleService: Title
   ) {
-    this.titleService.setTitle("Job Proposals");
+    this.titleService.setTitle('Job Proposals');
   }
 
   proposals: any = [];
   userName: string;
   jobId: string;
   name: string;
-  showConfirmationPopup = false;
+  // showConfirmationPopup = false;
   jobStatus: any;
   freelancerUserName: string;
   hiredId: any;
@@ -49,9 +49,9 @@ export class ProposalsComponent implements OnInit {
       this.freelancerUserName = data;
     });
 
-    this._sharingData.showConfirmationPopup.subscribe((data) => {
-      this.showConfirmationPopup = data;
-    });
+    // this._sharingData.showConfirmationPopup.subscribe((data) => {
+    //   this.showConfirmationPopup = data;
+    // });
   }
   // proposal
   getAll(id: string) {
@@ -93,7 +93,7 @@ export class ProposalsComponent implements OnInit {
 
   confirm(firstName: string, lastName: string, freelancerUserName: string) {
     this.name = firstName + ' ' + lastName;
-    this.showConfirmationPopup = true;
+
     this._sharingData.freelancerUsername.next(freelancerUserName);
   }
 

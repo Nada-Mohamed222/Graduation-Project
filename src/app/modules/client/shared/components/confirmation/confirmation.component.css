@@ -36,3 +36,33 @@
 .i {
   border: 2px solid #47a815;
 }
+.hours {
+  position: absolute;
+  right: 13%;
+  top: 11%;
+}
+.rating-list li {
+  float: right;
+  color: #ddd;
+  padding: 2px 1px;
+}
+
+.rating-list li:hover,
+.rating-list li:hover ~ li,
+.rating-list li.selected {
+  color: #ffd700;
+}
+
+.rating-list {
+  display: inline;
+  list-style: none;
+}
+@media only screen and (max-width: 600px) {
+  .rating {
+    position: absolute;
+    left: 34%;
+    bottom: 48%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+}

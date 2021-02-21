@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { ClientService } from './../../../../services/client-service/client.service';
 import { Component, OnInit } from '@angular/core';
 import { SharingDataService } from '../../shared/services/sharing-data.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-accepted-proposals',
@@ -51,9 +52,10 @@ export class AcceptedProposalsComponent implements OnInit {
       });
   }
 
-  endContract(jobId: string, freelancerId: string, index: number) {
+  endContract(jobId: string, freelancerId: string, payment?: string) {
     this._sharingData.jobId.next(jobId);
     this._sharingData.freelancerId.next(freelancerId);
+    this._sharingData.paymentType.next(payment);
   }
   // get the freelancer profile
   getFreelancerProfile(userName: string) {

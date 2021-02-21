@@ -30,6 +30,8 @@ export class SharingDataService {
   jobId = new Subject<string>();
   //freelancer id for end contract
   freelancerId = new Subject<string>();
+  //payment type for ending contract in confermation
+  paymentType = new Subject<string>();
 
   // instanse of components
   // start: TitleComponent;

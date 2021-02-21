@@ -28,6 +28,10 @@ export class ConfirmationComponent implements OnInit {
   encontract_jobId: string;
   freelncerId: string;
   textArea = 'Thank you grate experience';
+  paymentType: string = 'Hourly';
+
+  stars: number[] = [1, 2, 3, 4, 5];
+  selectedValue: number;
 
   ngOnInit(): void {
     // observe hire method parameter
@@ -45,6 +49,9 @@ export class ConfirmationComponent implements OnInit {
     this._sharingData.freelancerId.subscribe((data) => {
       this.freelncerId = data;
     });
+    // this._sharingData.paymentType.subscribe((data) => {
+    //   this.paymentType = data;
+    // });
   }
 
   //------------------ handle hiring button
@@ -112,5 +119,9 @@ export class ConfirmationComponent implements OnInit {
         console.log('no Function matched');
         break;
     }
+  }
+  countStar(star) {
+    this.selectedValue = star;
+    console.log('Value of star', star);
   }
 }
