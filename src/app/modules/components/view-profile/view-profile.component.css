@@ -9,7 +9,14 @@
 
 .background-badge {
   background-color: #336278;
+  color: white;
   border-radius: 30px;
+}
+
+.background-badge:hover {
+  border: #336278 1px solid;
+  color: #336278;
+  background-color: gainsboro;
 }
 
 .text-color {

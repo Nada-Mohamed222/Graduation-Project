@@ -2,7 +2,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Job } from './../../../models/job';
 import { Freelancer } from './../../../models/freelancer';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClientService } from '../../../services/client-service/client.service';
 import { FreelancerService } from '../../../services/freelancer-service/freelancer.service';
 import { Component, OnInit } from '@angular/core';
 import { Title } from "@angular/platform-browser";
@@ -106,7 +105,7 @@ export class ViewProfileComponent implements OnInit {
 
   addSkill(skill: string) {
     if (this.skills.length < 10) {
-      this.skills.push(skill);
+      this.skills.push(skill.trim().toLowerCase());
       this.skill = '';
     }
   }
@@ -128,7 +127,7 @@ export class ViewProfileComponent implements OnInit {
     // Expertise
     formData.append('MainService', this.formGroup.controls['MainServices'].value);
     for (var i = 0; i < this.skills.length; i++) {
-      formData.append('Skills[]', this.skills[i].toLowerCase());
+      formData.append('Skills[]', this.skills[i].trim().toLowerCase());
     }
     //Languages
     formData.append('EnglishProficiency', this.formGroup.controls['Language'].value);

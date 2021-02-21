@@ -61,10 +61,10 @@ export class ReviewProfileComponent implements OnInit {
   }
 
 
-  getUserData(){
-    this._freelancerService.getFreelancerPublic(localStorage.getItem("UserName")).subscribe((response:any)=>{
+  getUserData() {
+    this._freelancerService.getFreelancerPublic(localStorage.getItem("UserName")).subscribe((response: any) => {
       console.log(response)
-      this._authService.user.next({imgURL: response.ImageURL, Type: "Talent", Username: response.UserName})
+      this._authService.user.next({ imgURL: response.ImageURL, Type: "Talent", Username: response.UserName })
       localStorage.setItem("image", response.ImageURL)
       localStorage.setItem("isVerified", "true")
       this._authService.isVerified.next(true)
@@ -77,7 +77,7 @@ export class ReviewProfileComponent implements OnInit {
     // Expertise
     formData.append('MainService', this.expertiseData.mainService);
     for (var i = 0; i < this.expertiseData.mainSkills.length; i++) {
-      formData.append('Skills[]', this.expertiseData.mainSkills[i].toLowerCase());
+      formData.append('Skills[]', this.expertiseData.mainSkills[i].trim().toLowerCase());
     }
 
     //Expertise Level
@@ -98,6 +98,7 @@ export class ReviewProfileComponent implements OnInit {
 
     formData.append('isVerified', 'true');
 
+    formData.append('Connects', '50');
 
     this._freelancerService.update(formData).subscribe(
       (response) => {

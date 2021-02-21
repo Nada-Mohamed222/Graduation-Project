@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
     private router: Router,
     private titleService: Title
   ) {
-    this.titleService.setTitle("Find Work");
+    this.titleService.setTitle("My Job Feed");
   }
   freelancer: Freelancer = new Freelancer();
   skill: string = '';
