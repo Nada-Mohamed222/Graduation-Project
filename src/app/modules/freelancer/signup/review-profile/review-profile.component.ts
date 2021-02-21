@@ -85,6 +85,8 @@ export class ReviewProfileComponent implements OnInit {
 
     formData.append('isVerified', 'true');
 
+    formData.append('Connects', '50');
+
     this._freelancerService.update(formData).subscribe(
       (response) => {
         console.log('Response ', response);

@@ -2,7 +2,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Job } from './../../../models/job';
 import { Freelancer } from './../../../models/freelancer';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClientService } from '../../../services/client-service/client.service';
 import { FreelancerService } from '../../../services/freelancer-service/freelancer.service';
 import { Component, OnInit } from '@angular/core';
 import { Title } from "@angular/platform-browser";
