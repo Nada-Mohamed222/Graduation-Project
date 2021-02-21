@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth-service/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Job } from './../../../models/job';
 import { Freelancer } from './../../../models/freelancer';
@@ -33,7 +34,8 @@ export class ViewProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private _formBuilder: FormBuilder,
-    private titleService: Title
+    private titleService: Title,
+    private _authService: AuthService
   ) {
     this.titleService.setTitle(`Upwork`);
   }
@@ -144,11 +146,14 @@ export class ViewProfileComponent implements OnInit {
     this._freelancerService.update(formData).subscribe(
       (response) => {
         this.loadData();
-        localStorage.setItem("image", this.freelancer.ImageURL)
-      },
-      (error) => {
-        console.log('Sorry error occurred');
-      }
-    );
+        this._freelancerService.getFreelancerPublic(localStorage.getItem("UserName")).subscribe((response: any) => {
+          this._authService.user.next({ imgURL: response.ImageURL, Type: "Talent", Username: response.UserName })
+          localStorage.setItem("image", response.ImageURL)
+        },
+          (error) => {
+            console.log('Sorry error occurred');
+          }
+        );
+      })
   }
 }
