@@ -61,7 +61,6 @@ export class ProfileComponent implements OnInit {
           (response: any) => {
             this.updateJobs(response);
             this.titleService.setTitle(`Search for ${this.skill} jobs`);
-
           },
           (error) => {
             alert('Error');
