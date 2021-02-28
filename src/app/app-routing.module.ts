@@ -1,3 +1,4 @@
+import { FreelancerJobsComponent } from './modules/components/freelancer-jobs/freelancer-jobs.component';
 import { GuardedRoutesGuard } from 'src/app/services/guard/guarded-routes.guard';
 import { ErrorComponent } from './modules/components/error/error.component';
 import { ProposeComponent } from './modules/components/propose/propose.component';
@@ -50,6 +51,11 @@ const routes: Routes = [
   },
   {
     path: 'job/:id', component: JobDetailsComponent, pathMatch: 'full', canActivate: [GuardedRoutesGuard], data: {
+      role: ['Talent']
+    }
+  },
+  {
+    path: 'freelancer/jobs', component: FreelancerJobsComponent, pathMatch: 'full', canActivate: [GuardedRoutesGuard], data: {
       role: ['Talent']
     }
   },

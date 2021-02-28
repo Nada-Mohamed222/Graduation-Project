@@ -1,0 +1,101 @@
+<div class="container backGround-color pb-5 pt-5">
+  <div class="row no-gutters mx-auto mb-2">
+    <strong class="h3 font-weight-bold"> My Jobs</strong>
+  </div>
+
+  <div class="row">
+    <div class="mb-3 card justify-content-center shadow-md col-sm-12 col-lg-11 p-0 border-primary-color">
+      <div class="row justify-content-center shadow-md no-gutters">
+        <div class="col-lg-6">
+          <button type="button" class="w-100 section-btn" [ngClass]="{active: Status == 'Ongoing'}"
+            (click)="showActive()">
+            Active Jobs
+          </button>
+        </div>
+        <div class="col-lg-6">
+          <button type="button" class="w-100 section-btn" [ngClass]="{active: Status == 'Done'}"
+            (click)="showFinished()">
+            Finished Jobs
+          </button>
+        </div>
+      </div>
+      <div class="card-header" style="background-color: transparent">
+        <div class="col-md-12 p-2">
+          <p class="h4">({{ Jobs.length }}) {{Status == "Ongoing" ? "Active" : "Finished"}} Jobs</p>
+        </div>
+      </div>
+      <div *ngIf="Jobs.length < 1" class="card-body pb-3 pl-4 text-center text-muted">
+        There's No Current Jobs To Show
+      </div>
+      <div *ngFor="let job of Jobs; let currentIndex = index" class="card-body pb-3 bottom-border pl-4 card-hover">
+        <div class="row">
+          <div class="col-lg-3">
+            <p *ngIf="job.Status == 'Done'" class="text-danger">Finished at {{job.EndDate.slice(0, 10)}}
+            </p>
+            <p>Started at {{job.StartDate.slice(0, 10)}}</p>
+          </div>
+          <div class="col-lg-5">
+            <a routerLink="/job/{{ job._id }}" class="primary-color">
+              <p>{{ job.Name }}</p>
+            </a>
+            <span *ngIf="!job.seeMoreFlag"><strong> Job details: </strong>{{ job.Description | someText }}</span>
+            <span *ngIf="job.seeMoreFlag"><strong> Job details: </strong>{{ job.Description }}</span>
+            <a class="primary-color btn" (click)="seeMore(currentIndex)"
+              *ngIf="job.Description.length > 200"><b>{{ job.seeMoreFlag ? " see less" : " see more" }}</b></a>
+          </div>
+          <div class="col-lg-4">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <div class="row mb-5">
+                  <div class="col-lg-1">
+                    <i class="fas fa-coins mr-2"></i>
+                  </div>
+                  <div class="col-lg-9">
+                    <strong>${{ job.Price }}.00</strong><br />
+                    <small class="text-secondary">Fixed Price</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="row">
+                  <div class="col-lg-1">
+                    <i class="fas fa-toolbox mr-2"></i>
+                  </div>
+                  <div class="col-lg-9">
+                    <strong>{{ job.JobType }}</strong><br />
+                    <small class="text-secondary">Project Type</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <div class="row">
+                  <div class="col-lg-1">
+                    <i class="far fa-clock mr-2"></i>
+                  </div>
+                  <div class="col-lg-9">
+                    <strong>{{ job.Duration }}</strong><br />
+                    <small class="text-secondary">Project Duration</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="row">
+                  <div class="col-lg-1">
+                    <i class="fas fa-brain mr-2"></i>
+                  </div>
+                  <div class="col-lg-9">
+                    <strong>{{ job.ExpertiseLevel }}</strong><br />
+                    <small class="text-secondary">Experience level</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

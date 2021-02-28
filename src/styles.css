@@ -52,9 +52,11 @@ body {
 .text-primary {
   color: #47a815;
 }
+
 .text-green {
   color: #47a815;
 }
+
 .text-darkBlue {
   color: #1d4354;
 }
@@ -62,10 +64,12 @@ body {
 .backColor {
   background-color: #ebebeb;
 }
+
 .btn-outline-green {
   border: 2px solid #47a815;
   color: #47a815;
 }
+
 .btn-outline-green:hover {
   color: white;
   background-color: #47a815;
@@ -75,6 +79,7 @@ body {
   color: white;
   background-color: #47a815;
 }
+
 .btn-green:hover {
   color: #47a815;
   background-color: white;

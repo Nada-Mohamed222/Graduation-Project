@@ -1,5 +1,6 @@
 <div class="container backGround-color pb-5 pt-5">
-  <div class="alert alert-success w-75 mb-5 border border-success" role="alert" *ngIf="isSubmitted">
+  <div class="alert alert-success w-75 mb-5 border border-success" role="alert"
+    *ngIf="isSubmitted && job.Status !== 'Done'">
     <span>You already submitted a proposal for this job</span>
   </div>
   <div class="alert alert-danger w-75 mb-5" role="alert" *ngIf="job.Status === 'Done'">

@@ -29,6 +29,8 @@ import {
   ButtonsModule,
   ModalModule,
 } from 'angular-bootstrap-md';
+import { FreelancerJobsComponent } from './modules/components/freelancer-jobs/freelancer-jobs.component';
+import { SomeTextPipe } from './modules/client/shared/pipes/some-text.pipe';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,9 @@ import {
     MyProposalsComponent,
     UpworkLandingPageComponent,
     ErrorComponent,
+    FreelancerJobsComponent,
+    SomeTextPipe
+
     // SignupModule
   ],
   imports: [
@@ -73,4 +78,4 @@ import {
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule {}
+export class AppModule { }

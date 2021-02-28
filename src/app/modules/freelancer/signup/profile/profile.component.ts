@@ -40,7 +40,7 @@ export class ProfileComponent implements OnInit {
   submitSearch(searchedValue: string) {
     if (searchedValue) {
       this.PageNumber = { PageNumber: 1 };
-      this.router.navigate([`/job/search/${searchedValue}`]);
+      this.router.navigate([`/job/search/${searchedValue.toLowerCase()}`]);
     }
   }
 
@@ -56,7 +56,7 @@ export class ProfileComponent implements OnInit {
       );
     } else {
       this.route.params.subscribe((params) => {
-        this.skill = params['skill'];
+        this.skill = params['skill'].toLowerCase();
         this._freelancerService.searchBySkill(this.skill, this.PageNumber).subscribe(
           (response: any) => {
             this.updateJobs(response);

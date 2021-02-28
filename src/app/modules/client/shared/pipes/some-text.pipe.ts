@@ -5,6 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SomeTextPipe implements PipeTransform {
   transform(text: string): string {
-    return text.substring(0, 200) + '....';
+    const elipses = "...";
+    if (text.length <= 200) return text
+    let truncatedText = text.slice(0, 200);
+    return truncatedText + elipses;
   }
 }
