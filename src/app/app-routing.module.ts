@@ -1,3 +1,5 @@
+import { SharedModule } from './shared/shared.module';
+import { FreelancerJobsComponent } from './modules/components/freelancer-jobs/freelancer-jobs.component';
 import { GuardedRoutesGuard } from 'src/app/services/guard/guarded-routes.guard';
 import { ErrorComponent } from './modules/components/error/error.component';
 import { ProposeComponent } from './modules/components/propose/propose.component';
@@ -23,7 +25,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('../app/modules/client/profile/profile.module').then(
         (m) => m.ProfileModule
-      ),canActivate:[GuardedRoutesGuard]
+      ), canActivate: [GuardedRoutesGuard]
   },
   {
     path: 'freelancer',
@@ -39,54 +41,64 @@ const routes: Routes = [
         (m) => m.SignupModule
       ),
   },
-  { path: 'login', component: LoginComponent },
+  {
+    path: 'login', component: LoginComponent, data: { role: ['Guest'] }, canActivate: [GuardedRoutesGuard]
+  },
   {
     path: 'job/search/:skill',
     component: ProfileComponent,
     pathMatch: 'full',
-    data: { search: true },
-  },
-  { path: 'job/:id', component: JobDetailsComponent, pathMatch: 'full' },
-  {
-    path: 'freelancer',
-    loadChildren: () =>
-      import('../app/modules/freelancer/freelancer.module').then(
-        (m) => m.FreelancerModule
-      ),
+    data: { search: true, role: ['Talent'] }, canActivate: [GuardedRoutesGuard]
   },
   {
-    path: 'signup',
-    loadChildren: () =>
-      import('../app/modules/freelancer/signup/signup.module').then(
-        (m) => m.SignupModule
-      ),
+    path: 'job/:id', component: JobDetailsComponent, pathMatch: 'full', canActivate: [GuardedRoutesGuard], data: {
+      role: ['Talent']
+    }
   },
-  { path: 'login', component: LoginComponent },
   {
-    path: 'job/search/:skill',
-    component: ProfileComponent,
-    pathMatch: 'full',
-    data: { search: true },
+    path: 'freelancer/jobs', component: FreelancerJobsComponent, pathMatch: 'full', canActivate: [GuardedRoutesGuard], data: {
+      role: ['Talent']
+    }
   },
-  { path: 'job/:id', component: JobDetailsComponent, pathMatch: 'full' },
-  { path: 'job/:id/apply', component: ProposeComponent, pathMatch: 'full' },
+
+  {
+    path: 'job/:id/apply', component: ProposeComponent, pathMatch: 'full', canActivate: [GuardedRoutesGuard], data: {
+      role: 'Talent'
+    }
+  },
   {
     path: 'freelancer/my-proposals',
     component: MyProposalsComponent,
-    pathMatch: 'full', canActivate:[GuardedRoutesGuard]
+    pathMatch: 'full', canActivate: [GuardedRoutesGuard], data: {
+      role: 'Talent'
+    }
   },
   {
     path: 'freelancer/:username',
     component: ViewProfileComponent,
-    pathMatch: 'full', canActivate:[GuardedRoutesGuard]
+    pathMatch: 'full', canActivate: [GuardedRoutesGuard], data: {
+      role: ['Talent', 'Employer', "Guest"]
+    }
   },
-  {path:'', component:UpworkLandingPageComponent},
-  {path:'**', component:ErrorComponent},
-  {path:'error-404', component:ErrorComponent}
+  {
+    path: '', component: UpworkLandingPageComponent, canActivate: [GuardedRoutesGuard], data: {
+      role: ['Talent', 'Employer', "Guest"]
+    }
+  },
+  {
+    path: '**', component: ErrorComponent, canActivate: [GuardedRoutesGuard], data: {
+      role: ['Talent', 'Employer', "Guest"]
+    }
+  },
+  {
+    path: 'error-404', component: ErrorComponent, canActivate: [GuardedRoutesGuard], data: {
+      role: ['Talent', 'Employer', "Guest"]
+    }
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), SharedModule],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -9,39 +9,71 @@
       <div class="card">
         <div class="card-body mb-5">
           <header>
-            <h1 class="main-title">Get started</h1>
+            <p class="main-title">Get started</p>
             <p class="hint text-muted ml-2">Step 1 to 7</p>
 
             <hr />
           </header>
           <!-- job name -->
           <div class="form-group mb-5">
-            <label for="job_name" class="sub-title">Enter the name of your job post</label>
-            <input type="text" class="form-control w-50" name="job_name" formControlName="JobName" />
-            <p class="m-1 hint">ex : Bla Bla</p>
-            <div *ngIf="
+            <label for="job_name" class="sub-title"
+              >Enter the name of your job post</label
+            >
+            <input
+              type="text"
+              class="form-control w-50"
+              name="job_name"
+              formControlName="JobName"
+              [(ngModel)]="jobName"
+            />
+
+            <p class="m-1 hint">ex : Web design</p>
+            <div
+              *ngIf="
                 (startForm.invalid && startForm.controls['JobName'].touched) ||
                 startForm.controls['JobName'].touched
-              ">
-              <p *ngIf="startForm.controls['JobName'].hasError('required')" class="text-danger hint">
+              "
+            >
+              <p
+                *ngIf="startForm.controls['JobName'].hasError('required')"
+                class="text-danger hint"
+              >
                 required
               </p>
             </div>
           </div>
 
           <p class="mb-3 sub-title">Job category</p>
-          <p class="mb-3 plain-text">
+          <p class="mb-3 hint">
             Let's categorize your job. Here are some suggestions based on your
             job title:
           </p>
 
           <div class="form-froup">
-            <input type="radio" name="option" id="option1" formControlName="option" value="Front-End Development" />
-            <label for="option1" class="h5 plain-text ml-2"><span> Front-End Development</span></label>
+            <input
+              type="radio"
+              name="option"
+              id="option1"
+              formControlName="option"
+              value="Front-End Development"
+              [(ngModel)]="category"
+            />
+            <label for="option1" class="h5 plain-text ml-2"
+              ><span> Front-End Development</span></label
+            >
           </div>
           <div class="form-group">
-            <input type="radio" name="option" id="option2" formControlName="option" value="Full Stack Development" />
-            <label for="option2" class="h5 plain-text ml-2">Full Stack Development</label>
+            <input
+              type="radio"
+              name="option"
+              id="option2"
+              formControlName="option"
+              value="Full Stack Development"
+              [(ngModel)]="category"
+            />
+            <label for="option2" class="h5 plain-text ml-2"
+              >Full Stack Development</label
+            >
           </div>
         </div>
       </div>
@@ -52,24 +84,42 @@
         <div class="card-body">
           <div class="form-group">
             <label for="comment" class="sub-title mb-3"> Description </label>
-            <textarea class="form-control" rows="6" id="comment" #descriptionInput
-              (input)="wordCounter(descriptionInput.value)" formControlName="Description"></textarea>
+            <textarea
+              class="form-control"
+              rows="6"
+              id="comment"
+              #descriptionInput
+              (input)="wordCounter(descriptionInput.value)"
+              formControlName="Description"
+              [(ngModel)]="description"
+            ></textarea>
 
             <p class="hint text-muted text-right">
               {{ wordCount }}/5000 characters (minimum 50)
             </p>
-            <div *ngIf="
+            <div
+              *ngIf="
                 (startForm.invalid &&
                   startForm.controls['Description'].touched) ||
                 startForm.controls['Description'].touched
-              ">
-              <p *ngIf="startForm.controls['Description'].hasError('required')" class="text-danger hint">
+              "
+            >
+              <p
+                *ngIf="startForm.controls['Description'].hasError('required')"
+                class="text-danger hint"
+              >
                 required
               </p>
-              <p *ngIf="startForm.controls['Description'].hasError('maxlength')" class="text-danger hint">
+              <p
+                *ngIf="startForm.controls['Description'].hasError('maxlength')"
+                class="text-danger hint"
+              >
                 maxlength
               </p>
-              <p *ngIf="startForm.controls['Description'].hasError('minlength')" class="text-danger hint">
+              <p
+                *ngIf="startForm.controls['Description'].hasError('minlength')"
+                class="text-danger hint"
+              >
                 minlength
               </p>
             </div>
@@ -99,11 +149,19 @@
           <hr />
           <br /> -->
 
-          <button type="button" class="btn btn-outline-gray text-success btn-lg py-2 px-5 mr-3 mt-1">
+          <button
+            type="button"
+            class="btn btn-outline-green btn-lg py-2 px-5 mr-3 mt-1"
+          >
             <b>Back</b>
           </button>
-          <button type="button" class="btn btn-success btn-lg py-2 px-5 mt-1" (click)="storeData()"
-            routerLink="/post-job/details" [disabled]="!startForm.valid">
+          <button
+            type="button"
+            class="btn btn-green btn-lg py-2 px-5 mt-1"
+            (click)="storeData()"
+            routerLink="/post-job/details"
+            [disabled]="!startForm.valid"
+          >
             <b>Next</b>
           </button>
         </div>

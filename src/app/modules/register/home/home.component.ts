@@ -1,11 +1,9 @@
+import { LoginComponent } from './../login/login.component';
 import { Title } from '@angular/platform-browser';
 import { AuthService } from './../../../services/auth-service/auth.service';
-// import { User } from './../../../models/user';
-import { ClientService } from '../../../services/client-service/client.service';
-import { Client } from './../../../models/client';
 import { JwtTokenService } from './../../../services/jwt-token.service';
 import { FreelancerService } from '../../../services/freelancer-service/freelancer.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -41,7 +39,8 @@ export class HomeComponent implements OnInit {
     private _freelancerService: FreelancerService,
     private router: Router,
     private _jwtTokenService: JwtTokenService,
-    private titleService: Title
+    private titleService: Title,
+    private _loginComponent: LoginComponent
   ) {
     this.titleService.setTitle("Upwork - Sign Up");
   }
@@ -118,16 +117,11 @@ export class HomeComponent implements OnInit {
     freelancerSignUp.UserName = username;
     this._freelancerService.signUp(freelancerSignUp, this.signUpType).subscribe(
       (response) => {
-        // this.freelancerSignUpArr.push(freelancerSignUp);
-        // alert("Add New User is Donee");
-        this.loginBtn(email, password);
-        if (this.signUpType === 'employer') {
-          this.router.navigateByUrl('/post-job/title');
-        }
-        if (this.signUpType === 'talent') {
-          this.router.navigateByUrl('/freelancer/getstarted');
-        }
-        console.log('Response ', response);
+        let userLogin: any = {};
+        userLogin.Email = email;
+        userLogin.Password = password;
+        console.log(this.signUpType)
+        this._loginComponent.LoginService(userLogin, this.signUpType);
       },
       (error) => {
         alert('Sorry error occurred');

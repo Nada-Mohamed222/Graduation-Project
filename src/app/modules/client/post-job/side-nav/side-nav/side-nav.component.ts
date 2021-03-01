@@ -11,6 +11,7 @@ export class SideNavComponent implements OnInit {
   isStartDone = false;
   isDetailsDone = false;
   isBudgetDone = false;
+  startRoute = '';
 
   constructor(private _sharingData: SharingDataService) {}
   // startSubscription: Subscription;

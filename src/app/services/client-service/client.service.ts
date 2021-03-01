@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ClientService {
-  constructor(private _apiServices: ApiService) {}
+  constructor(private _apiServices: ApiService) { }
 
   login(Client: Client) {
     return this._apiServices.Loginpost(`employer/login`, Client);
@@ -50,8 +50,8 @@ export class ClientService {
     return this._apiServices.get(`job/` + id);
   }
 
-  getAllEmployerJob(UserName: string) {
-    return this._apiServices.get(`employer/${UserName}/jobs`);
+  getAllEmployerFinishedJobs(UserName: string) {
+    return this._apiServices.get(`employer/Public/${UserName}/Done`);
   }
 
   delete(id: number) {
@@ -68,19 +68,19 @@ export class ClientService {
   }
 
   //-------------------- get accepted propopsls
-  getAllAcceptedProposals() {
+  getAllAcceptedProposals(status?: string) {
     return this._apiServices.get(
-      `employer/${localStorage.getItem('UserName')}/active-jobs`
+      `employer/${localStorage.getItem('UserName')}/${status}`
     );
   }
   // --------------------------------------------
   //   "/:UserName/:id/:HiredTalentID/end-job",
 
   //--------------end contract
-  endContract(id: string, HiredTalentID: string) {
+  endContract(id: string, HiredTalentID: string, review: string) {
     return this._apiServices.Patch(
       `job/${localStorage.getItem('UserName')}/${id}/${HiredTalentID}/end-job`,
-      ''
+      { EmployerReview: review }
     );
   }
 }

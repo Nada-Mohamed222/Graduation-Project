@@ -9,47 +9,47 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./title.component.css'],
 })
 export class TitleComponent implements OnInit {
-  startForm!: FormGroup;
+  startForm?: FormGroup;
   wordCount: number = 0;
-  jobName: string;
-  category: string;
-  description: string;
+  jobName: any = '';
+  category: string = '';
+  description: any = '';
   additionalFiles: string;
 
-  categories = ['option1', 'option2'];
+  // initail value of the end user data
+  endUserData = {
+    jobName: '',
+    category: 'Front-End Development',
+    description: '',
+  };
 
   constructor(
     private _formBuilder: FormBuilder,
     private _sharingData: SharingDataService,
     private titleService: Title
   ) {
-    this.titleService.setTitle("Post New Job - Get Started");
+    this.titleService.setTitle('Post New Job - Get Started');
   }
 
   ngOnInit(): void {
     this.startForm = this._formBuilder.group({
-      JobName: ['', [Validators.required]],
-      option: ['Front-End Development', [Validators.required]],
+      JobName: [this.jobName, [Validators.required]],
+      option: [this.category, [Validators.required]],
       Description: [
-        '',
+        this.description,
         [
           Validators.required,
           Validators.maxLength(5000),
-          Validators.minLength(72),
+          Validators.minLength(50),
         ],
       ],
       AdditionalFiles: [''],
     });
-
-    // if (localStorage.getItem("start") !== null){
-    //   var start = JSON.parse(localStorage.getItem('start'));
-    //   console.log(start)
-    //   this.startForm.controls['JobName'].setValue(start.jobName);
-    //   this.startForm.controls['option'].setValue(start.category),
-    //   this.startForm.controls['Description'].setValue(start.description),
-    //   this.startForm.controls['AdditionalFiles'].setValue(start.jobName)
-
-    // }
+    // set value of the end user data
+    this.endUserData = this._sharingData.getStartData();
+    this.jobName = this.endUserData.jobName;
+    this.description = this.endUserData.description;
+    this.category = this.endUserData.category;
   }
 
   wordCounter(text: string) {
@@ -64,9 +64,10 @@ export class TitleComponent implements OnInit {
       description: this.startForm.controls['Description'].value,
       additionalFiles: this.startForm.controls['AdditionalFiles'].value,
     };
-    // localStorage.setItem("start", JSON.stringify(start))
     this._sharingData.setStartData(start);
+
     this._sharingData.isStartDone.next(true);
+
     console.log(start);
     console.log(this.startForm);
   }

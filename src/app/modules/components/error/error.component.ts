@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ErrorComponent implements OnInit {
 
   constructor(private titleService: Title) {
-    this.titleService.setTitle("Oops, Not Found");
+    this.titleService.setTitle("Oops, Something went wrong");
   }
 
   ngOnInit(): void {

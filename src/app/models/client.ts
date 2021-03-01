@@ -9,6 +9,7 @@ export class Client {
   Country: String;
   Jobs: Array<Object> = [];
   createdAt: String;
+  Spent: Number = 0;
 
   constructor(
     Password?: String,

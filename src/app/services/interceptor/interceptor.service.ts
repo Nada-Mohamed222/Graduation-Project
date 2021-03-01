@@ -11,14 +11,13 @@ export class InterceptorService implements HttpInterceptor {
 
   constructor(public _loaderService: SpinnerService) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
+
     this._loaderService.isLoading.next(true);
     return next.handle(req).pipe(
       finalize(
-        ()=>{
+        () => {
 
           this._loaderService.isLoading.next(false)
-          console.log("Hello from interceptor");
 
         }
       )

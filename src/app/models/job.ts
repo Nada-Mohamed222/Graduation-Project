@@ -6,7 +6,7 @@ export class Job {
   JobType: String;
 
   // may cause error
-  Skills: string;
+  Skills: any[];
 
   ExpertiseLevel: String;
   TalentsRequired: Number;
@@ -16,7 +16,7 @@ export class Job {
   Earning: Number;
   PaymentType: String;
   Price: Number;
-  Duration: Number;
+  Duration: string;
   WeeklyHoursRequired: Number;
   EmployerRating: Number;
   EmployerReview: String;
@@ -35,13 +35,13 @@ export class Job {
     Description?: string,
 
     JobType?: string,
-    Skills?: string,
+    Skills?: any[],
     ExpertiseLevel?: string,
 
     PaymentType?: string,
     Price?: number,
 
-    Duration?: number
+    Duration?: string
   ) {
     this.Name = Name;
     this.Category = Category;

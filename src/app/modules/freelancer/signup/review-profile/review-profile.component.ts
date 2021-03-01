@@ -1,3 +1,4 @@
+import { AuthService } from './../../../../services/auth-service/auth.service';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -30,7 +31,8 @@ export class ReviewProfileComponent implements OnInit {
     private _sharingData: SharingDataService,
     private _freelancerService: FreelancerService,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    private _authService: AuthService
   ) {
     this.titleService.setTitle("Sign Up - Review My Data");
   }
@@ -58,13 +60,24 @@ export class ReviewProfileComponent implements OnInit {
     this.phoneData = this._sharingData.getPhoneData();
   }
 
+
+  getUserData() {
+    this._freelancerService.getFreelancerPublic(localStorage.getItem("UserName")).subscribe((response: any) => {
+      console.log(response)
+      this._authService.user.next({ imgURL: response.ImageURL, Type: "Talent", Username: response.UserName })
+      localStorage.setItem("image", response.ImageURL)
+      localStorage.setItem("isVerified", "true")
+      this._authService.isVerified.next(true)
+    })
+  }
+
   submitData() {
     // let freelancerSignUp:Freelancer = new Freelancer();
     const formData = new FormData();
     // Expertise
     formData.append('MainService', this.expertiseData.mainService);
     for (var i = 0; i < this.expertiseData.mainSkills.length; i++) {
-      formData.append('Skills[]', this.expertiseData.mainSkills[i].toLowerCase());
+      formData.append('Skills[]', this.expertiseData.mainSkills[i].trim().toLowerCase());
     }
 
     //Expertise Level
@@ -85,9 +98,11 @@ export class ReviewProfileComponent implements OnInit {
 
     formData.append('isVerified', 'true');
 
+    formData.append('Connects', '50');
+
     this._freelancerService.update(formData).subscribe(
       (response) => {
-        console.log('Response ', response);
+        this.getUserData();
         this.router.navigate(['/freelancer/profile']);
       },
       (error) => {

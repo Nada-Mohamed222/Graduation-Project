@@ -1,8 +1,8 @@
+import { AuthService } from './../../../services/auth-service/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Job } from './../../../models/job';
 import { Freelancer } from './../../../models/freelancer';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClientService } from '../../../services/client-service/client.service';
 import { FreelancerService } from '../../../services/freelancer-service/freelancer.service';
 import { Component, OnInit } from '@angular/core';
 import { Title } from "@angular/platform-browser";
@@ -18,7 +18,7 @@ export class ViewProfileComponent implements OnInit {
   freelancerJobs: Array<Job>;
   formGroup: FormGroup;
   uploadedImage: any;
-  inputImage: any = "https://www.pngarts.com/files/3/Avatar-PNG-Free-Download.png";
+  inputImage: any = "http://localhost:5000/uploads/avatar.png";
   remaningCharacters: number = 5000;
   skill: string = "";
   skills: any = [];
@@ -34,7 +34,8 @@ export class ViewProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private _formBuilder: FormBuilder,
-    private titleService: Title
+    private titleService: Title,
+    private _authService: AuthService
   ) {
     this.titleService.setTitle(`Upwork`);
   }
@@ -52,6 +53,8 @@ export class ViewProfileComponent implements OnInit {
         (response: Freelancer) => {
           this.freelancer = response;
           this.formGroup = this._formBuilder.group({
+            Hidden2: [""],
+            Hidden: [""],
             FirstName: [this.freelancer.FirstName, [Validators.required, Validators.minLength(2), Validators.maxLength(16)]],
             LastName: [this.freelancer.LastName, [Validators.required, Validators.minLength(2), Validators.maxLength(16)]],
             profile: [""],
@@ -64,15 +67,18 @@ export class ViewProfileComponent implements OnInit {
             MainSkills: [""],
             Location: [this.freelancer.Country, [Validators.required]]
           })
-          this.isMyAccount ? this.titleService.setTitle(`${this.freelancer.FirstName} ${this.freelancer.LastName} - ${this.freelancer.Title.slice(0, 20)}`) : this.titleService.setTitle(`${this.freelancer.FirstName} ${this.freelancer.LastName.slice(0, 1)}. - ${this.freelancer.Title.slice(0, 20)}`);
+          this.isMyAccount ? this.titleService.setTitle(`${this.freelancer.FirstName} ${this.freelancer.LastName} - ${this.freelancer.Title.slice(0, 20)}`)
+            : this.titleService.setTitle(`${this.freelancer.FirstName} 
+           ${this.freelancer.LastName.slice(0, 1)}. 
+           - ${this.freelancer.Title.slice(0, 20)}`);
           this.skills = this.freelancer.Skills;
           this.inputImage = `http://localhost:5000/${this.freelancer.ImageURL}`;
-          this.LastNameFirstLetter = response.LastName.slice(0,1)
+          this.LastNameFirstLetter = response.LastName.slice(0, 1)
           this.FreelancerSkills = response.Skills[0].split(',')
           this._freelancerService.getFreelancerJobsPublic(this.username).subscribe((response: Array<Job>) => {
             this.freelancerJobs = response;
             this.FreelancerJobsLength = response.length
-            
+
           }, err => {
             console.log("Can't get jobs")
           })
@@ -104,7 +110,7 @@ export class ViewProfileComponent implements OnInit {
 
   addSkill(skill: string) {
     if (this.skills.length < 10) {
-      this.skills.push(skill);
+      this.skills.push(skill.trim().toLowerCase());
       this.skill = '';
     }
   }
@@ -126,7 +132,7 @@ export class ViewProfileComponent implements OnInit {
     // Expertise
     formData.append('MainService', this.formGroup.controls['MainServices'].value);
     for (var i = 0; i < this.skills.length; i++) {
-      formData.append('Skills[]', this.skills[i].toLowerCase());
+      formData.append('Skills[]', this.skills[i].trim().toLowerCase());
     }
     //Languages
     formData.append('EnglishProficiency', this.formGroup.controls['Language'].value);
@@ -142,11 +148,15 @@ export class ViewProfileComponent implements OnInit {
     console.log(formData)
     this._freelancerService.update(formData).subscribe(
       (response) => {
-        this.loadData()
-      },
-      (error) => {
-        console.log('Sorry error occurred');
-      }
-    );
+        this.loadData();
+        this._freelancerService.getFreelancerPublic(localStorage.getItem("UserName")).subscribe((response: any) => {
+          this._authService.user.next({ imgURL: response.ImageURL, Type: "Talent", Username: response.UserName })
+          localStorage.setItem("image", response.ImageURL)
+        },
+          (error) => {
+            console.log('Sorry error occurred');
+          }
+        );
+      })
   }
 }

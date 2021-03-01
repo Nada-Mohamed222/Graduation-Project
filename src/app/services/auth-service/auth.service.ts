@@ -7,9 +7,17 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
-  constructor(private _apiService: ApiService) {}
 
+export class AuthService {
+  isLogged= new Subject<boolean>()
+  user: BehaviorSubject<{imgURL, Type, Username}> = new BehaviorSubject<any>("")
+  isVerified: BehaviorSubject<any> = new BehaviorSubject<any>(false)
+
+  constructor(private _apiService: ApiService) {
+    this.user.next({imgURL: localStorage.getItem("image"), Type: localStorage.getItem("Type"), Username: localStorage.getItem("UserName")})
+
+  }
+  
   
   get() {
     return this._apiService.get("talent/checklogged/isLogged");
@@ -18,6 +26,7 @@ export class AuthService {
   logout(){
     return this._apiService.post("talent/logout", "");
   }
+
 
   // user = new BehaviorSubject<User>(null);
   

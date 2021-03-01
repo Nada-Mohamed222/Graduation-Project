@@ -21,8 +21,15 @@ import { ProposeComponent } from './modules/components/propose/propose.component
 import { MyProposalsComponent } from './modules/freelancer/my-proposals/my-proposals.component';
 import { PostJobModule } from './modules/client/post-job/post-job.module';
 import { ErrorComponent } from './modules/components/error/error.component';
-import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
-import { ModalModule } from 'angular-bootstrap-md'
+import {
+  NavbarModule,
+  WavesModule,
+  ButtonsModule,
+  ModalModule,
+} from 'angular-bootstrap-md';
+import { FreelancerJobsComponent } from './modules/components/freelancer-jobs/freelancer-jobs.component';
+import { SomeTextPipe } from './modules/client/shared/pipes/some-text.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +42,8 @@ import { ModalModule } from 'angular-bootstrap-md'
     ProposeComponent,
     MyProposalsComponent,
     ErrorComponent,
+    FreelancerJobsComponent,
+
     // SignupModule
   ],
   imports: [
@@ -60,8 +69,7 @@ import { ModalModule } from 'angular-bootstrap-md'
       useClass: InterceptorService,
       multi: true,
     },
-      // GuardedRoutesGuard
-    
+    // GuardedRoutesGuard
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

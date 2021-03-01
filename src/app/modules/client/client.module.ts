@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConfirmationComponent } from './shared/components/confirmation/confirmation.component';
-import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
-import { ModalModule,  InputsModule,  } from 'angular-bootstrap-md'
-
+import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
+import { ModalModule, InputsModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -15,14 +14,14 @@ import { ModalModule,  InputsModule,  } from 'angular-bootstrap-md'
     // ReversePipe,
     // ChipComponent,
     // ProposalsComponent,
-    ConfirmationComponent,
+    // ConfirmationComponent,
   ],
   imports: [
     CommonModule,
     ModalModule.forRoot(),
     InputsModule,
     NavbarModule,
-    WavesModule
+    WavesModule,
     //  RouterModule.forChild(routes)
   ],
 
