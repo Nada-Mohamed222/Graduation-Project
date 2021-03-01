@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth-service/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Job } from './../../../models/job';
 import { Freelancer } from './../../../models/freelancer';
@@ -33,7 +34,8 @@ export class ViewProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private _formBuilder: FormBuilder,
-    private titleService: Title
+    private titleService: Title,
+    private _authService: AuthService
   ) {
     this.titleService.setTitle(`Upwork`);
   }
@@ -65,7 +67,10 @@ export class ViewProfileComponent implements OnInit {
             MainSkills: [""],
             Location: [this.freelancer.Country, [Validators.required]]
           })
-          this.isMyAccount ? this.titleService.setTitle(`${this.freelancer.FirstName} ${this.freelancer.LastName} - ${this.freelancer.Title.slice(0, 20)}`) : this.titleService.setTitle(`${this.freelancer.FirstName} ${this.freelancer.LastName.slice(0, 1)}. - ${this.freelancer.Title.slice(0, 20)}`);
+          this.isMyAccount ? this.titleService.setTitle(`${this.freelancer.FirstName} ${this.freelancer.LastName} - ${this.freelancer.Title.slice(0, 20)}`)
+            : this.titleService.setTitle(`${this.freelancer.FirstName} 
+           ${this.freelancer.LastName.slice(0, 1)}. 
+           - ${this.freelancer.Title.slice(0, 20)}`);
           this.skills = this.freelancer.Skills;
           this.inputImage = `http://localhost:5000/${this.freelancer.ImageURL}`;
           this.LastNameFirstLetter = response.LastName.slice(0, 1)
@@ -144,11 +149,14 @@ export class ViewProfileComponent implements OnInit {
     this._freelancerService.update(formData).subscribe(
       (response) => {
         this.loadData();
-        localStorage.setItem("image", this.freelancer.ImageURL)
-      },
-      (error) => {
-        console.log('Sorry error occurred');
-      }
-    );
+        this._freelancerService.getFreelancerPublic(localStorage.getItem("UserName")).subscribe((response: any) => {
+          this._authService.user.next({ imgURL: response.ImageURL, Type: "Talent", Username: response.UserName })
+          localStorage.setItem("image", response.ImageURL)
+        },
+          (error) => {
+            console.log('Sorry error occurred');
+          }
+        );
+      })
   }
 }

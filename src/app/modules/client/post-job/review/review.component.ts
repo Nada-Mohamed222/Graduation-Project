@@ -68,12 +68,12 @@ export class ReviewComponent implements OnInit {
       start.category,
       start.description,
       details.projectType,
-      // details.skillsNeed,
-      '',
+      details.skillsNeed,
+
       details.experienceLevel,
       this.paymentType,
       this.price,
-      1
+      this.projectDuration
     );
 
     _postJobService.postJob(job).subscribe(

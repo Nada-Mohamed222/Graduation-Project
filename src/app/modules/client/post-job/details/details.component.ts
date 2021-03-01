@@ -31,9 +31,7 @@ export class DetailsComponent implements OnInit {
   // initail value of the end user data
   endUserData = {
     projectType: 'One Time',
-
     skillsNeed: [],
-
     screeningQuestion: '',
     freelancerNumber: '',
     experienceLevel: '',
@@ -44,7 +42,7 @@ export class DetailsComponent implements OnInit {
     private _sharingData: SharingDataService,
     private titleService: Title
   ) {
-    this.titleService.setTitle("Post New Job - More Details");
+    this.titleService.setTitle('Post New Job - More Details');
   }
 
   ngOnInit(): void {
@@ -53,9 +51,9 @@ export class DetailsComponent implements OnInit {
     this.detailsForm = this._formBuilder.group({
       ProjectType: [this.projectType],
       Skills: [''],
-      ScreeningQuestion: [''],
-      FreelancerNumber: ['One freelancer'],
-      ExperienceLevel: ['Entry'],
+      // ScreeningQuestion: [''],
+      // FreelancerNumber: ['One freelancer'],
+      ExperienceLevel: [this.experienceLevel],
     });
 
     // set value of the end user data
@@ -135,8 +133,8 @@ export class DetailsComponent implements OnInit {
     const details = {
       projectType: this.detailsForm.controls['ProjectType'].value,
       skillsNeed: this.skills,
-      screeningQuestion: this.detailsForm.controls['ScreeningQuestion'].value,
-      freelancerNumber: this.detailsForm.controls['FreelancerNumber'].value,
+      // screeningQuestion: this.detailsForm.controls['ScreeningQuestion'].value,
+      // freelancerNumber: this.detailsForm.controls['FreelancerNumber'].value,
       experienceLevel: this.detailsForm.controls['ExperienceLevel'].value,
     };
     // localStorage.setItem("details", JSON.stringify(details))

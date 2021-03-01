@@ -25,4 +25,9 @@ span {
 .disabled {
   color: gray !important;
   cursor: not-allowed !important;
+  pointer-events: none !important ;
+  /* cursor: default; */
+}
+.left {
+  border-left: 3px solid green;
 }

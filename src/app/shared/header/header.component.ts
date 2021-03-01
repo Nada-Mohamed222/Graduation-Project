@@ -12,21 +12,21 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
 
-  isVisited:boolean;
-  username:string
-  image:any = ""
-  isLogged: Boolean =false
+  isVisited: boolean;
+  username: string
+  image: any = ""
+  isLogged: Boolean = false
   isEmployer: Boolean = false
   isTalent: Boolean = false
   checkType: String = ""
   isVerified: any = false;
-  
-  constructor(private router:Router, public spinnerService: SpinnerService, public _authService : AuthService) {
+
+  constructor(private router: Router, public spinnerService: SpinnerService, public _authService: AuthService) {
   }
 
 
-  logout(){
-    this._authService.logout().subscribe((response)=>{
+  logout() {
+    this._authService.logout().subscribe((response) => {
       localStorage.clear()
       localStorage.setItem("Type", "Guest")
       this.router.navigateByUrl('/')
@@ -34,44 +34,45 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-  checkUserType(){
-      if(this.checkType === "Employer")
-      {
-        this.isEmployer = true;
-        this.isTalent = false;
-      }
-      else if(this.checkType === "Talent")
-       {
-        this.isTalent = true;
-        this.isEmployer = false;
-      }
+  checkUserType() {
+    if (this.checkType === "Employer") {
+      this.isEmployer = true;
+      this.isTalent = false;
+    }
+    else if (this.checkType === "Talent") {
+      this.isTalent = true;
+      this.isEmployer = false;
+    }
 
-      else {
-        this.isTalent = false;
-        this.isEmployer = false;
-        localStorage.setItem("Type", "Guest")
-      }
+    else {
+      this.isTalent = false;
+      this.isEmployer = false;
+      localStorage.setItem("Type", "Guest")
+    }
   }
 
 
 
   ngOnInit(): void {
 
-     this._authService.isVerified.subscribe((response)=>{
-       
-      this.isVerified= response
-    }, (error)=>{
+    this._authService.isVerified.subscribe((response) => {
+
+      this.isVerified = response
+    }, (error) => {
       console.log(error);
     })
-    
-    this._authService.isLogged.subscribe((response) =>{ 
-    localStorage.getItem("isVerified")== 'true' ? this.isVerified = true : this.isVerified= false
-      this.isLogged = response   
-      
-    }, (error)=>{
+
+    this._authService.isLogged.subscribe((response) => {
+      localStorage.getItem("isVerified") == 'true' ? this.isVerified = true : this.isVerified = false
+      this.isLogged = response
+      if (!this.isLogged) {
+        localStorage.clear();
+        localStorage.setItem("Type", "Guest");
+      }
+    }, (error) => {
       console.log(error);
     })
-    this._authService.user.subscribe((response)=> {
+    this._authService.user.subscribe((response) => {
       this.username = response.Username
       this.image = response.imgURL
       this.checkType = response.Type

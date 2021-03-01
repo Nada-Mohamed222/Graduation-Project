@@ -1,3 +1,4 @@
+import { SharedModule } from './../../../shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './../profile/profile.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -5,7 +6,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PostComponent } from './jobs/post/post.component';
 import { SliderComponent } from './jobs/slider/slider.component';
-import { SomeTextPipe } from './../../../modules/client/shared/pipes/some-text.pipe';
 import { ReversePipe } from './../shared/pipes/reverse.pipe';
 import { ChipComponent } from './../shared/components/chip/chip.component';
 import { ProposalsComponent } from './../profile/proposals/proposals.component';
@@ -54,7 +54,6 @@ const routes: Routes = [
     ProfileComponent,
     PostComponent,
     SliderComponent,
-    SomeTextPipe,
     ReversePipe,
     ChipComponent,
     ProposalsComponent,
@@ -70,8 +69,9 @@ const routes: Routes = [
     WavesModule,
     CommonModule,
     RouterModule.forChild(routes),
+    SharedModule
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class ProfileModule {}
+export class ProfileModule { }

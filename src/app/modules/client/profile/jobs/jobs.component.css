@@ -18,3 +18,23 @@
   text-shadow: 0 0 11px #1d4354;
   /* color: #1d4354; */
 }
+.filter {
+  font-weight: 500;
+  font-size: 20px;
+  background-color: #47a815;
+  cursor: pointer;
+  color: white;
+  /* border-radius: 5%; */
+  max-width: 20%;
+  margin: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.filter:hover,
+.selected {
+  /* color: #47a815; */
+  background-color: #1d4354;
+  /* border: 2px solid #47a815; */
+  box-shadow: 5px 10px 18px #888888;
+}

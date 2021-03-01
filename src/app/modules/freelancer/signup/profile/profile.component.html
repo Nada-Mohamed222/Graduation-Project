@@ -21,7 +21,29 @@
 
   <!-- <div class="container"> -->
   <div class="row no-gutters justify-content-center mx-auto w-75">
-    <div class="col-md-2 fontsize-sidebar pl-3"></div>
+    <div class="col-md-2 fontsize-sidebar">
+      <div *ngIf="!isSearching">
+        <p class="h5 font-weight-bold mb-3">Top Skills</p>
+        <a routerLink="/job/search/React">
+          <p class="text-color header-link-jobs mb-3">React</p>
+        </a>
+        <a routerLink="/job/search/php">
+          <p class="header-link-jobs text-color mb-3">PHP</p>
+        </a>
+        <a routerLink="/job/search/ui">
+          <p class="header-link-jobs text-color mb-3">UI</p>
+        </a>
+        <a routerLink="/job/search/Node">
+          <p class="header-link-jobs text-color mb-3">Node</p>
+        </a>
+        <a routerLink="/job/search/Wordpress">
+          <p class="header-link-jobs text-color mb-3">Wordpress</p>
+        </a>
+        <a routerLink="/job/search/AWS">
+          <p class="header-link-jobs text-color mb-3">AWS</p>
+        </a>
+      </div>
+    </div>
 
     <div class="col-md-7 col-sm-12 rounded-md">
       <div class="card justify-content-center mx-auto shadow-md">
@@ -73,8 +95,7 @@
             }}
           </p>
           <div *ngFor="let skill of job.data.Skills" class="mb-2 float-left">
-            <a (click)="submitSearch(skill)"
-              class="badge background-badge ml-2 p-2 rounded-pill cursor-pointer">{{ skill }}</a>
+            <a (click)="submitSearch(skill)" class="btn badge background-badge ml-2 p-2 rounded-pill">{{ skill }}</a>
           </div>
           <br />
 
@@ -130,12 +151,12 @@
       </div>
 
       <div class="mt-3">
-        <a href="" class="profile-link-jobs">
+        <span class="profile-link-jobs text-color">
           <strong>
             {{ freelancer.Connects ? freelancer.Connects : 0 }} available
             connects
           </strong>
-        </a>
+        </span>
       </div>
     </div>
   </div>

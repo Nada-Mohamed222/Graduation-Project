@@ -1,56 +1,79 @@
 <div class="container my-5">
-  <div class="row">
-    <!-- <div class="col-md-4 offset-md-9">
-      <button
-        routerLink="/post-job/title"
-        class="post-job btn btn-success btn-lg sub-title px-4"
-      >
-        Post a Job
-      </button>
-    </div> -->
+  <div class="row justify-content-between mb-2 mx-1">
+    <div
+      class="col-md-3 col-xs-12 text-center filter rounded"
+      [ngClass]="{ selected: jobFilter === 'all' }"
+      (click)="handleFilterclick('all')"
+    >
+      <span class="">all</span>
+    </div>
+    <div
+      class="col-md-3 col-xs-12 text-center filter rounded"
+      [ngClass]="{ selected: jobFilter === 'Pending' }"
+      (click)="handleFilterclick('Pending')"
+    >
+      <span class="">pending</span>
+    </div>
+    <div
+      class="col-md-3 col-xs-12 text-center filter rounded"
+      [ngClass]="{ selected: jobFilter === 'Ongoing' }"
+      (click)="handleFilterclick('Ongoing')"
+    >
+      <span class="">active</span>
+    </div>
+    <div
+      class="col-md-3 col-xs-12 text-center filter rounded"
+      [ngClass]="{ selected: jobFilter === 'Done' }"
+      (click)="handleFilterclick('Done')"
+    >
+      <span class="">done</span>
+    </div>
   </div>
+
   <div class="row">
     <div class="col-md-12">
       <!-- post layout -->
       <div class="card p-3">
         <!-- post header -->
         <div class="card-header bg-white">
-          <h4 class="d-inline-block">My Postings</h4>
+          <p class="sub-title d-inline-block">{{ jobStatusTitle }}</p>
           <button
             routerLink="/post-job/title"
-            class="post-job btn btn-success btn-lg sub-title px-4 mr-4"
+            class="post-job btn btn-lg sub-title btn-outline-green px-4 mr-4 rounded"
           >
             Post a Job
           </button>
         </div>
         <!-- post content -->
         <div *ngFor="let job of jobs | reverse; let currentIndex = index">
-          <app-post
-            jobName="{{ job.Name }}"
-            paymentType="{{ job.PaymentType }}"
-            experienceLevel="{{ job.ExpertiseLevel }}"
-            price="{{ job.Price }}"
-            description="{{ job.Description }}"
-            priceType="{{ job.PaymentType }}"
-            jobId="{{ job._id }}"
-          ></app-post>
-          <div class="col-md-12">
-            <div
-              class="skills mx-2 mt-0 mb-2 text-center hint d-inline-block"
-              *ngFor="let skill of job.Skills"
-            >
-              <app-chip skill="{{ skill }}"></app-chip>
+          <div *ngIf="jobFilter === 'all' || jobFilter === job.Status">
+            <app-post
+              jobName="{{ job.Name }}"
+              paymentType="{{ job.PaymentType }}"
+              experienceLevel="{{ job.ExpertiseLevel }}"
+              price="{{ job.Price }}"
+              description="{{ job.Description }}"
+              priceType="{{ job.PaymentType }}"
+              jobId="{{ job._id }}"
+            ></app-post>
+            <div class="col-md-12">
+              <div
+                class="skills mx-2 mt-0 mb-2 text-center hint d-inline-block"
+                *ngFor="let skill of job.Skills"
+              >
+                <app-chip skill="{{ skill }}"></app-chip>
+              </div>
             </div>
+
+            <p class="mt-2 prop" (click)="getjobProposals(job._id)">
+              <i class="fas fa-circle text-green m-3"></i>
+              <b class="proposals">Proposal </b>
+
+              <b class="text-green">:</b>
+              <b class="number"> {{ " " + job.Proposals.length }}</b>
+            </p>
+            <hr />
           </div>
-
-          <p class="mt-2 prop" (click)="getjobProposals(job._id)">
-            <i class="fas fa-circle text-green m-3"></i>
-            <b class="proposals">Proposal </b>
-
-            <b class="text-green">:</b>
-            <b class="number"> {{ " " + job.Proposals.length }}</b>
-          </p>
-          <hr />
         </div>
       </div>
     </div>

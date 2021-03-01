@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit {
   jobs: Array<object> = [];
   PageNumber: any = { PageNumber: 1 }
   NoMoreJobs: boolean = false;
+  isSearching: boolean = false;
 
   ngOnInit(): void {
     this._freelancerService.getFreelancerAuth().subscribe(
@@ -40,7 +41,7 @@ export class ProfileComponent implements OnInit {
   submitSearch(searchedValue: string) {
     if (searchedValue) {
       this.PageNumber = { PageNumber: 1 };
-      this.router.navigate([`/job/search/${searchedValue}`]);
+      this.router.navigate([`/job/search/${searchedValue.toLowerCase()}`]);
     }
   }
 
@@ -49,6 +50,7 @@ export class ProfileComponent implements OnInit {
       this._freelancerService.getAllJobs(this.PageNumber).subscribe(
         (response: any) => {
           this.updateJobs(response);
+          this.isSearching = false;
         },
         (error) => {
           console.log("Can't get jobs details");
@@ -56,12 +58,12 @@ export class ProfileComponent implements OnInit {
       );
     } else {
       this.route.params.subscribe((params) => {
-        this.skill = params['skill'];
+        this.skill = params['skill'].toLowerCase();
         this._freelancerService.searchBySkill(this.skill, this.PageNumber).subscribe(
           (response: any) => {
             this.updateJobs(response);
             this.titleService.setTitle(`Search for ${this.skill} jobs`);
-
+            this.isSearching = true;
           },
           (error) => {
             alert('Error');

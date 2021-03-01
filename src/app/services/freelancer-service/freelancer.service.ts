@@ -54,6 +54,14 @@ export class FreelancerService {
     return this._apiServices.getJobs('job', PageNumber);
   }
 
+  getAllJobsAuth(Status: String) {
+    return this._apiServices.get(`talent/auth/${localStorage.getItem('UserName')}/jobs/${Status}`);
+  }
+
+  getAllSavedJobsAuth() {
+    return this._apiServices.get(`talent/${localStorage.getItem('UserName')}/saved-jobs`);
+  }
+
   searchBySkill(skill: string, PageNumber: object) {
     return this._apiServices.post(`job/${skill}`, PageNumber);
   }

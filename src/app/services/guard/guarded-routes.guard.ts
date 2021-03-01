@@ -13,6 +13,10 @@ export class GuardedRoutesGuard implements CanActivate {
   checkType(route: ActivatedRouteSnapshot, url: any): boolean {
     if (this._authService.isLogged) {
       const userRole = localStorage.getItem("Type")
+      if (route.data.role && route.data.role.indexOf(userRole) === -1 && userRole == "Guest") {
+        this.Router.navigate(['/login']);
+        return false;
+      }
       if (route.data.role && route.data.role.indexOf(userRole) === -1) {
         this.Router.navigate(['/']);
         return false;

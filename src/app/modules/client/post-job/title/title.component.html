@@ -44,7 +44,7 @@
           </div>
 
           <p class="mb-3 sub-title">Job category</p>
-          <p class="mb-3 plain-text">
+          <p class="mb-3 hint">
             Let's categorize your job. Here are some suggestions based on your
             job title:
           </p>
@@ -151,13 +151,13 @@
 
           <button
             type="button"
-            class="btn btn-outline-gray text-success btn-lg py-2 px-5 mr-3 mt-1"
+            class="btn btn-outline-green btn-lg py-2 px-5 mr-3 mt-1"
           >
             <b>Back</b>
           </button>
           <button
             type="button"
-            class="btn btn-success btn-lg py-2 px-5 mt-1"
+            class="btn btn-green btn-lg py-2 px-5 mt-1"
             (click)="storeData()"
             routerLink="/post-job/details"
             [disabled]="!startForm.valid"

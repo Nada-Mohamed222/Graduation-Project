@@ -16,6 +16,8 @@ export class JobsComponent implements OnInit {
   jobs: {};
   skills = ['html', 'css'];
   jobId: string;
+  jobFilter = 'all';
+  jobStatusTitle = 'My Postings';
   constructor(
     private _getJob: JobPost,
     private _clientService: ClientService,
@@ -23,7 +25,7 @@ export class JobsComponent implements OnInit {
     private _sharingData: SharingDataService,
     private titleService: Title
   ) {
-    this.titleService.setTitle("My Jobs");
+    this.titleService.setTitle('My Jobs');
   }
 
   ngOnInit(): void {
@@ -70,5 +72,29 @@ export class JobsComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  handleFilterclick(filter: string) {
+    switch (filter) {
+      case 'all':
+        this.jobFilter = 'all';
+        this.jobStatusTitle = 'My postings';
+        break;
+      case 'Pending':
+        this.jobFilter = 'Pending';
+        this.jobStatusTitle = 'Pending jobs';
+        break;
+      case 'Ongoing':
+        this.jobFilter = 'Ongoing';
+        this.jobStatusTitle = 'Active jobs';
+        break;
+      case 'Done':
+        this.jobFilter = 'Done';
+        this.jobStatusTitle = 'Done jobs';
+        break;
+
+      default:
+        break;
+    }
   }
 }
