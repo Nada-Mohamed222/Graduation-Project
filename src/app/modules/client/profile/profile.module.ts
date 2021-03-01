@@ -1,3 +1,4 @@
+import { SharedModule } from './../../../shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './../profile/profile.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -68,6 +69,7 @@ const routes: Routes = [
     WavesModule,
     CommonModule,
     RouterModule.forChild(routes),
+    SharedModule
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

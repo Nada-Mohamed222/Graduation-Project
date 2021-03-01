@@ -46,7 +46,6 @@ import { SomeTextPipe } from './modules/client/shared/pipes/some-text.pipe';
     UpworkLandingPageComponent,
     ErrorComponent,
     FreelancerJobsComponent,
-    SomeTextPipe
 
     // SignupModule
   ],

@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { FreelancerJobsComponent } from './modules/components/freelancer-jobs/freelancer-jobs.component';
 import { GuardedRoutesGuard } from 'src/app/services/guard/guarded-routes.guard';
 import { ErrorComponent } from './modules/components/error/error.component';
@@ -97,7 +98,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), SharedModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
