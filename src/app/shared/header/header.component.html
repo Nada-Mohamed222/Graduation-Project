@@ -90,9 +90,10 @@
   </mdb-navbar>
 </div>
 <div class="over">
-  <div class="d-flex justify-content-center wrapper spinner">
+  <div class="d-flex justify-content-center wrapper ">
     <div class="test">
-      <div *ngIf="spinnerService.isLoading | async" class="spinner-border spinner-container" role="status">
+      <div *ngIf="spinnerService.isLoading | async" role="status">
+        <img src="../../../assets/images/loader-1.gif" class="spinner" alt="">
         <span class="sr-only">Loading...</span>
       </div>
     </div>

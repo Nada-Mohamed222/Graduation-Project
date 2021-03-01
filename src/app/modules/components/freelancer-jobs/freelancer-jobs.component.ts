@@ -37,14 +37,26 @@ export class FreelancerJobsComponent implements OnInit {
     })
   }
 
+  getSavedJobs() {
+    this._freelancerService.getAllSavedJobsAuth().subscribe((response: Array<object>) => {
+      this.Jobs = response;
+      this.Jobs = this.Jobs.sort(function (a, b) {
+        return +new Date(b.createdAt) - +new Date(a.createdAt);
+      })
+    }, error => {
+      console.log("Can't get Jobs");
+    })
+  }
+
+  showSaved() {
+    this.Status = "Saved";
+    this.getSavedJobs()
+  }
+
   showActive() {
     this.Status = "Ongoing";
     this.getJobs();
   }
-
-  SortByEndDatethis(a, b) {
-    return +new Date(b.EndDate) - +new Date(a.EndDate);
-  };
 
   async showFinished() {
     this.Status = "Done";

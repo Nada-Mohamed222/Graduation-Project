@@ -1,32 +1,32 @@
-.back{
-    background-color:#1D4354 !important;
-}
-.imageFix{
-   object-fit: cover; 
-   height: 40px !important; 
-   width: 40px !important;
+.back {
+  background-color: #1D4354 !important;
 }
 
-.nav-link:hover{
-    color:#37a000 !important;
+.imageFix {
+  object-fit: cover;
+  height: 40px !important;
+  width: 40px !important;
+}
+
+.nav-link:hover {
+  color: #37a000 !important;
 }
 
 
-.colorfix{
-    color:#37a000 !important;
+.colorfix {
+  color: #37a000 !important;
 }
 
-.spinner{
-    position: absolute;
-    z-index: 99;
-    top: 50%;
-    left: 50%;
-    background-color:white;
-    
+.spinner {
+  position: absolute;
+  z-index: 99;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10%;
 }
 
-.logout{
-    position: absolute;
-    left: 92%;
+.logout {
+  position: absolute;
+  left: 92%;
 }
-
