@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { ClientService } from './../../../../services/client-service/client.service';
 import { Component, OnInit } from '@angular/core';
 import { SharingDataService } from '../../shared/services/sharing-data.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-accepted-proposals',
@@ -27,7 +28,7 @@ export class AcceptedProposalsComponent implements OnInit {
   acceptedProposals: any = [];
   jobId: string;
   hiredFreelancerId: string;
-
+  jobIndex: number;
   ngOnInit(): void {
     this._clientService
       .getAllAcceptedProposals('Ongoing')
@@ -49,11 +50,24 @@ export class AcceptedProposalsComponent implements OnInit {
 
         console.log(this.acceptedProposals);
       });
+
+    this._sharingData.deleteContractFlag.subscribe((data) => {
+      if (data) {
+        this.acceptedProposals.splice(this.jobIndex, 1);
+      }
+    });
   }
 
-  endContract(jobId: string, freelancerId: string, index: number) {
+  endContract(
+    jobId: string,
+    freelancerId: string,
+    payment?: string,
+    index?: number
+  ) {
     this._sharingData.jobId.next(jobId);
     this._sharingData.freelancerId.next(freelancerId);
+    this._sharingData.paymentType.next(payment);
+    this.jobIndex = index;
   }
   // get the freelancer profile
   getFreelancerProfile(userName: string) {

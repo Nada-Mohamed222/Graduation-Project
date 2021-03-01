@@ -61,7 +61,9 @@
           >
         </div>
         <div class="col-md-3 col-xs-12">
-          <div (click)="endContract(a._id, a.HiredTalent._id, i)">
+          <div
+            (click)="endContract(a._id, a.HiredTalent._id, a.PaymentType, i)"
+          >
             <app-confirmation
               mainButton="End Contract"
               LeftButton="Yes"

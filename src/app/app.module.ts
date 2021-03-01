@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JobDetailsComponent } from './modules/components/job-details/job-details.component';
 import { ViewProfileComponent } from './modules/components/view-profile/view-profile.component';
 // import { SignupModule } from './modules/freelancer/signup/signup.module';
+import { RatingComponent } from './shared/rating/rating.component';
 
 import { ProposeComponent } from './modules/components/propose/propose.component';
 import { MyProposalsComponent } from './modules/freelancer/my-proposals/my-proposals.component';
@@ -34,6 +35,7 @@ import { SomeTextPipe } from './modules/client/shared/pipes/some-text.pipe';
 
 @NgModule({
   declarations: [
+    RatingComponent,
     AppComponent,
     FooterComponent,
     HeaderComponent,

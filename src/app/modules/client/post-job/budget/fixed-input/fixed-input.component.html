@@ -19,13 +19,11 @@
           (fixedInput.invalid && fixedInput.controls['Price'].touched) ||
           fixedInput.controls['Price'].touched
         "
+        class="mt-1"
       >
-        <p
-          *ngIf="fixedInput.controls['Price'].hasError('required')"
-          class="text-danger hint"
-        >
-          required
-        </p>
+        <div *ngIf="fixedInput.controls['Price'].hasError('required')">
+          <app-error-message message="required"></app-error-message>
+        </div>
       </div>
     </div>
   </div>

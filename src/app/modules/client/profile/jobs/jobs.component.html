@@ -1,37 +1,39 @@
 <div class="container my-5">
-  <div class="row justify-content-between mb-2 mx-1">
-    <div
-      class="col-md-3 col-xs-12 text-center filter rounded"
-      [ngClass]="{ selected: jobFilter === 'all' }"
-      (click)="handleFilterclick('all')"
-    >
-      <span class="">all</span>
-    </div>
-    <div
-      class="col-md-3 col-xs-12 text-center filter rounded"
-      [ngClass]="{ selected: jobFilter === 'Pending' }"
-      (click)="handleFilterclick('Pending')"
-    >
-      <span class="">pending</span>
-    </div>
-    <div
-      class="col-md-3 col-xs-12 text-center filter rounded"
-      [ngClass]="{ selected: jobFilter === 'Ongoing' }"
-      (click)="handleFilterclick('Ongoing')"
-    >
-      <span class="">active</span>
-    </div>
-    <div
-      class="col-md-3 col-xs-12 text-center filter rounded"
-      [ngClass]="{ selected: jobFilter === 'Done' }"
-      (click)="handleFilterclick('Done')"
-    >
-      <span class="">done</span>
+  <div class="row justify-content-between mb-2 px-1">
+    <div class="d-block d-sm-none">
+      <div
+        class="col-md-3 col-xs-3 text-center filter rounded d-inline px-4"
+        [ngClass]="{ selected: jobFilter === 'all' }"
+        (click)="handleFilterclick('all')"
+      >
+        <span class="">all</span>
+      </div>
+      <div
+        class="col-md-3 col-xs-3 text-center filter rounded d-inline"
+        [ngClass]="{ selected: jobFilter === 'Pending' }"
+        (click)="handleFilterclick('Pending')"
+      >
+        <span class="">pending</span>
+      </div>
+      <div
+        class="col-md-3 col-xs-3 text-center filter rounded d-inline"
+        [ngClass]="{ selected: jobFilter === 'Ongoing' }"
+        (click)="handleFilterclick('Ongoing')"
+      >
+        <span class="">active</span>
+      </div>
+      <div
+        class="col-md-3 col-xs-3 text-center filter rounded d-inline"
+        [ngClass]="{ selected: jobFilter === 'Done' }"
+        (click)="handleFilterclick('Done')"
+      >
+        <span class="">done</span>
+      </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-9 col-xs-12">
       <!-- post layout -->
       <div class="card p-3">
         <!-- post header -->
@@ -39,7 +41,7 @@
           <p class="sub-title d-inline-block">{{ jobStatusTitle }}</p>
           <button
             routerLink="/post-job/title"
-            class="post-job btn btn-lg sub-title btn-outline-green px-4 mr-4 rounded"
+            class="post-job btn btn-lg sub-title btn-green px-4 mr-4 rounded"
           >
             Post a Job
           </button>
@@ -73,6 +75,51 @@
               <b class="number"> {{ " " + job.Proposals.length }}</b>
             </p>
             <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 col-xs-12 text-center">
+      <div class="card job-filter">
+        <div class="card-body text-center filter-body">
+          <p class="job-data">Job data</p>
+
+          <div class="icon-filter" (click)="handleFilterclick('all')">
+            <i
+              class="far fa-folder-open"
+              [ngClass]="{ sel: jobFilter === 'all' }"
+            ></i>
+            <p class="data-filter">
+              All <span class="text-muted"> {{ jobs.length }}</span>
+            </p>
+          </div>
+
+          <div class="icon-filter" (click)="handleFilterclick('Pending')">
+            <i
+              class="far fa-clock"
+              [ngClass]="{ sel: jobFilter === 'Pending' }"
+            ></i>
+            <p class="data-filter">
+              Pending <span class="text-muted">{{ pendingNumber }}</span>
+            </p>
+          </div>
+          <div class="icon-filter" (click)="handleFilterclick('Ongoing')">
+            <i
+              class="far fa-handshake"
+              [ngClass]="{ sel: jobFilter === 'Ongoing' }"
+            ></i>
+            <p class="data-filter">
+              Active <span class="text-muted">{{ ongiongNumber }}</span>
+            </p>
+          </div>
+          <div class="icon-filter" (click)="handleFilterclick('Done')">
+            <i
+              class="far fa-check-circle"
+              [ngClass]="{ sel: jobFilter === 'Done' }"
+            ></i>
+            <p class="data-filter">
+              Done <span class="text-muted"> {{ doneNumber }}</span>
+            </p>
           </div>
         </div>
       </div>

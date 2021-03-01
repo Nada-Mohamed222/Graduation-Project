@@ -9,8 +9,12 @@ label {
 /* div {
   position: relative;
 } */
-.hour {
+/* .hour {
   position: absolute;
   top: 13%;
   left: 94%;
+} */
+.i {
+  position: absolute;
+  padding: 9px;
 }

@@ -16,15 +16,37 @@ import { ReviewComponent } from './review/review.component';
 import { BasicCardComponent } from '../shared/components/basic-card/basic-card.component';
 import { FixedInputComponent } from './budget/fixed-input/fixed-input.component';
 import { GuardedRoutesGuard } from 'src/app/services/guard/guarded-routes.guard';
+import { ErrorMessageComponent } from './../shared/components/error-message/error-message.component';
+
 const routes: Routes = [
   {
     path: '',
     component: PostJobComponent,
     children: [
-      { path: 'title', component: TitleComponent, canActivate:[GuardedRoutesGuard], data: { noPanel: true, role: "Employer"  } },
-      { path: 'details', component: DetailsComponent, canActivate:[GuardedRoutesGuard], data: { noPanel: true, role: "Employer" } },
-      { path: 'budget', component: BudgetComponent, canActivate:[GuardedRoutesGuard], data: { noPanel: true, role: "Employer" } },
-      { path: 'review', component: ReviewComponent, canActivate:[GuardedRoutesGuard], data: { noPanel: true, role: "Employer" } },
+      {
+        path: 'title',
+        component: TitleComponent,
+        canActivate: [GuardedRoutesGuard],
+        data: { noPanel: true, role: 'Employer' },
+      },
+      {
+        path: 'details',
+        component: DetailsComponent,
+        canActivate: [GuardedRoutesGuard],
+        data: { noPanel: true, role: 'Employer' },
+      },
+      {
+        path: 'budget',
+        component: BudgetComponent,
+        canActivate: [GuardedRoutesGuard],
+        data: { noPanel: true, role: 'Employer' },
+      },
+      {
+        path: 'review',
+        component: ReviewComponent,
+        canActivate: [GuardedRoutesGuard],
+        data: { noPanel: true, role: 'Employer' },
+      },
     ],
 
     // { path: 'purchase-orders', component: PurchaseOrdersComponent },
@@ -48,6 +70,7 @@ const routes: Routes = [
     ReviewComponent,
     BasicCardComponent,
     FixedInputComponent,
+    ErrorMessageComponent,
   ],
   imports: [
     CommonModule,

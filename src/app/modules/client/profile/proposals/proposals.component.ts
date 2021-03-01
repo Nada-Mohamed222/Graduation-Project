@@ -22,18 +22,19 @@ export class ProposalsComponent implements OnInit {
     private _sharingData: SharingDataService,
     private titleService: Title
   ) {
-    this.titleService.setTitle("Job Proposals");
+    this.titleService.setTitle('Job Proposals');
   }
 
   proposals: any = [];
   userName: string;
   jobId: string;
   name: string;
-  showConfirmationPopup = false;
+  // showConfirmationPopup = false;
   jobStatus: any;
   freelancerUserName: string;
   hiredId: any;
   seeMoreFlag = false;
+  tempId: any;
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -49,8 +50,13 @@ export class ProposalsComponent implements OnInit {
       this.freelancerUserName = data;
     });
 
-    this._sharingData.showConfirmationPopup.subscribe((data) => {
-      this.showConfirmationPopup = data;
+    // this._sharingData.showConfirmationPopup.subscribe((data) => {
+    //   this.showConfirmationPopup = data;
+    // });
+    this._sharingData.jobStatus.subscribe((data) => {
+      this.jobStatus = data;
+      this.hiredId = this.tempId;
+      console.log(data);
     });
   }
   // proposal
@@ -91,9 +97,14 @@ export class ProposalsComponent implements OnInit {
       );
   }
 
-  confirm(firstName: string, lastName: string, freelancerUserName: string) {
+  confirm(
+    firstName: string,
+    lastName: string,
+    freelancerUserName: string,
+    id: any
+  ) {
     this.name = firstName + ' ' + lastName;
-    this.showConfirmationPopup = true;
+    this.tempId = id;
     this._sharingData.freelancerUsername.next(freelancerUserName);
   }
 

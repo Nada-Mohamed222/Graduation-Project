@@ -30,7 +30,7 @@ export class BudgetComponent implements OnInit {
     private router: Router,
     private titleService: Title
   ) {
-    this.titleService.setTitle("Post New Job - Project Budget");
+    this.titleService.setTitle('Post New Job - Project Budget');
   }
 
   ngOnInit(): void {
