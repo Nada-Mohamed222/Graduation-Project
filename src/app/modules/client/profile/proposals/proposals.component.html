@@ -11,21 +11,43 @@
     <div class="card p-4">
       <div class="mt-4" *ngFor="let p of proposals; let i = index">
         <!--     -->
-        <div (click)="
-            confirm(p.Talent.FirstName, p.Talent.LastName, p.Talent.UserName)
-          " class="float-right" *ngIf="jobStatus === 'Pending'">
-          <app-confirmation mainButton="Hire" LeftButton="Hire" rightButton="Hire and see all"
-            name="{{ p.Talent.FirstName + ' ' + p.Talent.LastName }}" question="Hire" functionName="hire">
+        <div
+          (click)="
+            confirm(
+              p.Talent.FirstName,
+              p.Talent.LastName,
+              p.Talent.UserName,
+              p.Talent._id
+            )
+          "
+          class="float-right"
+          *ngIf="jobStatus === 'Pending'"
+        >
+          <app-confirmation
+            mainButton="Hire"
+            LeftButton="Hire"
+            rightButton="Hire and see all"
+            name="{{ p.Talent.FirstName + ' ' + p.Talent.LastName }}"
+            question="Hire"
+            functionName="hire"
+          >
           </app-confirmation>
         </div>
         <!-- TODO: show if hired -->
-        <img *ngIf="jobStatus === 'Ongoing' && hiredId === p.Talent._id" src="./../../../../../assets/images/hired.svg"
-          class="hired mr-5" routerLink="/profile/accepted-proposals" />
+        <img
+          *ngIf="jobStatus === 'Ongoing' && hiredId === p.Talent._id"
+          src="./../../../../../assets/images/hired.svg"
+          class="hired mr-5"
+          routerLink="/profile/accepted-proposals"
+        />
         <!-- </div> -->
         <div class="row">
           <div class="col-md-2 col-xs-12 ml-2 mb-2">
-            <img src="http://localhost:5000/{{p.Talent.ImageURL}}" alt="{{ p.Talent.FirstName }} photo"
-              class="img-responsive img" />
+            <img
+              src="http://localhost:5000/{{ p.Talent.ImageURL }}"
+              alt="{{ p.Talent.FirstName }} photo"
+              class="img-responsive img"
+            />
           </div>
 
           <div class="col-md-4 col-xs-12 ml-2 mb-0">
@@ -52,13 +74,19 @@
             <p class="d-inline" *ngIf="p.seeMoreFlag">
               {{ p.CoverLetter }}
             </p>
-            <a class="text-success" (click)="seeMore(i)"
-              *ngIf="p.CoverLetter.length > 200"><b>{{ p.seeMoreFlag ? "see less" : "see more" }}</b></a>
+            <a
+              class="text-success"
+              (click)="seeMore(i)"
+              *ngIf="p.CoverLetter.length > 200"
+              ><b>{{ p.seeMoreFlag ? "see less" : "see more" }}</b></a
+            >
           </div>
         </div>
         <hr />
       </div>
-      <small class="text-muted text-center">It is recommended to review the freelancer profile first.</small>
+      <small class="text-muted text-center"
+        >It is recommended to review the freelancer profile first.</small
+      >
     </div>
   </div>
 </div>

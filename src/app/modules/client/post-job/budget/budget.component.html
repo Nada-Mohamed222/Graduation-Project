@@ -1,6 +1,6 @@
 <!-- <p>budget works!</p> -->
 
-<section class="bg-light mt-4 mb-3 ml-3">
+<section class="mt-4 mb-3 ml-3">
   <form [formGroup]="budgetForm">
     <!-- get-stated -->
     <div class="col-xs-12 px-0">
@@ -91,7 +91,7 @@
                       "
                     >
                       <p
-                        *ngIf="
+                         tex*ngIf="
                           budgetForm.controls['Price'].hasError('required')
                         "
                         class="text-danger hint"
@@ -105,7 +105,7 @@
               <div class="fixed-price" *ngIf="radioInput2.checked">
                 <app-fixed-input
                   title="Do you have a specific budget?"
-                  icon="glyphicon glyphicon-usd text-muted"
+                  icon="fas fa-dollar-sign text-muted"
                   (isFixedVaild)="FixedValidation($event)"
                 ></app-fixed-input>
               </div>
@@ -114,7 +114,7 @@
               <!-- pay by the hour -->
 
               <div class="pricing" *ngIf="radioInput.checked">
-                <p class="sub-title">Set your estimated budget</p>
+                <p class="sub-title">Set your estimated budget :</p>
                 <app-pricing
                   (isHourlyVaild)="HourlyValidation($event)"
                 ></app-pricing>

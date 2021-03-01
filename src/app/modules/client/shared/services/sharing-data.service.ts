@@ -30,6 +30,14 @@ export class SharingDataService {
   jobId = new Subject<string>();
   //freelancer id for end contract
   freelancerId = new Subject<string>();
+  //payment type for ending contract in confermation
+  paymentType = new Subject<string>();
+
+  // job index observable to end contract (ui purpose)
+  deleteContractFlag = new Subject<boolean>();
+
+  // jobStatus observable to update hire ui
+  jobStatus = new Subject<string>();
 
   // instanse of components
   // start: TitleComponent;

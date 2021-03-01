@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConfirmationComponent } from './shared/components/confirmation/confirmation.component';
 import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 import { ModalModule, InputsModule } from 'angular-bootstrap-md';
+// import { ChipComponent } from './shared/components/chip/chip.component';
 
 @NgModule({
   declarations: [

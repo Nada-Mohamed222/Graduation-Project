@@ -27,7 +27,7 @@ export class ReviewComponent implements OnInit {
   fixedPricingData = this._sharingData.getFixedPriceData();
 
   dutationTitle: string = '';
-  projectDuration: string = '';
+  projectDuration: string = '1 to 3 months';
 
   // check payment type
   checkType() {
@@ -73,7 +73,7 @@ export class ReviewComponent implements OnInit {
       details.experienceLevel,
       this.paymentType,
       this.price,
-      this.projectDuration
+      this.projectDuration === '' ? '1 to 3 months' : this.projectDuration
     );
 
     _postJobService.postJob(job).subscribe(

@@ -28,6 +28,11 @@ export class ConfirmationComponent implements OnInit {
   encontract_jobId: string;
   freelncerId: string;
   textArea = 'Thank you grate experience';
+  paymentType: string;
+
+  stars: number[] = [1, 2, 3, 4, 5];
+  rating: number;
+  hoursNumber: number;
 
   ngOnInit(): void {
     // observe hire method parameter
@@ -45,18 +50,22 @@ export class ConfirmationComponent implements OnInit {
     this._sharingData.freelancerId.subscribe((data) => {
       this.freelncerId = data;
     });
+    this._sharingData.paymentType.subscribe((data) => {
+      this.paymentType = data;
+    });
   }
 
   //------------------ handle hiring button
   hire(isHireAndNavigate: boolean) {
     if (isHireAndNavigate) {
       // emit false to close the popup
-      this._sharingData.showConfirmationPopup.next(false);
+      // this._sharingData.showConfirmationPopup.next(false);
 
       //post a new accepted proposal
       this._clientService
         .postAcceptedProposals(this.hired_jobId, this.freelancerUserName)
         .subscribe((response) => {
+          this._sharingData.jobStatus.next('Ongoing');
           console.log('>> POSTED << ');
           console.log(response);
         });
@@ -64,7 +73,8 @@ export class ConfirmationComponent implements OnInit {
       // navigate to the accepted proposal page
       this.router.navigateByUrl(`profile/accepted-proposals`);
     } else {
-      this._sharingData.showConfirmationPopup.next(false);
+      this._sharingData.jobStatus.next('Ongoing');
+      // this._sharingData.showConfirmationPopup.next(false);
       this._clientService
         .postAcceptedProposals(this.hired_jobId, this.freelancerUserName)
         .subscribe((response) => {
@@ -83,9 +93,16 @@ export class ConfirmationComponent implements OnInit {
   endContract(jobId: string, freelancerId: string, contract?: boolean) {
     if (!contract) {
       this._clientService
-        .endContract(jobId, freelancerId, this.textArea)
+        .endContract(
+          jobId,
+          freelancerId,
+          this.textArea,
+          this.rating,
+          this.hoursNumber
+        )
         .subscribe((response) => {
           // this.acceptedProposals.splice(index, 1);
+          this._sharingData.deleteContractFlag.next(true);
           console.log('Contract Ended successfully');
           console.log(response);
           console.log(this.textArea);
@@ -112,5 +129,12 @@ export class ConfirmationComponent implements OnInit {
         console.log('no Function matched');
         break;
     }
+  }
+  countStar(star) {
+    this.rating = star;
+    console.log('Value of star', star);
+  }
+  hoursValue(hoursNumber: number) {
+    this.hoursNumber = hoursNumber;
   }
 }
