@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit {
   jobs: Array<object> = [];
   PageNumber: any = { PageNumber: 1 }
   NoMoreJobs: boolean = false;
+  isSearching: boolean = false;
 
   ngOnInit(): void {
     this._freelancerService.getFreelancerAuth().subscribe(
@@ -49,6 +50,7 @@ export class ProfileComponent implements OnInit {
       this._freelancerService.getAllJobs(this.PageNumber).subscribe(
         (response: any) => {
           this.updateJobs(response);
+          this.isSearching = false;
         },
         (error) => {
           console.log("Can't get jobs details");
@@ -61,6 +63,7 @@ export class ProfileComponent implements OnInit {
           (response: any) => {
             this.updateJobs(response);
             this.titleService.setTitle(`Search for ${this.skill} jobs`);
+            this.isSearching = true;
           },
           (error) => {
             alert('Error');

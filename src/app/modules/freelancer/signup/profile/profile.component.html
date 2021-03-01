@@ -21,7 +21,29 @@
 
   <!-- <div class="container"> -->
   <div class="row no-gutters justify-content-center mx-auto w-75">
-    <div class="col-md-2 fontsize-sidebar pl-3"></div>
+    <div class="col-md-2 fontsize-sidebar">
+      <div *ngIf="!isSearching">
+        <p class="h5 font-weight-bold mb-3">Top Skills</p>
+        <a routerLink="/job/search/React">
+          <p class="text-color mb-3">React</p>
+        </a>
+        <a routerLink="/job/search/html">
+          <p class="text-color mb-3">HTML</p>
+        </a>
+        <a routerLink="/job/search/CSS">
+          <p class="text-color mb-3">CSS</p>
+        </a>
+        <a routerLink="/job/search/NodeJS">
+          <p class="text-color mb-3">NodeJS</p>
+        </a>
+        <a routerLink="/job/search/Wordpress">
+          <p class="text-color mb-3">Wordpress</p>
+        </a>
+        <a routerLink="/job/search/AWS">
+          <p class="text-color mb-3">AWS</p>
+        </a>
+      </div>
+    </div>
 
     <div class="col-md-7 col-sm-12 rounded-md">
       <div class="card justify-content-center mx-auto shadow-md">
