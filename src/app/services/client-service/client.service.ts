@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ClientService {
-  constructor(private _apiServices: ApiService) {}
+  constructor(private _apiServices: ApiService) { }
 
   login(Client: Client) {
     return this._apiServices.Loginpost(`employer/login`, Client);
@@ -50,8 +50,8 @@ export class ClientService {
     return this._apiServices.get(`job/` + id);
   }
 
-  getAllEmployerJob(UserName: string) {
-    return this._apiServices.get(`employer/${UserName}/jobs`);
+  getAllEmployerFinishedJobs(UserName: string) {
+    return this._apiServices.get(`employer/Public/${UserName}/Done`);
   }
 
   delete(id: number) {

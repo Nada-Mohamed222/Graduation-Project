@@ -67,7 +67,10 @@ export class ViewProfileComponent implements OnInit {
             MainSkills: [""],
             Location: [this.freelancer.Country, [Validators.required]]
           })
-          this.isMyAccount ? this.titleService.setTitle(`${this.freelancer.FirstName} ${this.freelancer.LastName} - ${this.freelancer.Title.slice(0, 20)}`) : this.titleService.setTitle(`${this.freelancer.FirstName} ${this.freelancer.LastName.slice(0, 1)}. - ${this.freelancer.Title.slice(0, 20)}`);
+          this.isMyAccount ? this.titleService.setTitle(`${this.freelancer.FirstName} ${this.freelancer.LastName} - ${this.freelancer.Title.slice(0, 20)}`)
+            : this.titleService.setTitle(`${this.freelancer.FirstName} 
+           ${this.freelancer.LastName.slice(0, 1)}. 
+           - ${this.freelancer.Title.slice(0, 20)}`);
           this.skills = this.freelancer.Skills;
           this.inputImage = `http://localhost:5000/${this.freelancer.ImageURL}`;
           this.LastNameFirstLetter = response.LastName.slice(0, 1)

@@ -66,10 +66,10 @@ export class JobDetailsComponent implements OnInit {
           );
 
           this._clientService
-            .getAllEmployerJob(response.EmployerUserName)
+            .getAllEmployerFinishedJobs(response.EmployerUserName)
             .subscribe(
               (response: any) => {
-                this.clientJobs = response;
+                this.clientJobs = response.ActiveJobs;
               },
               (error) => {
                 console.log("Can't get the employeer data!!");

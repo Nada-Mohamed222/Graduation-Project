@@ -40,7 +40,7 @@
             </a>
             <span *ngIf="!job.seeMoreFlag"><strong> Job details: </strong>{{ job.Description | someText }}</span>
             <span *ngIf="job.seeMoreFlag"><strong> Job details: </strong>{{ job.Description }}</span>
-            <a class="primary-color btn" (click)="seeMore(currentIndex)"
+            <a class="primary-color btn p-0" (click)="seeMore(currentIndex)"
               *ngIf="job.Description.length > 200"><b>{{ job.seeMoreFlag ? " see less" : " see more" }}</b></a>
           </div>
           <div class="col-lg-4">
