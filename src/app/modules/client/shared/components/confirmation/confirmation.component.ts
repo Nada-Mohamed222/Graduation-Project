@@ -28,10 +28,11 @@ export class ConfirmationComponent implements OnInit {
   encontract_jobId: string;
   freelncerId: string;
   textArea = 'Thank you grate experience';
-  paymentType: string = 'Hourly';
+  paymentType: string;
 
   stars: number[] = [1, 2, 3, 4, 5];
-  selectedValue: number;
+  rating: number;
+  hoursNumber: number;
 
   ngOnInit(): void {
     // observe hire method parameter
@@ -49,9 +50,9 @@ export class ConfirmationComponent implements OnInit {
     this._sharingData.freelancerId.subscribe((data) => {
       this.freelncerId = data;
     });
-    // this._sharingData.paymentType.subscribe((data) => {
-    //   this.paymentType = data;
-    // });
+    this._sharingData.paymentType.subscribe((data) => {
+      this.paymentType = data;
+    });
   }
 
   //------------------ handle hiring button
@@ -90,7 +91,13 @@ export class ConfirmationComponent implements OnInit {
   endContract(jobId: string, freelancerId: string, contract?: boolean) {
     if (!contract) {
       this._clientService
-        .endContract(jobId, freelancerId, this.textArea)
+        .endContract(
+          jobId,
+          freelancerId,
+          this.textArea,
+          this.rating,
+          this.hoursNumber
+        )
         .subscribe((response) => {
           // this.acceptedProposals.splice(index, 1);
           console.log('Contract Ended successfully');
@@ -121,7 +128,10 @@ export class ConfirmationComponent implements OnInit {
     }
   }
   countStar(star) {
-    this.selectedValue = star;
+    this.rating = star;
     console.log('Value of star', star);
+  }
+  hoursValue(hoursNumber: number) {
+    this.hoursNumber = hoursNumber;
   }
 }

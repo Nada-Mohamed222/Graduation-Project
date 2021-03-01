@@ -34,12 +34,9 @@
                 startForm.controls['JobName'].touched
               "
             >
-              <p
-                *ngIf="startForm.controls['JobName'].hasError('required')"
-                class="text-danger hint"
-              >
-                required
-              </p>
+              <div *ngIf="startForm.controls['JobName'].hasError('required')">
+                <app-error-message message="required"></app-error-message>
+              </div>
             </div>
           </div>
 
@@ -94,7 +91,7 @@
               [(ngModel)]="description"
             ></textarea>
 
-            <p class="hint text-muted text-right">
+            <p class="hint text-muted text-right mb-0">
               {{ wordCount }}/5000 characters (minimum 50)
             </p>
             <div
@@ -103,27 +100,31 @@
                   startForm.controls['Description'].touched) ||
                 startForm.controls['Description'].touched
               "
+              class="mt-0"
             >
-              <p
+              <div
                 *ngIf="startForm.controls['Description'].hasError('required')"
-                class="text-danger hint"
               >
-                required
-              </p>
-              <p
+                <app-error-message message="required"></app-error-message>
+              </div>
+
+              <div
                 *ngIf="startForm.controls['Description'].hasError('maxlength')"
-                class="text-danger hint"
               >
-                maxlength
-              </p>
-              <p
+                <app-error-message
+                  message="Too long description. Please don't exceed 5000 characters"
+                ></app-error-message>
+              </div>
+              <div
                 *ngIf="startForm.controls['Description'].hasError('minlength')"
-                class="text-danger hint"
               >
-                minlength
-              </p>
+                <app-error-message
+                  message="Too short description"
+                ></app-error-message>
+              </div>
             </div>
           </div>
+          <!-- <app-error-message></app-error-message> -->
 
           <!-- <p class="mb-3 sub-title">Additional project files (optional)</p> -->
 

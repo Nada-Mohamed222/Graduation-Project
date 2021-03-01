@@ -13,11 +13,16 @@ import { SharingDataService } from '../../shared/services/sharing-data.service';
   styleUrls: ['./jobs.component.css'],
 })
 export class JobsComponent implements OnInit {
-  jobs: {};
+  jobs: any = [];
   skills = ['html', 'css'];
   jobId: string;
   jobFilter = 'all';
   jobStatusTitle = 'My Postings';
+
+  p = 0;
+  d = 0;
+  o = 0;
+
   constructor(
     private _getJob: JobPost,
     private _clientService: ClientService,
@@ -35,8 +40,16 @@ export class JobsComponent implements OnInit {
       .pipe(
         map((response) => {
           const posts: Job[] = [];
+
           for (const key in response) {
             if (response.hasOwnProperty(key)) {
+              if (response[key].Status === 'Pending') {
+                this.p += 1;
+              } else if (response[key].Status === 'Done') {
+                this.d += 1;
+              } else {
+                this.o += 1;
+              }
               posts.push(response[key]);
             }
           }
@@ -46,7 +59,8 @@ export class JobsComponent implements OnInit {
       .subscribe(
         (posts) => {
           console.log(posts);
-          this.jobs = posts;
+          this.jobs = posts.slice();
+
           console.log(this.jobs[0]);
         },
         (error) => {

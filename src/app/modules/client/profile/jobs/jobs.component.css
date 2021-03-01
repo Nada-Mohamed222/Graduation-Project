@@ -20,12 +20,12 @@
 }
 .filter {
   font-weight: 500;
-  font-size: 20px;
+  font-size: 15px;
   background-color: #47a815;
   cursor: pointer;
   color: white;
   /* border-radius: 5%; */
-  max-width: 20%;
+  /* max-width: 20%; */
   margin: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -37,4 +37,48 @@
   background-color: #1d4354;
   /* border: 2px solid #47a815; */
   box-shadow: 5px 10px 18px #888888;
+}
+
+.filter2 {
+  color: #47a815;
+  font-weight: 500;
+  margin-right: 2px;
+}
+.sel {
+  color: #47a815;
+}
+.icon-filter,
+.job-data {
+  margin-bottom: 10%;
+  font-weight: 500;
+  color: gray;
+}
+.job-data {
+  margin-bottom: 87%;
+  color: black;
+}
+.filter-body {
+  margin-bottom: 55%;
+}
+.job-filter {
+  position: fixed;
+}
+i {
+  font-size: 25px;
+}
+i:hover {
+  color: #47a815;
+  font-size: 25px;
+}
+.page {
+  cursor: pointer;
+}
+.data-filter {
+  color: rgb(165, 165, 165);
+  color: black;
+  font-size: 10px;
+  margin-bottom: 32%;
+}
+.filter-body {
+  margin-bottom: 53%;
 }

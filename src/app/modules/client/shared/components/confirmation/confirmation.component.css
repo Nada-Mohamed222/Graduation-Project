@@ -38,9 +38,11 @@
 }
 .hours {
   position: absolute;
-  right: 13%;
+  right: 14%;
   top: 11%;
+  font-size: 15px;
 }
+
 .rating-list li {
   float: right;
   color: #ddd;

@@ -6,6 +6,9 @@
   position: relative;
   /* position: absolute; */
 }
+.duration {
+  margin-left: 0px;
+}
 /* .icon {
   position: absolute;
   padding: 9px;
